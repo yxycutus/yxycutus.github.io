@@ -1,0 +1,265 @@
+/* ============================================================
+   About page styling — USTC Blue Engineering Design
+   ============================================================ */
+
+.about-header {
+  padding-top: 40px;
+  margin-bottom: 36px;
+}
+
+.about-intro-title {
+  font-size: clamp(32px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.about-lede {
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ink-secondary);
+  max-width: 760px;
+}
+
+/* ── Section Blocks ── */
+.about-block {
+  margin-bottom: 48px;
+}
+
+.about-block-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-block-title::before {
+  content: "";
+  display: inline-block;
+  width: 4px;
+  height: 18px;
+  background: var(--ustc-blue);
+  border-radius: 2px;
+}
+
+/* ── 教育经历卡片 ── */
+.edu-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.edu-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edu-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.edu-val {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ── 技术栈图谱 ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.skill-category {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.skill-category-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ustc-blue);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-pill {
+  font-size: 13px;
+  padding: 4px 10px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  color: var(--ink-secondary);
+  font-family: var(--font-mono);
+}
+
+/* ── 项目列表 (卡片化) ── */
+.about-projects-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.about-project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.about-project-card:hover {
+  border-color: var(--ustc-blue);
+  box-shadow: var(--shadow-hover);
+}
+
+.about-project-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.about-project-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.about-project-name .proj-idx {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ustc-blue);
+  background: var(--ustc-blue-light);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.about-project-links {
+  display: flex;
+  gap: 12px;
+}
+
+.about-project-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--ustc-blue);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+}
+
+.about-project-desc {
+  font-size: 14.5px;
+  color: var(--ink-secondary);
+  line-height: 1.65;
+  margin: 8px 0 14px;
+}
+
+/* ── 联系卡片 ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.contact-card:hover {
+  border-color: var(--ustc-blue);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.contact-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: var(--ustc-blue-subtle);
+  border: 1px solid var(--ustc-blue-light);
+  color: var(--ustc-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.contact-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.contact-value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.contact-card:hover .contact-value {
+  color: var(--ustc-blue);
+}
+
+@media (max-width: 768px) {
+  .edu-card {
+    grid-template-columns: 1fr 1fr;
+  }
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知识库 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/knowledge.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../about/index.html">关于我</a></li>
+        <li><a href="../knowledge/index.html" class="active">知识库</a></li>
+        <li><a href="../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="main-wrapper" style="max-width: 1040px;">
+
+  <!-- Hero 标题 -->
+  <header class="knowledge-hero">
+    <div class="hero-pill-badge" style="margin-bottom: 12px;">
+      <span class="status-ping"></span>
+      <span>DIGITAL KNOWLEDGE BASE</span>
+    </div>
+    <h1 class="knowledge-title">学术与技术知识库 (Knowledge Base)</h1>
+    <p class="knowledge-desc">
+      记录仿生飞行攀爬机器人前沿论文精读、黏附接触力学建模，以及 USTC 核心课系统化自学讲义。
+    </p>
+  </header>
+
+  <!-- 检索与分类工具栏 -->
+  <div class="knowledge-nav-bar">
+    <div class="category-tags" id="category-tags">
+      <button class="cat-btn active" data-category="all">全部领域</button>
+      <button class="cat-btn" data-category="climbing">飞行攀爬与仿生机构</button>
+      <button class="cat-btn" data-category="adhesion">黏附力学与微结构</button>
+      <button class="cat-btn" data-category="mechanics">理论力学与动力学</button>
+      <button class="cat-btn" data-category="math">数学与 AI 原理</button>
+    </div>
+    <div class="search-input-wrap">
+      <svg class="search-input-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="k-search-input" placeholder="输入关键词即时检索..." autocomplete="off">
+    </div>
+  </div>
+
+  <!-- 知识卡片网格 -->
+  <div class="k-grid" id="k-grid">
+
+    <!-- 卡片 1: 飞行攀爬足端设计 -->
+    <div class="k-card" data-category="climbing" data-keywords="飞行 攀爬 机器人 双稳态 薄板 sma 模式切换 足端 scamp fang 爪刺">
+      <div class="k-tag-row">
+        <span class="k-tag">Robotics · 机构创新</span>
+        <span class="k-count">研究概述</span>
+      </div>
+      <h3>SCAMP 式飞行攀爬机器人与双模态双稳态足端</h3>
+      <p>足端采用双稳态薄板：Mode 1（")"形两端朝墙）微刺用于粗糙面，Mode 2（"("形中段朝墙）柔性干黏附垫用于光滑面，SMA 脉冲触发 snap-through 弹跳切换，断电自保持。</p>
+      <div class="k-footer">
+        <span>前沿文献与自主设计</span>
+        <span class="k-arrow">精读笔记 →</span>
+      </div>
+    </div>
+
+    <!-- 卡片 2: 微刺阵列接触建模 -->
+    <div class="k-card" data-category="adhesion" data-keywords="微刺 阵列 asbeck 粗糙 接触 尖端半径 摩擦 破坏 载荷 步态">
+      <div class="k-tag-row">
+        <span class="k-tag">Mechanics · 接触力学</span>
+        <span class="k-count">论文精读</span>
+      </div>
+      <h3>微刺阵列（Microspines）接触建模与失效分析</h3>
+      <p>参考 Asbeck2006 对二维表面轮廓与可用 asperity 密度的建模方法，分析微刺尖端半径、材料刚度、可用微凸体概率分布与整机步态稳定性权衡。</p>
+      <div class="k-footer">
+        <span>Asbeck 2006 笔记</span>
+        <span class="k-arrow">精读笔记 →</span>
+      </div>
+    </div>
+
+    <!-- 卡片 3: 剪切激活干黏附 -->
+    <div class="k-card" data-category="adhesion" data-keywords="干黏附 剪切 hawkes anp 各向异性 聚氨酯 pdms 仿壁虎 脱附 尺蠖步态">
+      <div class="k-tag-row">
+        <span class="k-tag">Adhesion · 仿生材料</span>
+        <span class="k-count">关键机制</span>
+      </div>
+      <h3>剪切激活干黏附与非优选方向阻力 Anp 压低机制</h3>
+      <p>梳理 Hawkes2015 剪切加载-接触面积-黏附增强机制，评估各向异性比 alpha = Anp / Ap。分析如何利用薄板反向弯曲曲率进行剥离，压低摆动足脱附阻力。</p>
+      <div class="k-footer">
+        <span>Hawkes 2015 笔记</span>
+        <span class="k-arrow">精读笔记 →</span>
+      </div>
+    </div>
+
+    <!-- 卡片 4: 理论力学B 讲义 -->
+    <div class="k-card" data-category="mechanics" data-keywords="理论力学 分析力学 拉格朗日 广义坐标 虚位移 变分原理 刚体 运动学 ustc">
+      <div class="k-tag-row">
+        <span class="k-tag">USTC · 专业核心课</span>
+        <span class="k-count">自编讲义</span>
+      </div>
+      <h3>理论力学B：拉格朗日分析力学与刚体动力学</h3>
+      <p>系统总结广义坐标、完整约束、达朗贝尔-拉格朗日变分原理与第二类拉格朗日方程的物理图像；建立刚体三维空间转动与碰撞恢复系数计算模型。</p>
+      <div class="k-footer">
+        <span>一学期理解型讲义</span>
+        <span class="k-arrow">精读笔记 →</span>
+      </div>
+    </div>
+
+    <!-- 卡片 5: 人工智能数学原理与算法 -->
+    <div class="k-card" data-category="math" data-keywords="人工智能 数学原理 矩阵分析 svd pca 凸优化 梯度下降 概率图 吴枫 ustc">
+      <div class="k-tag-row">
+        <span class="k-tag">USTC · 基础地基</span>
+        <span class="k-count">自编讲义</span>
+      </div>
+      <h3>人工智能数学原理与算法：高维矩阵分析与优化</h3>
+      <p>覆盖谱定理、SVD 奇异值分解几何直觉、主成分分析（PCA）、无约束与约束凸优化、拉格朗日对偶性及典型机器学习梯度算法收敛性分析。</p>
+      <div class="k-footer">
+        <span>一学期自学题型手册</span>
+        <span class="k-arrow">精读笔记 →</span>
+      </div>
+    </div>
+
+    <!-- 卡片 6: 复变函数B 讲义 -->
+    <div class="k-card" data-category="math" data-keywords="复变函数 柯西积分 留数 洛朗级数 傅里叶变换 拉普拉斯变换 题型 ustc">
+      <div class="k-tag-row">
+        <span class="k-tag">USTC · 数学工具</span>
+        <span class="k-count">自编讲义</span>
+      </div>
+      <h3>复变函数B：解析性、留数定理与积分变换</h3>
+      <p>系统归纳解析函数判别、柯西积分公式、洛朗级数展开、孤立奇点留数计算法，以及傅里叶/拉普拉斯变换在信号与控制系统微分方程求解中的应用。</p>
+      <div class="k-footer">
+        <span>10周自学与题型手册</span>
+        <span class="k-arrow">精读笔记 →</span>
+      </div>
+    </div>
+
+    <div class="k-empty-msg" id="k-empty-msg">
+      没有找到匹配的主题，换个关键词试试看
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程</span>
+    </div>
+    <div class="footer-links">
+      <a href="../about/index.html">关于我</a>
+      <a href="../knowledge/index.html">知识库</a>
+      <a href="../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script>
+  (function() {
+    const btns = document.querySelectorAll('.cat-btn');
+    const input = document.getElementById('k-search-input');
+    const cards = document.querySelectorAll('.k-card');
+    const emptyMsg = document.getElementById('k-empty-msg');
+
+    let activeCat = 'all';
+    let query = '';
+
+    function filter() {
+      let count = 0;
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const kw = (card.getAttribute('data-keywords') || '').toLowerCase();
+        const text = card.textContent.toLowerCase();
+
+        const matchCat = (activeCat === 'all' || cat === activeCat);
+        const matchQuery = !query || kw.includes(query) || text.includes(query);
+
+        if (matchCat && matchQuery) {
+          card.style.display = 'flex';
+          count++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      emptyMsg.style.display = count === 0 ? 'block' : 'none';
+    }
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.getAttribute('data-category');
+        filter();
+      });
+    });
+
+    if (input) {
+      input.addEventListener('input', (e) => {
+        query = e.target.value.trim().toLowerCase();
+        filter();
+      });
+    }
+  })();
+</script>
+</body>
+</html>

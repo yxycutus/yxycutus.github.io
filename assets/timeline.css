@@ -1,0 +1,183 @@
+/* ============================================================
+   Timeline page styling — USTC Blue Engineering Design
+   ============================================================ */
+
+.tl-header {
+  padding-top: 40px;
+  margin-bottom: 32px;
+}
+
+.tl-title {
+  font-size: clamp(32px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.tl-desc {
+  font-size: 16.5px;
+  color: var(--ink-secondary);
+  line-height: 1.7;
+}
+
+/* ── NOW 状态卡片 ── */
+.tl-now-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--ustc-blue);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  margin-bottom: 40px;
+  box-shadow: var(--shadow-sm);
+}
+
+.tl-now-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.tl-now-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ustc-blue);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.tl-now-ping {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.tl-now-date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.tl-now-text {
+  font-size: 14.5px;
+  color: var(--ink-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── 时间轴主体 ── */
+.timeline-track {
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline-track::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 16px;
+  width: 2px;
+  background: var(--line);
+}
+
+.tl-semester-block {
+  position: relative;
+  padding-bottom: 44px;
+}
+
+.tl-semester-block:last-child {
+  padding-bottom: 16px;
+}
+
+.tl-node-dot {
+  position: absolute;
+  left: -32px;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 3px solid var(--ustc-blue);
+  box-shadow: 0 0 0 3px var(--bg);
+}
+
+.tl-semester-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tl-semester-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+}
+
+.tl-semester-date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+
+.tl-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tl-item-box {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.tl-item-box:hover {
+  border-color: var(--ustc-blue);
+  transform: translateX(4px);
+}
+
+.tl-item-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.tl-item-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: var(--ustc-blue-light);
+  color: var(--ustc-blue);
+}
+
+.tl-item-title {
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.tl-item-content {
+  font-size: 13.5px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+  margin: 0;
+}

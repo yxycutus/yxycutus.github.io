@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cutus — USTC 机器人工程</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="about/index.html">关于我</a></li>
+        <li><a href="knowledge/index.html">知识库</a></li>
+        <li><a href="timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="main-wrapper">
+
+  <!-- Hero 区：双栏分屏布局 -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-pill-badge">
+        <span class="status-ping"></span>
+        <span>USTC 2025 级 · 机器人工程</span>
+      </div>
+      <h1 class="hero-title">
+        探索仿生飞行攀爬机构与<br>
+        <span class="highlight-blue">现代动力学理论</span>的结合
+      </h1>
+      <p class="hero-desc">
+        你好，我是 <strong>Cutus</strong>。就读于中国科学技术大学机器人工程专业。当前聚焦于<strong>双稳态飞行攀爬足端机构</strong>、<strong>微刺与仿生干黏附力学</strong>，以及理论力学与分析力学理论。这里是我的公开研究笔记与成长记录。
+      </p>
+      <div class="hero-actions">
+        <a href="knowledge/index.html" class="btn btn-primary">
+          <span>浏览知识库笔记</span>
+          <span>→</span>
+        </a>
+        <a href="about/index.html" class="btn btn-secondary">研究背景与经历</a>
+        <a href="timeline/index.html" class="btn btn-secondary">学术时间线</a>
+      </div>
+    </div>
+
+    <!-- 右侧：机器人遥测状态卡片 (Telemetry Card) -->
+    <div class="telemetry-card">
+      <div class="telemetry-header">
+        <div class="telemetry-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          RESEARCH TELEMETRY
+        </div>
+        <span class="telemetry-status-tag">ACTIVE · RESEARCHING</span>
+      </div>
+      <div class="telemetry-grid">
+        <div class="telemetry-item">
+          <span class="telemetry-label">Institution</span>
+          <span class="telemetry-value">中科大 (USTC)</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-label">Major & Year</span>
+          <span class="telemetry-value">25级 机器人工程</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-label">Core Focus</span>
+          <span class="telemetry-value">飞行攀爬 / 双稳态足端</span>
+        </div>
+        <div class="telemetry-item">
+          <span class="telemetry-label">Platform</span>
+          <span class="telemetry-value">Crazyflie / SMA驱动</span>
+        </div>
+      </div>
+      <div class="telemetry-codebox">
+        <span style="color: var(--ustc-blue);">$</span>
+        <span>bistable_foot --mode=snap_through --sma_pulse=1</span>
+        <span class="cli-cursor"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bento 网格：核心技术与研究领域 -->
+  <section class="section-wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-label">AREAS OF FOCUS</span>
+        <h2 class="section-title">核心研究与知识体系</h2>
+      </div>
+      <a href="knowledge/index.html" class="section-more-link">
+        全部笔记 <span>→</span>
+      </a>
+    </div>
+
+    <div class="bento-grid">
+      <!-- 卡片 1 -->
+      <a href="knowledge/index.html" class="bento-card">
+        <div class="bento-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div>
+          <h3>飞行攀爬机器人机构</h3>
+          <p>SCAMP 式飞行壁面攀爬平台，双稳态薄板足端设计，SMA 脉冲触发 snap-through 跳跃切换与断电自保持。</p>
+        </div>
+        <span class="bento-tag">Climbing Robotics →</span>
+      </a>
+
+      <!-- 卡片 2 -->
+      <a href="knowledge/index.html" class="bento-card">
+        <div class="bento-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12L2.5 7.5"/></svg>
+        </div>
+        <div>
+          <h3>仿生黏附与微结构力学</h3>
+          <p>粗糙表面微刺阵列啮合建模、光滑表面剪切激活干黏附，以及非优选方向阻力 Anp 压低控制。</p>
+        </div>
+        <span class="bento-tag">Adhesion Mechanics →</span>
+      </a>
+
+      <!-- 卡片 3 -->
+      <a href="knowledge/index.html" class="bento-card">
+        <div class="bento-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <div>
+          <h3>理论力学与多体动力学</h3>
+          <p>从拉格朗日分析力学、广义坐标与变分原理出发，构建多连杆与刚体空间运动方程，推导机构碰撞恢复机制。</p>
+        </div>
+        <span class="bento-tag">Theoretical Mechanics →</span>
+      </a>
+
+      <!-- 卡片 4 -->
+      <a href="knowledge/index.html" class="bento-card">
+        <div class="bento-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        </div>
+        <div>
+          <h3>人工智能数学原理与自学讲义</h3>
+          <p>自主整理高维矩阵分析、SVD与特征值分解、凸优化几何图景以及复变函数积分变换的系统讲义。</p>
+        </div>
+        <span class="bento-tag">Math & Foundations →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 实际研究与项目 Showcase -->
+  <section class="section-wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-label">SELECTED RESEARCH & PROJECTS</span>
+        <h2 class="section-title">重点科研与课程项目</h2>
+      </div>
+      <a href="about/index.html" class="section-more-link">
+        了解更多背景 <span>→</span>
+      </a>
+    </div>
+
+    <div class="projects-grid">
+      <!-- 项目 1 -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-badge">Mechanism & Research</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint);">科研推进中</span>
+        </div>
+        <div>
+          <h3>双模态双稳态飞行攀爬足端机构</h3>
+          <p>针对垂直壁面设计跨尺度自适应足端：微刺模式适应粗糙砖石，柔性干黏附模式贴合光滑玻璃；利用 SMA 形状记忆合金线脉冲驱动曲率反转，实现断电自保持与零功耗待机。</p>
+        </div>
+        <div class="project-tech-tags">
+          <span class="tech-tag">双稳态薄板</span>
+          <span class="tech-tag">微刺阵列</span>
+          <span class="tech-tag">干黏附</span>
+          <span class="tech-tag">SMA驱动</span>
+          <span class="tech-tag">脱附控制</span>
+        </div>
+      </div>
+
+      <!-- 项目 2 -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-badge">Aerial Robotics</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint);">平台适配</span>
+        </div>
+        <div>
+          <h3>基于 Crazyflie 2.1 的微型飞行栖息平台</h3>
+          <p>探索超轻量级微型无刷四旋翼飞行器在竖直表面接触时的碰撞缓冲、姿态动态转换与机体前倾预紧策略，为自主栖息与攀爬提供空气动力学与机械接口支持。</p>
+        </div>
+        <div class="project-tech-tags">
+          <span class="tech-tag">Crazyflie 2.1</span>
+          <span class="tech-tag">微型无人机</span>
+          <span class="tech-tag">壁面栖息</span>
+          <span class="tech-tag">动力学分析</span>
+        </div>
+      </div>
+
+      <!-- 项目 3 -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-badge">Course Lectures</span>
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint);">讲义编撰</span>
+        </div>
+        <div>
+          <h3>USTC 机器人工程核心课自学体系讲义</h3>
+          <p>针对《理论力学B》、《人工智能数学原理与算法B》、《复变函数B》编撰长篇自学手册，使用 Typst 排版，建立物理直觉、经典题型归纳与公式推导图景。</p>
+        </div>
+        <div class="project-tech-tags">
+          <span class="tech-tag">理论力学</span>
+          <span class="tech-tag">AI数学原理</span>
+          <span class="tech-tag">复变函数</span>
+          <span class="tech-tag">Typst</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 双流板块：正在做的事 (NOW) 与 最新动态 (RECENT) -->
+  <section class="section-wrap">
+    <div class="dual-stream">
+      <!-- 左侧：NOW -->
+      <div class="stream-card">
+        <div class="stream-head">
+          <span class="stream-title">
+            <span class="hero-pill-badge" style="padding: 2px 8px; font-size: 11px;">NOW</span>
+            当前科研与学习焦点
+          </span>
+          <span style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint);">2026.09</span>
+        </div>
+        <ul class="stream-list">
+          <li class="stream-item">
+            <span class="stream-index">01</span>
+            <span class="stream-text">深入研究双稳态薄板 snap-through 跳跃临界载荷与材料刚度权衡</span>
+          </li>
+          <li class="stream-item">
+            <span class="stream-index">02</span>
+            <span class="stream-text">调研非优选方向剪切阻力 Anp 测试与薄板曲率脱附验证方案</span>
+          </li>
+          <li class="stream-item">
+            <span class="stream-index">03</span>
+            <span class="stream-text">修读《理论力学B》、《人工智能数学原理》与《复变函数B》</span>
+          </li>
+          <li class="stream-item">
+            <span class="stream-index">04</span>
+            <span class="stream-text">设计攀爬足端实验验证台架与力传感器标定系统</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 右侧：RECENT -->
+      <div class="stream-card">
+        <div class="stream-head">
+          <span class="stream-title">
+            <span class="hero-pill-badge" style="padding: 2px 8px; font-size: 11px; background: var(--bg-subtle); color: var(--ink-muted); border-color: var(--line);">RECENT</span>
+            动态与研究记录
+          </span>
+          <a href="timeline/index.html" class="section-more-link" style="font-size: 11px;">完整时间线 →</a>
+        </div>
+        <ul class="stream-list">
+          <li class="stream-item">
+            <span class="stream-index" style="background: var(--ustc-blue-light); color: var(--ustc-blue);">NOTE</span>
+            <span class="stream-text">精读 Asbeck 微刺阵列表面粗糙度接触建模与失效模式</span>
+            <span class="stream-date">09.05</span>
+          </li>
+          <li class="stream-item">
+            <span class="stream-index" style="background: var(--bg-subtle); color: var(--ink-muted);">DOC</span>
+            <span class="stream-text">整理完成《理论力学B》与《复变函数B》一学期自学题型手册</span>
+            <span class="stream-date">08.26</span>
+          </li>
+          <li class="stream-item">
+            <span class="stream-index" style="background: var(--bg-subtle); color: var(--ink-muted);">RES</span>
+            <span class="stream-text">梳理 Hawkes 剪切激活干黏附与各向异性比 alpha 评估指标</span>
+            <span class="stream-date">08.12</span>
+          </li>
+          <li class="stream-item">
+            <span class="stream-index" style="background: var(--bg-subtle); color: var(--ink-muted);">INIT</span>
+            <span class="stream-text">搭建飞行攀爬机器人文献知识库与阅读路线图体系</span>
+            <span class="stream-date">07.20</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- 页脚 (已彻底移除 GitHub 链接) -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
+    </div>
+    <div class="footer-links">
+      <a href="about/index.html">关于我</a>
+      <a href="knowledge/index.html">知识库</a>
+      <a href="timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>

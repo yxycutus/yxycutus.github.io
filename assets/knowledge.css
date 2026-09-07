@@ -1,0 +1,206 @@
+/* ============================================================
+   Knowledge page styling — USTC Blue Engineering Design
+   ============================================================ */
+
+.knowledge-hero {
+  padding-top: 40px;
+  margin-bottom: 32px;
+}
+
+.knowledge-title {
+  font-size: clamp(32px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.knowledge-desc {
+  font-size: 16.5px;
+  color: var(--ink-secondary);
+  line-height: 1.7;
+}
+
+/* ── 知识库检索与分类胶囊栏 ── */
+.knowledge-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.category-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cat-btn {
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cat-btn:hover {
+  border-color: var(--ustc-blue);
+  color: var(--ustc-blue);
+}
+
+.cat-btn.active {
+  background: var(--ustc-blue);
+  border-color: var(--ustc-blue);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 65, 130, 0.25);
+}
+
+.search-input-wrap {
+  position: relative;
+  min-width: 240px;
+}
+
+.search-input-wrap input {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 7px 16px 7px 34px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.search-input-wrap input:focus {
+  border-color: var(--ustc-blue);
+  background: var(--bg-card);
+}
+
+.search-input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-faint);
+  pointer-events: none;
+}
+
+/* ── 知识库卡片网格 ── */
+.k-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.k-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.k-card:hover {
+  border-color: var(--ustc-blue);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.k-tag-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.k-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ustc-blue);
+  background: var(--ustc-blue-light);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.k-count {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-faint);
+}
+
+.k-card h3 {
+  font-size: 17.5px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+}
+
+.k-card p {
+  font-size: 13.5px;
+  color: var(--ink-secondary);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.k-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-muted);
+}
+
+.k-footer .k-arrow {
+  color: var(--ustc-blue);
+  font-weight: 600;
+  transition: transform 0.15s ease;
+}
+
+.k-card:hover .k-arrow {
+  transform: translateX(4px);
+}
+
+.k-empty-msg {
+  grid-column: 1 / -1;
+  padding: 60px 0;
+  text-align: center;
+  font-family: var(--font-mono);
+  color: var(--ink-muted);
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .knowledge-nav-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-input-wrap {
+    width: 100%;
+  }
+}

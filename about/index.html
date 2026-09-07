@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关于我 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/about.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../about/index.html" class="active">关于我</a></li>
+        <li><a href="../knowledge/index.html">知识库</a></li>
+        <li><a href="../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="main-wrapper" style="max-width: 860px;">
+
+  <!-- Header -->
+  <header class="about-header">
+    <div class="hero-pill-badge" style="margin-bottom: 12px;">
+      <span class="status-ping"></span>
+      <span>RESEARCHER PROFILE</span>
+    </div>
+    <h1 class="about-intro-title">关于我 (About Cutus)</h1>
+    <p class="about-lede">
+      你好！我是 Cutus，中国科学技术大学 2025 级机器人工程本科生。热衷于机器人仿生机构设计、双稳态变结构系统、微刺与干黏附力学，以及理论力学与多体动力学。笃信求真务实的工程师精神，通过搭建系统化的知识库和实验平台记录学术探索。
+    </p>
+  </header>
+
+  <!-- 教育经历 -->
+  <section class="about-block">
+    <h2 class="about-block-title">教育背景</h2>
+    <div class="edu-card">
+      <div class="edu-field">
+        <span class="edu-label">院校</span>
+        <span class="edu-val">中国科学技术大学</span>
+      </div>
+      <div class="edu-field">
+        <span class="edu-label">专业</span>
+        <span class="edu-val">机器人工程 (Robotics)</span>
+      </div>
+      <div class="edu-field">
+        <span class="edu-label">培养阶段</span>
+        <span class="edu-val">本科在读 (2025级)</span>
+      </div>
+      <div class="edu-field">
+        <span class="edu-label">在校时间</span>
+        <span class="edu-val">2025.09 — 至今</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 研究方向与知识图谱 -->
+  <section class="about-block">
+    <h2 class="about-block-title">学术与工程技术储备</h2>
+    <div class="skills-grid">
+      <div class="skill-category">
+        <div class="skill-category-title">CLIMBING & MECHANISMS</div>
+        <div class="skill-tags">
+          <span class="skill-pill">双稳态薄板机构</span>
+          <span class="skill-pill">SMA形状记忆合金驱动</span>
+          <span class="skill-pill">微刺阵列 (Microspines)</span>
+          <span class="skill-pill">仿生干黏附垫</span>
+          <span class="skill-pill">Crazyflie 2.1 飞行器</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-category-title">DYNAMICS & SIMULATION</div>
+        <div class="skill-tags">
+          <span class="skill-pill">理论力学 / 分析力学</span>
+          <span class="skill-pill">拉格朗日动力学方程</span>
+          <span class="skill-pill">SolidWorks 建模</span>
+          <span class="skill-pill">ADAMS / 多体动力学</span>
+          <span class="skill-pill">Typst 专业学术排版</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-category-title">MATHEMATICS & COMPUTING</div>
+        <div class="skill-tags">
+          <span class="skill-pill">人工智能数学原理</span>
+          <span class="skill-pill">高维矩阵分解 (SVD/PCA)</span>
+          <span class="skill-pill">复变函数与积分变换</span>
+          <span class="skill-pill">C++ / Python</span>
+          <span class="skill-pill">Linux 工作流</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 重点科研与项目经历 -->
+  <section class="about-block">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px;">
+      <h2 class="about-block-title" style="margin-bottom: 0;">重点研究与项目实践</h2>
+      <span style="font-family: var(--font-mono); font-size: 11px; color: var(--ink-faint);">[ 真实学术推进中 ]</span>
+    </div>
+
+    <div class="about-projects-stack">
+      <!-- 真实项目 1 -->
+      <div class="about-project-card">
+        <div class="about-project-top">
+          <div class="about-project-name">
+            <span class="proj-idx">01</span>
+            <span>SCAMP 式飞行攀爬机器人双模态双稳态足端机构</span>
+          </div>
+          <div class="about-project-links">
+            <span class="about-project-link" style="color: var(--ink-faint);">文献研读与机构设计</span>
+          </div>
+        </div>
+        <p class="about-project-desc">
+          针对垂直壁面环境设计自适应双模态足端系统。采用双稳态薄板结构：Mode 1 微刺阵列啮合粗糙砖石，Mode 2 柔性干黏附垫贴附光滑表面。由 SMA 形状记忆合金热致脉冲触发 snap-through 状态跳跃切换，实现断电自保持、零功耗待机与可控脱附。
+        </p>
+        <div class="project-tech-tags">
+          <span class="tech-tag">双稳态结构</span>
+          <span class="tech-tag">微刺接触建模</span>
+          <span class="tech-tag">剪切激活干黏附</span>
+          <span class="tech-tag">SMA热致驱动</span>
+          <span class="tech-tag">脱附力控制</span>
+        </div>
+      </div>
+
+      <!-- 真实项目 2 -->
+      <div class="about-project-card">
+        <div class="about-project-top">
+          <div class="about-project-name">
+            <span class="proj-idx">02</span>
+            <span>基于 Crazyflie 2.1 的微型旋翼壁面附着与动态过渡</span>
+          </div>
+          <div class="about-project-links">
+            <span class="about-project-link" style="color: var(--ink-faint);">平台动力学分析</span>
+          </div>
+        </div>
+        <p class="about-project-desc">
+          探索微型四旋翼飞行器在高落差墙面上的触壁过渡动力学。结合 Crazyflie 无刷无人机平台，分析机身碰撞能量吸收、机体倾角调整以施加法向预紧力，为垂直攀爬状态提供稳定的初始附着姿态。
+        </p>
+        <div class="project-tech-tags">
+          <span class="tech-tag">Crazyflie 2.1</span>
+          <span class="tech-tag">碰撞动力学</span>
+          <span class="tech-tag">壁面预紧</span>
+          <span class="tech-tag">轻量化机构</span>
+        </div>
+      </div>
+
+      <!-- 真实项目 3 -->
+      <div class="about-project-card">
+        <div class="about-project-top">
+          <div class="about-project-name">
+            <span class="proj-idx">03</span>
+            <span>USTC 机器人工程核心课程自学与题型讲义体系</span>
+          </div>
+          <div class="about-project-links">
+            <span class="about-project-link" style="color: var(--ink-faint);">自编课程讲义</span>
+          </div>
+        </div>
+        <p class="about-project-desc">
+          面向《理论力学B》、《人工智能数学原理与算法B》、《复变函数B》等专业核心课，完成长达数十万字的系统自学手册编撰。采用 Typst 排版，提炼出直观物理图景、分析力学方程推导与经典真题解题框架。
+        </p>
+        <div class="project-tech-tags">
+          <span class="tech-tag">理论力学B</span>
+          <span class="tech-tag">人工智能数学原理</span>
+          <span class="tech-tag">复变函数B</span>
+          <span class="tech-tag">Typst</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系方式 -->
+  <section class="about-block">
+    <h2 class="about-block-title">学术与交流联系</h2>
+    <div class="contact-grid">
+      <!-- USTC 邮箱 -->
+      <a class="contact-card" href="mailto:ustcyxy666@mail.ustc.edu.cn">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 7L2 7"></path></svg>
+        </div>
+        <div class="contact-body">
+          <span class="contact-label">USTC Academic Mail</span>
+          <span class="contact-value">ustcyxy666@mail.ustc.edu.cn</span>
+        </div>
+        <span style="color: var(--ink-faint);">发信 →</span>
+      </a>
+
+      <!-- 谷歌邮箱 -->
+      <a class="contact-card" href="mailto:yxycutus@gmail.com">
+        <div class="contact-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </div>
+        <div class="contact-body">
+          <span class="contact-label">Google Mail</span>
+          <span class="contact-value">yxycutus@gmail.com</span>
+        </div>
+        <span style="color: var(--ink-faint);">发信 →</span>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程</span>
+    </div>
+    <div class="footer-links">
+      <a href="../about/index.html">关于我</a>
+      <a href="../knowledge/index.html">知识库</a>
+      <a href="../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>

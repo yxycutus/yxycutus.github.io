@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>时间线 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/timeline.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../about/index.html">关于我</a></li>
+        <li><a href="../knowledge/index.html">知识库</a></li>
+        <li><a href="../timeline/index.html" class="active">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="main-wrapper" style="max-width: 820px;">
+
+  <!-- Header -->
+  <header class="tl-header">
+    <div class="hero-pill-badge" style="margin-bottom: 12px;">
+      <span class="status-ping"></span>
+      <span>ACADEMIC TRAJECTORY</span>
+    </div>
+    <h1 class="tl-title">大学成长时间线 (Timeline)</h1>
+    <p class="tl-desc">
+      记录在 USTC 机器人工程专业的科研探索、课程自学、讲义沉淀与阶段性里程碑。
+    </p>
+  </header>
+
+  <!-- NOW 状态卡片 -->
+  <div class="tl-now-card">
+    <div class="tl-now-head">
+      <div class="tl-now-badge">
+        <span class="tl-now-ping"></span>
+        <span>CURRENT STATUS · 2026 秋季进行时</span>
+      </div>
+      <span class="tl-now-date">USTC · 大二上学期</span>
+    </div>
+    <p class="tl-now-text">
+      正全面推进飞行攀爬机器人双模态足端机构的台架测试与力学模型推导；同时系统研读《理论力学B》、《人工智能数学原理与算法B》与《复变函数B》专业核心课。
+    </p>
+  </div>
+
+  <!-- 时间轴主体 -->
+  <div class="timeline-track">
+
+    <!-- 2026 秋季 -->
+    <div class="tl-semester-block">
+      <div class="tl-node-dot"></div>
+      <div class="tl-semester-head">
+        <h2 class="tl-semester-title">2026 秋季 · 大二上学期</h2>
+        <span class="tl-semester-date">2026.09 — 至今</span>
+      </div>
+      <div class="tl-card-list">
+        <div class="tl-item-box">
+          <div class="tl-item-header">
+            <span class="tl-item-tag">WEB · 主页</span>
+            <span class="tl-item-title">构建个人工程知识库主页</span>
+          </div>
+          <p class="tl-item-content">
+            基于科大蓝品牌视觉体系确立个人主页架构，将飞行攀爬机器人文献笔记与 USTC 核心课讲义对外开放展示。
+          </p>
+        </div>
+        <div class="tl-item-box">
+          <div class="tl-item-header">
+            <span class="tl-item-tag">RES · 科研</span>
+            <span class="tl-item-title">双模态足端实验台架与动力学测试规划</span>
+          </div>
+          <p class="tl-item-content">
+            规划竖直攀爬实验平台（双材料墙面、滑轮配重与安全挂绳），设计力传感器标定与 SMA 脉冲触发阶跃响应测试方案。
+          </p>
+        </div>
+        <div class="tl-item-box">
+          <div class="tl-item-header">
+            <span class="tl-item-tag">COURSE · 课程</span>
+            <span class="tl-item-title">大二专业核心课修读启动</span>
+          </div>
+          <p class="tl-item-content">
+            深入学习《理论力学B》（拉格朗日分析力学）、《人工智能数学原理与算法B》及《复变函数B》，继续完善系列理解型讲义。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2026 夏季 / 暑假 -->
+    <div class="tl-semester-block">
+      <div class="tl-node-dot"></div>
+      <div class="tl-semester-head">
+        <h2 class="tl-semester-title">2026 夏季 · 暑期科研文献与课程预研</h2>
+        <span class="tl-semester-date">2026.07 — 2026.08</span>
+      </div>
+      <div class="tl-card-list">
+        <div class="tl-item-box">
+          <div class="tl-item-header">
+            <span class="tl-item-tag">DOC · 讲义</span>
+            <span class="tl-item-title">编撰完成《理论力学B》与《复变函数B》自学讲义</span>
+          </div>
+          <p class="tl-item-content">
+            利用 Typst 完成长达数十万字的《理论力学B_一学期理解型学习讲义》与《复变函数B_10周自学路线与期末题型手册》编写，建立直观物理图像与公式推导框架。
+          </p>
+        </div>
+        <div class="tl-item-box">
+          <div class="tl-item-header">
+            <span class="tl-item-tag">RES · 文献</span>
+            <span class="tl-item-title">系统搭建飞行攀爬机器人文献知识库</span>
+          </div>
+          <p class="tl-item-content">
+            精读 Asbeck2006、Hawkes2015、Fang2026、Modabberifar2018 等顶级论文，建立微刺阵列接触建模、剪切激活干黏附与 SMA 夹爪驱动机制的横向对比体系。
+          </p>
+        </div>
+        <div class="tl-item-box">
+          <div class="tl-item-header">
+            <span class="tl-item-tag">DESIGN · 方案</span>
+            <span class="tl-item-title">确立双稳态薄板两模式切换机构方案</span>
+          </div>
+          <p class="tl-item-content">
+            提出 Mode 1")"形微刺粗糙面、Mode 2"("形干黏附光滑面的双稳态薄板设计，论证 SMA 脉冲 snap-through 跳跃触发与断电自保持的可行性。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2026 春季 -->
+    <div class="tl-semester-block">
+      <div class="tl-node-dot"></div>
+      <div class="tl-semester-head">
+        <h2 class="tl-semester-title">2026 春季 · 大一下学期</h2>
+        <span class="tl-semester-date">2026.02 — 2026.06</span>
+      </div>
+      <div class="tl-card-list">
+        <div class="tl-item-box">
+          <div class="tl-item-header">
+            <span class="tl-item-tag">ACADEMIC · 数理</span>
+            <span class="tl-item-title">完成微积分与大学物理等数理基础课修读</span>
+          </div>
+          <p class="tl-item-content">
+            系统完成微积分、线性代数、大学力学与电磁学基础课程修读，奠定严密的矩阵计算与物理建模基础。
+          </p>
+        </div>
+        <div class="tl-item-box">
+          <div class="tl-item-header">
+            <span class="tl-item-tag">PAPER · 论文</span>
+            <span class="tl-item-title">完成大学生 AI 工具使用深度实证调研论文</span>
+          </div>
+          <p class="tl-item-content">
+            针对科大学生开展大模型工具使用场景与未来职业预期的实证量化问卷分析，独立完成数据清洗、统计图表生成与 Typst 论文撰写。
+          </p>
+        </div>
+        <div class="tl-item-box">
+          <div class="tl-item-header">
+            <span class="tl-item-tag">HARDWARE · 探索</span>
+            <span class="tl-item-title">接触 Crazyflie 微型无人机与嵌入式实验</span>
+          </div>
+          <p class="tl-item-content">
+            熟悉微型旋翼平台动力学、电工电子实验以及传感器通信协议，为后续空中接触栖息研究积累工程基础。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2025 秋季 -->
+    <div class="tl-semester-block">
+      <div class="tl-node-dot"></div>
+      <div class="tl-semester-head">
+        <h2 class="tl-semester-title">2025 秋季 · 入读 USTC</h2>
+        <span class="tl-semester-date">2025.09 — 2026.01</span>
+      </div>
+      <div class="tl-card-list">
+        <div class="tl-item-box">
+          <div class="tl-item-header">
+            <span class="tl-item-tag">START · 起点</span>
+            <span class="tl-item-title">进入中国科学技术大学，主修机器人工程</span>
+          </div>
+          <p class="tl-item-content">
+            开启大学征程，立志深耕机器人机构学与动力学控制，建立学术文献检索与深度自学的工作流体系。
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程</span>
+    </div>
+    <div class="footer-links">
+      <a href="../about/index.html">关于我</a>
+      <a href="../knowledge/index.html">知识库</a>
+      <a href="../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>
