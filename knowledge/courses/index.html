@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USTC 机器人工程课程笔记与自学讲义库 — Cutus 知识库</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/knowledge.css">
+  <link rel="stylesheet" href="../../assets/article.css">
+  <style>
+    /* 课程专属增强样式 */
+    .course-mail-banner {
+      background: linear-gradient(135deg, color-mix(in srgb, var(--ustc-blue) 10%, var(--bg-card)) 0%, var(--bg-card) 100%);
+      border: 1.5px solid color-mix(in srgb, var(--ustc-blue) 35%, transparent);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+    .course-mail-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .course-mail-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0;
+    }
+    .course-mail-desc {
+      font-size: 14.5px;
+      color: var(--ink-secondary);
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .course-mail-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .mail-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--ustc-blue);
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    .mail-chip:hover {
+      border-color: var(--ustc-blue);
+      background: var(--ustc-blue-light);
+      transform: translateY(-1px);
+    }
+    .k-card-highlight {
+      border-left: 3.5px solid var(--ustc-blue);
+    }
+    .course-badge-freshman {
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+    }
+    .course-badge-sophomore {
+      background: rgba(99, 102, 241, 0.1);
+      color: #6366f1;
+    }
+    .course-action-row {
+      margin-top: 14px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--ink-muted);
+    }
+    .course-mail-btn {
+      color: var(--ustc-blue);
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .course-mail-btn:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../../index.html">
+      <img src="../../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar">
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../../about/index.html">关于我</a></li>
+        <li><a href="../index.html" class="active">知识库</a></li>
+        <li><a href="../../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="main-wrapper" style="max-width: 1060px;">
+
+  <div class="article-breadcrumb" style="margin-top: 24px;">
+    <a href="../../index.html">首页</a>
+    <span>/</span>
+    <a href="../index.html">知识库</a>
+    <span>/</span>
+    <span>课程笔记与自学讲义库</span>
+  </div>
+
+  <header class="knowledge-hero" style="padding-top: 10px;">
+    <div class="hero-pill-badge" style="margin-bottom: 12px;">
+      <span class="status-ping"></span>
+      <span>USTC ROBOTICS · 课内自学讲义与期末复习体系</span>
+    </div>
+    <h1 class="knowledge-title">中科大机器人工程 · 课程自学笔记与复习讲义库</h1>
+    <p class="knowledge-desc">
+      记录中国科学技术大学机器人工程本科阶段的学习与自学体系。涵盖<strong>大二上学期专业硬核课</strong>（理论力学B、电磁学B、人工智能数学原理与算法B、复变函数B、概率论与数理统计等）与<strong>大一下学期期末突击复习体系</strong>（微积分II/III、热学B、电工学、综四等）。以自编 Typst / LaTeX / Markdown 为骨架，突出物理图像、数学本质与解题方法矩阵。
+    </p>
+  </header>
+
+  <!-- 🌟 核心说明：资料索取与 Mail 联络专栏 🌟 -->
+  <div class="course-mail-banner">
+    <div class="course-mail-head">
+      <span class="hero-pill-badge" style="background: var(--ustc-blue); color: #ffffff; border: none; font-size: 11px;">资料索取通道</span>
+      <h2 class="course-mail-title">课程讲义、题解与复习资料获取说明</h2>
+    </div>
+    <p class="course-mail-desc">
+      为尊重任课教师版权与学术规范，本站<strong>不直接公开上传大体积课件切片、录播视频及往年试卷原题扫描件</strong>。<br>
+      如果你是中科大校友、学弟学妹，或对讲义内容感兴趣，需要完整的<strong>自编 Typst 编译版高清 PDF、LaTeX 讲义源码、S/A/B 分级题单、考前 A4 半开卷速背清单或题型解析</strong>，非常欢迎直接发送邮件联系我交流索取！
+    </p>
+    <div class="course-mail-actions">
+      <a class="mail-chip" href="mailto:ustcyxy666@mail.ustc.edu.cn?subject=【课程资料索取】来自个人主页访客&body=你好Cutus，我在你的主页看到了课程笔记，希望能索取以下课程的完整讲义/复习资料：%0D%0A课程名称：%0D%0A我的称呼/院系：">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>校内邮箱：ustcyxy666@mail.ustc.edu.cn</span>
+      </a>
+      <a class="mail-chip" href="mailto:yxycutus@gmail.com?subject=【课程资料索取】来自个人主页访客&body=你好Cutus，希望能索取以下课程的完整讲义/复习资料：%0D%0A课程名称：%0D%0A我的称呼：">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>常用邮箱：yxycutus@gmail.com</span>
+      </a>
+      <span style="font-size: 12px; color: var(--ink-muted);">（邮件注明：课程名 + 你的称呼，收到后会及时打包回复）</span>
+    </div>
+  </div>
+
+  <!-- 检索与分类工具栏 -->
+  <div class="knowledge-nav-bar">
+    <div class="category-tags" id="category-tags">
+      <button class="cat-btn active" data-category="all">全部课程 (11门)</button>
+      <button class="cat-btn" data-category="sophomore">大二上专业课 (2026秋)</button>
+      <button class="cat-btn" data-category="freshman">大一下期末归档 (2026春)</button>
+      <button class="cat-btn" data-category="physics">力学与物理 (Physics)</button>
+      <button class="cat-btn" data-category="math">数学理论 (Math)</button>
+      <button class="cat-btn" data-category="cs">计算与智能 (AI & CS)</button>
+    </div>
+    <div class="search-input-wrap">
+      <svg class="search-input-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="k-search-input" placeholder="输入课程名、教师、公式或章节检索..." autocomplete="off">
+    </div>
+  </div>
+
+  <!-- 课程卡片网格 -->
+  <div class="k-grid" id="k-grid">
+
+    <!-- 01. 理论力学 B (大二上) -->
+    <div class="k-card k-card-highlight" data-category="sophomore physics" data-keywords="理论力学 理论力学B 骆天治 分析力学 拉格朗日方程 达朗贝尔 虚位移 刚体 运动学 动力学 动静法 广义坐标 2026秋 typst">
+      <div class="k-tag-row">
+        <span class="k-tag course-badge-sophomore">大二上专业课 · 骆天治班</span>
+        <span class="k-count">Typst 讲义</span>
+      </div>
+      <h3>理论力学 B · 分析力学与拉格朗日动力学自学手记</h3>
+      <p><strong>核心理念</strong>：从牛顿矢量动力学向分析力学能量标量法跃迁。系统梳理质点与刚体平面运动（速度瞬心、加速度合成、科氏加速度）&rarr; 动静法（达朗贝尔惯性力）&rarr; 虚位移原理 &rarr; 第二类拉格朗日方程。为多自由度机械臂与双稳态攀爬机器人动力学建模奠定理论基础。</p>
+      <div style="font-size: 13px; color: var(--ink-secondary); margin: 6px 0;">
+        <strong>自编产出</strong>：《理论力学B_一学期理解型学习讲义.pdf》、各章“方法选择表”、分析力学小结、2026回忆卷与真题分析。
+      </div>
+      <div class="course-action-row">
+        <a href="../ustc-mechanics.html" class="course-mail-btn" style="color: var(--ink);">📖 阅读拉格朗日物理图景手记 &rarr;</a>
+        <a href="mailto:ustcyxy666@mail.ustc.edu.cn?subject=【课程资料索取】理论力学B完整讲义" class="course-mail-btn">
+          ✉️ Mail 索取讲义与真题
+        </a>
+      </div>
+    </div>
+
+    <!-- 02. 电磁学 B (大二上) -->
+    <div class="k-card k-card-highlight" data-category="sophomore physics" data-keywords="电磁学 电磁学B 唐泽波 高斯定理 边界条件 稳恒磁场 毕奥萨伐尔 安培环路 磁介质 法拉第感应 麦克斯韦方程 电磁波 玻印亭 2026秋 typst">
+      <div class="k-tag-row">
+        <span class="k-tag course-badge-sophomore">大二上专业课 · 唐泽波班</span>
+        <span class="k-count">Typst 1085行</span>
+      </div>
+      <h3>电磁学 B · 从静电场到 Maxwell 方程组一学期自学讲义</h3>
+      <p><strong>物理主线</strong>：电荷产生电场，电流产生磁场，材料响应改变场，时变场互联，场传递能量动量。系统梳理静电场高斯法 &rarr; 介质与边界条件（$\vec{D}, \vec{E}, \vec{P}$）&rarr; 静电能 &rarr; 毕奥-萨伐尔与安培环路定理 &rarr; 磁介质（$\vec{B}, \vec{H}, \vec{M}$）&rarr; 法拉第感应 &rarr; 位移电流 &rarr; 麦克斯韦方程组与 Poynting 矢量。</p>
+      <div style="font-size: 13px; color: var(--ink-secondary); margin: 6px 0;">
+        <strong>自编产出</strong>：《电磁学B_一学期自学讲义.pdf》（S/A/B分级模型库）、张之翔千题解专题精选、习题课1-3PPT与往年真题。
+      </div>
+      <div class="course-action-row">
+        <span>S级模型独立手算 · 边界条件分明</span>
+        <a href="mailto:ustcyxy666@mail.ustc.edu.cn?subject=【课程资料索取】电磁学B一学期自学讲义" class="course-mail-btn">
+          ✉️ Mail 索取讲义与题解
+        </a>
+      </div>
+    </div>
+
+    <!-- 03. 人工智能数学原理与算法 B (大二上) -->
+    <div class="k-card k-card-highlight" data-category="sophomore cs math" data-keywords="人工智能 数学原理 算法 唐建 凸优化 svd pca 线性回归 逻辑回归 mlp 反向传播 cnn transformer self-attention gnn 预训练 2026秋 typst">
+      <div class="k-tag-row">
+        <span class="k-tag course-badge-sophomore">大二上专业课 · 唐建班</span>
+        <span class="k-count">Typst 750行</span>
+      </div>
+      <h3>人工智能数学原理与算法 B · 13周理论与10周实验自学讲义</h3>
+      <p><strong>极简数学轴心</strong>：输入表示 &rarr; 预测 &rarr; 损失衡量 &rarr; 梯度反传 &rarr; 参数更新 &rarr; 泛化能力。涵盖 SVD 与矩阵分解、凸优化与正则化、逻辑回归解析求导、MLP 链式反传、CNN 感受野与参数量计算、Self-Attention 与 Transformer 结构、GNN 图神经网络。</p>
+      <div style="font-size: 13px; color: var(--ink-secondary); margin: 6px 0;">
+        <strong>自编产出</strong>：《人工智能数学原理与算法B_一学期自学讲义_v3.0_完整地基版.pdf》、样卷与样卷官方答案、课程互助手册。
+      </div>
+      <div class="course-action-row">
+        <span>用数学读懂模型 · 最小工程闭环</span>
+        <a href="mailto:ustcyxy666@mail.ustc.edu.cn?subject=【课程资料索取】人工智能数学原理与算法B讲义" class="course-mail-btn">
+          ✉️ Mail 索取讲义与样卷
+        </a>
+      </div>
+    </div>
+
+    <!-- 04. 复变函数 B (大二上) -->
+    <div class="k-card k-card-highlight" data-category="sophomore math" data-keywords="复变函数 复变函数B 马啸 解析函数 c-r条件 cauchy积分 taylor级数 laurent展开 奇点 留数定理 围道积分 rouche定理 laplace变换 2026秋 typst">
+      <div class="k-tag-row">
+        <span class="k-tag course-badge-sophomore">大二上专业课 · 马啸班</span>
+        <span class="k-count">Typst 813行 · 10周结课</span>
+      </div>
+      <h3>复变函数 B · 10周自学路线与期末题型手册 (v2.0 / v3.0)</h3>
+      <p><strong>题型速通矩阵</strong>：提炼四大自动反射机制——看到解析写 C-R，看到闭路找奇点内外，看到展开画奇点距离，看到环域零点拆圆盘差。系统掌握 Cauchy 积分公式、Taylor/Laurent 级数展开、孤立奇点分类、留数定理计算实积分（Jordan引理与围道积分）、Rouché 定理及 Laplace 变换解微分方程。</p>
+      <div style="font-size: 13px; color: var(--ink-secondary); margin: 6px 0;">
+        <strong>自编产出</strong>：《复变函数B_10周自学路线与期末题型手册_v2.0.pdf》、近 10 年历年真题（19AB、20-21、22、24、24秋）。
+      </div>
+      <div class="course-action-row">
+        <span>计算步骤完整可复核 · 短学期突击</span>
+        <a href="mailto:ustcyxy666@mail.ustc.edu.cn?subject=【课程资料索取】复变函数B题型手册与真题" class="course-mail-btn">
+          ✉️ Mail 索取手册与真题
+        </a>
+      </div>
+    </div>
+
+    <!-- 05. 概率论与数理统计 (大二上) -->
+    <div class="k-card k-card-highlight" data-category="sophomore math" data-keywords="概率论 数理统计 概率论与数理统计 金百锁 条件概率 随机变量 联合分布 数字特征 极限定理 clt 抽样分布 极大似然估计 mle 置信区间 假设检验 casio 2026秋 typst">
+      <div class="k-tag-row">
+        <span class="k-tag course-badge-sophomore">大二上专业课 · 金百锁班</span>
+        <span class="k-count">Typst 774行</span>
+      </div>
+      <h3>概率论与数理统计 · 一学期自学讲义与公式模型索引</h3>
+      <p><strong>双轨学习体系</strong>：概率部分理解建模与重积分，统计部分梳理“条件 &rarr; 统计量 &rarr; 分布 &rarr; 结论”公式表。覆盖全概与 Bayes、常见一/二维连续型分布、协方差与相关系数、中心极限定理；数理统计涵盖三大抽样分布（$\chi^2, t, F$）、矩估计与 MLE、置信区间、假设检验与 CASIO 计算器统计操作。</p>
+      <div style="font-size: 13px; color: var(--ink-secondary); margin: 6px 0;">
+        <strong>自编产出</strong>：《概率论与数理统计_一学期自学讲义_v3课堂同步版.pdf》、指南与真题集（22、23春、23秋、26春）。
+      </div>
+      <div class="course-action-row">
+        <span>公式-模型速查表 · 严防漏写支持集</span>
+        <a href="mailto:ustcyxy666@mail.ustc.edu.cn?subject=【课程资料索取】概率论与数理统计自学讲义" class="course-mail-btn">
+          ✉️ Mail 索取讲义与真题
+        </a>
+      </div>
+    </div>
+
+    <!-- 06. 计算机导论 (大二上) -->
+    <div class="k-card" data-category="sophomore cs" data-keywords="计算机导论 孙广中 计算思维 周以真 费曼 feynman 算法复杂度 分治 系统 网络 2026秋">
+      <div class="k-tag-row">
+        <span class="k-tag course-badge-sophomore">大二上专业课 · 孙广中班</span>
+        <span class="k-count">经典文献与导图</span>
+      </div>
+      <h3>计算机导论 · 计算思维与体系结构导学归档</h3>
+      <p>系统精读与归档诺奖得主《Feynman 计算机讲义》(Lectures on Computation) 与卡内基梅隆大学周以真教授《计算思维》(Computational Thinking) 经典论著，梳理图灵机本质、算法渐进复杂度分析、分治策略与现代分布式网络体系结构。</p>
+      <div style="font-size: 13px; color: var(--ink-secondary); margin: 6px 0;">
+        <strong>自编产出</strong>：费曼计算讲义中文导读、周以真计算思维精读摘要、计算机学科发展核心知识导图。
+      </div>
+      <div class="course-action-row">
+        <span>计算本质与跨学科思维</span>
+        <a href="mailto:ustcyxy666@mail.ustc.edu.cn?subject=【课程资料索取】计算机导论经典导学资料" class="course-mail-btn">
+          ✉️ Mail 索取导学资料
+        </a>
+      </div>
+    </div>
+
+    <!-- 07. 通识人文与大物实验 (大二上) -->
+    <div class="k-card" data-category="sophomore" data-keywords="马克思主义基本原理 马原 颜惠箭 社会心理学 杨映秋 生命科学简史 刘锐 大学物理综合实验 大物实验 48小时报告 2026秋">
+      <div class="k-tag-row">
+        <span class="k-tag course-badge-sophomore">大二上通识与实验</span>
+        <span class="k-count">调研与论文体系</span>
+      </div>
+      <h3>人文通识精要与大学物理综合实验 B 规范流</h3>
+      <p>沉淀人文社科高质量调研与物理实验流程：马原（颜惠箭班）开卷概念网络与“判断-定义-关系-指出错误-结论”辨析题模型；社会心理学（杨映秋班）“AI工具使用自我妨碍与拟人化信任”校园问卷调研；大学物理综合实验 B 48小时原始数据处理与规范实验报告流。</p>
+      <div style="font-size: 13px; color: var(--ink-secondary); margin: 6px 0;">
+        <strong>自编产出</strong>：马原开卷检索目录、社会心理学调研方案与数据分析稿、大物实验规范报告模板。
+      </div>
+      <div class="course-action-row">
+        <span>理性严谨 · 拒绝水课套话</span>
+        <a href="mailto:ustcyxy666@mail.ustc.edu.cn?subject=【课程资料索取】通识论文与大物实验报告模板" class="course-mail-btn">
+          ✉️ Mail 索取报告模板
+        </a>
+      </div>
+    </div>
+
+    <!-- 08. 微积分 II / III (大一下) -->
+    <div class="k-card k-card-highlight" data-category="freshman math" data-keywords="微积分 微积分2 微积分3 多元微分 偏导数 极值 重积分 曲线积分 曲面积分 green公式 gauss公式 stokes公式 级数 fourier 2026春 latex">
+      <div class="k-tag-row">
+        <span class="k-tag course-badge-freshman">大一下期末归档 · 2026春已结课</span>
+        <span class="k-count">LaTeX 复习手册</span>
+      </div>
+      <h3>微积分 II / III · 多元微积分、场论与级数期末终极复习手册</h3>
+      <p><strong>系统化数学硬核复习</strong>：以优雅 LaTeX 排版全面梳理多元微分学（全微分、多元复合链式法则、Lagrange 条件极值）、重积分（二重/三重积分直角-极-柱-球坐标变换技巧）、第一/二类曲线与曲面积分、三大积分定理（Green公式、Gauss散度定理、Stokes旋度定理）、数项级数审敛与幂级数展开求和、Fourier 级数。</p>
+      <div style="font-size: 13px; color: var(--ink-secondary); margin: 6px 0;">
+        <strong>自编产出</strong>：《微积分2期末复习手册》（LaTeX 排版 556行）、《期末大复习合并增强版》、《微积分从零补课与例题精讲》、《45题课件补充集》、《考前速背清单》。
+      </div>
+      <div class="course-action-row">
+        <span>多元微积分与场论大题全面覆盖</span>
+        <a href="mailto:ustcyxy666@mail.ustc.edu.cn?subject=【课程资料索取】微积分2期末复习手册与LaTeX源码" class="course-mail-btn">
+          ✉️ Mail 索取手册与题集
+        </a>
+      </div>
+    </div>
+
+    <!-- 09. 热学 B (大一下) -->
+    <div class="k-card k-card-highlight" data-category="freshman physics" data-keywords="热学 热学B 闫锐 分子动理论 maxwell分布 玻尔兹曼 自由程 热一 热二 卡诺循环 熵变 自由能 相变 克拉佩龙方程 半开卷 a4纸 2026春 typst">
+      <div class="k-tag-row">
+        <span class="k-tag course-badge-freshman">大一下期末归档 · 闫锐班</span>
+        <span class="k-count">Typst 508行 · A4半开卷</span>
+      </div>
+      <h3>热学 B · 历年真题高频排序期末突击复习大文档</h3>
+      <p><strong>基于 10 套历年真题逆向整理</strong>：针对半开卷一张 A4 手写纸考试形式，按“母题真题分值与出现频次”重排知识点。深度攻坚分子动理论（Maxwell 速率分布律三种统计速率、能量均分定理与内能）、热力学第一定律（准静态过程功热、多方过程、卡诺循环效率）、热力学第二定律（卡诺定理、熵变积分 $\Delta S$、自由能与热力学基本关系式）、范德瓦尔斯气体内能与相变。</p>
+      <div style="font-size: 13px; color: var(--ink-secondary); margin: 6px 0;">
+        <strong>自编产出</strong>：《热学B终极复习文档》（Typst 508行）、《期末突击大文档》、《刷题题单按重要性整合》、《A4手抄纸必背速记打印版》。
+      </div>
+      <div class="course-action-row">
+        <span>直接照着考点刷题 · 附A4手抄排版</span>
+        <a href="mailto:ustcyxy666@mail.ustc.edu.cn?subject=【课程资料索取】热学B终极复习大文档与A4速背版" class="course-mail-btn">
+          ✉️ Mail 索取Typst文档
+        </a>
+      </div>
+    </div>
+
+    <!-- 10. 电工学 (大一下) -->
+    <div class="k-card k-card-highlight" data-category="freshman physics" data-keywords="电工学 电工1 kcl kvl 节点电压法 弥尔曼定理 戴维南定理 诺顿定理 三要素法 交流相量法 阻抗 功率因数 三相交流电 运放 继电控制 2026春">
+      <div class="k-tag-row">
+        <span class="k-tag course-badge-freshman">大一下期末归档 · 2026春已结课</span>
+        <span class="k-count">Markdown 407行 + 手抄卷</span>
+      </div>
+      <h3>电工学 (电工1) · 期末复习重点文档与计算题靶向手册</h3>
+      <p><strong>打靶式直击试卷结构</strong>：针对直流、暂态、交流、三相、运放五大计算题及全书概念填空。精讲 KCL/KVL 拓扑网孔数、两节点电路弥尔曼定理秒杀、戴维南/诺顿等效定理；一阶动态电路三要素法 $f(t)=f(\infty)+[f(0_+)-f(\infty)]e^{-t/\tau}$；交流稳态相量法与阻抗三角形、功率因数补偿；三相对称功率；理想运放虚短虚断与基本运算电路。</p>
+      <div style="font-size: 13px; color: var(--ink-secondary); margin: 6px 0;">
+        <strong>自编产出</strong>：《电工学期末复习重点文档.md》（407行）、《期末突击复习10章重点版.pdf》、《2025春试题手抄解析版》、《期末速背手册打印版》。
+      </div>
+      <div class="course-action-row">
+        <span>全卷大题方法库 · 附手抄真题解析</span>
+        <a href="mailto:ustcyxy666@mail.ustc.edu.cn?subject=【课程资料索取】电工学期末重点文档与真题手抄版" class="course-mail-btn">
+          ✉️ Mail 索取重点合订本
+        </a>
+      </div>
+    </div>
+
+    <!-- 11. 英语综合四级 (大一下) -->
+    <div class="k-card" data-category="freshman" data-keywords="英语读写 综四 英语综合四级 课文讲解 词汇复习 完形填空 汉译英 2026春">
+      <div class="k-tag-row">
+        <span class="k-tag course-badge-freshman">大一下期末归档 · 2026春</span>
+        <span class="k-count">词汇系统与完型</span>
+      </div>
+      <h3>英语综合四级 (综四) · 课文精解、完形译文与交互词汇库</h3>
+      <p>针对大学英语综合四级（综四）期末考试，系统提炼 Unit 1~12 核心 Text A/B 课文生词短语、长难句语法剖析；整理《综四四篇 Text A 中文翻译与完形填空对应复习版》；自主开发轻量级《词汇复习 HTML 交互查询系统》，实现考前高频词汇快速自测与盲点排查。</p>
+      <div style="font-size: 13px; color: var(--ink-secondary); margin: 6px 0;">
+        <strong>自编产出</strong>：Unit 1~12 课文词汇讲解集、Text A 完形填空针对性复习版、HTML 词汇自测系统。
+      </div>
+      <div class="course-action-row">
+        <span>完型对应翻译 · 词汇交互速记</span>
+        <a href="mailto:ustcyxy666@mail.ustc.edu.cn?subject=【课程资料索取】综四完型复习版与词汇系统" class="course-mail-btn">
+          ✉️ Mail 索取词汇复习包
+        </a>
+      </div>
+    </div>
+
+    <div class="k-empty-msg" id="k-empty-msg">
+      没有找到匹配的课程，换个关键词检索试试看
+    </div>
+  </div>
+
+  <!-- 底部联系卡片 -->
+  <div style="margin-top: 50px; background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius-md); padding: 28px; text-align: center;">
+    <h3 style="font-size: 18px; font-weight: 700; color: var(--ink); margin-bottom: 8px;">寻找其他课程资料或有学习疑问？</h3>
+    <p style="font-size: 14px; color: var(--ink-secondary); max-width: 600px; margin: 0 auto 18px; line-height: 1.6;">
+      大学课程各班考情与教师风格略有差异。如果你想交流某门课的学习心得、自学路线，或探讨机器人工程考研/保研/科研方向，欢迎随时来信！
+    </p>
+    <a href="mailto:ustcyxy666@mail.ustc.edu.cn" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      <span>发送邮件给 Cutus (ustcyxy666@mail.ustc.edu.cn)</span>
+    </a>
+  </div>
+
+</main>
+
+<!-- 统一页脚 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
+    </div>
+    <div class="footer-credit">
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+    </div>
+    <div class="footer-links">
+      <a href="../../about/index.html">关于我</a>
+      <a href="../index.html">知识库</a>
+      <a href="../../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/script.js"></script>
+<script>
+  (function() {
+    const btns = document.querySelectorAll('.cat-btn');
+    const input = document.getElementById('k-search-input');
+    const cards = document.querySelectorAll('.k-card');
+    const emptyMsg = document.getElementById('k-empty-msg');
+
+    let activeCat = 'all';
+    let query = '';
+
+    function filter() {
+      let count = 0;
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category') || '';
+        const kw = (card.getAttribute('data-keywords') || '').toLowerCase();
+        const text = card.textContent.toLowerCase();
+
+        const matchCat = (activeCat === 'all' || cat.includes(activeCat));
+        const matchQuery = !query || kw.includes(query) || text.includes(query);
+
+        if (matchCat && matchQuery) {
+          card.style.display = 'flex';
+          count++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      emptyMsg.style.display = count === 0 ? 'block' : 'none';
+    }
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.getAttribute('data-category');
+        filter();
+      });
+    });
+
+    if (input) {
+      input.addEventListener('input', (e) => {
+        query = e.target.value.trim().toLowerCase();
+        filter();
+      });
+    }
+  })();
+</script>
+</body>
+</html>
