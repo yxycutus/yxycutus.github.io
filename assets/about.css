@@ -263,3 +263,84 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ── 校园生活与多媒体相册 ── */
+.moments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  margin: 20px 0;
+}
+
+.moment-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.moment-card:hover {
+  border-color: var(--ustc-blue);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.moment-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--bg-subtle);
+  position: relative;
+}
+
+.moment-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+  display: block;
+}
+
+.moment-card:hover .moment-img-wrap img {
+  transform: scale(1.03);
+}
+
+.moment-caption {
+  padding: 14px 16px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.moment-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ustc-blue);
+  background: var(--ustc-blue-light);
+  padding: 2px 7px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 6px;
+  width: fit-content;
+  font-weight: 600;
+}
+
+.moment-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.moment-desc {
+  font-size: 12.5px;
+  color: var(--ink-secondary);
+  line-height: 1.55;
+  margin: 0;
+}
+

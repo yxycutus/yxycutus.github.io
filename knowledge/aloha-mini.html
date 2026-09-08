@@ -19,7 +19,7 @@
     <a class="nav-brand" href="../index.html">
       <img src="../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar">
       <span class="brand-title">Cutus</span>
-      <span class="brand-tag">USTC 机器人</span>
+      <span class="brand-tag">USTC Robotics</span>
     </a>
     <div class="nav-right">
       <ul class="nav-menu">
@@ -96,7 +96,45 @@
 
       <p>在调试过程中，主要攻克了手柄蓝牙输入延迟突增、多路 USB 相机带宽冲突导致数据掉帧、以及多电机连续供电下的通信丢包问题。通过重写串口读取缓存逻辑与优化线程调度，保证了数据采集中控制指令的硬实时性。</p>
 
-      <h2>三、 收获与思考</h2>
+      <h2>三、 实操真机运行与遥操作演示 (Live Video Demos)</h2>
+      <p>项目研发调测与示教现场实录视频，直观呈现机械臂视觉闭环抓取、主从遥操作采集与手柄遥控底盘移动：</p>
+
+      <div class="video-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 24px 0;">
+        <div style="background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+          <video controls playsinline preload="metadata" style="width: 100%; display: block; max-height: 280px; background: #000;">
+            <source src="../picture/alohamini项目演示.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+          </video>
+          <div style="padding: 12px 14px;">
+            <div style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 4px;">🎬 整体演示 · 视觉抓取与放置闭环</div>
+            <div style="font-size: 12px; color: var(--ink-secondary); line-height: 1.5;">经过示教数据采集与模型训练，实机成功达成视觉检测识别特定物体后的自主平滑抓取与定点放置任务。</div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+          <video controls playsinline preload="metadata" style="width: 100%; display: block; max-height: 280px; background: #000;">
+            <source src="../picture/遥操作.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+          </video>
+          <div style="padding: 12px 14px;">
+            <div style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 4px;">🎮 主从遥操作 · 示教数据采集</div>
+            <div style="font-size: 12px; color: var(--ink-secondary); line-height: 1.5;">主从臂高精度低延迟角度跟随，操作员进行精细抓取示教，时序记录各关节角度与机载图像数据。</div>
+          </div>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-sm);">
+          <video controls playsinline preload="metadata" style="width: 100%; display: block; max-height: 280px; background: #000;">
+            <source src="../picture/joycon操作.mp4" type="video/mp4">
+            您的浏览器不支持视频标签。
+          </video>
+          <div style="padding: 12px 14px;">
+            <div style="font-weight: 700; font-size: 14px; color: var(--ink); margin-bottom: 4px;">🕹️ Switch Joy-Con · 底盘行走与升降</div>
+            <div style="font-size: 12px; color: var(--ink-secondary); line-height: 1.5;">适配手柄按键事件与蓝牙无线链路，摇杆平滑微调底盘全向移动，按键无线遥控升降机构。</div>
+          </div>
+        </div>
+      </div>
+
+      <h2>四、 收获与思考</h2>
       <p>通过这个校企合作项目，我从真实的工程现场切身体会到了机器人在物理世界落地的全链路：从底层的强弱电走线、树莓派 Linux 系统调试，到控制链路搭建与遥操作数据流打通。它让我认识到，具身智能模型的效果高度依赖于底层硬件的可靠性与示教数据的干净程度。</p>
     </div>
 
