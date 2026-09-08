@@ -47,7 +47,7 @@
       </div>
     </div>
     <p class="about-lede">
-      你好！我是 Cutus，中国科学技术大学 2025 级机器人工程本科生，中国科大人形机器人研究院 · 空中机器人课题组成员。追求工程扎实落地与数理基础的结合：曾作为<strong>电子组/软件组成员</strong>深度参与校企合作 <strong>Aloha Mini 开源双臂机器人</strong>调测，完成树莓派环境配置、SSH 控制通信链路、Joy-Con 遥操作适配与示教数据集采集，助力团队成功训练模型并实现视觉自主抓取；当前聚焦于仿生飞行攀爬双稳态足端机构与接触力学探索。
+      你好！我是 Cutus，中国科学技术大学 2025 级机器人工程本科生，中国科大人形机器人研究院 · 空中机器人课题组成员。追求扎实工程落地与机理创新的结合：曾作为<strong>电子组/软件组成员</strong>深度参与校企合作 <strong>Aloha Mini 开源双臂机器人</strong>调测（完成树莓派配置、SSH 控制链路、Joy-Con 遥操作适配与示教采集，助力团队达成视觉自主抓取闭环）；当前在课题组核心攻关<strong>面向粗糙/光滑壁面的双模态飞行栖息攀爬机器人研发</strong>（0.2mm 65Mn 锰钢薄板 snap-through 双稳态、鱼钩微刺 ↔ 被动硅胶吸盘、SMA 短脉冲触发，贯彻「先栖息后攀爬」路线）。
     </p>
   </header>
 
@@ -86,23 +86,25 @@
           <span class="skill-pill">Ubuntu / SSH 链路</span>
           <span class="skill-pill">Joy-Con 遥控映射</span>
           <span class="skill-pill">遥操作数据采集与模型训练</span>
+          <span class="skill-pill">Crazyflie 2.1 无刷平台</span>
         </div>
       </div>
       <div class="skill-category">
         <div class="skill-category-title">SIMULATION & CAD</div>
         <div class="skill-tags">
-          <span class="skill-pill">Abaqus 有限元分析</span>
-          <span class="skill-pill">Cohesive 黏聚力单元</span>
+          <span class="skill-pill">Abaqus 有限元分析 (Cohesive)</span>
           <span class="skill-pill">Codex + Python 参数化脚本</span>
-          <span class="skill-pill">双稳态薄板机构构想</span>
-          <span class="skill-pill">微刺/干黏附接触力学</span>
+          <span class="skill-pill">0.2mm 65Mn 双稳态薄板</span>
+          <span class="skill-pill">SMA 脉冲杠杆驱动</span>
+          <span class="skill-pill">被动硅胶吸盘模具 (V1-V4)</span>
+          <span class="skill-pill">鱼钩微刺 / 干黏附机理</span>
         </div>
       </div>
       <div class="skill-category">
         <div class="skill-category-title">AI TOOLS & THEORY</div>
         <div class="skill-tags">
           <span class="skill-pill">Vibe Coding 协同开发</span>
-          <span class="skill-pill">Antigravity / Codex / Claude Code / Kimi</span>
+          <span class="skill-pill">Antigravity / Codex / Claude Code / Qoder</span>
           <span class="skill-pill">理论力学B (拉格朗日动力学)</span>
           <span class="skill-pill">AI 数学原理 (SVD/凸优化)</span>
           <span class="skill-pill">Typst 学术排版</span>
@@ -148,11 +150,41 @@
         </div>
       </div>
 
-      <!-- 真实项目 2: 华米基金申请 -->
+      <!-- 真实项目 2: 在研核心科研 · 双模态飞行栖息攀爬机器人 -->
       <div class="about-project-card">
         <div class="about-project-top">
           <div class="about-project-name">
             <span class="proj-idx">02</span>
+            <span>面向粗糙/光滑壁面的双模态飞行栖息攀爬机器人研究（空中机器人课题组在研核心任务 · 样机实测中）</span>
+          </div>
+          <div class="about-project-links">
+            <span class="proj-status-tag" style="background: rgba(99, 102, 241, 0.1); color: #6366f1; font-family: var(--font-mono); font-size: 11px; padding: 2px 8px; border-radius: 4px;">课题组在研</span>
+            <a href="../knowledge/scamp-climbing.html" class="about-project-link">样机与实验复盘 →</a>
+          </div>
+        </div>
+        <p class="about-project-desc">
+          <strong>微型四旋翼壁面栖息机构与力学验证（2026年至今）</strong>：<br>
+          1. <strong>两阶段技术路线</strong>：确立<strong>「先双模态可靠栖息 (Perching)，后壁面步态攀爬 (Climbing)」</strong>的渐进研发路线，依托 Crazyflie 2.1 Brushless 微型飞行平台（载荷预算 &le; 40g，单足 1~3g，双足及驱动 &lt; 15g）；<br>
+          2. <strong>0.2 mm 65Mn 双稳态薄板机理</strong>：利用预压缩薄板的非线性 snap-through 屈曲跃迁，通过空间构型翻转隔离两种异质附着介质——Mode 1 粗糙面鱼钩微刺机械互锁（断电默认态），Mode 2 光滑面被动硅胶吸盘 / 各向异性干黏附；<br>
+          3. <strong>SMA 脉冲杠杆驱动</strong>：采用 SMA 形状记忆合金短电脉冲热致收缩 + 碳纤维杠杆拉动薄板越过能垒，翻转后断电由双稳态弹性<strong>零功耗机械自保持 (Zero-power latching)</strong>；低频状态预选，彻底解耦 SMA 冷却慢与连续动态步态；<br>
+          4. <strong>实物实测进展</strong>：完成夹具 1.0~5.0 的 SolidWorks 参数化迭代；首版 3D 打印夹具<strong>实物证实 0.2 mm 锰钢薄板双稳态现象</strong>；实测<strong>验证 SMA 脉冲拉力成功驱动薄板跨越能垒翻转</strong>；完成 `PassiveSuctionCupMoldV1~V4` 模具重构，实录并复盘了 V1 样件按压回弹漏气失效机理。
+        </p>
+        <div class="project-tech-tags">
+          <span class="tech-tag">课题组在研</span>
+          <span class="tech-tag">先栖息后攀爬</span>
+          <span class="tech-tag">0.2mm锰钢双稳态</span>
+          <span class="tech-tag">SMA脉冲翻转</span>
+          <span class="tech-tag">鱼钩微刺</span>
+          <span class="tech-tag">被动吸盘V1-V4</span>
+          <span class="tech-tag">夹具5.0实测</span>
+        </div>
+      </div>
+
+      <!-- 真实项目 3: 华米基金申请 -->
+      <div class="about-project-card">
+        <div class="about-project-top">
+          <div class="about-project-name">
+            <span class="proj-idx">03</span>
             <span>博士课题组科研项目申报 · 华米基金（获 10 万元研发支持额度）</span>
           </div>
           <div class="about-project-links">
@@ -171,11 +203,11 @@
         </div>
       </div>
 
-      <!-- 真实项目 3: Abaqus 有限元仿真与参数化 -->
+      <!-- 真实项目 4: Abaqus 有限元仿真与参数化 -->
       <div class="about-project-card">
         <div class="about-project-top">
           <div class="about-project-name">
-            <span class="proj-idx">03</span>
+            <span class="proj-idx">04</span>
             <span>Abaqus 有限元仿真 · cohesive 黏附力单元受力分析与自动化批处理（2026寒假）</span>
           </div>
           <div class="about-project-links">
@@ -195,11 +227,11 @@
         </div>
       </div>
 
-      <!-- 真实项目 4: 专利撰写 -->
+      <!-- 真实项目 5: 专利撰写 -->
       <div class="about-project-card">
         <div class="about-project-top">
           <div class="about-project-name">
-            <span class="proj-idx">04</span>
+            <span class="proj-idx">05</span>
             <span>发明专利撰写 · 协助小导师完成机器人领域专利申报（2026暑假 · 审查申请中）</span>
           </div>
           <div class="about-project-links">
@@ -218,11 +250,11 @@
         </div>
       </div>
 
-      <!-- 真实项目 5: 学术论文精读库 (13篇) -->
+      <!-- 真实项目 6: 学术论文精读库 (13篇) -->
       <div class="about-project-card">
         <div class="about-project-top">
           <div class="about-project-name">
-            <span class="proj-idx">05</span>
+            <span class="proj-idx">06</span>
             <span>仿生攀爬与接触力学 · 学术论文精读全集 (13 篇)</span>
           </div>
           <div class="about-project-links">
@@ -231,22 +263,22 @@
         </div>
         <p class="about-project-desc">
           <strong>学术文献深度精读与归档</strong>：<br>
-          系统梳理了 13 篇仿生机器人顶级文献：包括 Stanford Cutkosky 团队 Asbeck2006（微刺接触力学）、Hawkes2015（干黏附 Anp 压低）、Pope2017（SCAMP 飞行攀爬）；中科院沈阳自动化所 Fang2026（微重力双模夹爪）；以及中科大董二宝老师团队发表于 IEEE T-RO 的系列软体微刺夹爪成果，并针对微型飞行器质量预算构想了双稳态薄板两模式足端方案。
+          系统梳理了 13 篇仿生机器人顶级文献：包括 Stanford Cutkosky 团队 Asbeck2006（微刺接触力学）、Hawkes2015（干黏附 Anp 压低）、Pope2017（SCAMP 飞行攀爬）；中科院沈阳自动化所 Fang2026（微重力双模夹爪）；以及中科大董二宝老师团队发表于 IEEE T-RO 的系列软体微刺夹爪成果，全面提炼微观接触力学理论与宏观机构演进脉络。
         </p>
         <div class="project-tech-tags">
           <span class="tech-tag">13篇精读</span>
           <span class="tech-tag">IEEE T-RO / IJRR</span>
           <span class="tech-tag">微刺接触力学</span>
           <span class="tech-tag">干黏附脱附</span>
-          <span class="tech-tag">双稳态足端构想</span>
+          <span class="tech-tag">文献精读库</span>
         </div>
       </div>
 
-      <!-- 真实项目 6: 课程讲义 -->
+      <!-- 真实项目 7: 课程讲义 -->
       <div class="about-project-card">
         <div class="about-project-top">
           <div class="about-project-name">
-            <span class="proj-idx">06</span>
+            <span class="proj-idx">07</span>
             <span>USTC 机器人工程核心课程自学与题型讲义体系</span>
           </div>
           <div class="about-project-links">

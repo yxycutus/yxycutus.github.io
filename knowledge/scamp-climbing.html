@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SCAMP 式飞行攀爬机器人与双模态足端方案构想 — Cutus</title>
+  <title>面向粗糙/光滑壁面的双模态飞行栖息攀爬机器人研究 — 原理样机与实验复盘 — Cutus</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../assets/style.css">
@@ -38,94 +38,192 @@
     <span>/</span>
     <a href="index.html">知识库</a>
     <span>/</span>
-    <span>攀爬机器人方案构想</span>
+    <span>双模态飞行栖息攀爬机器人</span>
   </div>
 
   <article>
     <header class="article-header">
       <div class="article-badge">
-        <span>RESEARCH CONCEPT · 文献研读与方案构想</span>
+        <span>PROJECT IN PROGRESS · 原理样机迭代与实验验证</span>
       </div>
-      <h1 class="article-title">SCAMP 式飞行攀爬机器人与双模态双稳态足端方案构想</h1>
+      <h1 class="article-title">面向粗糙/光滑壁面的双模态飞行栖息攀爬机器人研究</h1>
       <div class="article-meta-row">
-        <span class="article-meta-item">📝 阶段：文献调研与初步机构构想</span>
-        <span class="article-meta-item">🎯 目标平台：Crazyflie 2.1 无刷版量级</span>
-        <span class="article-meta-item">📅 整理时间：2026 年</span>
+        <span class="article-meta-item">🏛️ 课题归属：中国科大人形机器人研究院 · 空中机器人课题组</span>
+        <span class="article-meta-item">🎯 核心战略：先栖息 (Perching) 后攀爬 (Climbing)</span>
+        <span class="article-meta-item">🔬 当前进展：夹具 1.0~5.0 迭代 · 0.2mm锰钢双稳态与SMA翻转实物证实</span>
       </div>
     </header>
 
     <div class="article-content">
       <div class="article-callout">
-        <p><strong>写在前面</strong>：本项目属于<strong>学术文献深度精读后的机构方案设计与概念验证尝试</strong>。飞行平台直接参考 Stanford 经典的 SCAMP 路线，核心构想聚焦于如何在极严格的质量预算（10-15g）下，通过双稳态薄板与 SMA 脉冲驱动，实现粗糙表面微刺与光滑表面干黏附的两模式高效切换与断电自保持。</p>
+        <p><strong>工程定位与研究概述</strong>：本项目为本人在<strong>中国科大人形机器人研究院 · 空中机器人课题组</strong>开展的在研科研任务。针对微型四旋翼垂直壁面附着难题，探索<strong>「0.2 mm 65Mn 预压缩薄板 snap-through 双稳态足端机构」</strong>，通过空间构型翻转隔离<strong>粗糙硬壁面（鱼钩微刺机械互锁）</strong>与<strong>光滑硬壁面（被动硅胶吸盘 / 柔性干黏附）</strong>。采用 <strong>SMA 脉冲热致收缩</strong>实现微秒级低频触发翻转与断电零功耗自保持，并严格贯彻<strong>「先双模态可靠栖息，后壁面步态攀爬」</strong>的渐进式研发路线。</p>
       </div>
 
-      <h2>一、 核心构想：双稳态薄板足端</h2>
-
-      <div class="article-pre">
-Mode 1（粗糙表面）             Mode 2（光滑表面）
-      )  形                        (  形
- 两端朝向墙面                  中段朝向墙面
-微刺/勾爪咬合粗糙凸点          柔性干黏附垫贴合光滑表面
-      </div>
-
-      <h3>Mode 1（")" 形 · 粗糙面微刺）</h3>
-      <ul>
-        <li>薄板两端向墙面凸出，端部集成小尺寸微刺阵列；</li>
-        <li>靠微刺与粗糙表面凸起（asperities）发生机械互锁挂住，无需持续消耗电机法向预压力；</li>
-        <li>具备剪切敏感特性：向下受剪切载荷时牢牢咬合，反向卸载后轻松松开脱附；</li>
-        <li>设为默认初始稳态，撞墙接触时更抗冲击。</li>
-      </ul>
-
-      <h3>Mode 2（"(" 形 · 光滑面干黏附）</h3>
-      <ul>
-        <li>薄板中段向墙凸起，内侧贴附柔性干黏附垫（早期可用 PDMS/PU 膜验证）；</li>
-        <li>黏附垫上部充分贴合墙面，下端随薄板曲率自然保留弯曲弧度，形成天然的<strong>应力集中起剥点</strong>；</li>
-        <li>攀爬臂向上抬起时，从下端应力集中处发起剥离波，实现快速低阻力脱附。</li>
-      </ul>
-
-      <h3>模式切换机制 (SMA 脉冲驱动)</h3>
+      <h2>一、 核心战略：为什么坚持「先栖息，后攀爬」？</h2>
       <p>
-        采用 <strong>SMA 形状记忆合金丝</strong>：通电毫秒级脉冲引发热致收缩，克服薄板 snap-through 跳跃翻转能垒进入另一稳态，随后立即断电。切换后由薄板弹性自保持，彻底避免了 SMA 响应慢和持续发热对攀爬速度回路的影响。
+        在垂直壁面仿生机器人领域，斯坦福 SCAMP 等开创性工作证明了微型飞行器在壁面移动的可行性。然而，攀爬任务本质上需要连续交替倒脚与高频动态步态协调；如果微型飞行器在<strong>飞抵壁面的瞬间无法实现高容错、零功耗、抗冲击的可靠栖息（Perch & Stare）</strong>，后续的高频攀爬就失去了立足基础。
+      </p>
+      <p>因此，课题确立了清晰的<strong>两阶段研发路线图（Two-Stage Roadmap）</strong>：</p>
+      <ul>
+        <li>
+          <strong>阶段一（当前核心突破口 · 飞行栖息 Perching）</strong>：
+          在空中飞行接近壁面前，通过传感器感知或预设指令完成足端双稳态构型预选；利用微型四旋翼以特定俯仰角撞击壁面的瞬时法向冲击能量，压实足端被动吸盘排气，或使鱼钩微刺自锁咬入粗糙面，实现无能耗稳固栖停；
+        </li>
+        <li>
+          <strong>阶段二（后续延伸演进 · 壁面攀爬 Climbing）</strong>：
+          在阶段一双模态足端完全定型且完成静态挂墙载荷测试后，将双稳态足端尺寸与质量进一步压缩（单足 1~3g），集成至仿生双摇臂，开展 SCAMP 式两侧交替步态攀爬控制。
+        </li>
+      </ul>
+
+      <h2>二、 系统架构与工程预算指标</h2>
+      <p>
+        由于整机需要在微型四旋翼平台上完成起降，所有机构设计均受到严酷的质量与功耗边界约束：
       </p>
 
-      <h2>二、 已定工程约束与设计边界</h2>
       <table class="article-table">
         <thead>
           <tr>
-            <th>约束项</th>
-            <th>指标预算</th>
-            <th>设计依据</th>
+            <th>系统分系统</th>
+            <th>技术选型 / 指标预算</th>
+            <th>工程物理依据与功能划分</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>飞行平台</td>
-            <td>Crazyflie 2.1 Brushless</td>
-            <td>裸机 ~32g，推荐有效载荷预算 ~40g 内</td>
+            <td><strong>飞行载体平台</strong></td>
+            <td>Crazyflie 2.1 Brushless (量级)</td>
+            <td>裸机自重约 32g，电机对角距 ~100mm，有效任务载荷预算 &le; 40g。仅负责机动接近、撞墙提供初始法向冲击及失附姿态恢复，非主要机构创新点。</td>
           </tr>
           <tr>
-            <td>足端与驱动质量</td>
-            <td>单足端 1-3g，双足+驱动 &lt; 15g</td>
-            <td>保证微型四旋翼有足够的起飞与机动推重比</td>
+            <td><strong>足端机构总重</strong></td>
+            <td>单足端 1 ~ 3 g，双足+驱动 &lt; 15 g</td>
+            <td>极度轻量化设计，确保微型四旋翼系统保留足够的起飞推重比（TWR &gt; 1.3）。</td>
           </tr>
           <tr>
-            <td>攀爬臂尺寸</td>
-            <td>单臂 35-55 mm</td>
-            <td>SCAMP 式两侧攀爬臂，先做单侧实验台架测试</td>
+            <td><strong>工作功耗模式</strong></td>
+            <td>稳态栖息 0 功耗 (Zero-power latching)</td>
+            <td>利用双稳态薄板的机械弹性自锁保持，杜绝持续通电发热与电池消耗；仅在构型翻转瞬时产生脉冲能耗。</td>
           </tr>
           <tr>
-            <td>验证表面</td>
-            <td>粗糙：80/100目砂纸与混凝土；光滑：玻璃/亚克力</td>
-            <td>高反差对照测试微刺与干黏附性能边界</td>
+            <td><strong>目标测试壁面</strong></td>
+            <td>粗糙面：混凝土 / 砖墙 / 80~100目砂纸<br>光滑面：玻璃 / 亚克力板 / 光滑铝板</td>
+            <td>建立极端反差的标准实验测试基质，定量标定鱼钩微刺机械互锁与硅胶被动吸盘的附着脱附力学曲线。</td>
           </tr>
         </tbody>
       </table>
 
-      <h2>三、 当前面临的主要技术挑战与后续规划</h2>
+      <h2>三、 核心机构机理：0.2 mm 65Mn 双稳态薄板 (Snap-Through)</h2>
+      <p>
+        传统的模式切换机构多采用微型舵机或微电机减速箱，自重通常超过 5~10g，且齿轮在撞墙冲击下极易崩齿。
+        本项目选用<strong>非线性屈曲薄板（Buckled Thin Plate）的双稳态特性</strong>作为核心承载骨架：
+      </p>
+
+      <div class="article-pre">
+[ 稳态 1 · 粗糙表面 (Mode 1) ]             [ 稳态 2 · 光滑表面 (Mode 2) ]
+        ) 形态 (默认断电常闭态)                        ( 形态 (翻转自保持态)
+      两端朝向壁面                                  中段朝向壁面
+  端部鱼钩/微刺嵌入粗糙凸起                    被动吸盘 / 各向异性干黏附压实贴合
+──────────────────────────────              ──────────────────────────────
+壁面 (混凝土 / 砖墙 / 砂纸)                  壁面 (玻璃 / 亚克力 / 金属)
+      </div>
+
+      <h3>1. 材质与力学参数基准</h3>
+      <ul>
+        <li><strong>基准材质</strong>：选用 <strong>0.2 mm 65Mn 弹簧钢薄板（锰钢薄板）</strong>，具备极高屈服极限与优良疲劳弹性模量；</li>
+        <li><strong>屈曲成形机制</strong>：通过参数化夹具对薄板施加沿轴向的预压缩量 $\Delta L$，使其产生一阶欧拉屈曲变形；</li>
+        <li><strong>能量势阱与 Snap-Through 翻转</strong>：薄板存在两个对称的弹性应变能局部极小值（稳定构型），中间由一个能量鞍点（Snap-Through 能垒）隔开。当外力越过能垒临界点后，薄板会以极高速度瞬间跳跃（Snap）至另一构型。</li>
+      </ul>
+
+      <h2>四、 两种异质壁面附着介质的物理隔离</h2>
+
+      <h3>1. Mode 1：粗糙硬表面 · 鱼钩微刺原型 (Spines / Fishhook Prototype)</h3>
+      <ul>
+        <li><strong>接触机理</strong>：利用微刺与粗糙壁面微观凹凸不平（Asperities）之间的几何互锁（Mechanical Interlocking）；</li>
+        <li><strong>剪切自锁与脱附</strong>：微刺针尖与受力悬臂呈特定后掠角，在机身自身重力引起的向下剪切力拉拽下自发咬死（Shear-activated latching）；飞行器向上推力卸载剪切力后，微刺自然脱开脱附；</li>
+        <li><strong>当前选型</strong>：已选取轻量化高硬度鱼钩原型作为早期接触实验件，进行端部刚性装夹与极限挂重测试。</li>
+      </ul>
+
+      <h3>2. Mode 2：光滑硬表面 · 被动硅胶吸盘 (Passive Suction Cup) 与干黏附</h3>
+      <p>
+        对于光滑表面（如室内玻璃窗、金属柜体），微刺完全失效。针对此工况，课题采取<strong>主次分明的双线攻关</strong>：
+      </p>
+      <ul>
+        <li>
+          <strong>主攻主线：被动硅胶吸盘（零气泵、靠撞墙排气负压）</strong>
+          <br>
+          在严格质量约束下，严禁引入主动微型真空泵与电磁换向阀。吸盘依靠四旋翼撞墙的法向动能瞬间受压形变，将腔体内空气挤出；回弹时形成负压真空密封圈；脱附则通过杠杆或摆动微小翘边（Peeling/Venting）快速破封。
+        </li>
+        <li>
+          <strong>模具设计与实验复盘（PassiveSuctionCupMold V1 ~ V4）</strong>：
+          <br>
+          采用 3D 打印树脂模具浇注高强度铂金硅胶（<strong>Smooth-On Dragon Skin 10</strong> / <strong>Ecoflex 00-50</strong>）。在 V1 试制测试中，<strong>实录了吸盘由于自身截面刚度过大、按压后强行回弹导致边缘封唇翘起漏气的失效现象</strong>。为此，重新优化了吸盘锥度角与唇边壁厚分布，完成 V3/V4 分体压模与倒扣脱模结构重构，大幅降低了初始贴合阻力并提升了保压时间。
+        </li>
+        <li>
+          <strong>备选与长期演进：柔性干黏附垫 (Hawkes 2015 各向异性干黏附)</strong>
+          <br>
+          利用微米级微结构范德华力实现贴合。薄板翻转后呈现微弯曲率，在干黏附垫下边缘自然留出起剥弯曲角，向上微小提拉即可诱发剥离裂纹传播，规避传统干黏附脱附阻力过大（Anp 抑制）的难题。
+        </li>
+      </ul>
+
+      <h2>五、 驱动与切换：SMA 短脉冲杠杆机构</h2>
+
+      <div class="article-callout">
+        <p><strong>学术与工程澄清：SMA 的正确使用范式</strong><br>
+        常规认识常诟病 SMA（形状记忆合金）响应慢、冷却降温需要数秒，因而认为其无法用于高频步态控制。<strong>本方案彻底推翻了这一误区</strong>：SMA 在本项目中<strong>绝不参与攀爬或步态的高频速度闭环</strong>，而仅在接触壁面前根据机载传感器对墙体材质的识别，执行<strong>空中单次预切换</strong>！</p>
+      </div>
+
+      <ul>
+        <li><strong>驱动工作流</strong>：驱动电路输出毫秒级短电脉冲（SMA Pulse），SMA 丝急剧欧姆发热产生奥氏体相变并强力收缩（收缩行程约 3%~5%）；</li>
+        <li><strong>力与行程放大</strong>：通过碳纤维微型轻质连杆将 SMA 的短行程大拉力转化为足够的侧向推动力，推压 65Mn 薄板使其一举越过 snap-through 能垒；</li>
+        <li><strong>脉冲后断电</strong>：越过能垒后薄板自动弹入第二稳态，驱动电路<strong>立即切断电流</strong>，降温冷却在稳态中被动完成；形态与法向预紧力由薄板弹性应变能<strong>100% 零功耗机械自保持</strong>。</li>
+      </ul>
+
+      <h2>六、 原理样机迭代与实物实测进展</h2>
+      <p>
+        拒绝停留在纯 CAD 渲染与理论推导，课题自 2026 年夏季以来持续推进物理样机迭代与实测验证：
+      </p>
+
+      <h3>1. 夹具 SolidWorks/3MF 参数化迭代（夹具 1.0 &rarr; 夹具 5.0）</h3>
+      <ul>
+        <li><strong>夹具 1.0 ~ 2.0</strong>：初步验证薄板装夹方式，发现端部自由度过紧导致薄板在压缩下容易扭转失稳（S 形屈曲而非一阶 U 形屈曲）；</li>
+        <li><strong>夹具 3.0 ~ 4.0</strong>：引入精密线轨与预压缩量调节滑槽，优化两端铰支约束，使 snap-through 能垒高度可量化调节；</li>
+        <li><strong>夹具 5.0（当前版本）</strong>：集成 SMA 丝张紧螺栓、碳纤维推力杠杆支点与模块化足端接口，实现夹具整体刚性与轻量化的平衡。</li>
+      </ul>
+
+      <h3>2. 实物实测成果（扎实验证）</h3>
+      <ul>
+        <li>
+          <strong>实测证实 1：0.2 mm 65Mn 预压缩薄板双稳态跳跃</strong><br>
+          利用 3D 打印夹具实装 0.2 mm 锰钢薄板，实物证实薄板在特定预压缩量下展现出极其清脆、可靠的双稳态 Snap-Through 翻转特性，两稳态外形完全对称且自锁刚度满足设计预期；
+        </li>
+        <li>
+          <strong>实测证实 2：SMA 脉冲热致拉力驱动薄板翻转闭环</strong><br>
+          实测接入驱动电路并触发毫秒级脉冲，SMA 产生的瞬态拉力经连杆成功拉动 0.2 mm 锰钢薄板跨越能垒翻转至另一稳态，断电后薄板稳固维持，验证了「微秒脉冲触发 + 零功耗弹性自锁」的物理可行性；
+        </li>
+        <li>
+          <strong>实测证实 3：被动吸盘模具与试制失效复盘</strong><br>
+          完成 `PassiveSuctionCupMoldV1~V4` 模具制作，记录了 V1 样件由于硅胶回弹与边缘脱封导致的漏气现象，为后续低刚度唇边结构与 V4 分体压模重构奠定了第一手实验依据。
+        </li>
+      </ul>
+
+      <h2>七、 当前卡点瓶颈与下一阶段桌面台架计划</h2>
       <ol>
-        <li><strong>SMA 行程与薄板翻转能垒匹配</strong>：确保极短 SMA 收缩行程足以越过 snap-through 临界点；</li>
-        <li><strong>非优选方向脱附阻力 Anp 抑制</strong>：防止摆动足反向拖拽时黏附垫拖滞墙面导致掉落；</li>
-        <li><strong>下一步实验计划</strong>：先不盲目飞真机，优先在实验室搭设垂直双材料测试导轨，对双稳态足端进行静态加载、动态翻转及力传感器阶跃响应测试。</li>
+        <li>
+          <strong>双向对称翻转机构闭环</strong>：
+          目前已验证单向翻转，正攻关双向往复翻转执行（例如对置双 SMA 丝交替触发或单 SMA 配合自复位偏置弹簧），杜绝薄板停留在中间鞍点亚稳态；
+        </li>
+        <li>
+          <strong>定量力—位移曲线实验标定</strong>：
+          搭建由步进电机、高精度微型拉压力传感器与高速相机组成的垂直力学测试台架，对薄板厚度（0.15/0.20/0.25mm）、自由跨度（$L$）与预压缩率（$\Delta L/L$）进行系统参数扫描，绘制完整的 snap-through 能垒势能图谱；
+        </li>
+        <li>
+          <strong>静态挂墙栖息与脱附测试</strong>：
+          在标准混凝土面与玻璃面上，分别对足端进行极限法向拉力与切向剪切挂重测试，定量测量微刺断裂/脱开阈值以及被动吸盘静态保压时长；
+        </li>
+        <li>
+          <strong>Crazyflie 2.1 整机撞墙飞行联调</strong>：
+          完成单足与双足桌面台架测试后，将机构装配至 Crazyflie 2.1 Brushless 平台，编写空中冲撞栖息与姿态恢复控制律，完成全系统闭环验证。
+        </li>
       </ol>
     </div>
 
