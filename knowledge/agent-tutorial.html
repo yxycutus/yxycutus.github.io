@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>从小白到 Vibe Coding：现代 AI Agent 选型、避坑与生产力实战全指南 — Cutus 知识库</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../about/index.html">关于我</a></li>
+        <li><a href="index.html" class="active">知识库</a></li>
+        <li><a href="../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../index.html">首页</a>
+    <span>/</span>
+    <a href="index.html">知识库</a>
+    <span>/</span>
+    <span>AI Agent 实践与选型指南</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge">
+        <span>AI & AGENTIC WORKFLOW · 深度长文指南</span>
+      </div>
+      <h1 class="article-title">从小白到 Vibe Coding：现代 AI Agent 选型、避坑与科研工程实践全指南</h1>
+      <div class="article-meta-row">
+        <span class="article-meta-item">👤 作者：Cutus (USTC Robotics)</span>
+        <span class="article-meta-item">📅 实践周期：2025 秋 — 2026 秋</span>
+        <span class="article-meta-item">📖 启发参考：agent-tutorial.cmander02.com</span>
+        <span class="article-meta-item">💡 核心理念：Vibe Coding · Pair Programming</span>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="article-callout">
+        <p><strong>写在前面</strong>：这份教程面向<strong>没有任何系统使用过命令行 Agent 工具的同学</strong>，同时也写给那些希望提升日常科研、有限元仿真与工程开发效率的极客们。内容结合了优质开源教程 <em>agent-tutorial.cmander02.com</em> 的精髓，并融入了我在中科大机器人工程专业学习、加入空中机器人课题组、踩坑封号、自动化 Abaqus 仿真以及搭建本站点的<strong>全部真实经历与血泪教训</strong>。</p>
+      </div>
+
+      <h2>一、 什么是 Agent？与传统网页 AI 的本质区别</h2>
+      <p>
+        许多刚接触大模型的朋友习惯停留在<strong>网页端聊天框</strong>（如网页版豆包、ChatGPT 或 Kimi）：你发一段文字，AI 回复一段文字，然后你复制粘贴代码到编辑器，报错了再截图发回去。这种模式本质上是<strong>单向静态问答 (Static Q&A)</strong>。
+      </p>
+      <p>
+        而 <strong>Agent（智能体）</strong> 则是将大语言模型（LLM）作为“大脑”，结合外部工具系统构建的<strong>自主执行闭环系统</strong>：
+      </p>
+
+      <table class="article-table">
+        <thead>
+          <tr>
+            <th>对比维度</th>
+            <th>传统 Chatbot（对话框）</th>
+            <th>自主 Coding Agent（智能体）</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>定位</strong></td>
+            <td>只动嘴的顾问（Consultant）</td>
+            <td>坐在你身边的结对工程师（Pair Programmer）</td>
+          </tr>
+          <tr>
+            <td><strong>上下文感知</strong></td>
+            <td>只能看你手动粘贴的零散片段</td>
+            <td>自主读取本地整个仓库、跨文件解析依赖</td>
+          </tr>
+          <tr>
+            <td><strong>工具与行动</strong></td>
+            <td>无，仅输出文本建议</td>
+            <td>自带终端 Shell、文件编辑、代码重构、测试工具</td>
+          </tr>
+          <tr>
+            <td><strong>纠错机制</strong></td>
+            <td>需要人类手动复制报错再问</td>
+            <td>自主运行命令、捕获 stderr、阅读报错、自我修改</td>
+          </tr>
+          <tr>
+            <td><strong>协作范式</strong></td>
+            <td>人是执行者，AI 是打字机</td>
+            <td><strong>Vibe Coding</strong>：人是系统架构师，Agent 是超级执行者</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="article-pre">
+# Agent 的底层运转核心循环 (The Agent Loop)
+[ 人类输入目标 (Prompt) ]
+           │
+           ▼
+┌──────────────────────────────────────────────┐
+│  Agent Loop (自主规划循环)                   │
+│                                              │
+│  1. 思考与推理 (Think & Plan)                │
+│  2. 工具调用 (Call Tools: view/edit/command)  │
+│  3. 环境观察 (Observe Result: stdout/stderr) │
+│  4. 验证自省 (Self-Correct & Iterate)        │
+└──────────────────────────────────────────────┘
+           │
+           ▼
+[ 交付完整且经过验证的项目成果 ]
+      </div>
+
+      <h2>二、 Agent 的不同形态与进阶路线</h2>
+      <p>从纯萌新到熟练驾驭，通常会经历三个形态阶段：</p>
+      <ol>
+        <li><strong>形态 1：网页/App 聊天端（启蒙期）</strong>：如大一刚入学时常用的豆包、ChatGPT 免费版。适合初次体验自然语言理解，但受限于沙盒，无法触碰物理文件。</li>
+        <li><strong>形态 2：IDE 插件与代码补全（过渡期）</strong>：如 GitHub Copilot、Cursor。能够基于光标所在代码段进行行级补全或侧边栏问答，适合日常局部微调。</li>
+        <li><strong>形态 3：自主终端 Coding Agent CLI（成熟期）</strong>：如 <strong>OpenAI Codex</strong>、<strong>Claude Code</strong>、<strong>Google Antigravity</strong>。它们直接运行在本地终端环境中，拥有对工作区的绝对掌控力，能自动创建模块、跑测试、打 Git Commit 并持续重构。</li>
+      </ol>
+
+      <h2>三、 主流工具链选型、白嫖与避坑全记录</h2>
+      <p>结合我从大一秋季到大二的真实使用历程，给大家提供一份最接地气的选型建议：</p>
+
+      <h3>1. 高校学生白嫖党：首推 USTC 认证福利 (Qoder)</h3>
+      <p>
+        <strong>Qoder</strong> 是我强烈推荐给科大及国内高校同学的神器。通过 <strong>USTC 中国科大教育/企业身份认证</strong>，可以直接<strong>免费、免翻、不限量</strong>调用国内顶尖大模型（包括智谱 <code>GLM-4</code>、阿里 <code>Qwen-2.5-Max</code> 等）。响应极快，代码补全极其顺手，是零成本入门的绝对主力！
+      </p>
+
+      <h3>2. 极速终端交互：Claude Code + DeepSeek-V4</h3>
+      <p>
+        如果你喜欢纯粹、极简且极速的终端命令行（CLI）交互，<strong>Claude Code</strong> 拥有工业级的终端交互设计。更妙的是，可以通过 API 路由将其<strong>底层接入 DeepSeek-V4</strong>：<br>
+        既能享受 Claude Code 优秀的任务调度与代码抓取架构，又能利用 DeepSeek-V4 强大震撼的数理推理逻辑与超低的 token 资费，完全不用担心网络封号问题。
+      </p>
+
+      <h3>3. 商业级顶流：ChatGPT Plus 与 Gemini</h3>
+      <ul>
+        <li><strong>ChatGPT Plus (GPT-4o / o1)</strong>：进入实验室后我第一时间开通了 Plus。在专业英语学术论文翻译、复杂数理公式推导（LaTeX）、以及日常 Python 算法构思上表现极其稳定可靠；</li>
+        <li><strong>Gemini 生态</strong>：大一秋末我拿到了人生第一个 Google 账号，Gemini 最大的杀手锏是其<strong>数百万 tokens 的超大上下文窗口</strong>。你可以一次性把十几篇 PDF 论文或整个几十兆的代码包扔给它，它依然能做到毫厘不爽的精准检索。</li>
+      </ul>
+
+      <h3>4. ⚠️ 血泪避坑教训：Claude Pro 封号事件</h3>
+      <div class="article-callout" style="border-left-color: #ef4444; background: rgba(239, 68, 68, 0.05);">
+        <p><strong>真实踩坑经历</strong>：大一春季我为了体验 Claude 顶级的架构思维，充值了 Claude Pro。它的逻辑和写长代码体验确实惊艳，然而<strong>仅仅过了不到两个月，账号就直接遭遇官方风控永久封停</strong>！</p>
+        <p><strong>原因复盘</strong>：Anthropic 对大陆地区的 IP 漂移、海外代理节点以及非原生海外信用卡账单具有极其严苛的自动化风控检测机制。对于国内普通同学，<strong>极不建议冒险充值网页版 Claude Pro 订阅</strong>，建议选用官方控制台 API Key 结合代理、或者使用 DeepSeek / Qoder 等稳定合规方案。</p>
+      </div>
+
+      <h3>5. 终极工程实战助理：Google Antigravity (AGY)</h3>
+      <p>
+        本项目（包括你现在看到的 Cutus 个人主页与全量知识库）即完全由我与 <strong>Antigravity (搭载 Gemini 3.8 Flash)</strong> 结对共同构建！它具备跨文件静态检索、子智能体调度（Subagents）、标准化技能扩展（Skills）、实时命令执行与 Git 自动部署能力，堪称目前最具 agentic 范式的辅助开发工具。
+      </p>
+
+      <h2>四、 进阶心法：如何真正玩转 Vibe Coding？</h2>
+
+      <h3>1. 优秀 Prompt 的结构模板</h3>
+      <p>永远不要给 Agent 抛出“帮我写个爬虫”这种空泛的指令。一个高效的 Prompt 应遵循<strong>四要素原则</strong>：</p>
+      <ul>
+        <li><strong>角色与目标 (Role & Goal)</strong>：说明要做什么具体功能；</li>
+        <li><strong>上下文与范围 (Scope & Context)</strong>：指定具体操作哪些文件、避免修改哪些文件；</li>
+        <li><strong>技术约束 (Constraints)</strong>：指定所用库、性能指标、必须保留的注释与命名规范；</li>
+        <li><strong>验收标准 (Acceptance Criteria)</strong>：如何证明代码成功（例如运行某条测试命令输出特定结果）。</li>
+      </ul>
+
+      <h3>2. 规避“上下文污染” (Context Bloat)</h3>
+      <p>
+        随着与 Agent 交互时间变长，聊天历史中充斥着大量的终端编译输出、临时日志和无关文件。当 Token 数量超过一定阈值，Agent 的注意力机制会被稀释，开始出现“幻觉”或忘记前面的约定。
+      </p>
+      <p><strong>实用秘诀</strong>：在项目根目录配置良好的 <code>.gitignore</code>；在大动作重构前，适时启动全新会话；多让 Agent 自己使用小巧的 <code>grep</code> 或 <code>find</code> 检索，而不是把几十万行日志全倒进提示词。
+      </p>
+
+      <h3>3. 核心机制解密：Skill、MCP 与 Subagent</h3>
+      <ul>
+        <li><strong>Skill（技能系统）</strong>：将某类特定工作流沉淀为一套结构化指令（如文献消化 Skill、Git 工作流 Skill），Agent 在遇到相关任务时会自动调用；</li>
+        <li><strong>MCP (Model Context Protocol)</strong>：Anthropic 推出的标准化协议，用于打通模型与外部数据库、Slack、GitHub、本地文件的安全双向连接；</li>
+        <li><strong>Subagent（子智能体分工）</strong>：主智能体扮演 Project Manager，将大量费时费 Token 的信息搜集交给只读的 Research Subagent，汇总后再由主 Agent 决策。</li>
+      </ul>
+
+      <h2>五、 两个真实科研工程案例落地</h2>
+
+      <h3>案例 1：Abaqus cohesive 单元黏聚力有限元仿真参数化批处理</h3>
+      <p>
+        在大一寒假的课题组任务中，需要分析不同法向刚度 Kn、剪切刚度 Ks 及断裂能 Gc 对接触面微脱附阻力的影响。如果手动在 Abaqus/CAE 窗口点选几十次几乎是噩梦。
+      </p>
+      <p>
+        <strong>我的做法</strong>：将 Abaqus 脚本接口文档与 <code>.inp</code> 模版提供给 <strong>Codex</strong>，让其编写参数化驱动脚本：
+      </p>
+      <div class="article-pre">
+# 通过 Codex 辅助生成的 Abaqus Python 批处理核心逻辑
+from abaqus import *
+from abaqusConstants import *
+
+kn_values = [1e4, 5e4, 1e5, 5e5]
+gc_values = [5.0, 10.0, 20.0]
+
+for kn in kn_values:
+    for gc in gc_values:
+        job_name = f'Cohesive_Kn_{int(kn)}_Gc_{int(gc)}'
+        # 参数化赋予材料属性与 cohesive traction-separation 本构
+        mdb.models['Model-1'].materials['CohesiveMat'].Elastic(
+            table=((kn, kn, kn), ), type=TRACTION)
+        mdb.models['Model-1'].materials['CohesiveMat'].QuadsDamageInitiation(
+            table=((1.0e6, 1.0e6, 1.0e6), ))
+        # 自动化提交并轮询等待
+        mdb.Job(name=job_name, model='Model-1').submit()
+        mdb.jobs[job_name].waitForCompletion()
+        print(f'Job {job_name} finished successfully.')
+      </div>
+      <p>结合 Agent，我仅用了不到一个下午就跑通了以往需要数天的人工建模与批处理流程，后处理应力曲线绘制也完全自动化。</p>
+
+      <h3>案例 2：Antigravity 驱动的全自动站点与 13 篇论文库运维</h3>
+      <p>
+        你所浏览的整个 Cutus 站点，从科大蓝设计语言落地、暗色模式切换、13 篇 Stanford/沈自所/中科大前沿文献精读的高清排版渲染，到即时搜索工具栏，全部是我与 Antigravity 在终端中完成的。我负责把握学术内核、结构机理与真实经历，Antigravity 负责精准的代码编写、静态链接校验与 Git 分支推送，真正实现了人机合一的 <strong>Vibe Coding</strong>。
+      </p>
+
+      <h2>六、 常见萌新疑问 (FAQ)</h2>
+      <ol>
+        <li><strong>问：我几乎没有代码基础，能用这些工具吗？</strong><br>答：完全可以。现代 Agent 的本质是“自然语言翻译器”，你越能用清晰、严密的人类语言把物理世界的问题描述清楚，Agent 给出的代码质量就越高。甚至在写代码的过程中，它就是你最好的私人家教。</li>
+        <li><strong>问：Agent 会不会失控误删我的电脑文件？</strong><br>答：合格的 Agent 工具（如 Antigravity、Claude Code）在执行敏感危险命令（如 rm -rf、覆盖关键系统配置）前都会向用户请求授权。此外，永远将项目放在 Git 版本控制之下，就算有误改也能一秒 git restore。</li>
+        <li><strong>问：国内网络环境到底该如何优雅上手？</strong><br>答：高校同学直接使用 <strong>Qoder (科大企业认证)</strong>；进阶用户推荐购买官方 API Key 搭配 Claude Code 接入 DeepSeek-V4，既安全、便宜，又彻底免疫封号。</li>
+      </ol>
+
+      <h2>七、 结语</h2>
+      <p>
+        从大一入学时好奇地在豆包里提问，到如今熟练使用 Codex、Antigravity、Claude Code 与 Qoder 协同完成科研仿真、项目落地与学术网站构建，AI 工具并没有取代我的思考，反而让我能从繁琐琐碎的语法细节中解放出来，将更多心力投入到<strong>力学物理本质、机构巧妙构想与真实工程闭环</strong>中。
+      </p>
+      <p>
+        这就是 Vibe Coding 的魅力：<strong>心念所至，工程立成</strong>。希望这份教程能为你打开新世界的大门！
+      </p>
+    </div>
+
+    <div class="article-back-nav">
+      <a href="index.html" class="btn btn-secondary">← 返回知识库列表</a>
+      <a href="aloha-mini.html" class="btn btn-secondary">阅读 Aloha Mini 项目复盘 →</a>
+      <a href="papers/index.html" class="btn btn-primary">📚 查看论文阅读精读库 (13篇) →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程</span>
+    </div>
+    <div class="footer-credit">
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+    </div>
+    <div class="footer-links">
+      <a href="../about/index.html">关于我</a>
+      <a href="../knowledge/index.html">知识库</a>
+      <a href="../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>

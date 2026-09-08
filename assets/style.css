@@ -792,6 +792,171 @@ a {
 }
 
 /* ============================================================
+   AI Journey & Hobbies Cards (About Page)
+   ============================================================ */
+.ai-journey-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.ai-journey-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  transition: all 0.2s ease;
+}
+
+.ai-journey-step:hover {
+  border-color: var(--ustc-blue);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.ai-journey-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  background: var(--ustc-blue-light);
+  color: var(--ustc-blue);
+  border: 1px solid color-mix(in srgb, var(--ustc-blue) 30%, transparent);
+}
+
+.ai-journey-badge.warn {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.ai-journey-badge.success {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.ai-journey-content {
+  flex: 1;
+}
+
+.ai-journey-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.ai-journey-desc {
+  font-size: 13.5px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.toolchain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.toolchain-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  transition: all 0.2s ease;
+}
+
+.toolchain-card:hover {
+  border-color: var(--ustc-blue);
+  box-shadow: var(--shadow-sm);
+}
+
+.toolchain-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.toolchain-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.toolchain-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--ustc-blue-subtle);
+  color: var(--ustc-blue);
+  font-weight: 600;
+}
+
+.toolchain-desc {
+  font-size: 13px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.hobbies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.hobby-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  transition: all 0.2s ease;
+}
+
+.hobby-card:hover {
+  border-color: var(--ustc-blue);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
+}
+
+.hobby-icon-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.hobby-emoji {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.hobby-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.hobby-desc {
+  font-size: 13.5px;
+  color: var(--ink-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ============================================================
    Responsive Design
    ============================================================ */
 @media (max-width: 960px) {
