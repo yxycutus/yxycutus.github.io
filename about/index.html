@@ -17,7 +17,7 @@
 <nav class="navbar">
   <div class="nav-container">
     <a class="nav-brand" href="../index.html">
-      <div class="brand-badge">C</div>
+      <img src="../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar">
       <span class="brand-title">Cutus</span>
       <span class="brand-tag">USTC 机器人</span>
     </a>
@@ -36,14 +36,18 @@
 
   <!-- Header -->
   <header class="about-header">
-    <div class="hero-pill-badge" style="margin-bottom: 12px;">
-      <span class="status-ping"></span>
-      <span>PROFILE & BACKGROUND</span>
+    <div style="display: flex; align-items: center; gap: 22px; margin-bottom: 20px; flex-wrap: wrap;">
+      <img src="../assets/avatar.jpg" alt="Cutus" style="width: 84px; height: 84px; border-radius: 18px; object-fit: cover; border: 2.5px solid color-mix(in srgb, var(--ustc-blue) 40%, transparent); box-shadow: var(--shadow-md); flex-shrink: 0;">
+      <div>
+        <div class="hero-pill-badge" style="margin-bottom: 8px;">
+          <span class="status-ping"></span>
+          <span>PROFILE &amp; BACKGROUND</span>
+        </div>
+        <h1 class="about-intro-title" style="margin-bottom: 0;">关于我 (About Cutus)</h1>
+      </div>
     </div>
-    <h1 class="about-intro-title">关于我 (About Cutus)</h1>
     <p class="about-lede">
-      你好！我是 Cutus，中国科学技术大学 2025 级机器人工程本科生。2025 年 12 月加入<strong>中国科大人形机器人研究院 · 空中机器人课题组</strong>。追求严谨数理机理与扎实工程落地的结合：大一寒假开展 <strong>Abaqus cohesive 单元黏附力有限元仿真</strong>并借助 Codex + Python 实现批量参数化仿真；大一春季深度参与校企合作 <strong>Aloha Mini 开源双臂机器人</strong>调测（完成遥操作与视觉特定物体抓取放置闭环），并参与博士课题组<strong>华米基金申请斩获 10 万元研发支持</strong>；大一暑假深入学习与实践 <strong>Vibe Coding</strong> 编程范式，并协助小导师完成 <strong>1 篇机器人发明专利撰写（申请中）</strong>。<br><br>
-      在学术文献阅读方面，我对仿生飞行攀爬机构与微刺/干黏附力学保持浓厚兴趣，目前处于<strong>文献深度研读与初步机构方案构想阶段</strong>，已系统精读并归档 13 篇顶级学术文献；课内扎实研读理论力学分析力学方程、高维矩阵优化及复变函数理论。
+      你好！我是 Cutus，中国科学技术大学 2025 级机器人工程本科生。2025 年 12 月加入<strong>中国科大人形机器人研究院 · 空中机器人课题组</strong>。追求严谨数理机理与扎实工程落地的结合：大一寒假开展 <strong>Abaqus cohesive 单元黏附力有限元仿真</strong>并借助 Codex + Python 实现批量参数化仿真；大一春季深度参与校企合作 <strong>Aloha Mini 开源双臂机器人</strong>调测（完成遥操作与视觉特定物体抓取放置闭环），并参与博士课题组<strong>华米基金申请斩获 10 万元研发支持</strong>；大一暑假深入学习与实践 <strong>Vibe Coding</strong> 编程范式，并协助小导师完成 <strong>1 篇机器人发明专利撰写（申请中）</strong>。
     </p>
   </header>
 
@@ -98,7 +102,7 @@
         <div class="skill-category-title">AI TOOLS & THEORY</div>
         <div class="skill-tags">
           <span class="skill-pill">Vibe Coding 协同开发</span>
-          <span class="skill-pill">Antigravity / Codex / Claude Code</span>
+          <span class="skill-pill">Antigravity / Codex / Claude Code / Kimi</span>
           <span class="skill-pill">理论力学B (拉格朗日动力学)</span>
           <span class="skill-pill">AI 数学原理 (SVD/凸优化)</span>
           <span class="skill-pill">Typst 学术排版</span>
@@ -310,43 +314,56 @@
       </div>
     </div>
 
-    <!-- 当前主力工具链 -->
+    <!-- 当前主力工具链 (可直接点击链接到官网) -->
     <h3 style="font-size: 16px; font-weight: 700; color: var(--ink); margin-top: 28px; margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
       <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--ustc-blue);"></span>
-      目前主力日常工具链 (Daily Driving Tools)
+      目前主力日常工具链（点击直达官方主页）
     </h3>
     <div class="toolchain-grid">
-      <div class="toolchain-card">
+      <!-- OpenAI Codex -->
+      <a class="toolchain-card" href="https://openai.com" target="_blank" rel="noopener">
         <div class="toolchain-header">
-          <span class="toolchain-name">OpenAI Codex</span>
+          <span class="toolchain-name">OpenAI Codex ↗</span>
           <span class="toolchain-tag">CODE & AUTO</span>
         </div>
         <p class="toolchain-desc">用于脚本生成与仿真自动化，协助完成 Abaqus Python 参数化批处理脚本，执行力极高。</p>
-      </div>
+      </a>
 
-      <div class="toolchain-card">
+      <!-- Google Antigravity -->
+      <a class="toolchain-card" href="https://deepmind.google" target="_blank" rel="noopener">
         <div class="toolchain-header">
-          <span class="toolchain-name">Google Antigravity</span>
+          <span class="toolchain-name">Google Antigravity ↗</span>
           <span class="toolchain-tag">AGENTIC PAIR</span>
         </div>
         <p class="toolchain-desc">深度 Agentic 配对编程助理（搭载 Gemini 3.8 Flash/Pro），自主跨文件重构、全栈运维与知识库全自动上线。</p>
-      </div>
+      </a>
 
-      <div class="toolchain-card">
+      <!-- Claude Code -->
+      <a class="toolchain-card" href="https://docs.anthropic.com/en/docs/agents-and-tools/claude-code" target="_blank" rel="noopener">
         <div class="toolchain-header">
-          <span class="toolchain-name">Claude Code</span>
-          <span class="toolchain-tag">CLI + DEEPSEEK-V4</span>
+          <span class="toolchain-name">Claude Code ↗</span>
+          <span class="toolchain-tag">CLI + DEEPSEEK</span>
         </div>
         <p class="toolchain-desc">通过 CLI 命令行无缝接入 DeepSeek-V4 等顶尖国产推理模型，兼具极速终端体验与澎湃推理算力。</p>
-      </div>
+      </a>
 
-      <div class="toolchain-card">
+      <!-- Qoder -->
+      <a class="toolchain-card" href="https://qoder.com" target="_blank" rel="noopener">
         <div class="toolchain-header">
-          <span class="toolchain-name">Qoder (科大企业认证)</span>
+          <span class="toolchain-name">Qoder (科大企业认证) ↗</span>
           <span class="toolchain-tag">USTC PERKS</span>
         </div>
         <p class="toolchain-desc">通过中国科学技术大学校园企业认证，无限制畅享 GLM-4、Qwen（通义千问）等国产前沿大模型。</p>
-      </div>
+      </a>
+
+      <!-- Kimi Code -->
+      <a class="toolchain-card" href="https://kimi.moonshot.cn" target="_blank" rel="noopener">
+        <div class="toolchain-header">
+          <span class="toolchain-name">Kimi Code (Moonshot) ↗</span>
+          <span class="toolchain-tag">LONG CONTEXT</span>
+        </div>
+        <p class="toolchain-desc">月之暗面长上下文与代码推理能力，擅长长代码上下文感知、全仓分析与复杂逻辑推导。</p>
+      </a>
     </div>
   </section>
 
@@ -380,17 +397,6 @@
         </div>
         <p class="hobby-desc">
           热爱旅行，最幸福的时刻就是与伴侣一起打包行囊，穿行在陌生城市的弄堂小巷、山海之间，用镜头记录烟火气与每一次心动的风景。
-        </p>
-      </div>
-
-      <!-- 动漫鉴赏 -->
-      <div class="hobby-card">
-        <div class="hobby-icon-row">
-          <span class="hobby-emoji">🎬 🍿</span>
-          <span class="hobby-title">二次元：动漫与番剧</span>
-        </div>
-        <p class="hobby-desc">
-          资深动漫爱好者。沉浸在那些充满奇思妙想、浪漫色彩与热血精神的故事宇宙里，优秀的视觉分镜和剧情往往能带来别具一格的审美触动。
         </p>
       </div>
 
