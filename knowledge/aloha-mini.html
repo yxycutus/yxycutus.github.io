@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校企合作 · Aloha Mini 开源双臂移动机器人实操记录 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../about/index.html">关于我</a></li>
+        <li><a href="../knowledge/index.html" class="active">知识库</a></li>
+        <li><a href="../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../index.html">首页</a>
+    <span>/</span>
+    <a href="index.html">知识库</a>
+    <span>/</span>
+    <span>Aloha Mini 项目复盘</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge">
+        <span>HANDS-ON PROJECT · 电子与软件组</span>
+      </div>
+      <h1 class="article-title">校企合作 · Aloha Mini 开源双臂移动机器人调测与遥操作实践</h1>
+      <div class="article-meta-row">
+        <span class="article-meta-item">👤 角色：电子组 / 软件组成员</span>
+        <span class="article-meta-item">🔗 开源仓库：<a href="https://github.com/liyiteng/AlohaMini" target="_blank" rel="noopener" style="color: var(--ustc-blue);">liyiteng/AlohaMini ↗</a></span>
+        <span class="article-meta-item">📅 实践周期：2026 年</span>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="article-callout">
+        <p><strong>项目概述</strong>：Aloha Mini 是一套低成本开源双臂移动操作机器人平台，配备垂直升降导轨与双机械臂系统。在本次校企合作研发项目中，我作为<strong>电子组 / 软件组成员</strong>，主要负责树莓派系统调试、通信链路贯通、Joy-Con 遥操作适配以及示教数据集采集。</p>
+      </div>
+
+      <h2>一、 核心工作与职责切分</h2>
+
+      <h3>1. 树莓派底层系统与环境部署</h3>
+      <ul>
+        <li>负责树莓派（Raspberry Pi）操作系统的刷写、网络环境配置与驱动配置；</li>
+        <li>解决板载 CAN / USB 转串口模块与各电机驱动板之间的底层硬件通信稳定性问题；</li>
+        <li>在 Ubuntu 系统下，通过 SSH 密钥对打通了 <code>主机电脑（开发/推断） → 树莓派（车载工控/执行） → 机器人执行机构</code> 的远程控制与状态监控链路。</li>
+      </ul>
+
+      <h3>2. 基于开源代码实现遥操作 (Teleoperation)</h3>
+      <ul>
+        <li>深入研读并跑通 Aloha Mini 开源控制代码，完成主从臂关节电机的角度映射与闭环响应优化；</li>
+        <li><strong>Nintendo Switch Joy-Con 手柄适配</strong>：通过蓝牙连接与按键事件映射，实现了用 Joy-Con 摇杆平滑控制移动底盘的平移旋转，以及按键控制垂直导轨升降与末端夹爪开合，极大提升了机器人移动示教与现场搬运测试的便携度。</li>
+      </ul>
+
+      <h3>3. 示教数据集采集与具身智能任务闭环</h3>
+      <ul>
+        <li>协同 AI 组同学设计实验采集方案，利用手柄及主手遥操作设备进行大量动作示范；</li>
+        <li>规范采集多视角机载摄像头图像流（RGB-D）以及关节电机角度/速度时序数据，完成示教数据集的清洗与打包；</li>
+        <li>为后续模仿学习与行为克隆模型训练提供高质量数据支撑。最终真机部署模型后，成功实现了机器人<strong>基于视觉检测识别特定物体后的自主平滑抓取与定点放置</strong>（Visual Object Pick-and-Place）。</li>
+      </ul>
+
+      <h2>二、 关键技术细节与问题排查</h2>
+
+      <div class="article-pre">
+# 通信与控制拓扑架构简图
+[ 操作员主机 (Ubuntu) ] 
+       │  (Wi-Fi / SSH 远端节点)
+       ▼
+[ 车载树莓派 (Raspberry Pi) ] ── (USB/Serial/CAN) ──> [ 双臂电机伺服驱动板 ]
+       ▲                                            [ 底盘驱动 & 升降电机 ]
+       │  (Bluetooth HID)
+[ Joy-Con 手柄遥控输入 ]
+      </div>
+
+      <p>在调试过程中，主要攻克了手柄蓝牙输入延迟突增、多路 USB 相机带宽冲突导致数据掉帧、以及多电机连续供电下的通信丢包问题。通过重写串口读取缓存逻辑与优化线程调度，保证了数据采集中控制指令的硬实时性。</p>
+
+      <h2>三、 收获与思考</h2>
+      <p>通过这个校企合作项目，我从真实的工程现场切身体会到了机器人在物理世界落地的全链路：从底层的强弱电走线、树莓派 Linux 系统调试，到控制链路搭建与遥操作数据流打通。它让我认识到，具身智能模型的效果高度依赖于底层硬件的可靠性与示教数据的干净程度。</p>
+    </div>
+
+    <div class="article-back-nav">
+      <a href="index.html" class="btn btn-secondary">← 返回知识库列表</a>
+      <a href="https://github.com/liyiteng/AlohaMini" target="_blank" rel="noopener" class="btn btn-primary">查看 AlohaMini 开源项目 ↗</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程</span>
+    </div>
+    <div class="footer-links">
+      <a href="../about/index.html">关于我</a>
+      <a href="../knowledge/index.html">知识库</a>
+      <a href="../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>

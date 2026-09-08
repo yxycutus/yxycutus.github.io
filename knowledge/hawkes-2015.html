@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hawkes2015 · 剪切激活干黏附与各向异性文献精读 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../about/index.html">关于我</a></li>
+        <li><a href="../knowledge/index.html" class="active">知识库</a></li>
+        <li><a href="../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../index.html">首页</a>
+    <span>/</span>
+    <a href="index.html">知识库</a>
+    <span>/</span>
+    <span>论文精读笔记</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge">
+        <span>PAPER READING NOTE · 仿生干黏附</span>
+      </div>
+      <h1 class="article-title">Hawkes 2015 · 剪切激活干黏附与百倍自重攀爬机制精读</h1>
+      <div class="article-meta-row">
+        <span class="article-meta-item">📄 原作：Elliot W. Hawkes, David L. Christensen, Mark R. Cutkosky (Stanford BDML)</span>
+        <span class="article-meta-item">📚 出处：IEEE ICRA 2015</span>
+        <span class="article-meta-item">📅 阅读日期：2026 年 6 月</span>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="article-callout">
+        <p><strong>论文核心精髓</strong>：通过可控、高度各向异性的 PDMS 微楔（microwedge）干黏附与单执行器线性尺蠖步态，Hawkes 证明仅 9g 重的小机器人可在光滑竖直面上挂载超过其自重 100 倍的有效载荷，并在停驻时实现近似零功耗保持。</p>
+      </div>
+
+      <h2>一、 核心概念：各向异性比与脱附阻力</h2>
+      
+      <p>在光滑壁面攀爬中，最大的挑战不是“能不能粘牢”，而是<strong>“换步时能不能轻易剥离拔下来”</strong>。作者给出了关键衡量指标：</p>
+
+      <div class="article-pre">
+各向异性比：alpha = Anp / Ap
+
+- Ap  : 优选方向（承重方向）剪切黏附力（越强越好，承担负载）
+- Anp : 非优选方向（摆动反向）剪切黏附力（越低越好，避免拖滞）
+- 机器人实际有效负载能力受限于：Pmax = Ap - Anp
+      </div>
+
+      <h2>二、 剪切激活（Shear-Activated）的微观机理</h2>
+      <ul>
+        <li><strong>初始接触</strong>：微楔尖端接触面积极小，法向附着力几乎为零；</li>
+        <li><strong>剪切加载</strong>：当受到向下平行的剪切拉力时，弹性微楔发生屈曲倒伏，微结构与玻璃表面的真实分子接触面积成倍激增，范德华力全面激活；</li>
+        <li><strong>卸载与脱附</strong>：一旦攀爬足松开剪切力并施加微小的推离力，微楔弹性恢复直立，接触面积骤减，实现毫秒级超低阻力剥离。</li>
+      </ul>
+
+      <h2>三、 对飞行攀爬足端 Mode 2（光滑面模式）的直接参考</h2>
+      <ol>
+        <li><strong>机械结构抑制 Anp</strong>：借鉴 Hawkes 在 9g 样机上的拉线力矩偏置思路，在薄板反向翻转时利用几何自然产生由端部向根部的剥离锋，降低摆动阶段对墙面的拖拽。</li>
+        <li><strong>低功耗停滞</strong>：双稳态薄板断电自保持 + 干黏附无能量消耗的特点，让微型机器人在完成壁面过渡后能以极低待机功耗长时间附着执行观测任务。</li>
+      </ol>
+    </div>
+
+    <div class="article-back-nav">
+      <a href="index.html" class="btn btn-secondary">← 返回知识库列表</a>
+      <a href="scamp-climbing.html" class="btn btn-secondary">回到攀爬足端方案构想 →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程</span>
+    </div>
+    <div class="footer-links">
+      <a href="../about/index.html">关于我</a>
+      <a href="../knowledge/index.html">知识库</a>
+      <a href="../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>

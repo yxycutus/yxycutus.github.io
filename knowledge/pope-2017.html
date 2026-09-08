@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pope2017 · SCAMP 室外垂直硬质面栖停与攀爬文献精读 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../about/index.html">关于我</a></li>
+        <li><a href="../knowledge/index.html" class="active">知识库</a></li>
+        <li><a href="../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../index.html">首页</a>
+    <span>/</span>
+    <a href="index.html">知识库</a>
+    <span>/</span>
+    <span>论文精读笔记</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge">
+        <span>PAPER READING NOTE · 飞行攀爬多模态</span>
+      </div>
+      <h1 class="article-title">Pope 2017 · SCAMP 微型飞行器垂直壁面栖停与多模态攀爬精读</h1>
+      <div class="article-meta-row">
+        <span class="article-meta-item">📄 原作：Morgan T. Pope, Elliot W. Hawkes, Mark R. Cutkosky (Stanford Univ.)</span>
+        <span class="article-meta-item">📚 出处：IEEE Transactions on Robotics (T-RO), 2017</span>
+        <span class="article-meta-item">📅 阅读日期：2026 年 6 月</span>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="article-callout">
+        <p><strong>SCAMP 系统精要</strong>：Stanford 经典代表作 SCAMP（Stanford Climbing and Aerial Maneuvering Platform）证明了微型多旋翼飞行器（MAV）可在室外粗糙垂直混凝土/砖墙上实现可靠的高动态撞墙缓冲、栖停并展开准静态步态攀爬。</p>
+      </div>
+
+      <h2>一、 核心创新机制</h2>
+      <ul>
+        <li><strong>飞行推力转化为法向辅助力</strong>：微型飞行器在竖直壁面攀爬时，微刺往往缺乏足够的法向预紧力来嵌入粗糙凹坑；SCAMP 巧妙利用旋翼斜向残余推力作为法向贴墙辅助力，大幅提升了在垂直粗糙表面的步态可靠性。</li>
+        <li><strong>飞行 → 碰撞缓冲 → 姿态重定向 → 攀爬</strong>：系统化解决了微型旋翼无人机接触墙面时的动能吸收与刚柔结合转换问题。</li>
+        <li><strong>弹性微刺螺旋机构</strong>：用多刺弹性螺旋柔顺结构取代单根刚性钩子，显著提升微刺在粗糙外墙的挂住概率。</li>
+      </ul>
+
+      <h2>二、 对我当前方案的局限与启发</h2>
+      <p>SCAMP 的主要局限在于<strong>仅支持粗糙表面（依靠微刺互锁），无法在光滑玻璃、幕墙或金属表面上攀爬</strong>。这也是促使我尝试构想<strong>双稳态双模态薄板足端</strong>的根本动机——希望在不显著增加电机执行器质量的前提下，通过结构双稳态跳跃，将微刺与干黏附同时集成到同一种轻量足端上，突破单一粗糙表面的壁垒。</p>
+    </div>
+
+    <div class="article-back-nav">
+      <a href="index.html" class="btn btn-secondary">← 返回知识库列表</a>
+      <a href="scamp-climbing.html" class="btn btn-secondary">回到攀爬足端方案构想 →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程</span>
+    </div>
+    <div class="footer-links">
+      <a href="../about/index.html">关于我</a>
+      <a href="../knowledge/index.html">知识库</a>
+      <a href="../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>

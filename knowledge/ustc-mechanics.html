@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>理论力学B · 分析力学与拉格朗日动力学自学手记 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../about/index.html">关于我</a></li>
+        <li><a href="../knowledge/index.html" class="active">知识库</a></li>
+        <li><a href="../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../index.html">首页</a>
+    <span>/</span>
+    <a href="index.html">知识库</a>
+    <span>/</span>
+    <span>USTC 课内自学讲义</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge">
+        <span>USTC COURSEWARE · 理论力学B</span>
+      </div>
+      <h1 class="article-title">理论力学B · 拉格朗日分析力学直观物理图景与推导手记</h1>
+      <div class="article-meta-row">
+        <span class="article-meta-item">📖 课程：USTC 机器人工程大二专业基础课</span>
+        <span class="article-meta-item">🛠 排版工具：Typst 自编讲义</span>
+        <span class="article-meta-item">📅 整理周期：2026 年秋季</span>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="article-callout">
+        <p><strong>核心理念</strong>：牛顿矢量力学通过隔离受力与约束反力解方程，处理多连杆机构时代数极其臃肿；分析力学通过<strong>广义坐标与能量标量（动能 T 与势能 V）</strong>，绕过内力和理想约束反力，直接导出独立自由度的空间动力学方程。这是搞现代机器人动力学建模不可逾越的基础。</p>
+      </div>
+
+      <h2>一、 核心概念与思维跃迁</h2>
+      <ul>
+        <li><strong>自由度与广义坐标</strong>：对于 $N$ 个质点、受 $k$ 个双面理想完整约束的系统，自由度为 $s = 3N - k$。选取 $s$ 个独立的广义坐标 $q_1, q_2, \dots, q_s$ 即可完整描述构型。</li>
+        <li><strong>虚位移与达朗贝尔原理</strong>：虚位移 $\delta \vec{r}$ 是假想的在时间冻结瞬间符合约束的无限小位移。理想约束的虚功之和恒为零：$\sum \vec{R}_i \cdot \delta \vec{r}_i = 0$。</li>
+        <li><strong>第二类拉格朗日方程</strong>：
+          <div class="article-pre">
+\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_j}\right) - \frac{\partial L}{\partial q_j} = Q_j^{nc}
+
+其中拉格朗日函数 L = T - V
+T 为系统总动能，V 为有势力场势能，Q_j^{nc} 为非保守力广义力
+          </div>
+        </li>
+      </ul>
+
+      <h2>二、 机器人多刚体系统建模应用心得</h2>
+      <p>在机器人运动学与机构分析中，一旦掌握拉格朗日方程，多自由度机械臂或连杆攀爬足端的正反向运动学建模逻辑就会变得极其清晰：只需写出各质心位置随广义坐标（各关节转角）的坐标变换矩阵，求导得到线速度与角速度，合成动能二次型，便可标准化计算出惯性矩阵、科里奥利力项及重力力矩矢量。</p>
+    </div>
+
+    <div class="article-back-nav">
+      <a href="index.html" class="btn btn-secondary">← 返回知识库列表</a>
+      <a href="aloha-mini.html" class="btn btn-secondary">阅读下一篇：Aloha Mini 项目复盘 →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程</span>
+    </div>
+    <div class="footer-links">
+      <a href="../about/index.html">关于我</a>
+      <a href="../knowledge/index.html">知识库</a>
+      <a href="../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>

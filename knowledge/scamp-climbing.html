@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SCAMP 式飞行攀爬机器人与双模态足端方案构想 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../about/index.html">关于我</a></li>
+        <li><a href="../knowledge/index.html" class="active">知识库</a></li>
+        <li><a href="../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../index.html">首页</a>
+    <span>/</span>
+    <a href="index.html">知识库</a>
+    <span>/</span>
+    <span>攀爬机器人方案构想</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge">
+        <span>RESEARCH CONCEPT · 文献研读与方案构想</span>
+      </div>
+      <h1 class="article-title">SCAMP 式飞行攀爬机器人与双模态双稳态足端方案构想</h1>
+      <div class="article-meta-row">
+        <span class="article-meta-item">📝 阶段：文献调研与初步机构构想</span>
+        <span class="article-meta-item">🎯 目标平台：Crazyflie 2.1 无刷版量级</span>
+        <span class="article-meta-item">📅 整理时间：2026 年</span>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="article-callout">
+        <p><strong>写在前面</strong>：本项目属于<strong>学术文献深度精读后的机构方案设计与概念验证尝试</strong>。飞行平台直接参考 Stanford 经典的 SCAMP 路线，核心构想聚焦于如何在极严格的质量预算（10-15g）下，通过双稳态薄板与 SMA 脉冲驱动，实现粗糙表面微刺与光滑表面干黏附的两模式高效切换与断电自保持。</p>
+      </div>
+
+      <h2>一、 核心构想：双稳态薄板足端</h2>
+
+      <div class="article-pre">
+Mode 1（粗糙表面）             Mode 2（光滑表面）
+      )  形                        (  形
+ 两端朝向墙面                  中段朝向墙面
+微刺/勾爪咬合粗糙凸点          柔性干黏附垫贴合光滑表面
+      </div>
+
+      <h3>Mode 1（")" 形 · 粗糙面微刺）</h3>
+      <ul>
+        <li>薄板两端向墙面凸出，端部集成小尺寸微刺阵列；</li>
+        <li>靠微刺与粗糙表面凸起（asperities）发生机械互锁挂住，无需持续消耗电机法向预压力；</li>
+        <li>具备剪切敏感特性：向下受剪切载荷时牢牢咬合，反向卸载后轻松松开脱附；</li>
+        <li>设为默认初始稳态，撞墙接触时更抗冲击。</li>
+      </ul>
+
+      <h3>Mode 2（"(" 形 · 光滑面干黏附）</h3>
+      <ul>
+        <li>薄板中段向墙凸起，内侧贴附柔性干黏附垫（早期可用 PDMS/PU 膜验证）；</li>
+        <li>黏附垫上部充分贴合墙面，下端随薄板曲率自然保留弯曲弧度，形成天然的<strong>应力集中起剥点</strong>；</li>
+        <li>攀爬臂向上抬起时，从下端应力集中处发起剥离波，实现快速低阻力脱附。</li>
+      </ul>
+
+      <h3>模式切换机制 (SMA 脉冲驱动)</h3>
+      <p>
+        采用 <strong>SMA 形状记忆合金丝</strong>：通电毫秒级脉冲引发热致收缩，克服薄板 snap-through 跳跃翻转能垒进入另一稳态，随后立即断电。切换后由薄板弹性自保持，彻底避免了 SMA 响应慢和持续发热对攀爬速度回路的影响。
+      </p>
+
+      <h2>二、 已定工程约束与设计边界</h2>
+      <table class="article-table">
+        <thead>
+          <tr>
+            <th>约束项</th>
+            <th>指标预算</th>
+            <th>设计依据</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>飞行平台</td>
+            <td>Crazyflie 2.1 Brushless</td>
+            <td>裸机 ~32g，推荐有效载荷预算 ~40g 内</td>
+          </tr>
+          <tr>
+            <td>足端与驱动质量</td>
+            <td>单足端 1-3g，双足+驱动 &lt; 15g</td>
+            <td>保证微型四旋翼有足够的起飞与机动推重比</td>
+          </tr>
+          <tr>
+            <td>攀爬臂尺寸</td>
+            <td>单臂 35-55 mm</td>
+            <td>SCAMP 式两侧攀爬臂，先做单侧实验台架测试</td>
+          </tr>
+          <tr>
+            <td>验证表面</td>
+            <td>粗糙：80/100目砂纸与混凝土；光滑：玻璃/亚克力</td>
+            <td>高反差对照测试微刺与干黏附性能边界</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>三、 当前面临的主要技术挑战与后续规划</h2>
+      <ol>
+        <li><strong>SMA 行程与薄板翻转能垒匹配</strong>：确保极短 SMA 收缩行程足以越过 snap-through 临界点；</li>
+        <li><strong>非优选方向脱附阻力 Anp 抑制</strong>：防止摆动足反向拖拽时黏附垫拖滞墙面导致掉落；</li>
+        <li><strong>下一步实验计划</strong>：先不盲目飞真机，优先在实验室搭设垂直双材料测试导轨，对双稳态足端进行静态加载、动态翻转及力传感器阶跃响应测试。</li>
+      </ol>
+    </div>
+
+    <div class="article-back-nav">
+      <a href="index.html" class="btn btn-secondary">← 返回知识库列表</a>
+      <a href="asbeck-2006.html" class="btn btn-secondary">阅读下一篇：Asbeck2006 微刺接触建模 →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程</span>
+    </div>
+    <div class="footer-links">
+      <a href="../about/index.html">关于我</a>
+      <a href="../knowledge/index.html">知识库</a>
+      <a href="../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+</body>
+</html>
