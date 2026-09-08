@@ -770,6 +770,13 @@ a {
   font-weight: 500;
 }
 
+.footer-credit {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+
 .footer-links {
   display: flex;
   gap: 20px;

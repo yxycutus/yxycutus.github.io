@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hu2023 · 软体模块化攀爬机器人 Smcbot 精读 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../../about/index.html">关于我</a></li>
+        <li><a href="../index.html" class="active">知识库</a></li>
+        <li><a href="../../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span>/</span>
+    <a href="../index.html">知识库</a>
+    <span>/</span>
+    <a href="index.html">论文精读全集</a>
+    <span>/</span>
+    <span>Hu 2023</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge">
+        <span>USTC RESEARCH · IEEE T-RO 2023</span>
+      </div>
+      <h1 class="article-title">Hu2023 · 软体模块化攀爬机器人 Smcbot 与足端机制库精读</h1>
+      <div class="article-meta-row">
+        <span class="article-meta-item">📄 作者：Qiqiang Hu, Erbao Dong (董二宝), Dong Sun</span>
+        <span class="article-meta-item">🏛 机构：中国科学技术大学 (USTC)</span>
+        <span class="article-meta-item">IEEE T-RO, Vol. 39, No. 1, 2023</span>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="article-callout">
+        <p><strong>一句话精要</strong>：提出 Smcbot 软体模块化攀爬机器人，通过柔顺 SMA 软体身体驱动模块与足端接口模块库（电磁足、吸盘足、干黏附柔性足、微刺柔性足），系统论证了在面对铁磁平面、普通平面、管道内外壁、光滑曲面和粗糙粗砺面等极端多介质场景时，模块化更换足端物理机制的优越性。</p>
+      </div>
+
+      <h2>一、 核心架构与足端库划分</h2>
+      <ul>
+        <li><strong>身体与足端物理架构解耦</strong>：身体模块专注实现大变形收缩、扭转弯曲与步长跨越，足端专用模块专注解决特定界面的锚定与快速脱附；</li>
+        <li><strong>丰富的足端物理库</strong>：
+          <ul>
+            <li>电磁模块（铁磁壁面大承重）；</li>
+            <li>真空吸盘模块（光滑非多孔气密表面）；</li>
+            <li>软体微刺阵列模块（粗糙多孔混凝土曲面）；</li>
+            <li>方向性干黏附垫（轻量化非导磁垂直面）。</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="article-back-nav">
+      <a href="index.html" class="btn btn-secondary">← 返回论文精读目录</a>
+      <a href="hu-2019.html" class="btn btn-secondary">下一篇：Hu2019 仿尺蠖软体 →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
+    </div>
+    <div class="footer-credit">
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+    </div>
+    <div class="footer-links">
+      <a href="../../about/index.html">关于我</a>
+      <a href="../index.html">知识库</a>
+      <a href="../../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/script.js"></script>
+</body>
+</html>

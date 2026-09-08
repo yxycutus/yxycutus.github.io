@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modabberifar2018 · SMA驱动仿壁虎机械夹爪精读 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../../about/index.html">关于我</a></li>
+        <li><a href="../index.html" class="active">知识库</a></li>
+        <li><a href="../../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span>/</span>
+    <a href="../index.html">知识库</a>
+    <span>/</span>
+    <a href="index.html">论文精读全集</a>
+    <span>/</span>
+    <span>Modabberifar 2018</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge">
+        <span>PAPER READING · SENSORS & ACTUATORS A 2018</span>
+      </div>
+      <h1 class="article-title">Modabberifar2018 · SMA 丝热致驱动仿壁虎方向性干黏附夹爪精读</h1>
+      <div class="article-meta-row">
+        <span class="article-meta-item">📄 作者：Mehdi Modabberifar, Matthew Spenko</span>
+        <span class="article-meta-item">🏛 机构：Arak Univ. + Illinois Institute of Technology</span>
+        <span class="article-meta-item">DOI: 10.1016/j.sna.2018.04.018</span>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="article-callout">
+        <p><strong>一句话精要</strong>：提出一种用 SMA（形状记忆合金丝）热致收缩驱动的三臂仿壁虎干黏附夹爪：SMA 拉动滑块给三片方向性干黏附垫施加剪切，约 1s 内完成接合；断电后靠机械弹簧和空气自然冷却复位脱附，具备极高的功重比。</p>
+      </div>
+
+      <h2>一、 核心创新与机械拓扑</h2>
+      <ul>
+        <li><strong>SMA 直接加载剪切</strong>：弃用高自重的舵机和减速箱，利用 SMA 丝大功重比特性，沿滑轨线性施加剪切位移，直接激活微楔干黏附。</li>
+        <li><strong>串联绕线均载拓扑（Tendon Routing）</strong>：发现三臂独立 SMA 驱动易因局部热不均导致受力失衡抓取脱落；改为由单根 SMA 丝依次穿过三臂滑块串联布置，实现自平衡张力均摊。</li>
+        <li><strong>弹簧偏置复位</strong>：断电后依赖压缩弹簧克服残余摩擦力，将滑块推回原位实现低阻力脱附。</li>
+      </ul>
+
+      <h2>二、 局限与优化启示</h2>
+      <p>Modabberifar 原型的缺点在于维持抓取需要持续通电加热 SMA（能耗高且容易过热），冷却复位较慢。而我当前构想的双稳态薄板机制，仅在切换瞬间需要毫秒级 SMA 脉冲电流越过能垒，翻转后断电由双稳态势能阱锁死自保持，完美规避了持续发热与能耗短板。</p>
+    </div>
+
+    <div class="article-back-nav">
+      <a href="index.html" class="btn btn-secondary">← 返回论文精读目录</a>
+      <a href="ruffatto-2014.html" class="btn btn-secondary">下一篇：Ruffatto2014 混合粘附 →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
+    </div>
+    <div class="footer-credit">
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+    </div>
+    <div class="footer-links">
+      <a href="../../about/index.html">关于我</a>
+      <a href="../index.html">知识库</a>
+      <a href="../../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/script.js"></script>
+</body>
+</html>

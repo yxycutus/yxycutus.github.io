@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asbeck2006 · 顺应性微刺阵列攀爬垂直硬质表面精读 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../../about/index.html">关于我</a></li>
+        <li><a href="../index.html" class="active">知识库</a></li>
+        <li><a href="../../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span>/</span>
+    <a href="../index.html">知识库</a>
+    <span>/</span>
+    <a href="index.html">论文精读全集</a>
+    <span>/</span>
+    <span>Asbeck 2006</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge">
+        <span>PAPER READING · IJRR 2006</span>
+      </div>
+      <h1 class="article-title">Asbeck2006 · 顺应性微刺阵列攀爬硬质垂直表面接触力学精读</h1>
+      <div class="article-meta-row">
+        <span class="article-meta-item">📄 作者：Alan T. Asbeck, Sangbae Kim, M.R. Cutkosky et al.</span>
+        <span class="article-meta-item">🏛 机构：Stanford University + Univ. of Utah + Univ. of Pisa</span>
+        <span class="article-meta-item">DOI: 10.1177/0278364906072511</span>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="article-callout">
+        <p><strong>一句话精要</strong>：系统建立了微刺与粗糙硬表面的接触模型。微刺能否抓住墙面不只取决于 <code>Ra/Rq</code>，更取决于局部微凸体（asperity）的法向角、刺尖半径、接近角和加载方向；工程上必须采用多个小半径、高强度、带局部顺应性的 spine 阵列，而不是少数刚性大钩子。</p>
+      </div>
+
+      <h2>一、 核心创新</h2>
+      <ul>
+        <li><strong>基于真实表面轮廓的微刺接触仿真</strong>：用轮廓仪得到石材、砂纸、混凝土的二维轮廓，模拟微刺扫掠表面，寻找几何可用 asperity。</li>
+        <li><strong>指出 Ra/Rq 不等于微刺挂接性能</strong>：真正关键的是局部表面法向角 $\theta$ 和可用微凸体空间分布。</li>
+        <li><strong>微刺尺寸权衡</strong>：单刺强度随整体尺寸近似按 $r^2$ 增加，但单位面积可用 asperity 数量随尺寸增大下降，近似呈 $1/r^2$ 趋势。</li>
+        <li><strong>三种失效模式</strong>：spine 根部塑性弯曲、弹性变形导致滑脱、asperity 本身被剪碎断裂。</li>
+      </ul>
+
+      <h2>二、 对足端粗糙面模式（Mode 1 微刺）的设计启发</h2>
+      <ol>
+        <li>粗糙面足端不应做成少量刚性大钩子，而应采用多个小半径微刺，并给每个微刺或微刺组一定的局部柔顺悬挂，使其能分担载荷并适应表面起伏。</li>
+        <li>薄板端部必须精确控制微刺的接近角和加载角，使其以剪切方向咬合，严禁产生直接剥离的力矩。</li>
+      </ol>
+    </div>
+
+    <div class="article-back-nav">
+      <a href="index.html" class="btn btn-secondary">← 返回论文精读目录</a>
+      <a href="hawkes-2015.html" class="btn btn-secondary">下一篇：Hawkes2015 干黏附 →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
+    </div>
+    <div class="footer-credit">
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+    </div>
+    <div class="footer-links">
+      <a href="../../about/index.html">关于我</a>
+      <a href="../index.html">知识库</a>
+      <a href="../../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/script.js"></script>
+</body>
+</html>

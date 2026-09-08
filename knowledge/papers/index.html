@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学术论文精读全集 — Cutus 知识库</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/knowledge.css">
+  <link rel="stylesheet" href="../../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../../about/index.html">关于我</a></li>
+        <li><a href="../index.html" class="active">知识库</a></li>
+        <li><a href="../../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="main-wrapper" style="max-width: 1060px;">
+
+  <div class="article-breadcrumb" style="margin-top: 24px;">
+    <a href="../../index.html">首页</a>
+    <span>/</span>
+    <a href="../index.html">知识库</a>
+    <span>/</span>
+    <span>学术论文精读全集</span>
+  </div>
+
+  <header class="knowledge-hero" style="padding-top: 10px;">
+    <div class="hero-pill-badge" style="margin-bottom: 12px;">
+      <span class="status-ping"></span>
+      <span>13 PAPERS CATALOG · 精读笔记全集</span>
+    </div>
+    <h1 class="knowledge-title">仿生攀爬与黏附接触力学 · 论文精读专栏</h1>
+    <p class="knowledge-desc">
+      围绕微型壁面攀爬机器人、微刺阵列与仿生干黏附机理、软体/双稳态可变刚度夹爪，系统精读整理的 13 篇前沿学术文献笔记（涵盖 IEEE T-RO、IJRR、ICRA、Science Advances、Nature Communications 等）。
+    </p>
+  </header>
+
+  <!-- 检索与分类工具栏 -->
+  <div class="knowledge-nav-bar">
+    <div class="category-tags" id="category-tags">
+      <button class="cat-btn active" data-category="all">全部论文 (13)</button>
+      <button class="cat-btn" data-category="microspine">微刺与接触力学</button>
+      <button class="cat-btn" data-category="adhesion">仿生干黏附</button>
+      <button class="cat-btn" data-category="gripper">双模与软体夹爪</button>
+      <button class="cat-btn" data-category="aerial">飞行栖停与攀爬</button>
+    </div>
+    <div class="search-input-wrap">
+      <svg class="search-input-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" id="k-search-input" placeholder="检索论文名、作者、机构、机制..." autocomplete="off">
+    </div>
+  </div>
+
+  <!-- 论文卡片列表 -->
+  <div class="k-grid" id="k-grid">
+
+    <!-- 1. Asbeck2006 -->
+    <a class="k-card" href="asbeck-2006.html" data-category="microspine" data-keywords="asbeck 2006 微刺 粗糙 接触力学 尖端半径 顺应性 stanford ijrr">
+      <div class="k-tag-row">
+        <span class="k-tag">IJRR 2006 · 接触建模</span>
+        <span class="k-count">Stanford</span>
+      </div>
+      <h3>Asbeck2006 · 顺应性微刺阵列攀爬硬质垂直面</h3>
+      <p>系统建立微刺与粗糙表面的二维接触仿真模型。指出 Ra/Rq 均方根粗糙度不代表挂持力，揭示刺尖半径与可用微凸体（asperity）密度的尺度权衡，确立顺应性阵列设计原则。</p>
+      <div class="k-footer">
+        <span>Alan T. Asbeck, Cutkosky et al.</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <!-- 2. Hawkes2015 -->
+    <a class="k-card" href="hawkes-2015.html" data-category="adhesion" data-keywords="hawkes 2015 干黏附 各向异性 anp pdms 尺蠖 步态 icra stanford">
+      <div class="k-tag-row">
+        <span class="k-tag">IEEE ICRA 2015 · 干黏附</span>
+        <span class="k-count">Stanford</span>
+      </div>
+      <h3>Hawkes2015 · 百倍自重干黏附垂直攀爬与各向异性分析</h3>
+      <p>利用方向性 PDMS 微楔剪切激活机制，实现 9g 微型机器人挂载百倍自重。提出各向异性比指标 alpha = Anp / Ap，阐明换步摆动阶段压低反向脱附阻力 Anp 的关键结构。</p>
+      <div class="k-footer">
+        <span>Elliot W. Hawkes, Cutkosky et al.</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <!-- 3. Pope2017 -->
+    <a class="k-card" href="pope-2017.html" data-category="aerial" data-keywords="pope 2017 scamp 飞行 攀爬 栖停 旋翼 法向推力 t-ro stanford">
+      <div class="k-tag-row">
+        <span class="k-tag">IEEE T-RO 2017 · 飞行攀爬</span>
+        <span class="k-count">Stanford</span>
+      </div>
+      <h3>Pope2017 · SCAMP 室外垂直粗糙面多模态栖停与攀爬 MAV</h3>
+      <p>微型飞行器栖停后在室外混凝土/砖墙上重定位攀爬。核心创新：弹性微刺螺旋勾爪，以及巧妙利用旋翼残余推力作为法向微刺预紧辅助力，完成触壁动能缓冲吸收。</p>
+      <div class="k-footer">
+        <span>Morgan T. Pope, Hawkes et al.</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <!-- 4. Fang2026 -->
+    <a class="k-card" href="fang-2026.html" data-category="gripper" data-keywords="fang 2026 双模夹爪 微重力 航天器 mli 干黏附 五杆机构 沈阳自动化所 cja">
+      <div class="k-tag-row">
+        <span class="k-tag">CJA 2026 · 双模夹爪</span>
+        <span class="k-count">沈自所 / 空间站</span>
+      </div>
+      <h3>Fang2026 · 仿生双模夹爪（微重力攀爬机器人 SPACE-1）</h3>
+      <p>面向微重力航天器外壁异质表面：刚性金属面使用 PU/SiO2 干黏附，柔性 MLI 隔热层使用倒刺机械穿刺。通过偏置曲柄五杆机构实现爪刺精确插入与退出轨迹控制。</p>
+      <div class="k-footer">
+        <span>Zhiyue Fang, Yongxu Lu et al.</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <!-- 5. Modabberifar2018 -->
+    <a class="k-card" href="modabberifar-2018.html" data-category="adhesion" data-keywords="modabberifar 2018 sma 记忆合金 干黏附 夹爪 串联均载 弹簧复位 iit">
+      <div class="k-tag-row">
+        <span class="k-tag">Sensors & Actuators A · 驱动</span>
+        <span class="k-count">Illinois Tech</span>
+      </div>
+      <h3>Modabberifar2018 · SMA 丝驱动仿壁虎方向性干黏附夹爪</h3>
+      <p>利用 SMA 丝热致收缩替代笨重舵机直接施加剪切载荷，1s 内激活干黏附，断电靠弹簧与自然冷却复位。提出三臂单根 SMA 串联均载拓扑，解决多臂张力不一致难题。</p>
+      <div class="k-footer">
+        <span>Mehdi Modabberifar, Matthew Spenko</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <!-- 6. Ruffatto2014 -->
+    <a class="k-card" href="ruffatto-2014.html" data-category="adhesion" data-keywords="ruffatto 2014 eda 静电 仿壁虎 混合黏附 复合材料 jpl iit">
+      <div class="k-tag-row">
+        <span class="k-tag">J. R. Soc. Interface · 复合黏附</span>
+        <span class="k-count">IIT / NASA JPL</span>
+      </div>
+      <h3>Ruffatto2014 · 静电-仿壁虎微楔混合粘附（EDA 复合结构）</h3>
+      <p>在厚度方向将静电电极与方向性 PDMS 微楔结合（EDA）：静电场提供法向主动贴合预载建立分子接触，微楔提供大剪切承载，显著增强对粗糙及非理想表面的容忍度。</p>
+      <div class="k-footer">
+        <span>Donald Ruffatto III, Aaron Parness et al.</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <!-- 7. Yu2024 -->
+    <a class="k-card" href="yu-2024.html" data-category="gripper" data-keywords="yu 2024 可变刚度 双稳态 预应力壳 仿壁虎 微重力 ais">
+      <div class="k-tag-row">
+        <span class="k-tag">Adv. Intell. Syst. 2024 · 双稳态</span>
+        <span class="k-count">微重力攀爬</span>
+      </div>
+      <h3>Yu2024 · 仿壁虎机器人新型可变刚度双稳态黏附足爪</h3>
+      <p>面向微重力航天器表面：基于双稳态预应力壳脚趾与低弹性模量改性 PU 黏附层。伸展模式实现高刚度贴附承载，卷曲模式大幅缩小有效接触面实现低撕裂剥离脱附。</p>
+      <div class="k-footer">
+        <span>Zhiwei Yu, Aihong Ji et al.</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <!-- 8. Hu2021 -->
+    <a class="k-card" href="hu-2021.html" data-category="gripper" data-keywords="hu 2021 软夹爪 sma 微刺 干黏附 董二宝 ustc t-ro">
+      <div class="k-tag-row">
+        <span class="k-tag">IEEE T-RO 2021 · 软体集成</span>
+        <span class="k-count">中科大 (USTC)</span>
+      </div>
+      <h3>Hu2021 · 平面干黏附、软驱动与微刺集成软夹爪</h3>
+      <p>中科大董二宝老师团队成果：将软体执行器、平面软 PDMS 黏附垫与微刺-弹簧-SMA coil 并联集成在单个柔性指爪内，实现光滑物、粗糙物与薄片的多策略鲁棒包络抓取。</p>
+      <div class="k-footer">
+        <span>Qiqiang Hu, Erbao Dong, Dong Sun</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <!-- 9. Hu2023 -->
+    <a class="k-card" href="hu-2023.html" data-category="gripper" data-keywords="hu 2023 软体 模块化 攀爬机器人 smcbot 董二宝 ustc t-ro">
+      <div class="k-tag-row">
+        <span class="k-tag">IEEE T-RO 2023 · 模块化</span>
+        <span class="k-count">中科大 (USTC)</span>
+      </div>
+      <h3>Hu2023 · 软体模块化攀爬机器人 Smcbot 与足端库</h3>
+      <p>中科大董二宝老师团队成果：提出 SMA 软体躯干与可替换足端模块库（微刺、干黏附、电磁、吸盘），系统论证了多介质/异质表面环境中根据壁面材质匹配足端物理机制的必要性。</p>
+      <div class="k-footer">
+        <span>Qiqiang Hu, Erbao Dong, Dong Sun</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <!-- 10. Hu2019 -->
+    <a class="k-card" href="hu-2019.html" data-category="gripper" data-keywords="hu 2019 尺蠖 软体 攀爬机器人 微刺 董二宝 ustc iros">
+      <div class="k-tag-row">
+        <span class="k-tag">IEEE IROS 2019 · 仿尺蠖</span>
+        <span class="k-count">中科大 (USTC)</span>
+      </div>
+      <h3>Hu2019 · 仿尺蠖微刺阵列软体攀爬机器人</h3>
+      <p>中科大董二宝团队早期原型：SMA 驱动弹簧钢-PDMS 柔顺足与伸缩躯干，足端嵌入微刺阵列，在粗糙曲面、泡沫曲面与软质管道表面演示低速尺蠖爬行。</p>
+      <div class="k-footer">
+        <span>Qiqiang Hu, Erbao Dong et al.</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <!-- 11. Liu2026 -->
+    <a class="k-card" href="liu-2026.html" data-category="aerial" data-keywords="liu 2026 跨介质 水陆 壁面 攀爬 接触适应性 science advances">
+      <div class="k-tag-row">
+        <span class="k-tag">Science Advances 2026 · 跨介质</span>
+        <span class="k-count">顶级成果</span>
+      </div>
+      <h3>Liu2026 · 仿生跨介质壁面攀爬机器人与接触适应性</h3>
+      <p>实现水下与陆地水陆双介质跨越攀爬，通过自适应接触黏附机制克服液体阻力与浮力干扰，展示了仿生机构在极端界面动力学下的高鲁棒性。</p>
+      <div class="k-footer">
+        <span>Haoran Liu, Hongmiao Tian et al.</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <!-- 12. Shen2025 -->
+    <a class="k-card" href="shen-2025.html" data-category="aerial" data-keywords="shen 2025 机器学习 栖停 预测 飞行机器人 nature communications">
+      <div class="k-tag-row">
+        <span class="k-tag">Nature Comm. 2025 · 算法</span>
+        <span class="k-count">AI 交叉</span>
+      </div>
+      <h3>Shen2025 · 机器学习预测微型飞行机器人垂直壁面栖停</h3>
+      <p>构建轻量机器学习代理模型取代高成本多体碰撞动力学仿真，毫秒级高效预测飞行器不同进近角、接触速度下的触壁栖停成功率，指导栖停控制器设计。</p>
+      <div class="k-footer">
+        <span>Yunian Shen, Chenxi Mao et al.</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <!-- 13. Federle2019 -->
+    <a class="k-card" href="federle-2019.html" data-category="adhesion" data-keywords="federle 2019 生物粘附 动态剥离 peeling 方向性 综述 cambridge">
+      <div class="k-tag-row">
+        <span class="k-tag">Phil. Trans. R. Soc. B · 综述</span>
+        <span class="k-count">剑桥大学</span>
+      </div>
+      <h3>Federle2019 · 运动中动态生物粘附与剥离力学机制综述</h3>
+      <p>剑桥大学经典综述：系统总结昆虫与壁虎在高速运动中的动态方向性粘附控制、接触角依赖性与剥离（peeling）能量释放率模型，为人工倾斜柱制造提供力学地基。</p>
+      <div class="k-footer">
+        <span>Walter Federle, David Labonte</span>
+        <span class="k-arrow">完整笔记 →</span>
+      </div>
+    </a>
+
+    <div class="k-empty-msg" id="k-empty-msg">
+      没有找到匹配的论文笔记，尝试更换关键词
+    </div>
+
+  </div>
+
+  <div class="article-back-nav" style="margin-top: 40px;">
+    <a href="../index.html" class="btn btn-secondary">← 返回知识库主页</a>
+    <a href="../scamp-climbing.html" class="btn btn-primary">查看双模态足端方案构想 →</a>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
+    </div>
+    <div class="footer-credit">
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+    </div>
+    <div class="footer-links">
+      <a href="../../about/index.html">关于我</a>
+      <a href="../index.html">知识库</a>
+      <a href="../../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/script.js"></script>
+<script>
+  (function() {
+    const btns = document.querySelectorAll('.cat-btn');
+    const input = document.getElementById('k-search-input');
+    const cards = document.querySelectorAll('.k-card');
+    const emptyMsg = document.getElementById('k-empty-msg');
+
+    let activeCat = 'all';
+    let query = '';
+
+    function filter() {
+      let count = 0;
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const kw = (card.getAttribute('data-keywords') || '').toLowerCase();
+        const text = card.textContent.toLowerCase();
+
+        const matchCat = (activeCat === 'all' || cat === activeCat);
+        const matchQuery = !query || kw.includes(query) || text.includes(query);
+
+        if (matchCat && matchQuery) {
+          card.style.display = 'flex';
+          count++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+      emptyMsg.style.display = count === 0 ? 'block' : 'none';
+    }
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.getAttribute('data-category');
+        filter();
+      });
+    });
+
+    if (input) {
+      input.addEventListener('input', (e) => {
+        query = e.target.value.trim().toLowerCase();
+        filter();
+      });
+    }
+  })();
+</script>
+</body>
+</html>

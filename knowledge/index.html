@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/knowledge.css">
+  <link rel="stylesheet" href="../assets/article.css">
 </head>
 <body>
 
@@ -38,22 +39,41 @@
   <header class="knowledge-hero">
     <div class="hero-pill-badge" style="margin-bottom: 12px;">
       <span class="status-ping"></span>
-      <span>PROJECTS & READING NOTES</span>
+      <span>PROJECTS & RESEARCH NOTES</span>
     </div>
     <h1 class="knowledge-title">工程项目与学术笔记 (Knowledge Base)</h1>
     <p class="knowledge-desc">
-      记录真机工程落地复盘（Aloha Mini）、仿生攀爬学术论文精读，以及 USTC 核心课系统化自学讲义。点击即可阅读详细笔记。
+      记录真机落地复盘（Aloha Mini 2026春结项）、仿生飞行攀爬机器人前沿文献精读，以及 USTC 核心课系统自学讲义。
     </p>
   </header>
+
+  <!-- 🌟 重点专栏入口：学术论文精读全集 Banner 🌟 -->
+  <div style="background: linear-gradient(135deg, color-mix(in srgb, var(--ustc-blue) 12%, var(--bg-card)) 0%, var(--bg-card) 100%); border: 1.5px solid color-mix(in srgb, var(--ustc-blue) 40%, transparent); border-radius: var(--radius-md); padding: 24px 28px; margin-bottom: 32px; box-shadow: var(--shadow-sm); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+    <div style="max-width: 680px;">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+        <span class="hero-pill-badge" style="background: var(--ustc-blue); color: #ffffff; border: none; font-size: 11px;">专题专栏</span>
+        <span style="font-family: var(--font-mono); font-size: 12px; color: var(--ustc-blue); font-weight: 600;">共收录 13 篇前沿文献笔记</span>
+      </div>
+      <h2 style="font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em;">
+        仿生攀爬与黏附力学 · 学术论文精读全集 (Paper Reading)
+      </h2>
+      <p style="font-size: 14px; color: var(--ink-secondary); margin: 0; line-height: 1.6;">
+        收录来自 Stanford Cutkosky 团队、中科院沈阳自动化所、中科大董二宝老师团队等在 IEEE T-RO、IJRR、ICRA、Science Advances 发表的 13 篇关于微刺接触、干黏附机理与双模态夹爪的深度研读笔记。
+      </p>
+    </div>
+    <a href="papers/index.html" class="btn btn-primary" style="white-space: nowrap;">
+      <span>进入论文精读库 (13篇)</span>
+      <span>→</span>
+    </a>
+  </div>
 
   <!-- 检索与分类工具栏 -->
   <div class="knowledge-nav-bar">
     <div class="category-tags" id="category-tags">
       <button class="cat-btn active" data-category="all">全部内容</button>
       <button class="cat-btn" data-category="project">工程项目与遥操作</button>
-      <button class="cat-btn" data-category="climbing">飞行攀爬文献构想</button>
-      <button class="cat-btn" data-category="adhesion">微刺与黏附力学</button>
-      <button class="cat-btn" data-category="theory">USTC 课内自学讲义</button>
+      <button class="cat-btn" data-category="climbing">飞行攀爬与足端构想</button>
+      <button class="cat-btn" data-category="theory">USTC 核心课讲义</button>
     </div>
     <div class="search-input-wrap">
       <svg class="search-input-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -61,87 +81,59 @@
     </div>
   </div>
 
-  <!-- 知识卡片网格 (真实链接！) -->
+  <!-- 知识卡片网格 -->
   <div class="k-grid" id="k-grid">
 
-    <!-- 卡片 1: Aloha Mini 实战 -->
-    <a class="k-card" href="aloha-mini.html" data-category="project" data-keywords="aloha mini 双臂 机器人 树莓派 遥操作 joycon ssh 示教 数据集 视觉 抓取">
+    <!-- 1. Aloha Mini -->
+    <a class="k-card" href="aloha-mini.html" data-category="project" data-keywords="aloha mini 双臂 机器人 树莓派 遥操作 joycon ssh 示教 数据集 视觉 抓取 2026春">
       <div class="k-tag-row">
-        <span class="k-tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">Hands-on · 真机落地</span>
-        <span class="k-count">详细复盘</span>
+        <span class="k-tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">校企合作 · 2026春已完成</span>
+        <span class="k-count">真机落地</span>
       </div>
-      <h3>Aloha Mini 开源双臂移动机器人调测与遥操作实操</h3>
-      <p>担任电子/软件组成员：树莓派硬件调优、Ubuntu 远端 SSH 链路、Switch Joy-Con 手柄底盘与升降映射，以及示教数据集采集与视觉自主抓取落地。</p>
+      <h3>Aloha Mini 开源双臂移动机器人调测与遥操作实践</h3>
+      <p>电子与软件组成员：完成树莓派 Linux 底层调测、Ubuntu SSH 控制链路建立、Switch Joy-Con 手柄底盘与升降映射，采集真机示教数据，模型训练后成功实现视觉特定物体自主抓取与放置。</p>
       <div class="k-footer">
-        <span>项目总结 · 附 GitHub 链接</span>
+        <span>项目总结 · 附 GitHub 开源链接</span>
         <span class="k-arrow">阅读复盘 →</span>
       </div>
     </a>
 
-    <!-- 卡片 2: 飞行攀爬足端设计构想 -->
-    <a class="k-card" href="scamp-climbing.html" data-category="climbing" data-keywords="飞行 攀爬 机器人 双稳态 薄板 sma 模式切换 足端 scamp crazyflie 构想">
+    <!-- 2. SCAMP 攀爬足端构想 -->
+    <a class="k-card" href="scamp-climbing.html" data-category="climbing" data-keywords="飞行 攀爬 机器人 双稳态 薄板 sma 模式切换 足端 scamp 构想">
       <div class="k-tag-row">
         <span class="k-tag">Concept · 文献构想</span>
         <span class="k-count">方案设计</span>
       </div>
       <h3>SCAMP 式飞行攀爬机器人与双模态双稳态足端方案构想</h3>
-      <p>文献研读与前期方案构想：Mode 1 微刺适应粗糙面，Mode 2 干黏附适应光滑面，基于 SMA 脉冲触发 snap-through 跳跃切换与断电自保持，严格受控于 10-15g 质量预算。</p>
+      <p>文献精读与前期方案构想：Mode 1 微刺用于粗糙面，Mode 2 干黏附用于光滑面，SMA 脉冲触发 snap-through 弹跳切换与断电自保持，严格受控于单足 1-3g、双足 &lt; 15g 质量预算。</p>
       <div class="k-footer">
         <span>源自项目概述与工程约束</span>
         <span class="k-arrow">阅读构想 →</span>
       </div>
     </a>
 
-    <!-- 卡片 3: Asbeck 2006 微刺精读 -->
-    <a class="k-card" href="asbeck-2006.html" data-category="adhesion" data-keywords="微刺 阵列 asbeck 粗糙 接触 尖端半径 摩擦 破坏 载荷 论文 笔记">
+    <!-- 3. 论文库总入口卡片 -->
+    <a class="k-card" href="papers/index.html" data-category="climbing" data-keywords="论文 笔记 asbeck hawkes pope fang hu ruffatto 接触力学 干黏附 微刺">
       <div class="k-tag-row">
-        <span class="k-tag">Paper Reading · 接触力学</span>
-        <span class="k-count">文献精读</span>
+        <span class="k-tag" style="background: var(--ustc-blue-light); color: var(--ustc-blue);">Paper Reading · 专栏</span>
+        <span class="k-count">13 篇精读</span>
       </div>
-      <h3>Asbeck 2006 · 顺应性微刺阵列与粗糙壁面接触力学建模</h3>
-      <p>精读笔记：指出 Ra/Rq 指标不等于微刺咬合力，决定性因素是表面可用 asperity 的法向角与分布密度；分析尖端半径与密度的尺度权衡及三种失效模式。</p>
+      <h3>仿生攀爬与接触力学 · 学术论文精读全集入口</h3>
+      <p>涵盖 Asbeck2006 微刺接触建模、Hawkes2015 剪切干黏附、Pope2017 SCAMP 飞行攀爬、Fang2026 双模航天夹爪，以及中科大董二宝老师团队 IEEE T-RO 系列软体夹爪论文精读。</p>
       <div class="k-footer">
-        <span>Stanford Cutkosky 组论文</span>
-        <span class="k-arrow">精读笔记 →</span>
+        <span>包含 13 篇完整笔记</span>
+        <span class="k-arrow">进入专栏 →</span>
       </div>
     </a>
 
-    <!-- 卡片 4: Hawkes 2015 干黏附精读 -->
-    <a class="k-card" href="hawkes-2015.html" data-category="adhesion" data-keywords="干黏附 剪切 hawkes anp 各向异性 聚氨酯 pdms 仿壁虎 脱附 论文 笔记">
-      <div class="k-tag-row">
-        <span class="k-tag">Paper Reading · 干黏附</span>
-        <span class="k-count">文献精读</span>
-      </div>
-      <h3>Hawkes 2015 · 剪切激活干黏附与各向异性比 Anp 压低机制</h3>
-      <p>精读笔记：探讨 PDMS 微楔剪切倒伏激活原理；核心解决壁面攀爬“粘得牢但换步脱不下来”的矛盾，以各向异性比 alpha = Anp / Ap 评估脱附阻力。</p>
-      <div class="k-footer">
-        <span>ICRA 经典论文精读</span>
-        <span class="k-arrow">精读笔记 →</span>
-      </div>
-    </a>
-
-    <!-- 卡片 5: Pope 2017 SCAMP 精读 -->
-    <a class="k-card" href="pope-2017.html" data-category="climbing" data-keywords="scamp pope 飞行 攀爬 栖停 多模态 旋翼 法向力 论文 笔记">
-      <div class="k-tag-row">
-        <span class="k-tag">Paper Reading · 飞行攀爬</span>
-        <span class="k-count">文献精读</span>
-      </div>
-      <h3>Pope 2017 · SCAMP 微型飞行器垂直硬质壁面栖停与攀爬</h3>
-      <p>精读笔记：分析微型四旋翼触壁碰撞能量吸收、利用旋翼斜向残余推力作为法向微刺预压力的策略，以及飞行到攀爬的多模态平稳过渡。</p>
-      <div class="k-footer">
-        <span>IEEE T-RO 论文精读</span>
-        <span class="k-arrow">精读笔记 →</span>
-      </div>
-    </a>
-
-    <!-- 卡片 6: 理论力学B 讲义 -->
+    <!-- 4. 理论力学B 讲义 -->
     <a class="k-card" href="ustc-mechanics.html" data-category="theory" data-keywords="理论力学 分析力学 拉格朗日 广义坐标 虚位移 能量 刚体 运动学 ustc 讲义">
       <div class="k-tag-row">
         <span class="k-tag">USTC · 核心专业课</span>
         <span class="k-count">自编讲义</span>
       </div>
       <h3>理论力学B · 拉格朗日分析力学直观物理图景与推导手记</h3>
-      <p>从牛顿矢量受力分析跃迁至拉格朗日标量能量方程；通过自由度、广义坐标判定与达朗贝尔变分原理，构建机器人多连杆系统动力学方程标准化求解路径。</p>
+      <p>从牛顿矢量受力分析跃迁至拉格朗日标量能量方程；通过自由度、广义坐标判定与达朗贝尔变分原理，构建多连杆机器人空间动力学方程标准化求解路径。</p>
       <div class="k-footer">
         <span>Typst 自学讲义提炼</span>
         <span class="k-arrow">阅读手记 →</span>
@@ -160,11 +152,14 @@
     <div class="footer-branding">
       <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
       <span>·</span>
-      <span>中国科学技术大学 机器人工程</span>
+      <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
+    </div>
+    <div class="footer-credit">
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
     </div>
     <div class="footer-links">
       <a href="../about/index.html">关于我</a>
-      <a href="../knowledge/index.html">知识库</a>
+      <a href="index.html">知识库</a>
       <a href="../timeline/index.html">时间线</a>
     </div>
   </div>

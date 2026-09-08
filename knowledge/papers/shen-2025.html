@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shen2025 · 机器学习预测飞行机器人壁面栖停精读 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../../about/index.html">关于我</a></li>
+        <li><a href="../index.html" class="active">知识库</a></li>
+        <li><a href="../../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span>/</span>
+    <a href="../index.html">知识库</a>
+    <span>/</span>
+    <a href="index.html">论文精读全集</a>
+    <span>/</span>
+    <span>Shen 2025</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge">
+        <span>PAPER READING · NATURE COMMUNICATIONS 2025</span>
+      </div>
+      <h1 class="article-title">Shen2025 · 基于机器学习预测飞行机器人在垂直壁面的栖停成功率精读</h1>
+      <div class="article-meta-row">
+        <span class="article-meta-item">📄 作者：Yunian Shen, Chenxi Mao, Zeyu Qi et al.</span>
+        <span class="article-meta-item">出处：Nature Communications, 2025</span>
+        <span class="article-meta-item">DOI: 10.1038/s41467-025-67386-0</span>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="article-callout">
+        <p><strong>一句话精要</strong>：利用轻量级机器学习模型替代传统高计算耗时的接触碰撞多体动力学仿真，高效、高精度地预测微型飞行机器人在高速撞击垂直壁面时的栖停抓附成功率，为轨迹规划与控制器设计提供秒级评估工具。</p>
+      </div>
+
+      <h2>一、 核心创新与方法论</h2>
+      <ul>
+        <li><strong>代理模型加速设计空间探索</strong>：微型飞行器撞墙瞬间包含接触力非线性、多自由度柔顺变形与气动突变，传统数值仿真每次需要几十分钟；采用数据驱动神经网络代理模型，毫秒级即可输出触碰姿态（俯仰角、攻角、线速度、角速度）下的抓附概率等高线；</li>
+        <li><strong>指导硬件参数逆向优化</strong>：通过对机器学习特征灵敏度分析，反向优化足部被动阻尼比与机翼前倾角。</li>
+      </ul>
+    </div>
+
+    <div class="article-back-nav">
+      <a href="index.html" class="btn btn-secondary">← 返回论文精读目录</a>
+      <a href="federle-2019.html" class="btn btn-secondary">下一篇：Federle2019 动态生物粘附 →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
+    </div>
+    <div class="footer-credit">
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+    </div>
+    <div class="footer-links">
+      <a href="../../about/index.html">关于我</a>
+      <a href="../index.html">知识库</a>
+      <a href="../../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/script.js"></script>
+</body>
+</html>

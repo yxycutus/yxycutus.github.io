@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hawkes2015 · 百倍自重干黏附垂直攀爬精读 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../../about/index.html">关于我</a></li>
+        <li><a href="../index.html" class="active">知识库</a></li>
+        <li><a href="../../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span>/</span>
+    <a href="../index.html">知识库</a>
+    <span>/</span>
+    <a href="index.html">论文精读全集</a>
+    <span>/</span>
+    <span>Hawkes 2015</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge">
+        <span>PAPER READING · IEEE ICRA 2015</span>
+      </div>
+      <h1 class="article-title">Hawkes2015 · 百倍自重干黏附垂直攀爬与各向异性精读</h1>
+      <div class="article-meta-row">
+        <span class="article-meta-item">📄 作者：Elliot W. Hawkes, David L. Christensen, Mark R. Cutkosky</span>
+        <span class="article-meta-item">🏛 机构：Stanford University (BDML)</span>
+        <span class="article-meta-item">出处：IEEE ICRA 2015</span>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="article-callout">
+        <p><strong>一句话精要</strong>：通过可控、各向异性的 PDMS microwedge（微楔）干黏附和单执行器线性尺蠖步态，证明 9g 小机器人可在光滑竖直面上携带超过 100 倍自重的有效载荷，并在漏步时保持不脱落、停墙时近似零功耗。</p>
+      </div>
+
+      <h2>一、 核心概念：各向异性比 alpha 与脱附力</h2>
+      <div class="article-pre">
+各向异性比指标：alpha = Anp / Ap
+- Ap  : 优选方向（承重拉伸方向）剪切黏附力
+- Anp : 非优选方向（换步脱附方向）剪切阻力
+- 机器人实际有效负载能力：Pmax = Ap - Anp
+      </div>
+      <p>解决壁面攀爬的核心矛盾不是“黏附力够不够大”，而是“在换步移动时如何把反向拖滞阻力 $A_{np}$ 降至接近于零”。</p>
+
+      <h2>二、 剪切激活干黏附机理</h2>
+      <ul>
+        <li>微楔结构未受剪切时仅以极小尖端轻微贴墙；</li>
+        <li>施加剪切拉力时，微楔倒伏贴合，分子级接触面积成倍爆发，产生强大的承载黏附；</li>
+        <li>反向推离或卸载剪切力后，微楔弹性恢复直立，轻松完成低功耗剥离。</li>
+      </ul>
+    </div>
+
+    <div class="article-back-nav">
+      <a href="index.html" class="btn btn-secondary">← 返回论文精读目录</a>
+      <a href="pope-2017.html" class="btn btn-secondary">下一篇：Pope2017 SCAMP →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
+    </div>
+    <div class="footer-credit">
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+    </div>
+    <div class="footer-links">
+      <a href="../../about/index.html">关于我</a>
+      <a href="../index.html">知识库</a>
+      <a href="../../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/script.js"></script>
+</body>
+</html>

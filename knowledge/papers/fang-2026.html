@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fang2026 · 仿生双模夹爪（微重力攀爬机器人）精读 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/article.css">
+</head>
+<body>
+
+<div class="bg-grid-pattern"></div>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../../index.html">
+      <div class="brand-badge">C</div>
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC 机器人</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+        <li><a href="../../about/index.html">关于我</a></li>
+        <li><a href="../index.html" class="active">知识库</a></li>
+        <li><a href="../../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../../index.html">首页</a>
+    <span>/</span>
+    <a href="../index.html">知识库</a>
+    <span>/</span>
+    <a href="index.html">论文精读全集</a>
+    <span>/</span>
+    <span>Fang 2026</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge">
+        <span>PAPER READING · CJA 2026</span>
+      </div>
+      <h1 class="article-title">Fang2026 · 仿生双模夹爪（微重力航天器攀爬机器人 SPACE-1）精读</h1>
+      <div class="article-meta-row">
+        <span class="article-meta-item">📄 作者：Zhiyue Fang, Yongxu Lu, Wei Zhang et al.</span>
+        <span class="article-meta-item">🏛 机构：中科院沈阳自动化所 + 中科院微小卫星创新研究院</span>
+        <span class="article-meta-item">出处：Chinese Journal of Aeronautics</span>
+      </div>
+    </header>
+
+    <div class="article-content">
+      <div class="article-callout">
+        <p><strong>一句话精要</strong>：针对航天器外壁的机械异质表面（刚性金属 vs 柔性隔热层 MLI），设计了四足攀爬机器人 SPACE-1。核心末端集成干黏附与机械穿刺双模夹爪：刚性金属面使用 PU/SiO2 复合干黏附垫贴附，柔性多层隔热材料（MLI）采用偏置曲柄五杆机构控制微刺精确刺入与平滑脱附。</p>
+      </div>
+
+      <h2>一、 核心创新与机构建模</h2>
+      <ul>
+        <li><strong>机械异质表面适应</strong>：航天器表面不是均质材质，单一附着机制（纯磁吸、纯干黏附或纯机械爪）无法可靠工作，必须进行双模/多模机制融合。</li>
+        <li><strong>五杆爪刺机构运动学</strong>：通过直线电缸驱动滑块移动，带动偏置曲柄摇杆输出角度，精密规划爪刺轨迹，确保刺尖满足 MLI 厚度不穿透底层金属、刺入角可控且退出时不撕裂隔热膜。</li>
+        <li><strong>整机空间步态验证</strong>：在微重力气浮台架与不同航天材料表面完成了稳定的四足攀爬与转弯演示。</li>
+      </ul>
+
+      <h2>二、 对双稳态足端设计的对比思考</h2>
+      <p>Fang2026 的双模态切换依赖较为复杂的精密连杆机械构型与电机线性推杆，整机结构刚性强但质量较大（适用于航天四足大机器人）。在微型飞行器平台上，必须寻求更加极致轻量化的方案，而基于材料本构的双稳态薄板 snap-through 跳跃，正是追求克级质量预算下的极优解。</p>
+    </div>
+
+    <div class="article-back-nav">
+      <a href="index.html" class="btn btn-secondary">← 返回论文精读目录</a>
+      <a href="modabberifar-2018.html" class="btn btn-secondary">下一篇：Modabberifar2018 SMA夹爪 →</a>
+    </div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
+    </div>
+    <div class="footer-credit">
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+    </div>
+    <div class="footer-links">
+      <a href="../../about/index.html">关于我</a>
+      <a href="../index.html">知识库</a>
+      <a href="../../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../assets/script.js"></script>
+</body>
+</html>
