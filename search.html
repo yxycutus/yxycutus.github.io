@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>全站搜索 — Cutus</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/knowledge.css">
+  <link rel="stylesheet" href="assets/article.css">
+  <meta name="description" content="全站搜索 — Cutus。公开项目、学习笔记与研究记录。">
+  <link rel="icon" href="assets/avatar.jpg" type="image/jpeg">
+</head>
+<body>
+<a class="skip-link" href="#main-content">跳到正文</a>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="index.html">
+      <img src="assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar">
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC Robotics</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+<li><a href="search.html">搜索</a></li>
+        <li><a href="about/index.html">关于我</a></li>
+        <li><a href="knowledge/index.html">知识库</a></li>
+        <li><a href="timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content" tabindex="-1" class="main-wrapper"><header class="knowledge-hero"><span class="section-label">EXPLORE THE NOTES</span><h1 class="knowledge-title">找到下一条线索</h1><p class="knowledge-desc">搜索公开页面的标题、摘要与关键词。按空格组合关键词，或按主题浏览。</p></header><div class="knowledge-nav-bar"><div class="category-tags"><button class="cat-btn active" data-category="all">全部内容</button><button class="cat-btn" data-category="papers">论文笔记</button><button class="cat-btn" data-category="courses">课程学习</button><button class="cat-btn" data-category="methods">方法与工具</button><button class="cat-btn" data-category="projects">工程项目</button></div><div class="search-input-wrap"><input type="search" id="k-search-input" aria-label="搜索标题、摘要与关键词" placeholder="例如：SMA、微刺、力学" autocomplete="off"></div></div><noscript><p>即时筛选需要 JavaScript；你仍可浏览下方全部目录，或使用浏览器的查找功能。</p></noscript><div class="filter-summary" hidden><p id="filter-count" role="status" aria-live="polite"></p><button id="filter-reset" class="cat-btn" type="button">清除筛选</button></div><div class="k-grid" id="k-grid"><a class="k-card" href="knowledge/agent-tutorial.html" data-category="methods" data-keywords="knowledge/agent-tutorial.html 从小白到 Vibe Coding：现代 AI Agent 选型、避坑与科研工程实践全指南 写在前面 ：这份教程面向 没有任何系统使用过命令行 Agent 工具的同学 ，同时也写给那些希望提升日常科研、有限元仿真与工程开发效率的极客们。内容结合了优质开源教程 agent-tutorial.cmander02.com 的精髓，并融入了我在中科大机器人工程专业学习、加入空中机器人课题组、踩坑封号、自动化 Abaqus 仿真以及搭建本"><div class="k-tag-row"><span class="k-tag">方法与工具</span></div><h3>从小白到 Vibe Coding：现代 AI Agent 选型、避坑与科研工程实践全指南</h3><p>写在前面 ：这份教程面向 没有任何系统使用过命令行 Agent 工具的同学 ，同时也写给那些希望提升日常科研、有限元仿真与工程开发效率的极客们。内容结合了优质开源教程 agent-tutorial.cmander02.com 的精髓，并融入了我在中科大机器人工程专业学习、加入空中机器人课题组、踩坑封号、自动化 Abaqus 仿真以及搭建本</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/aloha-mini.html" data-category="projects" data-keywords="knowledge/aloha-mini.html 校企合作 · Aloha Mini 开源双臂移动机器人调测与遥操作实践 项目概述 ：Aloha Mini 是一套低成本开源双臂移动操作机器人平台，配备垂直升降导轨与双机械臂系统。在本次校企合作研发项目中，我作为 电子组 / 软件组成员 ，主要负责树莓派系统调试、通信链路贯通、Joy-Con 遥操作适配以及示教数据集采集。"><div class="k-tag-row"><span class="k-tag">工程项目</span></div><h3>校企合作 · Aloha Mini 开源双臂移动机器人调测与遥操作实践</h3><p>项目概述 ：Aloha Mini 是一套低成本开源双臂移动操作机器人平台，配备垂直升降导轨与双机械臂系统。在本次校企合作研发项目中，我作为 电子组 / 软件组成员 ，主要负责树莓派系统调试、通信链路贯通、Joy-Con 遥操作适配以及示教数据集采集。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/courses/index.html" data-category="courses" data-keywords="knowledge/courses/index.html 中科大机器人工程 · 课程自学笔记与复习讲义库 记录中国科学技术大学机器人工程本科阶段的学习与自学体系。涵盖 大二上学期专业硬核课 （理论力学B、电磁学B、人工智能数学原理与算法B、复变函数B、概率论与数理统计等）与 大一下学期期末突击复习体系 （微积分II/III、热学B、电工学、综四等）。以自编 Typst / LaTeX / Markdown 为骨架，突出物理图像、数学本质与解题"><div class="k-tag-row"><span class="k-tag">课程学习</span></div><h3>中科大机器人工程 · 课程自学笔记与复习讲义库</h3><p>记录中国科学技术大学机器人工程本科阶段的学习与自学体系。涵盖 大二上学期专业硬核课 （理论力学B、电磁学B、人工智能数学原理与算法B、复变函数B、概率论与数理统计等）与 大一下学期期末突击复习体系 （微积分II/III、热学B、电工学、综四等）。以自编 Typst / LaTeX / Markdown 为骨架，突出物理图像、数学本质与解题</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/asbeck-2006.html" data-category="papers" data-keywords="knowledge/papers/asbeck-2006.html Asbeck2006 · 顺应性微刺阵列攀爬硬质垂直表面接触力学精读 一句话精要 ：系统建立了微刺与粗糙硬表面的接触模型。微刺能否抓住墙面不只取决于 Ra/Rq ，更取决于局部微凸体（asperity）的法向角、刺尖半径、接近角和加载方向；工程上必须采用多个小半径、高强度、带局部顺应性的 spine 阵列，而不是少数刚性大钩子。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Asbeck2006 · 顺应性微刺阵列攀爬硬质垂直表面接触力学精读</h3><p>一句话精要 ：系统建立了微刺与粗糙硬表面的接触模型。微刺能否抓住墙面不只取决于 Ra/Rq ，更取决于局部微凸体（asperity）的法向角、刺尖半径、接近角和加载方向；工程上必须采用多个小半径、高强度、带局部顺应性的 spine 阵列，而不是少数刚性大钩子。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/fang-2026.html" data-category="papers" data-keywords="knowledge/papers/fang-2026.html Fang2026 · 仿生双模夹爪（微重力航天器攀爬机器人 SPACE-1）精读 一句话精要 ：针对航天器外壁的机械异质表面（刚性金属 vs 柔性隔热层 MLI），设计了四足攀爬机器人 SPACE-1。核心末端集成干黏附与机械穿刺双模夹爪：刚性金属面使用 PU/SiO2 复合干黏附垫贴附，柔性多层隔热材料（MLI）采用偏置曲柄五杆机构控制微刺精确刺入与平滑脱附。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Fang2026 · 仿生双模夹爪（微重力航天器攀爬机器人 SPACE-1）精读</h3><p>一句话精要 ：针对航天器外壁的机械异质表面（刚性金属 vs 柔性隔热层 MLI），设计了四足攀爬机器人 SPACE-1。核心末端集成干黏附与机械穿刺双模夹爪：刚性金属面使用 PU/SiO2 复合干黏附垫贴附，柔性多层隔热材料（MLI）采用偏置曲柄五杆机构控制微刺精确刺入与平滑脱附。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/federle-2019.html" data-category="papers" data-keywords="knowledge/papers/federle-2019.html Federle2019 · 运动中动态生物粘附与剥离（Peeling）力学机制综述 一句话精要 ：剑桥大学经典综述，全面剖析了昆虫、壁虎在高速运动中动态控制附着与脱附的物理生物学机制：方向性粘附（Directional Adhesion）、剥离（Peeling）力学断裂模型，以及通过微细几何构造主动调控接触界面分离能的规律。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Federle2019 · 运动中动态生物粘附与剥离（Peeling）力学机制综述</h3><p>一句话精要 ：剑桥大学经典综述，全面剖析了昆虫、壁虎在高速运动中动态控制附着与脱附的物理生物学机制：方向性粘附（Directional Adhesion）、剥离（Peeling）力学断裂模型，以及通过微细几何构造主动调控接触界面分离能的规律。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/hawkes-2015.html" data-category="papers" data-keywords="knowledge/papers/hawkes-2015.html Hawkes2015 · 百倍自重干黏附垂直攀爬与各向异性精读 一句话精要 ：通过可控、各向异性的 PDMS microwedge（微楔）干黏附和单执行器线性尺蠖步态，证明 9g 小机器人可在光滑竖直面上携带超过 100 倍自重的有效载荷，并在漏步时保持不脱落、停墙时近似零功耗。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Hawkes2015 · 百倍自重干黏附垂直攀爬与各向异性精读</h3><p>一句话精要 ：通过可控、各向异性的 PDMS microwedge（微楔）干黏附和单执行器线性尺蠖步态，证明 9g 小机器人可在光滑竖直面上携带超过 100 倍自重的有效载荷，并在漏步时保持不脱落、停墙时近似零功耗。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/hu-2019.html" data-category="papers" data-keywords="knowledge/papers/hu-2019.html Hu2019 · 仿尺蠖微刺阵列软体攀爬机器人精读 一句话精要 ：利用 SMA 丝驱动弹簧钢-PDMS 软体结构，制造具备主动弯曲柔顺足和伸缩躯干的仿尺蠖软体攀爬机器人，足端嵌入微刺阵列，成功在砂纸曲面、PE 泡沫垂直曲面和软质管道内实现了蠕动爬行。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Hu2019 · 仿尺蠖微刺阵列软体攀爬机器人精读</h3><p>一句话精要 ：利用 SMA 丝驱动弹簧钢-PDMS 软体结构，制造具备主动弯曲柔顺足和伸缩躯干的仿尺蠖软体攀爬机器人，足端嵌入微刺阵列，成功在砂纸曲面、PE 泡沫垂直曲面和软质管道内实现了蠕动爬行。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/hu-2021.html" data-category="papers" data-keywords="knowledge/papers/hu-2021.html Hu2021 · 干黏附、软执行器与微刺并联集成多模态抓取软夹爪精读 一句话精要 ：将平面干黏附层、SMA 软弯曲执行器与微刺-弹簧-SMA coil 伸缩组件并联集成在单个软指爪内，实现了针对光滑物体、粗糙物体、薄板与异形工件的多模态自适应鲁棒抓取，展现了科大团队在软体抓持领域的顶尖设计功力。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Hu2021 · 干黏附、软执行器与微刺并联集成多模态抓取软夹爪精读</h3><p>一句话精要 ：将平面干黏附层、SMA 软弯曲执行器与微刺-弹簧-SMA coil 伸缩组件并联集成在单个软指爪内，实现了针对光滑物体、粗糙物体、薄板与异形工件的多模态自适应鲁棒抓取，展现了科大团队在软体抓持领域的顶尖设计功力。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/hu-2023.html" data-category="papers" data-keywords="knowledge/papers/hu-2023.html Hu2023 · 软体模块化攀爬机器人 Smcbot 与足端机制库精读 一句话精要 ：提出 Smcbot 软体模块化攀爬机器人，通过柔顺 SMA 软体身体驱动模块与足端接口模块库（电磁足、吸盘足、干黏附柔性足、微刺柔性足），系统论证了在面对铁磁平面、普通平面、管道内外壁、光滑曲面和粗糙粗砺面等极端多介质场景时，模块化更换足端物理机制的优越性。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Hu2023 · 软体模块化攀爬机器人 Smcbot 与足端机制库精读</h3><p>一句话精要 ：提出 Smcbot 软体模块化攀爬机器人，通过柔顺 SMA 软体身体驱动模块与足端接口模块库（电磁足、吸盘足、干黏附柔性足、微刺柔性足），系统论证了在面对铁磁平面、普通平面、管道内外壁、光滑曲面和粗糙粗砺面等极端多介质场景时，模块化更换足端物理机制的优越性。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/index.html" data-category="papers" data-keywords="knowledge/papers/index.html 仿生攀爬与黏附接触力学 · 论文精读专栏 围绕微型壁面攀爬机器人、微刺阵列与仿生干黏附机理、软体/双稳态可变刚度夹爪，系统精读整理的 13 篇前沿学术文献笔记（涵盖 IEEE T-RO、IJRR、ICRA、Science Advances、Nature Communications 等）。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>仿生攀爬与黏附接触力学 · 论文精读专栏</h3><p>围绕微型壁面攀爬机器人、微刺阵列与仿生干黏附机理、软体/双稳态可变刚度夹爪，系统精读整理的 13 篇前沿学术文献笔记（涵盖 IEEE T-RO、IJRR、ICRA、Science Advances、Nature Communications 等）。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/liu-2026.html" data-category="papers" data-keywords="knowledge/papers/liu-2026.html Liu2026 · 仿生跨介质壁面攀爬机器人与高适应性接触粘附精读 一句话精要 ：系统探索了水下与陆地两栖跨介质复杂壁面环境下的稳定攀爬。通过结合高性能各向异性粘附机理与超柔顺接触适应性足端，攻克了流体阻力、浮力变化与壁面水膜对分子级黏附强度的致命削弱。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Liu2026 · 仿生跨介质壁面攀爬机器人与高适应性接触粘附精读</h3><p>一句话精要 ：系统探索了水下与陆地两栖跨介质复杂壁面环境下的稳定攀爬。通过结合高性能各向异性粘附机理与超柔顺接触适应性足端，攻克了流体阻力、浮力变化与壁面水膜对分子级黏附强度的致命削弱。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/modabberifar-2018.html" data-category="papers" data-keywords="knowledge/papers/modabberifar-2018.html Modabberifar2018 · SMA 丝热致驱动仿壁虎方向性干黏附夹爪精读 一句话精要 ：提出一种用 SMA（形状记忆合金丝）热致收缩驱动的三臂仿壁虎干黏附夹爪：SMA 拉动滑块给三片方向性干黏附垫施加剪切，约 1s 内完成接合；断电后靠机械弹簧和空气自然冷却复位脱附，具备极高的功重比。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Modabberifar2018 · SMA 丝热致驱动仿壁虎方向性干黏附夹爪精读</h3><p>一句话精要 ：提出一种用 SMA（形状记忆合金丝）热致收缩驱动的三臂仿壁虎干黏附夹爪：SMA 拉动滑块给三片方向性干黏附垫施加剪切，约 1s 内完成接合；断电后靠机械弹簧和空气自然冷却复位脱附，具备极高的功重比。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/pope-2017.html" data-category="papers" data-keywords="knowledge/papers/pope-2017.html Pope2017 · SCAMP 微型飞行器垂直粗糙壁面栖停与攀爬精读 一句话精要 ：微型飞行器（MAV）栖停后可在室外垂直粗糙外墙（混凝土/红砖）上攀爬重定位；利用柔性微刺螺旋勾爪，并创造性地将四旋翼残余推力作为法向微刺贴墙预紧力，实现了稳定的准静态多步攀爬。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Pope2017 · SCAMP 微型飞行器垂直粗糙壁面栖停与攀爬精读</h3><p>一句话精要 ：微型飞行器（MAV）栖停后可在室外垂直粗糙外墙（混凝土/红砖）上攀爬重定位；利用柔性微刺螺旋勾爪，并创造性地将四旋翼残余推力作为法向微刺贴墙预紧力，实现了稳定的准静态多步攀爬。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/ruffatto-2014.html" data-category="papers" data-keywords="knowledge/papers/ruffatto-2014.html Ruffatto2014 · 静电吸附与仿壁虎微楔复合黏附（EDA 结构）精读 一句话精要 ：提出 EDA（Electrostatic/Gecko-like Adhesive）复合垫：在厚度方向将静电吸附电极埋设在方向性干黏附微楔后方。静电场提供法向电场吸引力以建立初始真实接触贴合，微楔在剪切加载下提供强承载，极大改善了在粗糙、非理想航天材料上的黏附可靠性。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Ruffatto2014 · 静电吸附与仿壁虎微楔复合黏附（EDA 结构）精读</h3><p>一句话精要 ：提出 EDA（Electrostatic/Gecko-like Adhesive）复合垫：在厚度方向将静电吸附电极埋设在方向性干黏附微楔后方。静电场提供法向电场吸引力以建立初始真实接触贴合，微楔在剪切加载下提供强承载，极大改善了在粗糙、非理想航天材料上的黏附可靠性。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/shen-2025.html" data-category="papers" data-keywords="knowledge/papers/shen-2025.html Shen2025 · 基于机器学习预测飞行机器人在垂直壁面的栖停成功率精读 一句话精要 ：利用轻量级机器学习模型替代传统高计算耗时的接触碰撞多体动力学仿真，高效、高精度地预测微型飞行机器人在高速撞击垂直壁面时的栖停抓附成功率，为轨迹规划与控制器设计提供秒级评估工具。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Shen2025 · 基于机器学习预测飞行机器人在垂直壁面的栖停成功率精读</h3><p>一句话精要 ：利用轻量级机器学习模型替代传统高计算耗时的接触碰撞多体动力学仿真，高效、高精度地预测微型飞行机器人在高速撞击垂直壁面时的栖停抓附成功率，为轨迹规划与控制器设计提供秒级评估工具。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/papers/yu-2024.html" data-category="papers" data-keywords="knowledge/papers/yu-2024.html Yu2024 · 仿壁虎机器人新型可变刚度双稳态预应力壳黏附爪精读 一句话精要 ：面向微重力航天器表面，提出一种集成 PU 仿生干黏附与双稳态预应力壳脚趾的可变刚度末端爪。通过拉绳驱动在展开高刚度贴附模式与卷曲低刚度剥离脱附模式之间切换，实现粗糙/光滑表面的爬行。"><div class="k-tag-row"><span class="k-tag">论文笔记</span></div><h3>Yu2024 · 仿壁虎机器人新型可变刚度双稳态预应力壳黏附爪精读</h3><p>一句话精要 ：面向微重力航天器表面，提出一种集成 PU 仿生干黏附与双稳态预应力壳脚趾的可变刚度末端爪。通过拉绳驱动在展开高刚度贴附模式与卷曲低刚度剥离脱附模式之间切换，实现粗糙/光滑表面的爬行。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/research-workflow.html" data-category="methods" data-keywords="knowledge/research-workflow.html 从论文到实验：我的研究记录工作流 2026 年 6 月，我开始搭建 Obsidian、Codex 与 Zotero 配合使用的论文阅读工作流。Aloha Mini 的调测与交接，以及随后足端机构的原理验证，让我逐渐把注意力放到一个问题上：一条笔记，最终能不能帮助下一次实验？"><div class="k-tag-row"><span class="k-tag">方法与工具</span></div><h3>从论文到实验：我的研究记录工作流</h3><p>2026 年 6 月，我开始搭建 Obsidian、Codex 与 Zotero 配合使用的论文阅读工作流。Aloha Mini 的调测与交接，以及随后足端机构的原理验证，让我逐渐把注意力放到一个问题上：一条笔记，最终能不能帮助下一次实验？</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/scamp-climbing.html" data-category="projects" data-keywords="SMA 双稳态 65Mn Crazyflie 鱼钩 微刺 吸盘 飞控 遥测 台架 载荷 knowledge/scamp-climbing.html 双模态栖息机构：从原理翻转到可重复附着 现在要回答的问题 ：同一个轻量化机构，能否在指定粗糙面与光滑面上分别实现可重复的接合、保持和可控离开？首次汇报后，近期工作聚焦多表面栖息；攀爬是否继续开展，将根据任务需要和机构能力重新评估。"><div class="k-tag-row"><span class="k-tag">工程项目</span></div><h3>双模态栖息机构：从原理翻转到可重复附着</h3><p>现在要回答的问题 ：同一个轻量化机构，能否在指定粗糙面与光滑面上分别实现可重复的接合、保持和可控离开？首次汇报后，近期工作聚焦多表面栖息；攀爬是否继续开展，将根据任务需要和机构能力重新评估。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a>
+<a class="k-card" href="knowledge/ustc-mechanics.html" data-category="courses" data-keywords="knowledge/ustc-mechanics.html 理论力学B · 拉格朗日分析力学直观物理图景与推导手记 核心理念 ：牛顿矢量力学通过隔离受力与约束反力解方程，处理多连杆机构时代数极其臃肿；分析力学通过 广义坐标与能量标量（动能 T 与势能 V） ，绕过内力和理想约束反力，直接导出独立自由度的空间动力学方程。这是搞现代机器人动力学建模不可逾越的基础。"><div class="k-tag-row"><span class="k-tag">课程学习</span></div><h3>理论力学B · 拉格朗日分析力学直观物理图景与推导手记</h3><p>核心理念 ：牛顿矢量力学通过隔离受力与约束反力解方程，处理多连杆机构时代数极其臃肿；分析力学通过 广义坐标与能量标量（动能 T 与势能 V） ，绕过内力和理想约束反力，直接导出独立自由度的空间动力学方程。这是搞现代机器人动力学建模不可逾越的基础。</p><div class="k-footer"><span>阅读完整页面</span><span>→</span></div></a><div class="k-empty-msg" id="k-empty-msg">没有匹配结果。试试更短的关键词，或清除筛选。</div></div></main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
+    </div>
+    <div class="footer-credit">
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)<br><span class="codex-credit">本次内容整理与网站改进：Codex（OpenAI）协作 · 2026.09.10</span>
+    </div>
+    <div class="footer-links">
+      <a href="about/index.html">关于我</a>
+      <a href="knowledge/index.html">知识库</a>
+      <a href="timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/script.js"></script>
+<script src="assets/catalog.js"></script>
+</body>
+</html>

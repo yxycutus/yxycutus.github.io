@@ -96,8 +96,11 @@
       text-decoration: underline;
     }
   </style>
+  <meta name="description" content="USTC 机器人工程课程笔记与自学讲义库 — Cutus 知识库。公开项目、学习笔记与研究记录。">
+  <link rel="icon" href="../../assets/avatar.jpg" type="image/jpeg">
 </head>
 <body>
+<a class="skip-link" href="#main-content">跳到正文</a>
 
 <div class="bg-grid-pattern"></div>
 
@@ -111,6 +114,7 @@
     </a>
     <div class="nav-right">
       <ul class="nav-menu">
+<li><a href="../../search.html">搜索</a></li>
         <li><a href="../../about/index.html">关于我</a></li>
         <li><a href="../index.html" class="active">知识库</a></li>
         <li><a href="../../timeline/index.html">时间线</a></li>
@@ -120,7 +124,7 @@
   </div>
 </nav>
 
-<main class="main-wrapper" style="max-width: 1060px;">
+<main id="main-content" tabindex="-1" class="main-wrapper" style="max-width: 1060px;">
 
   <div class="article-breadcrumb" style="margin-top: 24px;">
     <a href="../../index.html">首页</a>
@@ -176,12 +180,12 @@
     </div>
     <div class="search-input-wrap">
       <svg class="search-input-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" id="k-search-input" placeholder="输入课程名、教师、公式或章节检索..." autocomplete="off">
+      <input type="text" id="k-search-input" aria-label="搜索标题、摘要与关键词" placeholder="输入课程名、教师、公式或章节检索..." autocomplete="off">
     </div>
   </div>
 
   <!-- 课程卡片网格 -->
-  <div class="k-grid" id="k-grid">
+  <div class="filter-summary" hidden><p id="filter-count" role="status" aria-live="polite"></p><button id="filter-reset" class="cat-btn" type="button">清除筛选</button></div><div class="k-grid" id="k-grid">
 
     <!-- 01. 理论力学 B (大二上) -->
     <div class="k-card k-card-highlight" data-category="sophomore physics" data-keywords="理论力学 理论力学B 骆天治 分析力学 拉格朗日方程 达朗贝尔 虚位移 刚体 运动学 动力学 动静法 广义坐标 2026秋 typst">
@@ -420,7 +424,7 @@
       <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
     </div>
     <div class="footer-credit">
-      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)<br><span class="codex-credit">本次内容整理与网站改进：Codex（OpenAI）协作 · 2026.09.10</span>
     </div>
     <div class="footer-links">
       <a href="../../about/index.html">关于我</a>
@@ -431,52 +435,6 @@
 </footer>
 
 <script src="../../assets/script.js"></script>
-<script>
-  (function() {
-    const btns = document.querySelectorAll('.cat-btn');
-    const input = document.getElementById('k-search-input');
-    const cards = document.querySelectorAll('.k-card');
-    const emptyMsg = document.getElementById('k-empty-msg');
-
-    let activeCat = 'all';
-    let query = '';
-
-    function filter() {
-      let count = 0;
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-category') || '';
-        const kw = (card.getAttribute('data-keywords') || '').toLowerCase();
-        const text = card.textContent.toLowerCase();
-
-        const matchCat = (activeCat === 'all' || cat.includes(activeCat));
-        const matchQuery = !query || kw.includes(query) || text.includes(query);
-
-        if (matchCat && matchQuery) {
-          card.style.display = 'flex';
-          count++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-      emptyMsg.style.display = count === 0 ? 'block' : 'none';
-    }
-
-    btns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        btns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeCat = btn.getAttribute('data-category');
-        filter();
-      });
-    });
-
-    if (input) {
-      input.addEventListener('input', (e) => {
-        query = e.target.value.trim().toLowerCase();
-        filter();
-      });
-    }
-  })();
-</script>
+<script src="../../assets/catalog.js"></script>
 </body>
 </html>

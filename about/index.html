@@ -8,8 +8,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/about.css">
+  <meta name="description" content="关于我 — Cutus。公开项目、学习笔记与研究记录。">
+  <link rel="icon" href="../assets/avatar.jpg" type="image/jpeg">
 </head>
 <body>
+<a class="skip-link" href="#main-content">跳到正文</a>
 
 <div class="bg-grid-pattern"></div>
 
@@ -23,6 +26,7 @@
     </a>
     <div class="nav-right">
       <ul class="nav-menu">
+<li><a href="../search.html">搜索</a></li>
         <li><a href="../about/index.html" class="active">关于我</a></li>
         <li><a href="../knowledge/index.html">知识库</a></li>
         <li><a href="../timeline/index.html">时间线</a></li>
@@ -32,7 +36,7 @@
   </div>
 </nav>
 
-<main class="main-wrapper" style="max-width: 860px;">
+<main id="main-content" tabindex="-1" class="main-wrapper" style="max-width: 860px;">
 
   <!-- Header -->
   <header class="about-header">
@@ -47,7 +51,7 @@
       </div>
     </div>
     <p class="about-lede">
-      你好！我是 Cutus，中国科学技术大学 2025 级机器人工程本科生，中国科大人形机器人研究院 · 空中机器人课题组成员。追求扎实工程落地与机理创新的结合：曾作为<strong>电子组/软件组成员</strong>深度参与校企合作 <strong>Aloha Mini 开源双臂机器人</strong>调测（完成树莓派配置、SSH 控制链路、Joy-Con 遥操作适配与示教采集，助力团队达成视觉自主抓取闭环）；当前在课题组核心攻关<strong>面向粗糙/光滑壁面的双模态飞行栖息攀爬机器人研发</strong>（0.2mm 65Mn 锰钢薄板 snap-through 双稳态、鱼钩微刺 ↔ 被动硅胶吸盘、SMA 短脉冲触发，贯彻「先栖息后攀爬」路线）。
+      你好！我是 Cutus，中国科学技术大学 2025 级机器人工程本科生，中国科大人形机器人研究院 · 空中机器人课题组成员。追求扎实工程落地与机理创新的结合：曾作为<strong>电子组/软件组成员</strong>深度参与校企合作 <strong>Aloha Mini 开源双臂机器人</strong>调测（完成树莓派配置、SSH 控制链路、Joy-Con 遥操作适配与示教采集，助力团队达成视觉自主抓取闭环）；当前在课题组核心攻关<strong>面向粗糙/光滑壁面的双模态飞行栖息攀爬机器人研发</strong>（0.2mm 65Mn 锰钢薄板 snap-through 双稳态、鱼钩微刺 ↔ 被动硅胶吸盘、SMA 短脉冲触发，当前聚焦多表面栖息，攀爬价值待评估）。
     </p>
   </header>
 
@@ -81,7 +85,7 @@
       <div class="skill-category">
         <div class="skill-category-title">ROBOTICS & EMBEDDED</div>
         <div class="skill-tags">
-          <span class="skill-pill">Aloha Mini 双臂 (2026春结项)</span>
+          <span class="skill-pill">Aloha Mini 双臂 (2026.07 答辩)</span>
           <span class="skill-pill">树莓派调试 (Raspberry Pi)</span>
           <span class="skill-pill">Ubuntu / SSH 链路</span>
           <span class="skill-pill">Joy-Con 遥控映射</span>
@@ -162,21 +166,15 @@
             <a href="../knowledge/scamp-climbing.html" class="about-project-link">样机与实验复盘 →</a>
           </div>
         </div>
-        <p class="about-project-desc">
-          <strong>微型四旋翼壁面栖息机构与力学验证（2026年至今）</strong>：<br>
-          1. <strong>两阶段技术路线</strong>：确立<strong>「先双模态可靠栖息 (Perching)，后壁面步态攀爬 (Climbing)」</strong>的渐进研发路线，依托 Crazyflie 2.1 Brushless 微型飞行平台（载荷预算 &le; 40g，单足 1~3g，双足及驱动 &lt; 15g）；<br>
-          2. <strong>0.2 mm 65Mn 双稳态薄板机理</strong>：利用预压缩薄板的非线性 snap-through 屈曲跃迁，通过空间构型翻转隔离两种异质附着介质——Mode 1 粗糙面鱼钩微刺机械互锁（断电默认态），Mode 2 光滑面被动硅胶吸盘 / 各向异性干黏附；<br>
-          3. <strong>SMA 脉冲杠杆驱动</strong>：采用 SMA 形状记忆合金短电脉冲热致收缩 + 碳纤维杠杆拉动薄板越过能垒，翻转后断电由双稳态弹性<strong>零功耗机械自保持 (Zero-power latching)</strong>；低频状态预选，彻底解耦 SMA 冷却慢与连续动态步态；<br>
-          4. <strong>实物实测进展</strong>：完成夹具 1.0~5.0 的 SolidWorks 参数化迭代；首版 3D 打印夹具<strong>实物证实 0.2 mm 锰钢薄板双稳态现象</strong>；实测<strong>验证 SMA 脉冲拉力成功驱动薄板跨越能垒翻转</strong>；完成 `PassiveSuctionCupMoldV1~V4` 模具重构，实录并复盘了 V1 样件按压回弹漏气失效机理。
-        </p>
+        <p class="about-project-desc">研究面向指定粗糙面与光滑面的双模态栖息机构，采用 Crazyflie 2.1 Brushless 平台、预压缩薄板与 SMA 驱动。已有双稳态观察和 SMA 拉动翻转的初步记录；双向重复性、受载保持与整机动态栖息仍待验证。当前并行推进粗糙面夹具实验、光滑面方案筛选，以及飞控连接与遥测学习。 <a href="../knowledge/scamp-climbing.html">查看进展与待验证问题 →</a></p>
         <div class="project-tech-tags">
           <span class="tech-tag">课题组在研</span>
-          <span class="tech-tag">先栖息后攀爬</span>
+          <span class="tech-tag">聚焦多表面栖息</span>
           <span class="tech-tag">0.2mm锰钢双稳态</span>
           <span class="tech-tag">SMA脉冲翻转</span>
           <span class="tech-tag">鱼钩微刺</span>
           <span class="tech-tag">被动吸盘V1-V4</span>
-          <span class="tech-tag">夹具5.0实测</span>
+          <span class="tech-tag">受载重复性待测</span>
         </div>
       </div>
 
@@ -570,7 +568,7 @@
       <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
     </div>
     <div class="footer-credit">
-      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)<br><span class="codex-credit">本次内容整理与网站改进：Codex（OpenAI）协作 · 2026.09.10</span>
     </div>
     <div class="footer-links">
       <a href="../about/index.html">关于我</a>

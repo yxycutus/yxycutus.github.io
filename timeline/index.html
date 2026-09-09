@@ -8,8 +8,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/timeline.css">
+  <meta name="description" content="时间线 — Cutus。公开项目、学习笔记与研究记录。">
+  <link rel="icon" href="../assets/avatar.jpg" type="image/jpeg">
 </head>
 <body>
+<a class="skip-link" href="#main-content">跳到正文</a>
 
 <div class="bg-grid-pattern"></div>
 
@@ -23,6 +26,7 @@
     </a>
     <div class="nav-right">
       <ul class="nav-menu">
+<li><a href="../search.html">搜索</a></li>
         <li><a href="../about/index.html">关于我</a></li>
         <li><a href="../knowledge/index.html">知识库</a></li>
         <li><a href="../timeline/index.html" class="active">时间线</a></li>
@@ -32,7 +36,7 @@
   </div>
 </nav>
 
-<main class="main-wrapper" style="max-width: 820px;">
+<main id="main-content" tabindex="-1" class="main-wrapper" style="max-width: 820px;">
 
   <!-- Header -->
   <header class="tl-header">
@@ -55,9 +59,7 @@
       </div>
       <span class="tl-now-date">2026.09 — 至今</span>
     </div>
-    <p class="tl-now-text">
-      深入研读《理论力学B》（分析力学拉格朗日动力学）与《人工智能数学原理与算法B》（高维矩阵分析与凸优化）；归档 13 篇仿生攀爬文献笔记全集；规划垂直壁面攀爬足端实验验证台架。
-    </p>
+    <p class="tl-now-text">首次汇报后聚焦多表面栖息：推进粗糙面夹具与测量，筛选光滑面附着件，学习 Crazyflie 飞控连接、遥测与日志。同时继续核心课学习与论文归档。</p>
   </div>
 
   <!-- 时间轴主体 -->
@@ -70,15 +72,13 @@
         <h2 class="tl-semester-title">2026 秋季 · 大二上学期</h2>
         <span class="tl-semester-date">2026.09 — 至今</span>
       </div>
-      <div class="tl-card-list">
+      <div class="tl-card-list"><div class="tl-item-box"><div class="tl-item-header"><span class="tl-item-tag">2026.09.09 · 方向调整</span><span class="tl-item-title">聚焦指定表面的可重复栖息</span></div><p class="tl-item-content">首次汇报后，将近期目标收敛到接合、保持与可控离开；攀爬和空中切换留待进一步评估。<a href="../knowledge/scamp-climbing.html">阅读研究进展 →</a></p></div>
         <div class="tl-item-box">
           <div class="tl-item-header">
             <span class="tl-item-tag" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">ROBOT · 在研</span>
             <span class="tl-item-title">面向粗糙/光滑壁面双模态飞行栖息机器人样机实测</span>
           </div>
-          <p class="tl-item-content">
-            贯彻「先栖息后攀爬」两阶段技术路线，依托 Crazyflie 2.1 Brushless 平台。推进夹具 1.0~5.0 迭代；首版 3D 打印夹具实装 0.2 mm 65Mn 锰钢薄板<strong>实物证实 snap-through 双稳态现象</strong>；实测验证 <strong>SMA 短脉冲拉动力学驱动薄板跨越能垒翻转</strong>；完成 PassiveSuctionCupMold V1~V4 被动吸盘模具重构，实录并复盘 V1 样件回弹漏气失效。
-          </p>
+          <p class="tl-item-content">研究面向指定粗糙面与光滑面的双模态栖息机构，采用 Crazyflie 2.1 Brushless 平台、预压缩薄板与 SMA 驱动。已有双稳态观察和 SMA 拉动翻转的初步记录；双向重复性、受载保持与整机动态栖息仍待验证。当前并行推进粗糙面夹具实验、光滑面方案筛选，以及飞控连接与遥测学习。</p>
         </div>
         <div class="tl-item-box">
           <div class="tl-item-header">
@@ -130,7 +130,7 @@
         <div class="tl-item-box">
           <div class="tl-item-header">
             <span class="tl-item-tag" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">RES · 方案</span>
-            <span class="tl-item-title">提出微型四旋翼双模态双稳态足端方案，确立「先栖息后攀爬」路线</span>
+            <span class="tl-item-title">提出微型四旋翼双模态双稳态足端方案，确立「聚焦多表面栖息」路线</span>
           </div>
           <p class="tl-item-content">
             精读 Asbeck、Hawkes、Pope 等文献后，针对微型四旋翼壁面附着痛点，确立「先实现双模态可靠栖息，再拓展壁面攀爬」两阶段路线，构想 0.2 mm 锰钢双稳态薄板与 SMA 短脉冲驱动方案，启动初始夹具 CAD 建模。
@@ -312,7 +312,7 @@
       <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
     </div>
     <div class="footer-credit">
-      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)<br><span class="codex-credit">本次内容整理与网站改进：Codex（OpenAI）协作 · 2026.09.10</span>
     </div>
     <div class="footer-links">
       <a href="../about/index.html">关于我</a>

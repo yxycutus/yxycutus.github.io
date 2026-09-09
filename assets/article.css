@@ -3,6 +3,8 @@
    ============================================================ */
 
 .article-wrap {
+  width: 100%;
+  min-width: 0;
   max-width: 820px;
   margin: 0 auto;
   padding: 40px var(--gutter) 80px;
@@ -10,6 +12,7 @@
 
 .article-breadcrumb {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);

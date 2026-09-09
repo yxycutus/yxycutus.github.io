@@ -7,8 +7,9 @@
 
   // 1. Initial Theme Setup (USTC Blue Dark/Light)
   function getPreferredTheme() {
-    const saved = localStorage.getItem('cutus-theme');
-    if (saved) return saved;
+    let saved;
+    try { saved = localStorage.getItem('cutus-theme'); } catch (_) {}
+    if (saved === 'dark' || saved === 'light') return saved;
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
@@ -57,7 +58,7 @@
     toggleBtn.addEventListener('click', () => {
       const nowTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
       const nextTheme = nowTheme === 'dark' ? 'light' : 'dark';
-      localStorage.setItem('cutus-theme', nextTheme);
+      try { localStorage.setItem('cutus-theme', nextTheme); } catch (_) {}
       applyTheme(nextTheme);
     });
   }
@@ -65,11 +66,15 @@
   // 2. Active Nav Link Detection
   const path = window.location.pathname;
   document.querySelectorAll('.nav-menu a, .nav-links a').forEach(a => {
+    a.classList.remove('active');
+    a.removeAttribute('aria-current');
     const href = a.getAttribute('href');
     if (!href) return;
+    if (new URL(href, location.href).pathname === path) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); }
     const segment = href.match(/(about|knowledge|timeline)/);
     if (segment && path.includes('/' + segment[1])) {
       a.classList.add('active');
+      a.setAttribute('aria-current', 'page');
     }
   });
 })();

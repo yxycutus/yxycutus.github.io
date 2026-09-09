@@ -9,8 +9,11 @@
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/knowledge.css">
   <link rel="stylesheet" href="../assets/article.css">
+  <meta name="description" content="知识库 — Cutus。公开项目、学习笔记与研究记录。">
+  <link rel="icon" href="../assets/avatar.jpg" type="image/jpeg">
 </head>
 <body>
+<a class="skip-link" href="#main-content">跳到正文</a>
 
 <div class="bg-grid-pattern"></div>
 
@@ -24,6 +27,7 @@
     </a>
     <div class="nav-right">
       <ul class="nav-menu">
+<li><a href="../search.html">搜索</a></li>
         <li><a href="../about/index.html">关于我</a></li>
         <li><a href="../knowledge/index.html" class="active">知识库</a></li>
         <li><a href="../timeline/index.html">时间线</a></li>
@@ -33,7 +37,7 @@
   </div>
 </nav>
 
-<main class="main-wrapper" style="max-width: 1040px;">
+<main id="main-content" tabindex="-1" class="main-wrapper" style="max-width: 1040px;">
 
   <!-- Hero 标题 -->
   <header class="knowledge-hero">
@@ -43,7 +47,7 @@
     </div>
     <h1 class="knowledge-title">工程项目与学术笔记 (Knowledge Base)</h1>
     <p class="knowledge-desc">
-      记录真机落地复盘（Aloha Mini 2026春结项）、仿生飞行攀爬机器人前沿文献精读，以及 USTC 核心课系统自学讲义。
+      记录真机落地复盘（Aloha Mini 2026.07 答辩）、仿生飞行攀爬机器人前沿文献精读，以及 USTC 核心课系统自学讲义。
     </p>
   </header>
 
@@ -78,17 +82,18 @@
     </div>
     <div class="search-input-wrap">
       <svg class="search-input-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" id="k-search-input" placeholder="输入关键词即时检索..." autocomplete="off">
+      <input type="text" id="k-search-input" aria-label="搜索标题、摘要与关键词" placeholder="输入关键词即时检索..." autocomplete="off">
     </div>
   </div>
 
+<p class="catalog-hint">想查找具体论文？<a href="../search.html">搜索全站公开内容 →</a></p>
   <!-- 知识卡片网格 -->
-  <div class="k-grid" id="k-grid">
+  <div class="filter-summary" hidden><p id="filter-count" role="status" aria-live="polite"></p><button id="filter-reset" class="cat-btn" type="button">清除筛选</button></div><div class="k-grid" id="k-grid"><a class="k-card" href="research-workflow.html" data-category="ai" data-keywords="obsidian zotero codex 工作流 阅读 实验 交接 复盘"><div class="k-tag-row"><span class="k-tag">研究方法 · 2026.09</span></div><h3>从论文到实验：我的研究记录工作流</h3><p>从机器人调测、论文阅读到台架实验，记录已知、失败与下一步。</p><div class="k-footer"><span>含最小实验记录模板</span><span>阅读方法 →</span></div></a>
 
     <!-- 1. Aloha Mini -->
     <a class="k-card" href="aloha-mini.html" data-category="project" data-keywords="aloha mini 双臂 机器人 树莓派 遥操作 joycon ssh 示教 数据集 视觉 抓取 2026春">
       <div class="k-tag-row">
-        <span class="k-tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">校企合作 · 2026春已完成</span>
+        <span class="k-tag" style="background: rgba(16, 185, 129, 0.1); color: #10b981;">校企合作 · 2026.07 已答辩</span>
         <span class="k-count">真机落地</span>
       </div>
       <h3>Aloha Mini 开源双臂移动机器人调测与遥操作实践</h3>
@@ -100,13 +105,13 @@
     </a>
 
     <!-- 2. 面向粗糙/光滑壁面的双模态飞行栖息攀爬机器人研究 -->
-    <a class="k-card" href="scamp-climbing.html" data-category="climbing" data-keywords="双模态 飞行 栖息 攀爬 双稳态薄板 65Mn 锰钢 sma 脉冲 被动吸盘 鱼钩微刺 夹具5.0 crazyflie 先栖息后攀爬">
+    <a class="k-card" href="scamp-climbing.html" data-category="climbing" data-keywords="双模态 飞行 栖息 攀爬 双稳态薄板 65Mn 锰钢 sma 脉冲 被动吸盘 鱼钩微刺 偏心承载 遥测 crazyflie 聚焦多表面栖息">
       <div class="k-tag-row">
         <span class="k-tag" style="background: rgba(99, 102, 241, 0.1); color: #6366f1;">课题组研发 · 样机迭代中</span>
         <span class="k-count">原理实测</span>
       </div>
       <h3>面向粗糙/光滑壁面的双模态飞行栖息攀爬机器人研究</h3>
-      <p>确立「先栖息后攀爬」路线，针对 Crazyflie 量级微型四旋翼。基于 0.2 mm 65Mn 预压缩薄板的双稳态 snap-through 特性，隔离 Mode 1（粗糙面鱼钩微刺）与 Mode 2（光滑面被动吸盘/干黏附）。完成夹具 1.0~5.0 迭代，实物验证薄板双稳态与 SMA 脉冲拉动力学翻转，开展吸盘 V1~V4 模具重构与失效复盘。</p>
+      <p>研究面向指定粗糙面与光滑面的双模态栖息机构，采用 Crazyflie 2.1 Brushless 平台、预压缩薄板与 SMA 驱动。已有双稳态观察和 SMA 拉动翻转的初步记录；双向重复性、受载保持与整机动态栖息仍待验证。当前并行推进粗糙面夹具实验、光滑面方案筛选，以及飞控连接与遥测学习。</p>
       <div class="k-footer">
         <span>原理样机与实验复盘</span>
         <span class="k-arrow">阅读进展 →</span>
@@ -170,7 +175,7 @@
       <span>中国科学技术大学 机器人工程 (USTC Robotics)</span>
     </div>
     <div class="footer-credit">
-      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)
+      Built by Cutus &amp; Antigravity (Gemini 3.8 Flash)<br><span class="codex-credit">本次内容整理与网站改进：Codex（OpenAI）协作 · 2026.09.10</span>
     </div>
     <div class="footer-links">
       <a href="../about/index.html">关于我</a>
@@ -181,52 +186,6 @@
 </footer>
 
 <script src="../assets/script.js"></script>
-<script>
-  (function() {
-    const btns = document.querySelectorAll('.cat-btn');
-    const input = document.getElementById('k-search-input');
-    const cards = document.querySelectorAll('.k-card');
-    const emptyMsg = document.getElementById('k-empty-msg');
-
-    let activeCat = 'all';
-    let query = '';
-
-    function filter() {
-      let count = 0;
-      cards.forEach(card => {
-        const cat = card.getAttribute('data-category');
-        const kw = (card.getAttribute('data-keywords') || '').toLowerCase();
-        const text = card.textContent.toLowerCase();
-
-        const matchCat = (activeCat === 'all' || cat === activeCat);
-        const matchQuery = !query || kw.includes(query) || text.includes(query);
-
-        if (matchCat && matchQuery) {
-          card.style.display = 'flex';
-          count++;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-      emptyMsg.style.display = count === 0 ? 'block' : 'none';
-    }
-
-    btns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        btns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        activeCat = btn.getAttribute('data-category');
-        filter();
-      });
-    });
-
-    if (input) {
-      input.addEventListener('input', (e) => {
-        query = e.target.value.trim().toLowerCase();
-        filter();
-      });
-    }
-  })();
-</script>
+<script src="../assets/catalog.js"></script>
 </body>
 </html>
