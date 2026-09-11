@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/article.css">
+  <link rel="stylesheet" href="../assets/flight-roadmap.css">
   <meta name="description" content="我的 Crazyflie 2.1 Brushless 飞控学习路线：从传感器、状态估计、Commander 与 Setpoint，到控制器、电机分配和上位机遥测。">
   <link rel="icon" href="../assets/avatar.jpg" type="image/jpeg">
 </head>
@@ -48,110 +49,12 @@
     <header class="article-header">
       <div class="article-badge">LEARNING LOG · 飞控基础</div>
       <h1 class="article-title">Crazyflie 飞控学习路线：从 Brushless 入门到控制链路</h1>
-      <div class="article-meta-row"><span>Bitcraze · Crazyflie 2.1 Brushless · Firmware</span><time datetime="2026-09-10">更新于 2026.09.10</time></div>
+      <div class="article-meta-row"><span>Bitcraze · Crazyflie 2.1 Brushless · Firmware</span><time datetime="2026-09-11">更新于 2026.09.11</time></div>
     </header>
 
-    <div class="article-content">
-      <div class="article-callout">
-        <p><strong>当前状态</strong>：已看完 Crazyflie 2.1 Brushless 入门教程。现在先建立飞控全链路概念，再沿官方文档进入固件源码；暂不急着修改控制器或刷写飞行器。</p>
-      </div>
-
-      <p>这一阶段要弄懂的主线是：<strong>传感器 → 状态估计 → Commander 目标值 → 控制器 → 电机分配 → 电机输出</strong>。官网文档用来建立地图，官方代码库用来确认这些模块在程序里如何连接。</p>
-
-      <nav class="reading-toc" aria-label="本文目录">
-        <a href="#progress">当前进度</a>
-        <a href="#docs">官网学习顺序</a>
-        <a href="#repos">官方代码库</a>
-        <a href="#checkpoint">阶段目标</a>
-      </nav>
-
-      <h2 id="progress">01 / 当前进度与学习边界</h2>
-      <div class="table-scroll" role="region" aria-label="Crazyflie 学习进度" tabindex="0">
-        <table class="article-table">
-          <thead><tr><th scope="col">状态</th><th scope="col">内容</th><th scope="col">学到什么程度</th></tr></thead>
-          <tbody>
-            <tr><th scope="row">已完成</th><td>Crazyflie 2.1 Brushless 入门教程</td><td>认识平台组成、基本操作和安全起步要求。</td></tr>
-            <tr><th scope="row">正在学习</th><td>Sensor to control 飞控主链路</td><td>能用自己的话解释各模块的输入、输出和调用关系。</td></tr>
-            <tr><th scope="row">下一阶段</th><td>连接、参数、遥测和日志</td><td>知道 cfclient 与 cflib 分别解决什么问题，并保存第一份可复查日志。</td></tr>
-            <tr><th scope="row">之后再做</th><td>修改控制逻辑与整机实验</td><td>先建立飞行基线，再为接触、附着和离墙设计状态与观测量。</td></tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2 id="docs">02 / Bitcraze 官网：按这条顺序学习</h2>
-      <div class="evidence-grid">
-        <section class="evidence-card">
-          <span class="section-label">STEP 0 · 已完成</span>
-          <h3><a href="https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-brushless/" target="_blank" rel="noopener">Crazyflie 2.1 Brushless 入门教程 ↗</a></h3>
-          <p>认识 Brushless 平台、首次使用步骤和基本安全要求。它回答“这架飞行器怎么开始用”。</p>
-        </section>
-        <section class="evidence-card">
-          <span class="section-label">STEP 1 · 当前重点</span>
-          <h3><a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/functional-areas/sensor-to-control/" target="_blank" rel="noopener">Sensor to control 总览 ↗</a></h3>
-          <p>建立从传感器数据到电机输出的全局地图。先看懂模块关系，不需要一开始就钻进每个函数。</p>
-        </section>
-        <section class="evidence-card">
-          <span class="section-label">STEP 2</span>
-          <h3><a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/functional-areas/sensor-to-control/state_estimators/" target="_blank" rel="noopener">State estimators 状态估计 ↗</a></h3>
-          <p>理解传感器测量如何变成姿态、速度和位置估计；先分清姿态估计与位置估计各自依赖什么信息。</p>
-        </section>
-        <section class="evidence-card">
-          <span class="section-label">STEP 3</span>
-          <h3><a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/functional-areas/sensor-to-control/commanders_setpoints/" target="_blank" rel="noopener">Commanders 与 Setpoints ↗</a></h3>
-          <p>理解“飞行器现在是什么状态”和“希望它达到什么状态”的区别，以及目标值从哪里来、失联后如何处理。</p>
-        </section>
-        <section class="evidence-card">
-          <span class="section-label">STEP 4</span>
-          <h3><a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/functional-areas/sensor-to-control/controllers/" target="_blank" rel="noopener">Controllers 控制器 ↗</a></h3>
-          <p>学习姿态环、位置环和 PID 等控制器如何把状态误差变成推力与转矩指令，重点看输入、输出和级联关系。</p>
-        </section>
-        <section class="evidence-card">
-          <span class="section-label">REFERENCE · 需要时查</span>
-          <h3><a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/building-and-flashing/build/" target="_blank" rel="noopener">Building and flashing ↗</a></h3>
-          <p>学习固件配置、编译产物和刷写方法。本项目使用 Brushless 对应的 <code>cf21bl_defconfig</code>；真正刷写前需先确认硬件与固件目标。</p>
-        </section>
-      </div>
-
-      <h2 id="repos">03 / 官方代码库：分别在什么时候看</h2>
-      <div class="table-scroll" role="region" aria-label="Crazyflie 官方代码库用途" tabindex="0">
-        <table class="article-table">
-          <thead><tr><th scope="col">代码库</th><th scope="col">对应知识</th><th scope="col">现在的优先级</th></tr></thead>
-          <tbody>
-            <tr>
-              <th scope="row"><a href="https://github.com/bitcraze/crazyflie-firmware" target="_blank" rel="noopener">crazyflie-firmware ↗</a></th>
-              <td>机载固件主库。用来对照 stabilizer、状态估计、Commander、控制器、电机分配与电机输出的真实实现。</td>
-              <td><strong>最高</strong>：跟着 Sensor to control 文档读。</td>
-            </tr>
-            <tr>
-              <th scope="row"><a href="https://github.com/bitcraze/crazyflie-lib-python" target="_blank" rel="noopener">crazyflie-lib-python ↗</a></th>
-              <td>Python 上位机通信库。用于连接 Crazyflie、读取日志变量、修改参数和编写实验脚本。</td>
-              <td>第二阶段：开始做连接与日志时看。</td>
-            </tr>
-            <tr>
-              <th scope="row"><a href="https://github.com/bitcraze/crazyflie-clients-python" target="_blank" rel="noopener">crazyflie-clients-python ↗</a></th>
-              <td>官方 cfclient 图形客户端。用于扫描连接地址、查看实时遥测、参数和基本飞行状态，也能参考 GUI 如何调用 cflib。</td>
-              <td>第二阶段：接真机和检查遥测时看。</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="article-callout">
-        <p><strong>当前只需要重点打开两个入口</strong>：Sensor to control 总览和 <a href="https://github.com/bitcraze/crazyflie-firmware" target="_blank" rel="noopener">crazyflie-firmware</a>。每读懂一个模块，再进入对应专题页和源码，不需要同时通读三个仓库。</p>
-      </div>
-
-      <h2 id="checkpoint">04 / 本阶段完成标准</h2>
-      <ol>
-        <li>画出 Crazyflie 从传感器到电机输出的模块框图。</li>
-        <li>解释 <code>state</code>、<code>setpoint</code>、<code>control</code> 三类数据各表示什么。</li>
-        <li>在固件仓库中找到主稳定循环，以及状态估计器、Commander 和控制器的入口。</li>
-        <li>说明 PID 控制器输出如何进一步变成四个电机的指令。</li>
-        <li>完成以上四点后，再进入 cfclient / cflib 的连接、参数和日志学习。</li>
-      </ol>
-
-      <p class="source-note">链接均指向 Bitcraze 官方文档或官方 GitHub 组织。此页记录个人学习顺序，会随项目阶段持续更新。</p>
-    </div>
-
+    <p class="flight-page-intro">按阶段阅读必要文档，然后马上做一个最小实验。第一周完成连接、姿态日志与固件编译；第二周理解飞控链路；第三周开始状态机与机构台架。节奏可调整，每一步用产物验收。</p>
+    <nav class="flight-resources" aria-label="官方总入口"><a href="https://www.bitcraze.io/documentation/start/" target="_blank" rel="noopener">Bitcraze Start here ↗</a><a href="https://www.bitcraze.io/documentation/tutorials/" target="_blank" rel="noopener">Tutorials 总列表 ↗</a><a href="https://github.com/bitcraze/crazyflie-firmware" target="_blank" rel="noopener">Firmware 源码 ↗</a><a href="https://github.com/bitcraze/crazyflie-lib-python" target="_blank" rel="noopener">cflib 源码 ↗</a><a href="https://github.com/bitcraze/crazyflie-clients-python" target="_blank" rel="noopener">cfclient 源码 ↗</a></nav>
+    <section class="flight-roadmap" id="progress-tracker" data-flight-roadmap><p>请启用 JavaScript 查看十阶段交互路线并保存学习进度。</p></section>
     <div class="article-back-nav">
       <a href="index.html" class="btn btn-secondary">← 返回知识库列表</a>
       <a href="scamp-climbing.html" class="btn btn-primary">查看双模态栖息课题 →</a>
@@ -176,5 +79,6 @@
 </footer>
 
 <script src="../assets/script.js"></script>
+<script src="../assets/flight-roadmap.js"></script>
 </body>
 </html>

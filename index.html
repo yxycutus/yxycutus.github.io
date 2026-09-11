@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/flight-roadmap.css">
   <meta name="description" content="Cutus，中国科学技术大学机器人工程本科生。正在学习 Crazyflie 控制原理与飞控链路，同时记录多表面栖息机构研究、Aloha Mini 工程实践与课程学习。">
   <link rel="icon" href="assets/avatar.jpg" type="image/jpeg">
 </head>
@@ -52,8 +53,8 @@
         你好，我是 <strong>Cutus</strong>。中国科学技术大学机器人工程专业本科生，中国科大人形机器人研究院 · 空中机器人课题组成员。目前正在学习 <strong>Crazyflie 的控制原理</strong>，从传感器、状态估计到控制器与电机输出，逐步理解飞行器如何形成反馈闭环。同时推进<strong>多表面栖息的双模态、双稳态附着机构</strong>研究，把飞控学习与空中机器人课题连接起来。这里记录我的学习过程、工程实践与阶段进展。
       </p>
       <div class="hero-actions">
-        <a href="knowledge/crazyflie-learning.html" class="btn btn-primary">
-          <span>我的 Crazyflie 学习路线</span>
+        <a href="#progress-tracker" class="btn btn-primary">
+          <span>继续学习 · 更新进度</span>
           <span>→</span>
         </a>
         <a href="knowledge/scamp-climbing.html" class="btn btn-secondary">飞行栖息研究进展</a>
@@ -68,232 +69,11 @@
       </div>
       <h2 id="learning-title">从“怎么飞”<br>到“为什么能稳定飞行”</h2>
       <p>Crazyflie 2.1 Brushless · 控制原理学习中</p>
-      <dl class="brief-facts">
-        <div><dt>已完成</dt><dd>Brushless 入门教程，认识平台与基本操作</dd></div>
-        <div><dt>正在学习</dt><dd>状态估计、目标值与控制器之间的关系，以及控制输出如何分配到电机</dd></div>
-        <div><dt>阶段目标</dt><dd>对照官方文档与固件源码，画出飞控闭环，说明各模块的输入与输出</dd></div>
-      </dl>
-      <a class="section-more-link" href="knowledge/crazyflie-learning.html">查看学习进度与官方资料 →</a>
+      <div class="flight-entry"><strong id="flight-hero-progress">0%</strong><p id="flight-hero-status">正在读取学习记录</p><p>连接与日志 → 飞控链路 → 栖息状态机</p><a href="#progress-tracker">打开学习面板 · 拖动记录每一步 ↓</a><p>10 个阶段 · 官网直达 · 实验与验收清单</p></div>
     </aside>
   </section>
 
-  <!-- 交互式工作进度面板：Crazyflie 学习路线 -->
-  <section class="section-wrap" id="progress-tracker">
-    <div class="section-head">
-      <div>
-        <span class="section-label">LEARNING PROGRESS TRACKER</span>
-        <h2 class="section-title">Crazyflie 飞控学习路线进度</h2>
-      </div>
-      <div style="display:flex; align-items:center; gap:10px;">
-        <button class="progress-reset-btn" id="progress-reset" title="重置所有进度">↻ 重置</button>
-        <span class="section-more-link" style="cursor:default;">拖动滑块更新进度</span>
-      </div>
-    </div>
-
-    <!-- 总进度条 -->
-    <div class="progress-overall">
-      <span class="progress-overall-label">总体进度</span>
-      <div class="progress-overall-bar">
-        <div class="progress-overall-fill" id="overall-fill" style="width: 0%"></div>
-      </div>
-      <span class="progress-overall-pct" id="overall-pct">0%</span>
-    </div>
-
-    <!-- 阶段卡片 -->
-    <div class="progress-phases" id="progress-phases">
-
-      <!-- ===== 第一周 ===== -->
-      <div class="progress-week-label"><span>📅 第一周 · 连上飞机、读数据、编译固件</span></div>
-
-      <!-- Phase 0 -->
-      <div class="progress-phase" data-phase="0">
-        <div class="phase-header">
-          <span class="phase-index">Phase 0</span>
-          <span class="phase-pct">0%</span>
-        </div>
-        <h4 class="phase-title">明确机型</h4>
-        <p class="phase-goal">确认你的飞机是 <strong>Crazyflie 2.1 Brushless</strong>，记录电池、Crazyradio、固件/客户端信息</p>
-        <div class="phase-deliverable">知道自己用的是什么平台，记录完整配置清单</div>
-        <div class="phase-links">
-          <a href="https://www.bitcraze.io/documentation/tutorials/getting-started-with-crazyflie-2-1-brushless/" target="_blank" rel="noopener">Brushless Getting Started</a>
-        </div>
-        <div class="phase-slider-wrap">
-          <input type="range" class="phase-slider" min="0" max="100" value="0" data-phase="0">
-        </div>
-      </div>
-
-      <!-- Phase 1 -->
-      <div class="progress-phase" data-phase="1">
-        <div class="phase-header">
-          <span class="phase-index">Phase 1</span>
-          <span class="phase-pct">0%</span>
-        </div>
-        <h4 class="phase-title">连上飞机</h4>
-        <p class="phase-goal">拆桨，用 cfclient 扫描、连接、断开、重连；观察姿态和电池</p>
-        <div class="phase-deliverable">会安全连接飞机，会看基本遥测数据</div>
-        <div class="phase-links">
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/installation/install/" target="_blank" rel="noopener">cfclient 安装</a>
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-clients-python/master/userguides/userguide_client/" target="_blank" rel="noopener">cfclient GUI 指南</a>
-        </div>
-        <div class="phase-slider-wrap">
-          <input type="range" class="phase-slider" min="0" max="100" value="0" data-phase="1">
-        </div>
-      </div>
-
-      <!-- Phase 2 -->
-      <div class="progress-phase" data-phase="2">
-        <div class="phase-header">
-          <span class="phase-index">Phase 2</span>
-          <span class="phase-pct">0%</span>
-        </div>
-        <h4 class="phase-title">用 Python 读数据</h4>
-        <p class="phase-goal">写 connect_only.py、log_attitude.py、plot_attitude.py；<strong>记录 60 秒 roll/pitch/yaw 并画图</strong></p>
-        <div class="phase-deliverable">一份 60 秒姿态 CSV + 一张曲线图；分清日志、参数、动作命令</div>
-        <div class="phase-links">
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/installation/install/" target="_blank" rel="noopener">cflib 安装</a>
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-lib-python/master/user-guides/sbs_connect_log_param/" target="_blank" rel="noopener">连接/日志/参数教程</a>
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/api/logs/" target="_blank" rel="noopener">Log 框架</a>
-        </div>
-        <div class="phase-slider-wrap">
-          <input type="range" class="phase-slider" min="0" max="100" value="0" data-phase="2">
-        </div>
-      </div>
-
-      <!-- Phase 3 -->
-      <div class="progress-phase" data-phase="3">
-        <div class="phase-header">
-          <span class="phase-index">Phase 3</span>
-          <span class="phase-pct">0%</span>
-        </div>
-        <h4 class="phase-title">编译固件</h4>
-        <p class="phase-goal">在 Ubuntu 编译 Brushless 固件：<strong>make cf21bl_defconfig && make -j2</strong>；只编译，不急着刷写</p>
-        <div class="phase-deliverable">知道固件平台、构建产物、版本记录；成功编译 .bin 文件</div>
-        <div class="phase-links">
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/" target="_blank" rel="noopener">Firmware Home</a>
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/building-and-flashing/build/" target="_blank" rel="noopener">Building & Flashing</a>
-        </div>
-        <div class="phase-slider-wrap">
-          <input type="range" class="phase-slider" min="0" max="100" value="0" data-phase="3">
-        </div>
-      </div>
-
-      <!-- ===== 第二周 ===== -->
-      <div class="progress-week-label"><span>📅 第二周 · 飞控主链路 → 控制器 → 状态估计 → 保护</span></div>
-
-      <!-- Phase 4 -->
-      <div class="progress-phase" data-phase="4">
-        <div class="phase-header">
-          <span class="phase-index">Phase 4</span>
-          <span class="phase-pct">0%</span>
-        </div>
-        <h4 class="phase-title">看懂飞控总链路</h4>
-        <p class="phase-goal">画出 <strong>传感器 → state → setpoint → controller → control → 电机</strong> 框图；在源码里找到对应文件</p>
-        <div class="phase-deliverable">一张手绘/数字飞控全局框图 + 各模块对应的源码文件路径</div>
-        <div class="phase-links">
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/functional-areas/sensor-to-control/" target="_blank" rel="noopener">Stabilizer Module</a>
-        </div>
-        <div class="phase-slider-wrap">
-          <input type="range" class="phase-slider" min="0" max="100" value="0" data-phase="4">
-        </div>
-      </div>
-
-      <!-- Phase 5 -->
-      <div class="progress-phase" data-phase="5">
-        <div class="phase-header">
-          <span class="phase-index">Phase 5</span>
-          <span class="phase-pct">0%</span>
-        </div>
-        <h4 class="phase-title">学控制器</h4>
-        <p class="phase-goal">先只看 PID 链路；<strong>解释角速度环、姿态环、位置环的输入输出</strong></p>
-        <div class="phase-deliverable">一份 PID 三环路解读笔记：每环 input/output/gains 对应变量</div>
-        <div class="phase-links">
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/functional-areas/sensor-to-control/controllers/" target="_blank" rel="noopener">Controllers</a>
-        </div>
-        <div class="phase-slider-wrap">
-          <input type="range" class="phase-slider" min="0" max="100" value="0" data-phase="5">
-        </div>
-      </div>
-
-      <!-- Phase 6 -->
-      <div class="progress-phase" data-phase="6">
-        <div class="phase-header">
-          <span class="phase-index">Phase 6</span>
-          <span class="phase-pct">0%</span>
-        </div>
-        <h4 class="phase-title">学状态估计</h4>
-        <p class="phase-goal">对照姿态日志，解释 roll/pitch/yaw 从哪里来；<strong>标出哪些量可靠、哪些不能默认可靠</strong></p>
-        <div class="phase-deliverable">一张估计器数据流图 + 姿态/位置估计可靠性标注表</div>
-        <div class="phase-links">
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/functional-areas/sensor-to-control/state_estimators/" target="_blank" rel="noopener">State Estimation</a>
-        </div>
-        <div class="phase-slider-wrap">
-          <input type="range" class="phase-slider" min="0" max="100" value="0" data-phase="6">
-        </div>
-      </div>
-
-      <!-- Phase 7 -->
-      <div class="progress-phase" data-phase="7">
-        <div class="phase-header">
-          <span class="phase-index">Phase 7</span>
-          <span class="phase-pct">0%</span>
-        </div>
-        <h4 class="phase-title">学指令和保护</h4>
-        <p class="phase-goal">查清 setpoint 来源、超时、arm、急停、锁定；<strong>写一页"栖息时可能触发哪些保护"</strong></p>
-        <div class="phase-deliverable">一份 Commander + Supervisor 保护机制文档；栖息场景安全分析</div>
-        <div class="phase-links">
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/functional-areas/sensor-to-control/commanders_setpoints/" target="_blank" rel="noopener">Commander</a>
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/functional-areas/supervisor/" target="_blank" rel="noopener">Supervisor</a>
-        </div>
-        <div class="phase-slider-wrap">
-          <input type="range" class="phase-slider" min="0" max="100" value="0" data-phase="7">
-        </div>
-      </div>
-
-      <!-- ===== 第三周 ===== -->
-      <div class="progress-week-label"><span>📅 第三周 · 栖息状态机 + 并行机构实验</span></div>
-
-      <!-- Phase 8 -->
-      <div class="progress-phase" data-phase="8">
-        <div class="phase-header">
-          <span class="phase-index">Phase 8</span>
-          <span class="phase-pct">0%</span>
-        </div>
-        <h4 class="phase-title">设计栖息状态机</h4>
-        <p class="phase-goal">写状态机：<strong>就绪 → 接近 → 接触 → 附着 → 载荷转移 → 保持 → 脱附 → 离墙</strong>；每步写成功/失败判据</p>
-        <div class="phase-deliverable">一份完整栖息状态机伪代码 + 每个状态转移的传感器判据</div>
-        <div class="phase-links">
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/userguides/app_layer/" target="_blank" rel="noopener">App Layer</a>
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/api/logs/" target="_blank" rel="noopener">Log Variables</a>
-          <a href="https://www.bitcraze.io/documentation/repository/crazyflie-firmware/master/api/params/" target="_blank" rel="noopener">Parameters</a>
-        </div>
-        <div class="phase-slider-wrap">
-          <input type="range" class="phase-slider" min="0" max="100" value="0" data-phase="8">
-        </div>
-      </div>
-
-      <!-- Phase 9 -->
-      <div class="progress-phase" data-phase="9">
-        <div class="phase-header">
-          <span class="phase-index">Phase 9</span>
-          <span class="phase-pct">0%</span>
-        </div>
-        <h4 class="phase-title">并行做机构实验</h4>
-        <p class="phase-goal">SMA 双向翻转、粗糙面挂附、光滑面保持；<strong>每项记录 20 次、失败类型、照片/视频</strong></p>
-        <div class="phase-deliverable">用真实机构实验结果反推飞控状态机需要测什么；20 次重复性数据</div>
-        <div class="phase-links">
-          <a href="knowledge/scamp-climbing.html">飞行栖息研究进展</a>
-          <a href="knowledge/papers/index.html">论文精读库</a>
-        </div>
-        <div class="phase-slider-wrap">
-          <input type="range" class="phase-slider" min="0" max="100" value="0" data-phase="9">
-        </div>
-      </div>
-
-    </div>
-
-    <p class="progress-credit">🛠 进度面板由 Cutus 与 Opus 4.6 协作完成 · 数据保存在浏览器本地</p>
-  </section>
-
+  <section class="flight-roadmap" id="progress-tracker" data-flight-roadmap><p>飞控学习路线加载中。请启用 JavaScript 以记录进度。</p></section>
 
   <section class="section-wrap">
     <div class="section-head">
@@ -536,5 +316,6 @@
 </footer>
 
 <script src="assets/script.js"></script>
+<script src="assets/flight-roadmap.js"></script>
 </body>
 </html>
