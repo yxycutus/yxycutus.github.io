@@ -1069,3 +1069,12 @@ img, video { max-width: 100%; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Keep the current flight-control learning focus visible in both themes. */
+.learning-brief .telemetry-header { flex-wrap: wrap; gap: 10px; }
+.learning-brief .telemetry-title, .learning-brief .telemetry-status-tag { font-size: 12px; }
+.learning-brief .brief-facts dt, .learning-brief .section-more-link { font-size: 14px; }
+.learning-brief .brief-facts dd { font-size: 16px; line-height: 1.65; }
+.learning-card { border-color: color-mix(in srgb, var(--ustc-blue) 40%, var(--line)); background: color-mix(in srgb, var(--ustc-blue) 4%, var(--bg-card)); }
+.learning-card p { font-size: 16px; line-height: 1.65; }
+.learning-card .bento-tag { font-size: 14px; }
