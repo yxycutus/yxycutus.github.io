@@ -4,7 +4,6 @@
    Typography: Plus Jakarta Sans + JetBrains Mono
    ============================================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
   /* USTC Official Blue Spectrum */
@@ -1436,3 +1435,14 @@ img, video { max-width: 100%; }
     grid-template-columns: 1fr;
   }
 }
+
+/* Native controls follow the theme; primary button labels retain contrast. */
+html { color-scheme: light; }
+html[data-theme="dark"] { color-scheme: dark; }
+[data-theme="dark"] .btn-primary { color: #082235; }
+[data-theme="dark"] .btn-primary:hover { color: #082235; }
+.not-found { max-width: 760px; padding-block: 90px; }
+.not-found h1 { font-size: clamp(28px, 5vw, 44px); line-height: 1.4; margin: 20px 0; }
+.not-found > p:not(.section-label) { color: var(--ink-muted); line-height: 1.9; }
+.not-found .hero-actions { margin: 28px 0; }
+.not-found form { margin-top: 35px; }

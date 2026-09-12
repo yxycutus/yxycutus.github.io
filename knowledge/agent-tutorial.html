@@ -4,12 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>从小白到 Vibe Coding：现代 AI Agent 选型、避坑与生产力实战全指南 — Cutus 知识库</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="../assets/theme-init.js"></script>
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/article.css">
   <meta name="description" content="从小白到 Vibe Coding：现代 AI Agent 选型、避坑与生产力实战全指南 — Cutus 知识库。公开项目、学习笔记与研究记录。">
   <link rel="icon" href="../assets/avatar.jpg" type="image/jpeg">
+  <link rel="canonical" href="https://yxycutus.github.io/knowledge/agent-tutorial.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Cutus · 机器人工程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="从小白到 Vibe Coding：现代 AI Agent 选型、避坑与生产力实战全指南 — Cutus 知识库">
+  <meta property="og:description" content="从小白到 Vibe Coding：现代 AI Agent 选型、避坑与生产力实战全指南 — Cutus 知识库。公开项目、学习笔记与研究记录。">
+  <meta property="og:url" content="https://yxycutus.github.io/knowledge/agent-tutorial.html">
+  <meta property="og:image" content="https://yxycutus.github.io/assets/avatar.jpg">
+  <meta property="og:image:alt" content="Cutus 的个人头像">
+  <meta name="twitter:card" content="summary">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -20,7 +29,7 @@
 <nav class="navbar">
   <div class="nav-container">
     <a class="nav-brand" href="../index.html">
-      <img src="../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar">
+      <img src="../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar" width="32" height="32">
       <span class="brand-title">Cutus</span>
       <span class="brand-tag">USTC Robotics</span>
     </a>
@@ -59,12 +68,13 @@
       </div>
     </header>
 
+    <details class="article-toc"><summary>本文目录 · 7 个章节</summary><ol><li><a href="#section-1">一、 什么是 Agent？与传统网页 AI 的本质区别</a></li><li><a href="#section-2">二、 Agent 的不同形态与进阶路线</a></li><li><a href="#section-3">三、 主流工具链选型、白嫖与避坑全记录</a></li><li><a href="#section-4">四、 进阶心法：如何真正玩转 Vibe Coding？</a></li><li><a href="#section-5">五、 两个真实科研工程案例落地</a></li><li><a href="#section-6">六、 常见萌新疑问 (FAQ)</a></li><li><a href="#section-7">七、 结语</a></li></ol></details>
     <div class="article-content">
       <div class="article-callout">
         <p><strong>写在前面</strong>：这份教程面向<strong>没有任何系统使用过命令行 Agent 工具的同学</strong>，同时也写给那些希望提升日常科研、有限元仿真与工程开发效率的极客们。内容结合了优质开源教程 <em>agent-tutorial.cmander02.com</em> 的精髓，并融入了我在中科大机器人工程专业学习、加入空中机器人课题组、踩坑封号、自动化 Abaqus 仿真以及搭建本站点的<strong>全部真实经历与血泪教训</strong>。</p>
       </div>
 
-      <h2>一、 什么是 Agent？与传统网页 AI 的本质区别</h2>
+      <h2 id="section-1">一、 什么是 Agent？与传统网页 AI 的本质区别</h2>
       <p>
         许多刚接触大模型的朋友习惯停留在<strong>网页端聊天框</strong>（如网页版豆包、ChatGPT 或 Kimi）：你发一段文字，AI 回复一段文字，然后你复制粘贴代码到编辑器，报错了再截图发回去。这种模式本质上是<strong>单向静态问答 (Static Q&A)</strong>。
       </p>
@@ -127,7 +137,7 @@
 [ 交付完整且经过验证的项目成果 ]
       </div>
 
-      <h2>二、 Agent 的不同形态与进阶路线</h2>
+      <h2 id="section-2">二、 Agent 的不同形态与进阶路线</h2>
       <p>从纯萌新到熟练驾驭，通常会经历三个形态阶段：</p>
       <ol>
         <li><strong>形态 1：网页/App 聊天端（启蒙期）</strong>：如大一刚入学时常用的豆包、ChatGPT 免费版。适合初次体验自然语言理解，但受限于沙盒，无法触碰物理文件。</li>
@@ -135,7 +145,7 @@
         <li><strong>形态 3：自主终端 Coding Agent CLI（成熟期）</strong>：如 <strong>OpenAI Codex</strong>、<strong>Claude Code</strong>、<strong>Google Antigravity</strong>。它们直接运行在本地终端环境中，拥有对工作区的绝对掌控力，能自动创建模块、跑测试、打 Git Commit 并持续重构。</li>
       </ol>
 
-      <h2>三、 主流工具链选型、白嫖与避坑全记录</h2>
+      <h2 id="section-3">三、 主流工具链选型、白嫖与避坑全记录</h2>
       <p>结合我从大一秋季到大二的真实使用历程，给大家提供一份最接地气的选型建议：</p>
 
       <h3>1. 高校学生白嫖党：首推 USTC 认证福利 (Qoder)</h3>
@@ -171,7 +181,7 @@
         由月之暗面研发的 <strong><a href="https://kimi.moonshot.cn" target="_blank" rel="noopener" style="color: var(--ustc-blue);">Kimi Code ↗</a></strong> 在长上下文分析与中文工程理解上表现突出。面对跨多模块、数万行历史代码的架构梳理，Kimi 能够保持惊人的长程记忆与逻辑连贯性，是处理大型代码仓分析和论文文献全量通读的优秀利器。
       </p>
 
-      <h2>四、 进阶心法：如何真正玩转 Vibe Coding？</h2>
+      <h2 id="section-4">四、 进阶心法：如何真正玩转 Vibe Coding？</h2>
 
       <h3>1. 优秀 Prompt 的结构模板</h3>
       <p>永远不要给 Agent 抛出“帮我写个爬虫”这种空泛的指令。一个高效的 Prompt 应遵循<strong>四要素原则</strong>：</p>
@@ -196,7 +206,7 @@
         <li><strong>Subagent（子智能体分工）</strong>：主智能体扮演 Project Manager，将大量费时费 Token 的信息搜集交给只读的 Research Subagent，汇总后再由主 Agent 决策。</li>
       </ul>
 
-      <h2>五、 两个真实科研工程案例落地</h2>
+      <h2 id="section-5">五、 两个真实科研工程案例落地</h2>
 
       <h3>案例 1：Abaqus cohesive 单元黏聚力有限元仿真参数化批处理</h3>
       <p>
@@ -233,14 +243,14 @@ for kn in kn_values:
         你所浏览的整个 Cutus 站点，从科大蓝设计语言落地、暗色模式切换、13 篇 Stanford/沈自所/中科大前沿文献精读的高清排版渲染，到即时搜索工具栏，全部是我与 Antigravity 在终端中完成的。我负责把握学术内核、结构机理与真实经历，Antigravity 负责精准的代码编写、静态链接校验与 Git 分支推送，真正实现了人机合一的 <strong>Vibe Coding</strong>。
       </p>
 
-      <h2>六、 常见萌新疑问 (FAQ)</h2>
+      <h2 id="section-6">六、 常见萌新疑问 (FAQ)</h2>
       <ol>
         <li><strong>问：我几乎没有代码基础，能用这些工具吗？</strong><br>答：完全可以。现代 Agent 的本质是“自然语言翻译器”，你越能用清晰、严密的人类语言把物理世界的问题描述清楚，Agent 给出的代码质量就越高。甚至在写代码的过程中，它就是你最好的私人家教。</li>
         <li><strong>问：Agent 会不会失控误删我的电脑文件？</strong><br>答：合格的 Agent 工具（如 Antigravity、Claude Code）在执行敏感危险命令（如 rm -rf、覆盖关键系统配置）前都会向用户请求授权。此外，永远将项目放在 Git 版本控制之下，就算有误改也能一秒 git restore。</li>
         <li><strong>问：国内网络环境到底该如何优雅上手？</strong><br>答：高校同学直接使用 <strong>Qoder (科大企业认证)</strong>；进阶用户推荐购买官方 API Key 搭配 Claude Code 接入 DeepSeek-V4，既安全、便宜，又彻底免疫封号。</li>
       </ol>
 
-      <h2>七、 结语</h2>
+      <h2 id="section-7">七、 结语</h2>
       <p>
         从大一入学时好奇地在豆包里提问，到如今熟练使用 Codex、Antigravity、Claude Code 与 Qoder 协同完成科研仿真、项目落地与学术网站构建，AI 工具并没有取代我的思考，反而让我能从繁琐琐碎的语法细节中解放出来，将更多心力投入到<strong>力学物理本质、机构巧妙构想与真实工程闭环</strong>中。
       </p>
@@ -276,5 +286,6 @@ for kn in kn_values:
 </footer>
 
 <script src="../assets/script.js"></script>
+<script src="../assets/reader.js"></script>
 </body>
 </html>

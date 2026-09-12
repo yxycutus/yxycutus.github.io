@@ -186,3 +186,17 @@
   justify-content: space-between;
   align-items: center;
 }
+
+/* Reading aids use native details and anchors, including without JavaScript. */
+.article-toc { margin: 0 0 30px; padding: 16px 20px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-card); }
+.article-toc summary { cursor: pointer; color: var(--ustc-blue); font-size: 13px; font-weight: 600; }
+.article-toc ol { margin: 14px 0 2px; padding-left: 22px; display: grid; gap: 10px; }
+.article-toc a { font-size: 13px; line-height: 1.7; color: var(--ink-secondary); }
+.article-toc a:hover { color: var(--ustc-blue); text-decoration: underline; text-underline-offset: 4px; }
+.reader-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; margin-top: 20px; font-size: 12px; color: var(--ink-muted); }
+.reader-tools button { min-height: 36px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; color: var(--ustc-blue); background: var(--bg-card); cursor: pointer; font: inherit; }
+.reader-tools input { width: 100%; min-width: 0; padding: 10px; background: var(--bg-card); color: var(--ink); border: 1px solid var(--line-strong); border-radius: 6px; }
+.reader-back-top { position: fixed; right: 20px; bottom: 20px; display: grid; place-items: center; width: 44px; height: 44px; color: var(--ustc-blue); background: var(--bg-card); border: 1px solid var(--line-strong); border-radius: 50%; box-shadow: var(--shadow-md); z-index: 10; }
+.article-content { overflow-wrap: break-word; }
+.article-content h2 { scroll-margin-top: 16px; }
+@media (prefers-color-scheme: dark) { html:not([data-theme]) { color-scheme: dark; } }

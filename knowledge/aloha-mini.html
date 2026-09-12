@@ -4,12 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>校企合作 · Aloha Mini 开源双臂移动机器人实操记录 — Cutus</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="../assets/theme-init.js"></script>
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/article.css">
   <meta name="description" content="校企合作 · Aloha Mini 开源双臂移动机器人实操记录 — Cutus。公开项目、学习笔记与研究记录。">
   <link rel="icon" href="../assets/avatar.jpg" type="image/jpeg">
+  <link rel="canonical" href="https://yxycutus.github.io/knowledge/aloha-mini.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Cutus · 机器人工程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="校企合作 · Aloha Mini 开源双臂移动机器人实操记录 — Cutus">
+  <meta property="og:description" content="校企合作 · Aloha Mini 开源双臂移动机器人实操记录 — Cutus。公开项目、学习笔记与研究记录。">
+  <meta property="og:url" content="https://yxycutus.github.io/knowledge/aloha-mini.html">
+  <meta property="og:image" content="https://yxycutus.github.io/assets/aloha-demo.jpg">
+  <meta property="og:image:alt" content="Cutus 参与的 Aloha Mini 项目真机演示">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -20,7 +29,7 @@
 <nav class="navbar">
   <div class="nav-container">
     <a class="nav-brand" href="../index.html">
-      <img src="../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar">
+      <img src="../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar" width="32" height="32">
       <span class="brand-title">Cutus</span>
       <span class="brand-tag">USTC Robotics</span>
     </a>
@@ -58,12 +67,13 @@
       </div>
     </header>
 
+    <details class="article-toc"><summary>本文目录 · 4 个章节</summary><ol><li><a href="#section-1">一、 核心工作与职责切分</a></li><li><a href="#section-2">二、 关键技术细节与问题排查</a></li><li><a href="#demos">三、 实操真机运行与遥操作演示 (Live Video Demos)</a></li><li><a href="#section-3">四、 收获与思考</a></li></ol></details>
     <div class="article-content">
       <div class="article-callout">
         <p><strong>项目概述</strong>：Aloha Mini 是一套低成本开源双臂移动操作机器人平台，配备垂直升降导轨与双机械臂系统。在本次校企合作研发项目中，我作为<strong>电子组 / 软件组成员</strong>，主要负责树莓派系统调试、通信链路贯通、Joy-Con 遥操作适配以及示教数据集采集。</p>
       </div>
 
-      <h2>一、 核心工作与职责切分</h2>
+      <h2 id="section-1">一、 核心工作与职责切分</h2>
 
       <h3>1. 树莓派底层系统与环境部署</h3>
       <ul>
@@ -85,7 +95,7 @@
         <li>为后续模仿学习与行为克隆模型训练提供高质量数据支撑。最终真机部署模型后，成功实现了机器人<strong>基于视觉检测识别特定物体后的自主平滑抓取与定点放置</strong>（Visual Object Pick-and-Place）。</li>
       </ul>
 
-      <h2>二、 关键技术细节与问题排查</h2>
+      <h2 id="section-2">二、 关键技术细节与问题排查</h2>
 
       <div class="article-pre">
 # 通信与控制拓扑架构简图
@@ -100,7 +110,7 @@
 
       <p>在调试过程中，主要攻克了手柄蓝牙输入延迟突增、多路 USB 相机带宽冲突导致数据掉帧、以及多电机连续供电下的通信丢包问题。通过重写串口读取缓存逻辑与优化线程调度，保证了数据采集中控制指令的硬实时性。</p>
 
-      <h2>三、 实操真机运行与遥操作演示 (Live Video Demos)</h2>
+      <h2 id="demos">三、 实操真机运行与遥操作演示 (Live Video Demos)</h2>
       <p>项目研发调测与示教现场实录视频，直观呈现机械臂视觉闭环抓取、主从遥操作采集与手柄遥控底盘移动：</p>
 
       <div class="video-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin: 24px 0;">
@@ -138,7 +148,7 @@
         </div>
       </div>
 
-      <h2>四、 收获与思考</h2>
+      <h2 id="section-3">四、 收获与思考</h2>
       <p>通过这个校企合作项目，我从真实的工程现场切身体会到了机器人在物理世界落地的全链路：从底层的强弱电走线、树莓派 Linux 系统调试，到控制链路搭建与遥操作数据流打通。它让我认识到，具身智能模型的效果高度依赖于底层硬件的可靠性与示教数据的干净程度。</p>
     </div>
 
@@ -168,5 +178,6 @@
 </footer>
 
 <script src="../assets/script.js"></script>
+<script src="../assets/reader.js"></script>
 </body>
 </html>

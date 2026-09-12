@@ -4,12 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fang2026 · 仿生双模夹爪（微重力攀爬机器人）精读 — Cutus</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="../../assets/theme-init.js"></script>
   <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/article.css">
   <meta name="description" content="Fang2026 · 仿生双模夹爪（微重力攀爬机器人）精读 — Cutus。公开项目、学习笔记与研究记录。">
   <link rel="icon" href="../../assets/avatar.jpg" type="image/jpeg">
+  <link rel="canonical" href="https://yxycutus.github.io/knowledge/papers/fang-2026.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Cutus · 机器人工程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="Fang2026 · 仿生双模夹爪（微重力攀爬机器人）精读 — Cutus">
+  <meta property="og:description" content="Fang2026 · 仿生双模夹爪（微重力攀爬机器人）精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <meta property="og:url" content="https://yxycutus.github.io/knowledge/papers/fang-2026.html">
+  <meta property="og:image" content="https://yxycutus.github.io/assets/avatar.jpg">
+  <meta property="og:image:alt" content="Cutus 的个人头像">
+  <meta name="twitter:card" content="summary">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -19,7 +28,7 @@
 <nav class="navbar">
   <div class="nav-container">
     <a class="nav-brand" href="../../index.html">
-      <img src="../../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar">
+      <img src="../../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar" width="32" height="32">
       <span class="brand-title">Cutus</span>
       <span class="brand-tag">USTC Robotics</span>
     </a>
@@ -64,14 +73,14 @@
         <p><strong>一句话精要</strong>：针对航天器外壁的机械异质表面（刚性金属 vs 柔性隔热层 MLI），设计了四足攀爬机器人 SPACE-1。核心末端集成干黏附与机械穿刺双模夹爪：刚性金属面使用 PU/SiO2 复合干黏附垫贴附，柔性多层隔热材料（MLI）采用偏置曲柄五杆机构控制微刺精确刺入与平滑脱附。</p>
       </div>
 
-      <h2>一、 核心创新与机构建模</h2>
+      <h2 id="section-1">一、 核心创新与机构建模</h2>
       <ul>
         <li><strong>机械异质表面适应</strong>：航天器表面不是均质材质，单一附着机制（纯磁吸、纯干黏附或纯机械爪）无法可靠工作，必须进行双模/多模机制融合。</li>
         <li><strong>五杆爪刺机构运动学</strong>：通过直线电缸驱动滑块移动，带动偏置曲柄摇杆输出角度，精密规划爪刺轨迹，确保刺尖满足 MLI 厚度不穿透底层金属、刺入角可控且退出时不撕裂隔热膜。</li>
         <li><strong>整机空间步态验证</strong>：在微重力气浮台架与不同航天材料表面完成了稳定的四足攀爬与转弯演示。</li>
       </ul>
 
-      <h2>二、 对双稳态足端设计的对比思考</h2>
+      <h2 id="section-2">二、 对双稳态足端设计的对比思考</h2>
       <p>Fang2026 的双模态切换依赖较为复杂的精密连杆机械构型与电机线性推杆，整机结构刚性强但质量较大（适用于航天四足大机器人）。在微型飞行器平台上，必须寻求更加极致轻量化的方案，而基于材料本构的双稳态薄板 snap-through 跳跃，正是追求克级质量预算下的极优解。</p>
     </div>
 
@@ -101,5 +110,6 @@
 </footer>
 
 <script src="../../assets/script.js"></script>
+<script src="../../assets/reader.js"></script>
 </body>
 </html>

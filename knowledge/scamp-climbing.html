@@ -4,12 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>双模态栖息机构：从原理翻转到可重复附着 — Cutus</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="../assets/theme-init.js"></script>
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/article.css">
   <meta name="description" content="研究面向指定粗糙面与光滑面的双模态栖息机构，采用 Crazyflie 2.1 Brushless 平台、预压缩薄板与 SMA 驱动。已有双稳态观察和 SMA 拉动翻转的初步记录；双向重复性、受载保持与整机动态栖息仍待验证。当前并行推进粗糙面夹具实验、光滑面方案筛选，以及飞控连接与遥测学习。">
   <link rel="icon" href="../assets/avatar.jpg" type="image/jpeg">
+  <link rel="canonical" href="https://yxycutus.github.io/knowledge/scamp-climbing.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Cutus · 机器人工程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="双模态栖息机构：从原理翻转到可重复附着 — Cutus">
+  <meta property="og:description" content="研究面向指定粗糙面与光滑面的双模态栖息机构，采用 Crazyflie 2.1 Brushless 平台、预压缩薄板与 SMA 驱动。已有双稳态观察和 SMA 拉动翻转的初步记录；双向重复性、受载保持与整机动态栖息仍待验证。当前并行推进粗糙面夹具实验、光滑面方案筛选，以及飞控连接与遥测学习。">
+  <meta property="og:url" content="https://yxycutus.github.io/knowledge/scamp-climbing.html">
+  <meta property="og:image" content="https://yxycutus.github.io/assets/avatar.jpg">
+  <meta property="og:image:alt" content="Cutus 的个人头像">
+  <meta name="twitter:card" content="summary">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -20,7 +29,7 @@
 <nav class="navbar">
   <div class="nav-container">
     <a class="nav-brand" href="../index.html">
-      <img src="../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar">
+      <img src="../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar" width="32" height="32">
       <span class="brand-title">Cutus</span>
       <span class="brand-tag">USTC Robotics</span>
     </a>
@@ -71,7 +80,7 @@
  <p>这是拟验证的流程，不是已经运行的控制程序。接触到墙面不等于附着成功；保持时若仍依赖旋翼推力，应记录为辅助栖息。</p>
  <h2 id="questions">04 / 当前开放问题</h2>
  <ul><li>薄板在承担偏心载荷时，会不会误翻转？</li><li>两个方向的 SMA 触发能否分别重复到位，并保留足够冷却时间？</li><li>完整机构的非工作接触件在加载变形后是否仍能避让？</li><li>光滑面失败来自样件、密封、回弹还是加载方式？</li><li>哪些可观测信号足以支持从接触转入承载？</li></ul>
- <h2>继续阅读</h2><p><a href="crazyflie-learning.html">Crazyflie 飞控学习路线与官方链接 →</a> · <a href="papers/index.html">浏览 13 篇公开论文笔记 →</a> · <a href="research-workflow.html">从论文到实验的记录方法 →</a></p>
+ <h2 id="section-1">继续阅读</h2><p><a href="crazyflie-learning.html">Crazyflie 飞控学习路线与官方链接 →</a> · <a href="papers/index.html">浏览 13 篇公开论文笔记 →</a> · <a href="research-workflow.html">从论文到实验的记录方法 →</a></p>
  <p class="source-note">整理依据：2026-09-09 项目交接文档、首次汇报后工作规划。此页为公开摘要，不包含私人日记原文；未对原始实验视频进行独立复核。</p>
 </div>
 
@@ -101,5 +110,6 @@
 </footer>
 
 <script src="../assets/script.js"></script>
+<script src="../assets/reader.js"></script>
 </body>
 </html>

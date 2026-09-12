@@ -4,12 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Asbeck2006 · 顺应性微刺阵列攀爬垂直硬质表面精读 — Cutus</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="../../assets/theme-init.js"></script>
   <link rel="stylesheet" href="../../assets/style.css">
   <link rel="stylesheet" href="../../assets/article.css">
   <meta name="description" content="Asbeck2006 · 顺应性微刺阵列攀爬垂直硬质表面精读 — Cutus。公开项目、学习笔记与研究记录。">
   <link rel="icon" href="../../assets/avatar.jpg" type="image/jpeg">
+  <link rel="canonical" href="https://yxycutus.github.io/knowledge/papers/asbeck-2006.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Cutus · 机器人工程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="Asbeck2006 · 顺应性微刺阵列攀爬垂直硬质表面精读 — Cutus">
+  <meta property="og:description" content="Asbeck2006 · 顺应性微刺阵列攀爬垂直硬质表面精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <meta property="og:url" content="https://yxycutus.github.io/knowledge/papers/asbeck-2006.html">
+  <meta property="og:image" content="https://yxycutus.github.io/assets/avatar.jpg">
+  <meta property="og:image:alt" content="Cutus 的个人头像">
+  <meta name="twitter:card" content="summary">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -19,7 +28,7 @@
 <nav class="navbar">
   <div class="nav-container">
     <a class="nav-brand" href="../../index.html">
-      <img src="../../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar">
+      <img src="../../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar" width="32" height="32">
       <span class="brand-title">Cutus</span>
       <span class="brand-tag">USTC Robotics</span>
     </a>
@@ -64,7 +73,7 @@
         <p><strong>一句话精要</strong>：系统建立了微刺与粗糙硬表面的接触模型。微刺能否抓住墙面不只取决于 <code>Ra/Rq</code>，更取决于局部微凸体（asperity）的法向角、刺尖半径、接近角和加载方向；工程上必须采用多个小半径、高强度、带局部顺应性的 spine 阵列，而不是少数刚性大钩子。</p>
       </div>
 
-      <h2>一、 核心创新</h2>
+      <h2 id="section-1">一、 核心创新</h2>
       <ul>
         <li><strong>基于真实表面轮廓的微刺接触仿真</strong>：用轮廓仪得到石材、砂纸、混凝土的二维轮廓，模拟微刺扫掠表面，寻找几何可用 asperity。</li>
         <li><strong>指出 Ra/Rq 不等于微刺挂接性能</strong>：真正关键的是局部表面法向角 $\theta$ 和可用微凸体空间分布。</li>
@@ -72,7 +81,7 @@
         <li><strong>三种失效模式</strong>：spine 根部塑性弯曲、弹性变形导致滑脱、asperity 本身被剪碎断裂。</li>
       </ul>
 
-      <h2>二、 对足端粗糙面模式（Mode 1 微刺）的设计启发</h2>
+      <h2 id="section-2">二、 对足端粗糙面模式（Mode 1 微刺）的设计启发</h2>
       <ol>
         <li>粗糙面足端不应做成少量刚性大钩子，而应采用多个小半径微刺，并给每个微刺或微刺组一定的局部柔顺悬挂，使其能分担载荷并适应表面起伏。</li>
         <li>薄板端部必须精确控制微刺的接近角和加载角，使其以剪切方向咬合，严禁产生直接剥离的力矩。</li>
@@ -105,5 +114,6 @@
 </footer>
 
 <script src="../../assets/script.js"></script>
+<script src="../../assets/reader.js"></script>
 </body>
 </html>

@@ -27,6 +27,7 @@
   const empty = () => ({version:2, phases:plans.map(() => ({progress:0,note:''})), updatedAt:null});
   const valid = d => d && d.version === 2 && Array.isArray(d.phases) && d.phases.length === 10 && d.phases.every(p => p && Number.isInteger(p.progress) && p.progress>=0 && p.progress<=100 && typeof p.note==='string' && p.note.length<=10000);
   let data = empty(), loadMessage = '尚未记录 · 拖动后自动保存', storageOK = true, hasLocal = false, edited = false;
+  let publicState = 'loading';
   try {
     const raw = localStorage.getItem(key);
     if(raw) { const parsed = JSON.parse(raw); if(!valid(parsed)) throw Error(); data=parsed; hasLocal=true; loadMessage='已恢复此浏览器的学习记录'; }
@@ -60,9 +61,11 @@
   });
   fetch((inKnowledge?'../':'')+'assets/flight-progress.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(snapshot=>{
     if(snapshot.version!==1 || !Array.isArray(snapshot.progress) || snapshot.progress.length!==10 || !snapshot.progress.every(n=>Number.isInteger(n)&&n>=0&&n<=100))throw Error();
+    publicState = snapshot.updatedAt ? 'published' : 'unpublished';
     host.querySelector('#flight-public-status').textContent=snapshot.updatedAt?'公开版本 · '+new Date(snapshot.updatedAt).toLocaleDateString('zh-CN'):'尚未发布个人进度';
-    if(!hasLocal&&!edited&&storageOK){data.phases.forEach((p,i)=>p.progress=snapshot.progress[i]);selected=Math.max(0,data.phases.findIndex(p=>p.progress<100));render();status.textContent=snapshot.updatedAt?'正在展示已发布进度 · 拖动可建立本地记录':'尚未记录 · 拖动后自动保存';}
-  }).catch(()=>{host.querySelector('#flight-public-status').textContent='公开记录暂不可用，本地记录仍可编辑';});
+    if(!hasLocal&&!edited){data.phases.forEach((p,i)=>p.progress=snapshot.progress[i]);selected=Math.max(0,data.phases.findIndex(p=>p.progress<100));render();if(storageOK)status.textContent=snapshot.updatedAt?'正在展示已发布进度 · 拖动可建立本地记录':'尚未记录 · 拖动后自动保存';}
+    render();
+  }).catch(()=>{publicState='unavailable';host.querySelector('#flight-public-status').textContent='公开记录暂不可用，本地记录仍可编辑';render();});
   function save() {
     edited=true;
     data.updatedAt=new Date().toISOString();
@@ -74,7 +77,16 @@
     host.querySelector('#flight-total').innerHTML=average+'<small>%</small>';
     host.querySelector('#flight-meter').value=average;
     const hero=document.querySelector('#flight-hero-progress');
-    if(hero){hero.textContent=average+'%';document.querySelector('#flight-hero-status').textContent=data.phases.filter(p=>p.progress===100).length+' / 10 阶段完成 · '+(plans[data.phases.findIndex(p=>p.progress<100)]?.[0] || '全部完成');}
+    if(hero){
+      const source=document.querySelector('#flight-hero-source');
+      const localRecord=hasLocal||edited;
+      if(source) source.textContent=localRecord?'此浏览器的学习记录':'公开学习记录';
+      const showProgress=localRecord||publicState==='published';
+      hero.textContent=showProgress?average+'%':publicState==='unpublished'?'学习进行中':'—';
+      document.querySelector('#flight-hero-status').textContent=showProgress
+        ?data.phases.filter(p=>p.progress===100).length+' / 10 阶段完成 · '+(plans[data.phases.findIndex(p=>p.progress<100)]?.[0] || '全部完成')
+        :publicState==='unpublished'?'尚未发布阶段百分比 · 可查看完整学习路线':publicState==='unavailable'?'公开记录暂不可用 · 可继续阅读学习路线':'正在读取进度';
+    }
     host.querySelector('#flight-completed').textContent=data.phases.filter(p=>p.progress===100).length+' / 10 阶段已完成';
     data.phases.forEach((p,i)=>{
       const node=host.querySelector(`[data-node="${i}"]`);
@@ -123,7 +135,7 @@
   });
   window.addEventListener('storage',e=>{
     if(e.key!==key) return;
-    try {const incoming=JSON.parse(e.newValue);if(valid(incoming)){data=incoming;render();status.textContent='已同步另一个标签页的记录';}}
+    try {const incoming=JSON.parse(e.newValue);if(valid(incoming)){data=incoming;hasLocal=true;render();status.textContent='已同步另一个标签页的记录';}}
     catch(_) {status.textContent='另一个标签页的记录无效，保留当前显示';}
   });
   render();

@@ -4,12 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>从论文到实验：我的研究记录工作流 — Cutus</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="../assets/theme-init.js"></script>
   <link rel="stylesheet" href="../assets/style.css">
   <link rel="stylesheet" href="../assets/article.css">
   <meta name="description" content="从论文到实验：我的研究记录工作流 — Cutus。公开项目、学习笔记与研究记录。">
   <link rel="icon" href="../assets/avatar.jpg" type="image/jpeg">
+  <link rel="canonical" href="https://yxycutus.github.io/knowledge/research-workflow.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Cutus · 机器人工程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="从论文到实验：我的研究记录工作流 — Cutus">
+  <meta property="og:description" content="从论文到实验：我的研究记录工作流 — Cutus。公开项目、学习笔记与研究记录。">
+  <meta property="og:url" content="https://yxycutus.github.io/knowledge/research-workflow.html">
+  <meta property="og:image" content="https://yxycutus.github.io/assets/avatar.jpg">
+  <meta property="og:image:alt" content="Cutus 的个人头像">
+  <meta name="twitter:card" content="summary">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -20,7 +29,7 @@
 <nav class="navbar">
   <div class="nav-container">
     <a class="nav-brand" href="../index.html">
-      <img src="../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar">
+      <img src="../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar" width="32" height="32">
       <span class="brand-title">Cutus</span>
       <span class="brand-tag">USTC Robotics</span>
     </a>
@@ -48,14 +57,15 @@
   <article>
     <header class="article-header"><div class="article-badge">RESEARCH NOTE · 公开研究记录</div><h1 class="article-title">从论文到实验：我的研究记录工作流</h1><div class="article-meta-row"><span>阅读 · 工程交接 · 失败复盘</span><time datetime="2026-09-10">更新于 2026.09.10</time></div></header>
 
+    <details class="article-toc"><summary>本文目录 · 4 个章节</summary><ol><li><a href="#section-1">01 / 已经发生的三个节点</a></li><li><a href="#section-2">02 / 接下来采用的记录方法</a></li><li><a href="#section-3">03 / 一个最小实验记录模板</a></li><li><a href="#section-4">04 / AI 参与的位置</a></li></ol></details>
     <div class="article-content">
  <div class="article-callout"><p>2026 年 6 月，我开始搭建 Obsidian、Codex 与 Zotero 配合使用的论文阅读工作流。Aloha Mini 的调测与交接，以及随后足端机构的原理验证，让我逐渐把注意力放到一个问题上：一条笔记，最终能不能帮助下一次实验？</p></div>
- <h2>01 / 已经发生的三个节点</h2><ul><li><strong>2026.06：</strong>在 Aloha Mini 实践中完成 Joy-Con 遥控展示与工作交接，积累树莓派、通信链路和机器人集成经验。</li><li><strong>2026.06.09：</strong>搭建 Obsidian + Codex + Zotero 论文工作流，开始把阅读与知识整理连接起来。</li><li><strong>2026.07.15：</strong>参加 Aloha Mini 项目答辩。从“功能跑起来”继续走向可说明、可交接的工程记录。</li></ul>
- <h2>02 / 接下来采用的记录方法</h2><p>下面是结合当前项目整理的方法，不代表每一项都已经完整执行。</p>
+ <h2 id="section-1">01 / 已经发生的三个节点</h2><ul><li><strong>2026.06：</strong>在 Aloha Mini 实践中完成 Joy-Con 遥控展示与工作交接，积累树莓派、通信链路和机器人集成经验。</li><li><strong>2026.06.09：</strong>搭建 Obsidian + Codex + Zotero 论文工作流，开始把阅读与知识整理连接起来。</li><li><strong>2026.07.15：</strong>参加 Aloha Mini 项目答辩。从“功能跑起来”继续走向可说明、可交接的工程记录。</li></ul>
+ <h2 id="section-2">02 / 接下来采用的记录方法</h2><p>下面是结合当前项目整理的方法，不代表每一项都已经完整执行。</p>
  <div class="evidence-grid"><section class="evidence-card"><span class="section-label">READ</span><h3>读论文，先留下边界</h3><p>记录研究问题、实验条件、关键证据与局限，再单独写“可能怎样用于我的项目”。把作者结论与自己的推断分开。</p></section><section class="evidence-card"><span class="section-label">BUILD</span><h3>做样机，说明改了什么</h3><p>版本号配上实物状态、参数和目标问题。一个 CAD 文件说明存在一个设计，不自动说明已经打印或验证。</p></section><section class="evidence-card"><span class="section-label">MEASURE</span><h3>做实验，保存失败</h3><p>在开始前定义成功条件，保留成功次数 / 总次数、载荷、接触位置和失败类型。一次成功演示是线索，重复实验才回答稳定性。</p></section><section class="evidence-card"><span class="section-label">HAND OFF</span><h3>写交接，留下下一步</h3><p>用“已完成、未验证、下一项检查”整理状态，让下一次接手不必从聊天记录或文件名猜进度。</p></section></div>
- <h2>03 / 一个最小实验记录模板</h2><p>面向当前栖息机构，先把每次实验记录完整，再考虑复杂的数据管理工具。</p>
+ <h2 id="section-3">03 / 一个最小实验记录模板</h2><p>面向当前栖息机构，先把每次实验记录完整，再考虑复杂的数据管理工具。</p>
  <div class="note-template"><p><strong>实验问题：</strong>本次只验证什么？</p><p><strong>固定条件：</strong>日期、样机版本、表面编号、接触位置、预载、载荷及偏心距。</p><p><strong>输入与结果：</strong>驱动参数、成功定义、成功 / 总次数、保持时间。</p><p><strong>失败与证据：</strong>失败类型、视频编号、曲线文件。</p><p><strong>下一步：</strong>下一轮只改变哪个主要因素？</p></div>
- <h2>04 / AI 参与的位置</h2><p>我使用 AI 辅助理解、编程和整理，但公开记录需要能追溯到原文、代码或实验。尤其在研究进展中，AI 生成的解释不能代替测量结果；不确定的判断应保留为问题。</p>
+ <h2 id="section-4">04 / AI 参与的位置</h2><p>我使用 AI 辅助理解、编程和整理，但公开记录需要能追溯到原文、代码或实验。尤其在研究进展中，AI 生成的解释不能代替测量结果；不确定的判断应保留为问题。</p>
  <p><a href="aloha-mini.html">查看 Aloha Mini 项目 →</a> · <a href="scamp-climbing.html">查看当前栖息机构进展 →</a></p>
  <p class="source-note">节点依据：个人项目记录与 2026-06-09、2026-07-15 日记中的项目事实。本文仅提炼公开相关的学习与工程经历，记录方法结合 2026-09-09 项目规划整理。</p>
 </div>
@@ -86,5 +96,6 @@
 </footer>
 
 <script src="../assets/script.js"></script>
+<script src="../assets/reader.js"></script>
 </body>
 </html>

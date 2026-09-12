@@ -54,6 +54,20 @@
   const currentTheme = getPreferredTheme();
   applyTheme(currentTheme);
 
+  // A homepage deep link opens the learning panel before scrolling to it.
+  const learningPanel = document.querySelector('details#progress-tracker');
+  function revealLearningPanel() {
+    if (learningPanel && location.hash === '#progress-tracker') {
+      learningPanel.open = true;
+      learningPanel.scrollIntoView();
+    }
+  }
+  window.addEventListener('hashchange', revealLearningPanel);
+  document.querySelectorAll('a[href="#progress-tracker"]').forEach(link => {
+    link.addEventListener('click', () => { if (learningPanel) learningPanel.open = true; });
+  });
+  revealLearningPanel();
+
   if (toggleBtn) {
     toggleBtn.addEventListener('click', () => {
       const nowTheme = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
