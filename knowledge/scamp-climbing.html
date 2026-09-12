@@ -19,6 +19,7 @@
   <meta property="og:image" content="https://yxycutus.github.io/assets/avatar.jpg">
   <meta property="og:image:alt" content="Cutus 的个人头像">
   <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="../assets/gallery.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -60,8 +61,9 @@
     <div class="article-content">
  <div class="article-callout"><p><strong>现在要回答的问题</strong>：同一个轻量化机构，能否在指定粗糙面与光滑面上分别实现可重复的接合、保持和可控离开？首次汇报后，近期工作聚焦多表面栖息；攀爬是否继续开展，将根据任务需要和机构能力重新评估。</p></div>
  <p>研究面向指定粗糙面与光滑面的双模态栖息机构，采用 Crazyflie 2.1 Brushless 平台、预压缩薄板与 SMA 驱动。已有双稳态观察和 SMA 拉动翻转的初步记录；双向重复性、受载保持与整机动态栖息仍待验证。当前并行推进粗糙面夹具实验、光滑面方案筛选，以及飞控连接与遥测学习。</p>
- <nav class="reading-toc" aria-label="本文目录"><a href="#evidence">进展与证据</a><a href="#mechanism">机构分工</a><a href="#next">下一步验证</a><a href="#questions">开放问题</a></nav>
- <h2 id="evidence">01 / 哪些已经有记录，哪些还没有答案</h2>
+ <nav class="reading-toc" aria-label="本文目录"><a href="#concept">概念与布局</a><a href="#evidence">进展与证据</a><a href="#mechanism">机构分工</a><a href="#next">下一步验证</a><a href="#questions">开放问题</a></nav>
+ <h2 id="concept">概念模型 / 把附着机构放到飞行平台上</h2><p>以下是项目概念图与侧视布局，用来表达机构关系。它们对应方案构想，实际样机版本、载荷和飞行表现仍以下方实验记录为准。</p><div class="concept-gallery"><figure class="media-figure" id="figure-perching-concept"><a href="../picture/双模态栖息无人机.png" data-image-viewer data-title="双模态栖息无人机概念模型" data-caption="Cutus · 项目概念图 · 整机布局与上置附着机构的概念设计。"><img src="../assets/gallery/perching-concept.webp" alt="双模态栖息无人机概念模型" width="1600" height="934" loading="lazy" decoding="async" ><span class="figure-zoom-label">放大查看 ↗</span></a><figcaption><strong>双模态栖息无人机概念模型</strong>整机布局与上置附着机构的概念设计。<span class="figure-credit">Cutus · 项目概念图 · 概念设计，不代表已完成整机验证。</span></figcaption></figure><figure class="media-figure" id="figure-perching-side"><a href="../picture/侧视图.png" data-image-viewer data-title="栖息机构侧视与部件标注" data-caption="Cutus · 项目概念图 · 弹簧膜片、吸附装置、微刺与 SMA 的布局示意。"><img src="../assets/gallery/perching-side.webp" alt="栖息机构侧视与部件标注" width="1600" height="873" loading="lazy" decoding="async" ><span class="figure-zoom-label">放大查看 ↗</span></a><figcaption><strong>栖息机构侧视与部件标注</strong>弹簧膜片、吸附装置、微刺与 SMA 的布局示意。<span class="figure-credit">Cutus · 项目概念图 · 概念设计，不代表已完成整机验证。</span></figcaption></figure></div>
+<h2 id="evidence">01 / 哪些已经有记录，哪些还没有答案</h2>
  <p>以下状态依据截至 2026 年 9 月 9 日的项目交接与首次汇报后规划整理。原理演示、设计文件和系统实验分别记录，避免把局部可行性写成整机性能。</p>
  <div class="table-scroll" role="region" aria-label="研究进展对照表" tabindex="0"><table class="article-table"><thead><tr><th scope="col">模块</th><th scope="col">已有记录</th><th scope="col">下一份需要的证据</th></tr></thead><tbody>
  <tr><th scope="row">双稳态薄板</th><td>打印夹具中观察到预压缩薄板双稳态；汇报采用 0.2 mm 锰钢薄板。</td><td>带载稳定范围与力—位移曲线。</td></tr>
@@ -111,5 +113,6 @@
 
 <script src="../assets/script.js"></script>
 <script src="../assets/reader.js"></script>
+<script src="../assets/gallery.js"></script>
 </body>
 </html>

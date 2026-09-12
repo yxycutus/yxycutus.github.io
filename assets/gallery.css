@@ -1,0 +1,32 @@
+/* Image-led research pages: preserve every diagram's full frame and labels. */
+.media-figure { margin: 26px 0; padding: 14px; background: var(--bg-card); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.media-figure > a { position: relative; display: block; border-radius: 9px; overflow: hidden; background: #fff; cursor: zoom-in; }
+.media-figure img { display: block; width: 100%; height: auto; max-height: 550px; object-fit: contain; }
+.media-figure figcaption { padding: 14px 4px 3px; color: var(--ink-muted); font-size: 12px; line-height: 1.85; }
+.media-figure figcaption strong { display: block; color: var(--ink-secondary); font-size: 14px; margin-bottom: 5px; }
+.figure-credit { display: block; font-size: 11px; margin-top: 7px; color: var(--ink-muted); }
+.figure-zoom-label { position: absolute; right: 10px; bottom: 10px; border: 1px solid #d6e0e5; background: #fffffff0; color: #254052; border-radius: 5px; padding: 5px 9px; font-size: 11px; }
+.concept-gallery { display: grid; grid-template-columns: 1fr; gap: 16px; margin-block: 24px; }
+.concept-gallery .media-figure { margin: 0; background: var(--ustc-blue-subtle); }
+.platform-feature { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 24px; padding: 24px; border-radius: 14px; background: #e9efdf; color: #253a2b; margin: 25px 0; }
+.platform-feature img { width: 100%; height: auto; display: block; mix-blend-mode: multiply; }
+.platform-feature h2 { font-size: 23px; margin: 10px 0; }
+.platform-feature p { font-size: 13px; line-height: 1.9; }
+.platform-feature .section-label { color: #48633d; }
+.campus-about { margin: 0 0 35px; padding: 0; border-radius: 14px; overflow: hidden; background: #163e37; color: #f5f7e9; }
+.campus-about img { display: block; width: 100%; height: auto; }
+.campus-about figcaption { padding: 18px 24px; font-size: 13px; line-height: 1.9; }
+.campus-about small { color: #c6ded1; font-size: 11px; display: block; }
+/* Native dialog supplies focus trapping, Escape dismissal, and focus return. */
+.image-viewer { width: min(1200px, 94vw); max-height: 94dvh; border: 1px solid var(--line-strong); border-radius: 14px; padding: 0; color: var(--ink); background: var(--bg-card); margin: auto; box-shadow: 0 24px 100px #0006; }
+.image-viewer::backdrop { background: #071320cc; backdrop-filter: blur(5px); }
+.viewer-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 16px 20px; border-bottom: 1px solid var(--line); }
+.viewer-toolbar h2 { font-size: 15px; font-weight: 600; }
+.viewer-actions { display: flex; align-items: center; gap: 10px; }
+.viewer-actions button, .viewer-actions a { display: inline-flex; align-items: center; justify-content: center; padding: 8px 12px; min-height: 40px; border: 1px solid var(--line-strong); border-radius: 7px; background: var(--bg-card); color: var(--ink); font: 12px var(--font-sans); cursor: pointer; }
+.viewer-stage { overflow: auto; max-height: 72dvh; min-height: 100px; background: #fff; padding: 12px; }
+.viewer-stage img { display: block; margin: auto; width: auto; max-width: 100%; max-height: 68dvh; object-fit: contain; }
+.viewer-stage.is-zoomed img { max-width: none; max-height: none; }
+.viewer-caption { padding: 12px 20px; font-size: 12px; color: var(--ink-muted); line-height: 1.8; }
+html.viewer-open { overflow: hidden; }
+@media(max-width:640px) { .platform-feature { grid-template-columns: 1fr; } .platform-feature img { max-width: 350px; margin-inline: auto; } .media-figure { padding: 8px; } .viewer-toolbar { padding: 12px; } .viewer-actions { gap: 6px; } .image-viewer { width: 96vw; } }

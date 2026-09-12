@@ -20,6 +20,7 @@
   <meta property="og:image" content="https://yxycutus.github.io/assets/aloha-demo.jpg">
   <meta property="og:image:alt" content="Cutus 参与的 Aloha Mini 项目真机演示">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="assets/gallery.css">
 </head>
 <body class="home-page">
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -45,7 +46,7 @@
       <div class="lab-card-top"><span>FIELD NOTES / 01</span><span class="lab-state">正在学习</span></div>
       <h2 id="lab-title">理解飞行，<br>为栖息做好准备。</h2>
       <p class="lab-subtitle">Crazyflie 2.1 Brushless / 飞控闭环</p>
-      <figure class="control-figure">
+      <a class="lab-platform" href="picture/crazyfile 2.1brushless.png" data-image-viewer data-title="Crazyflie 2.1 Brushless"><img src="assets/gallery/crazyflie.webp" alt="Crazyflie 2.1 Brushless 平台" width="561" height="408" loading="eager" decoding="async" fetchpriority="high"><span>THE PLATFORM <b>2.1 BRUSHLESS</b><i aria-hidden="true">↗</i></span></a><details class="control-disclosure"><summary>从传感器到电机，查看飞控闭环</summary><figure class="control-figure">
         <svg viewBox="0 0 400 172" role="img" aria-labelledby="control-title control-description">
           <title id="control-title">正在学习的飞控反馈关系</title>
           <desc id="control-description">目标值和估计状态共同输入控制器，控制输出经过电机分配驱动飞行器。传感器测量经过状态估计回到控制器，形成反馈。</desc>
@@ -56,7 +57,7 @@
           <g fill="#a9c4dc" font-size="10" font-family="system-ui, sans-serif"><text x="237" y="116">传感器测量</text><text x="13" y="102">估计状态</text></g>
         </svg>
         <figcaption>沿着信号读源码，把控制原理连成闭环。</figcaption>
-      </figure>
+      </figure></details>
       <div class="lab-card-bottom"><div><span class="lab-label" id="flight-hero-source">学习记录</span><strong id="flight-hero-progress">—</strong><p id="flight-hero-status">正在读取进度</p></div><a href="knowledge/crazyflie-learning.html" aria-label="查看 Crazyflie 完整学习路线">↗</a></div>
     </aside>
   </section>
@@ -75,8 +76,8 @@
         <div class="work-body"><div class="work-meta"><span class="status-chip status-done">已结项 · 校企合作</span><span>2026.07</span></div><h3><a href="knowledge/aloha-mini.html">Aloha Mini<br>从设备调通，到遥操作落地。</a></h3><p>作为电子组 / 软件组成员，参与树莓派调试、Ubuntu / SSH 通信链路、Joy-Con 遥操作适配与示教数据采集。</p><p class="work-evidence"><strong>团队结果</strong> 视觉识别特定物体后的自主抓取与放置。项目页收录三段真机演示。</p><a class="text-link" href="knowledge/aloha-mini.html">我的分工与项目复盘 <span aria-hidden="true">→</span></a></div>
       </article>
       <article class="work-card research-work">
-        <div class="research-visual" aria-label="研究路线：附着、保持、脱附"><span class="research-index">RESEARCH QUESTION / 02</span><p>同一个足端，<br>能否适应<span>不同表面？</span></p><div class="surface-pair"><span><i class="surface-rough" aria-hidden="true"></i>粗糙面 / 微刺</span><span><i class="surface-smooth" aria-hidden="true"></i>光滑面 / 附着</span></div><div class="research-sequence"><span>接合</span><b aria-hidden="true">→</b><span>保持</span><b aria-hidden="true">→</b><span>可控离开</span></div></div>
-        <div class="work-body"><div class="work-meta"><span class="status-chip">原理验证中</span><span>进行中</span></div><h3><a href="knowledge/scamp-climbing.html">多表面飞行栖息<br>双模态、双稳态附着机构。</a></h3><p>围绕 Crazyflie 平台，探索预压缩薄板与 SMA 驱动的模式切换，把附着机构与飞控学习连接起来。</p><p class="work-evidence"><strong>证据边界</strong> 已有双稳态观察与 SMA 翻转初步记录；带载保持、双向重复性和整机栖息仍待验证。</p><a class="text-link" href="knowledge/scamp-climbing.html">研究问题、已有证据与下一步 <span aria-hidden="true">→</span></a></div>
+        <a class="concept-cover" href="picture/双模态栖息无人机.png" data-image-viewer data-title="双模态栖息无人机 · 概念模型" data-caption="Cutus · 项目概念设计，整机性能仍待实验验证。"><img src="assets/gallery/perching-concept.webp" alt="双模态栖息无人机概念模型" width="1600" height="934" loading="lazy" decoding="async" ><span class="concept-cover-label">DESIGN STUDY / 概念模型 <b>放大 ↗</b></span></a>
+        <div class="work-body"><div class="work-meta"><span class="status-chip">原理验证中</span><span>进行中</span></div><h3><a href="knowledge/scamp-climbing.html">多表面飞行栖息<br>双模态、双稳态附着机构。</a></h3><p>围绕 Crazyflie 平台，探索预压缩薄板与 SMA 驱动的模式切换，把附着机构与飞控学习连接起来。</p><p class="work-evidence"><strong>证据边界</strong> 已有双稳态观察与 SMA 翻转初步记录；带载保持、双向重复性和整机栖息仍待验证。</p><a class="text-link" href="knowledge/scamp-climbing.html">研究问题、已有证据与下一步 <span aria-hidden="true">→</span></a><a class="concept-side-link" href="picture/侧视图.png" data-image-viewer data-title="栖息机构侧视图"><img src="assets/gallery/perching-side-thumb.webp" alt="栖息机构侧视与部件标注" width="1600" height="873" loading="lazy" decoding="async" ><span>查看机构侧视与部件标注 ↗</span></a></div>
       </article>
     </div>
   </section>
@@ -89,8 +90,10 @@
       <a href="knowledge/courses/index.html"><span class="note-number">02 / COURSES</span><div><h3>把力学与数学，变成可用的工具</h3><p>理论力学、AI 数学、复变函数等课程的讲义与复习记录。</p></div><span aria-hidden="true">↗</span></a>
       <a href="knowledge/research-workflow.html"><span class="note-number">03 / METHOD</span><div><h3>从一篇论文，到下一次实验</h3><p>阅读、记录、交接与失败复盘：我的研究工作流。</p></div><span aria-hidden="true">↗</span></a>
     </div></div>
+<div class="paper-preview-head"><span class="eyebrow">A VISUAL WAY INTO THE PAPERS</span><a class="text-link" href="knowledge/papers/index.html">查看全部论文与配图 ↗</a></div><div class="paper-preview-grid"><a class="paper-preview" href="knowledge/papers/asbeck-2006.html"><div class="paper-preview-image"><img src="assets/gallery/asbeck-2006-thumb.webp" alt="微刺与粗糙表面的接触几何" width="711" height="392" loading="lazy" decoding="async" ></div><div class="paper-preview-caption"><span>01 / CONTACT</span><h3>从粗糙表面，理解微刺 <b aria-hidden="true">↗</b></h3><p>Asbeck et al. · 2006</p></div></a><a class="paper-preview" href="knowledge/papers/hawkes-2015.html"><div class="paper-preview-image"><img src="assets/gallery/hawkes-2015-thumb.webp" alt="剪切方向与干黏附接合" width="523" height="327" loading="lazy" decoding="async" ></div><div class="paper-preview-caption"><span>02 / ADHESION</span><h3>从剪切方向，理解附着 <b aria-hidden="true">↗</b></h3><p>Hawkes et al. · 2015</p></div></a><a class="paper-preview" href="knowledge/papers/pope-2017.html"><div class="paper-preview-image"><img src="assets/gallery/pope-2017-thumb.webp" alt="SCAMP 飞行攀爬机器人" width="924" height="721" loading="lazy" decoding="async" ></div><div class="paper-preview-caption"><span>03 / FLIGHT</span><h3>从飞行平台，走向攀爬 <b aria-hidden="true">↗</b></h3><p>Pope et al. · 2017</p></div></a></div>
   </section>
 
+<section class="campus-banner" aria-labelledby="campus-title"><div class="campus-banner-photo"><img src="assets/gallery/ustc-campus.webp" alt="中国科大西区 · 我爱科大" width="1600" height="575" loading="lazy" decoding="async" ></div><div class="campus-banner-copy"><div><span class="eyebrow">LIFE AT USTC / 合肥 · 科大西区</span><h2 id="campus-title">让好奇心，有生长的地方。</h2><p>在实验室里探索机器人，也在校园里记录生活。</p></div><a href="about/index.html" class="campus-link">认识研究之外的我 <span aria-hidden="true">↗</span></a></div></section>
   <section class="home-section learning-section" aria-labelledby="study-title">
     <div class="home-section-head"><div><p class="eyebrow">LEARNING IN PUBLIC</p><h2 id="study-title">持续学习，也留下过程。</h2></div><a class="text-link" href="knowledge/crazyflie-learning.html">完整飞控学习路线 ↗</a></div>
     <details class="learning-disclosure" id="progress-tracker"><summary><span><strong>Crazyflie 飞控学习面板</strong><small>10 个阶段 · 官方文档 · 实践步骤 · 验收产物</small></span><span class="disclosure-action">展开学习面板 <b aria-hidden="true">+</b></span></summary><section class="flight-roadmap" data-flight-roadmap><p>学习面板需要 JavaScript。你也可以<a href="knowledge/crazyflie-learning.html">阅读完整学习路线</a>。</p></section></details>
@@ -102,5 +105,6 @@
 <footer class="site-footer"><div class="footer-inner"><div class="footer-branding"><strong>Cutus.</strong><span>中国科学技术大学 · 机器人工程</span></div><div class="footer-credit">Built by Cutus, Antigravity (Gemini 3.8 Flash) &amp; Codex（GPT-6-Astra）</div><div class="footer-links"><a href="about/index.html">关于我</a><a href="knowledge/index.html">知识库</a><a href="timeline/index.html">时间线</a></div></div></footer>
 <script src="assets/script.js"></script>
 <script src="assets/flight-roadmap.js"></script>
+<script src="assets/gallery.js"></script>
 </body>
 </html>

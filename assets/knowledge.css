@@ -204,3 +204,12 @@
     width: 100%;
   }
 }
+
+/* Illustrated entries keep scientific labels uncropped. */
+.paper-card-visual { margin: -24px -24px 5px; height: 195px; overflow: hidden; border-radius: 9px 9px 0 0; padding: 18px; background: #fff; border-bottom: 1px solid var(--line); }
+.paper-card-visual img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.illustrated-catalog .k-card { background: color-mix(in srgb, var(--ustc-blue) 4%, var(--bg-card)); }
+.illustrated-catalog .k-card:nth-child(3n+2) { background: color-mix(in srgb, #9977af 7%, var(--bg-card)); }
+.illustrated-catalog .k-card:nth-child(3n) { background: color-mix(in srgb, #458673 7%, var(--bg-card)); }
+.illustrated-hint { padding: 16px 20px; background: var(--ustc-blue-light); border-radius: 9px; }
+[data-theme=dark] .cat-btn.active { color: #082235; }
