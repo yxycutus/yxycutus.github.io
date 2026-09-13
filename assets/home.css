@@ -208,4 +208,10 @@
 @media(max-width:1000px) { .home-hero { gap: 30px; } .explore-strip a, .explore-strip a:first-child { padding: 18px 14px; } .notebook-layout { grid-template-columns: 1fr 1.3fr; } .notebook-intro { padding: 22px; } .notebook-list > a { grid-template-columns: 1fr 15px; } .note-number { grid-column: 1 / -1; } .paper-preview-image { height: 160px; } }
 @media(max-width:760px) { .home-hero { padding-top: 32px; } .lab-platform img { height: 180px; } .explore-strip { gap: 8px; } .explore-strip a, .explore-strip a:first-child { padding: 18px; } .notebook-layout { grid-template-columns: 1fr; } .notebook-list > a { grid-template-columns: 75px 1fr 15px; gap: 12px; padding: 20px; } .note-number { grid-column: auto; } .paper-preview-grid { grid-template-columns: 1fr; gap: 13px; } .paper-preview { display: grid; grid-template-columns: 125px 1fr; align-items: stretch; } .paper-preview-image { height: 145px; padding: 10px; } .paper-preview-caption { padding: 15px; align-self: center; } .paper-preview-caption h3 { font-size: 13px; } .campus-banner { margin-top: 45px; } .campus-banner-copy { flex-direction: column; align-items: flex-start; padding: 24px; gap: 22px; } .campus-banner h2 { font-size: 22px; } .contact-band { padding: 25px; } }
 @media(max-width:360px) { .notebook-list > a { grid-template-columns: 1fr 15px; } .note-number { grid-column: 1 / -1; } .paper-preview { grid-template-columns: 102px 1fr; } .paper-preview-image { height: 150px; } }
+.friend-card { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px; padding: 24px; border: 1px solid var(--line); border-radius: 12px; background: var(--work-sage); }
+.friend-info h3 { margin: 0 0 6px; font-size: 20px; }
+.friend-info h3 a:hover { color: var(--ustc-blue); text-decoration: underline; text-underline-offset: 5px; }
+.friend-info p { margin: 0; color: var(--ink-secondary); font-size: 14px; }
+.friend-links { display: flex; align-items: center; flex-wrap: wrap; gap: 12px 24px; }
+.friend-links a { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
 @media(prefers-reduced-motion:reduce) { .paper-preview:hover { transform: none; } }
