@@ -8,7 +8,7 @@
 }
 
 .about-intro-title {
-  font-size: clamp(32px, 4vw, 40px);
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -16,7 +16,7 @@
 }
 
 .about-lede {
-  font-size: 17px;
+  font-size: 1.0625rem;
   line-height: 1.75;
   color: var(--ink-secondary);
   max-width: 760px;
@@ -28,7 +28,7 @@
 }
 
 .about-block-title {
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--ink);
@@ -67,14 +67,14 @@
 
 .edu-label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.6875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-faint);
 }
 
 .edu-val {
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   color: var(--ink);
 }
@@ -96,7 +96,7 @@
 
 .skill-category-title {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: var(--ustc-blue);
@@ -111,7 +111,7 @@
 }
 
 .skill-pill {
-  font-size: 13px;
+  font-size: 0.8125rem;
   padding: 4px 10px;
   background: var(--bg-subtle);
   border: 1px solid var(--line);
@@ -149,7 +149,7 @@
 }
 
 .about-project-name {
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--ink);
   display: flex;
@@ -159,7 +159,7 @@
 
 .about-project-name .proj-idx {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--ustc-blue);
   background: var(--ustc-blue-light);
   padding: 2px 7px;
@@ -173,7 +173,7 @@
 
 .about-project-link {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 0.75rem;
   color: var(--ustc-blue);
   display: inline-flex;
   align-items: center;
@@ -182,7 +182,7 @@
 }
 
 .about-project-desc {
-  font-size: 14.5px;
+  font-size: 0.90625rem;
   color: var(--ink-secondary);
   line-height: 1.65;
   margin: 8px 0 14px;
@@ -236,14 +236,14 @@
 
 .contact-label {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.6875rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-faint);
 }
 
 .contact-value {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--ink);
 }
@@ -319,7 +319,7 @@
 
 .moment-tag {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: var(--ustc-blue);
   background: var(--ustc-blue-light);
   padding: 2px 7px;
@@ -331,14 +331,14 @@
 }
 
 .moment-title {
-  font-size: 14.5px;
+  font-size: 0.90625rem;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 4px;
 }
 
 .moment-desc {
-  font-size: 12.5px;
+  font-size: 0.78125rem;
   color: var(--ink-secondary);
   line-height: 1.55;
   margin: 0;
