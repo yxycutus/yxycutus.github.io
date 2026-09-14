@@ -35,7 +35,7 @@
   document.body.append(settings);
   const utilities = document.createElement('div');
   utilities.className = 'site-utilities';
-  utilities.innerHTML = `<button type="button" class="utility-button" id="sidebar-toggle" aria-controls="site-sidebar" aria-expanded="false">${panelIcon}<span>目录</span></button><button type="button" class="utility-button" data-open-settings aria-haspopup="dialog" aria-controls="appearance-panel"><span aria-hidden="true">Aa</span><span>外观</span></button>`;
+  utilities.innerHTML = `<button type="button" class="utility-button" data-open-settings aria-haspopup="dialog" aria-controls="appearance-panel" title="Appearance"><span aria-hidden="true">Aa</span></button>`;
   document.body.append(utilities);
   const oldToggle = document.getElementById('theme-toggle');
   if (oldToggle) {
@@ -99,92 +99,87 @@
   sidebar.id = 'site-sidebar';
   sidebar.className = 'site-sidebar';
   sidebar.setAttribute('aria-labelledby', 'sidebar-title');
-  sidebar.innerHTML = `<div class="sidebar-heading"><div><small>${article ? 'READING NOTES' : 'CUTUS / EXPLORE'}</small><h2 id="sidebar-title">${article ? '本文目录' : '随处看看'}</h2></div><button type="button" class="sidebar-close" aria-label="收起侧边栏" title="收起侧边栏 (快捷键: [ 或 Esc)"><span class="sidebar-close-icon">${collapseIcon}</span><span class="sidebar-close-text">收起</span><kbd class="sidebar-close-kbd" aria-hidden="true">[</kbd></button></div>${article ? '<div class="reading-position"><div><span>阅读位置</span><strong id="reading-percent">0%</strong></div><span class="sidebar-progress-track"><span></span></span></div>' : ''}<div class="sidebar-search-box"><a href="${siteUrl('search.html')}" class="sidebar-search-btn" title="快速全站搜索 (快捷键: /)"><span class="sidebar-search-icon">${searchIcon}</span><span>全站内容快速搜索...</span><kbd aria-hidden="true">/</kbd></a></div><div class="sidebar-scroll"><nav aria-label="站点导航"><ul class="sidebar-links site-destinations"></ul></nav><p class="sidebar-label">${article ? '章节与小标题' : '本页导航'}</p><nav aria-label="${article ? '文章章节' : '本页内容'}"><ol class="sidebar-links page-destinations"></ol></nav></div>${article ? '<div class="chapter-navigation"><p class="chapter-count"></p><nav aria-label="相邻章节"><a data-chapter-prev>← 上一节</a><a data-chapter-next>下一节 →</a></nav></div>' : '<p class="sidebar-note">学习 · 制作 · 求证<br>在真实问题里，学习机器人。</p>'}<div class="sidebar-bottom-bar"><button type="button" class="sidebar-bottom-collapse" aria-label="收起侧边栏" title="收起侧边栏 (快捷键: [ )"><span class="sidebar-bottom-icon">${collapseIcon}</span><span>收起侧边栏</span><kbd class="sidebar-close-kbd" aria-hidden="true">[</kbd></button></div>`;
+  sidebar.innerHTML = `<div class="sidebar-header"><a href="${siteUrl('index.html')}" class="sidebar-brand-link" title="Cutus · USTC Robotics"><img src="${siteUrl('assets/avatar.jpg')}" alt="Cutus" class="sidebar-avatar" width="36" height="36"><div class="sidebar-brand-text"><span class="sidebar-brand-name">Cutus<span class="sidebar-dot">.</span></span><span class="sidebar-brand-tag">USTC Robotics</span></div></a></div><div class="sidebar-search-box"><a href="${siteUrl('search.html')}" class="sidebar-search-btn" title="Search"><span class="sidebar-search-icon">${searchIcon}</span><span>Search...</span></a></div><div class="sidebar-scroll"><nav aria-label="Main Navigation"><ul class="sidebar-links site-destinations"><li><a href="${siteUrl('index.html')}">${svg('<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>')}<span>Home</span></a></li><li><a href="${siteUrl('knowledge/index.html')}">${svg('<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>')}<span>Knowledge</span></a></li><li><a href="${siteUrl('about/index.html')}">${svg('<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>')}<span>About</span></a></li><li><a href="${siteUrl('timeline/index.html')}">${svg('<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>')}<span>Timeline</span></a></li></ul></nav>${article ? '<div class="reading-position"><div><span>Progress</span><strong id="reading-percent">0%</strong></div><span class="sidebar-progress-track"><span></span></span></div>' : ''}<p class="sidebar-label" id="sidebar-title">${article ? 'Table of Contents' : 'On this page'}</p><nav aria-label="${article ? 'Table of Contents' : 'Page Navigation'}"><ol class="sidebar-links page-destinations"></ol></nav></div>${article ? '<div class="chapter-navigation"><p class="chapter-count"></p><nav aria-label="Adjacent sections"><a data-chapter-prev>← Prev</a><a data-chapter-next>Next →</a></nav></div>' : ''}<div class="sidebar-footer"><button type="button" class="sidebar-appearance-btn" data-open-settings aria-haspopup="dialog" aria-controls="appearance-panel" title="Appearance Settings">${svg('<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18V3Z"/>')}<span>Appearance</span></button><p class="sidebar-note">Read, build, and stay curious.<br>Robotics engineering & research.</p></div>`;
   document.body.append(sidebar);
-  const destinations = sidebar.querySelector('.site-destinations');
-  for (const [path, label] of [['index.html', '首页'], ['knowledge/index.html', '知识库'], ['about/index.html', '关于我'], ['timeline/index.html', '时间线']]) {
-    const li = document.createElement('li');
-    const link = document.createElement('a');
-    link.href = siteUrl(path); link.textContent = label;
-    if (new URL(link.href).pathname.replace(/index\.html$/, '') === location.pathname.replace(/index\.html$/, '')) link.setAttribute('aria-current', 'page');
-    li.append(link); destinations.append(li);
-  }
+
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'sidebar-toggle sidebar-close';
+  toggle.id = 'sidebar-toggle';
+  toggle.setAttribute('aria-controls', 'site-sidebar');
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.setAttribute('aria-label', 'Toggle sidebar');
+  toggle.title = 'Toggle sidebar';
+  toggle.innerHTML = panelIcon;
+  document.body.append(toggle);
+
+  sidebar.querySelectorAll('.site-destinations a').forEach(link => {
+    if (new URL(link.href).pathname.replace(/index\.html$/, '') === location.pathname.replace(/index\.html$/, '')) {
+      link.setAttribute('aria-current', 'page');
+    }
+  });
+
   let number = 0;
+  const pageLabelMaps = {
+    'hero-title': 'Overview',
+    'work-title': 'Projects & Research',
+    'notebook-title': 'Open Notes',
+    'campus-title': 'Campus Life',
+    'study-title': 'Flight Control',
+    'contact-title': 'Contact',
+    'friends-title': 'Links',
+    '教育与科研背景': 'Education & Research',
+    '技术与工程技能谱系': 'Technical Skills',
+    '工程项目与学术研读': 'Projects & Literature',
+    'AI 探索历程与现代化生产力工具链': 'AI Workflow & Tools',
+    '兴趣爱好与生活态度': 'Hobbies & Life',
+    '学术与交流联系': 'Contact & Exchange',
+    '2026 秋季 · 大二上学期': 'Fall 2026 (Sophomore)',
+    '2026 夏季 · 大一暑假': 'Summer 2026',
+    '2026 春季 · 大一下学期': 'Spring 2026 (Freshman)',
+    '2026 寒假 · 大一寒假科研实战': 'Winter 2026 Research',
+    '2025 年 12 月 · 加入空中机器人课题组': 'Dec 2025 Lab Entry',
+    '2025 秋季 · 初入科大 (USTC)': 'Fall 2025 Entering USTC'
+  };
   const tocLinks = headings.map(heading => {
     const li = document.createElement('li');
     const link = document.createElement('a');
     link.href = `#${heading.id}`;
     if (article && heading.tagName === 'H3') li.className = 'toc-sub';
     else { const marker = document.createElement('span'); marker.className = 'toc-number'; marker.setAttribute('aria-hidden', 'true'); marker.textContent = String(++number).padStart(2, '0'); link.append(marker); }
-    const homeLabels = {'hero-title': '首页概览', 'work-title': '工程与研究', 'notebook-title': '开放笔记', 'campus-title': '校园生活', 'study-title': '飞控学习', 'contact-title': '交流联系', 'friends-title': '友情链接'};
-    const label = document.createElement('span'); label.textContent = (home && homeLabels[heading.id]) || heading.textContent.trim(); link.append(label);
+    const raw = heading.textContent.trim();
+    const labelText = (home && pageLabelMaps[heading.id]) || pageLabelMaps[raw] || raw;
+    const label = document.createElement('span'); label.textContent = labelText; link.append(label);
     li.append(link); sidebar.querySelector('.page-destinations').append(li);
     return link;
   });
   if (!headings.length) sidebar.querySelector('.sidebar-label').hidden = true;
 
-  const toggle = utilities.querySelector('#sidebar-toggle');
-  toggle.title = `切换${article ? '文章目录' : '侧边栏'} (快捷键: [ )`;
-  const toggleSpan = toggle.querySelector('span');
-  if (toggleSpan) toggleSpan.textContent = article ? '目录' : '侧栏';
-
-  const edgeToggle = document.createElement('button');
-  edgeToggle.type = 'button';
-  edgeToggle.className = 'sidebar-edge-toggle';
-  edgeToggle.id = 'sidebar-edge-toggle';
-  edgeToggle.setAttribute('aria-controls', 'site-sidebar');
-  edgeToggle.setAttribute('aria-label', `展开${article ? '文章目录' : '侧边栏'}`);
-  edgeToggle.title = `展开${article ? '文章目录' : '侧边栏'} (快捷键: [ )`;
-  edgeToggle.innerHTML = `<span class="edge-toggle-icon">${panelIcon}</span><span class="edge-toggle-text">${article ? '展开目录' : '展开侧栏'}</span><span class="edge-toggle-arrow">${rightArrow}</span>`;
-  edgeToggle.hidden = true;
-  document.body.append(edgeToggle);
-
   const backdrop = document.createElement('button');
   backdrop.className = 'sidebar-backdrop'; backdrop.type = 'button'; backdrop.tabIndex = -1;
-  backdrop.setAttribute('aria-label', '关闭侧边栏'); backdrop.hidden = true;
+  backdrop.setAttribute('aria-label', 'Close sidebar'); backdrop.hidden = true;
   document.body.append(backdrop);
   const desktop = window.matchMedia('(min-width: 1200px)');
   let mobileOpen = false;
 
-  const navbar = document.querySelector('.navbar');
-  const navContainer = navbar ? navbar.querySelector('.nav-container') : null;
-  const navBrand = navContainer ? navContainer.querySelector('.nav-brand') : null;
-  let navToggle = null;
-  if (navContainer && navBrand) {
-    navToggle = document.createElement('button');
-    navToggle.type = 'button';
-    navToggle.className = 'nav-sidebar-toggle';
-    navToggle.id = 'nav-sidebar-toggle';
-    navToggle.setAttribute('aria-controls', 'site-sidebar');
-    navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.title = `切换${article ? '文章目录' : '侧边栏'} (快捷键: [ )`;
-    navToggle.innerHTML = `<span class="nav-sidebar-icon">${panelIcon}</span><span class="nav-sidebar-label">${article ? '目录' : '侧栏'}</span>`;
-    navBrand.before(navToggle);
-  }
+  sidebar.querySelector('.sidebar-appearance-btn')?.addEventListener('click', () => {
+    settingsOpener = toggle;
+    syncSettings();
+    settings.showModal();
+  });
 
   function renderSidebar(returnFocus = false) {
     const open = desktop.matches ? root.dataset.sidebar !== 'closed' : mobileOpen;
     const modal = open && !desktop.matches;
     sidebar.hidden = !open;
     toggle.setAttribute('aria-expanded', String(open));
-    toggle.setAttribute('aria-label', `${open ? '收起' : '展开'}${article ? '文章目录' : '侧边栏'}`);
+    toggle.setAttribute('aria-label', open ? 'Collapse sidebar' : 'Expand sidebar');
+    toggle.title = open ? 'Collapse sidebar' : 'Expand sidebar';
     toggle.classList.toggle('is-active', open);
-    const span = toggle.querySelector('span');
-    if (span) span.textContent = open ? `收起${article ? '目录' : '侧栏'}` : `${article ? '目录' : '侧栏'}`;
-
-    if (navToggle) {
-      navToggle.setAttribute('aria-expanded', String(open));
-      navToggle.setAttribute('aria-label', `${open ? '收起' : '展开'}${article ? '文章目录' : '侧边栏'}`);
-      navToggle.classList.toggle('is-active', open);
-      const navSpan = navToggle.querySelector('.nav-sidebar-label');
-      if (navSpan) navSpan.textContent = open ? `收起` : (article ? '目录' : '侧栏');
-    }
-    edgeToggle.hidden = open || !desktop.matches;
 
     backdrop.hidden = !modal;
     document.body.classList.toggle('sidebar-mobile-open', modal);
     stage.inert = modal;
-    if (navbar) navbar.inert = modal;
     utilities.inert = modal;
     document.querySelector('.reader-back-top')?.toggleAttribute('inert', modal);
     if (modal) { sidebar.setAttribute('role', 'dialog'); sidebar.setAttribute('aria-modal', 'true'); }
@@ -200,25 +195,29 @@
     if (desktop.matches) {
       root.dataset.sidebar = root.dataset.sidebar === 'closed' ? 'open' : 'closed';
       save('cutus-sidebar', root.dataset.sidebar);
+      renderSidebar();
+      toggle.focus({preventScroll: true});
     } else {
       mobileOpen = !mobileOpen;
-    }
-    renderSidebar();
-    if (!sidebar.hidden) {
-      sidebar.querySelector('.sidebar-close')?.focus({preventScroll: true});
-    } else {
-      toggle.focus({preventScroll: true});
+      renderSidebar();
+      if (mobileOpen) {
+        const first = sidebar.querySelector('a, button');
+        first?.focus({preventScroll: true});
+      } else {
+        toggle.focus({preventScroll: true});
+      }
     }
   }
 
   toggle.addEventListener('click', toggleSidebar);
-  if (navToggle) navToggle.addEventListener('click', toggleSidebar);
-  edgeToggle.addEventListener('click', toggleSidebar);
-  sidebar.querySelector('.sidebar-close').addEventListener('click', () => closeSidebar());
-  sidebar.querySelector('.sidebar-bottom-collapse')?.addEventListener('click', () => closeSidebar());
   backdrop.addEventListener('click', () => closeSidebar());
 
-  desktop.addEventListener('change', () => { mobileOpen = false; const wasFocused = sidebar.contains(document.activeElement); renderSidebar(); if (sidebar.hidden && wasFocused) toggle.focus({preventScroll: true}); });
+  desktop.addEventListener('change', () => {
+    mobileOpen = false;
+    const wasFocused = sidebar.contains(document.activeElement);
+    renderSidebar();
+    if (sidebar.hidden && wasFocused) toggle.focus({preventScroll: true});
+  });
   document.addEventListener('keydown', event => {
     if (document.querySelector('dialog[open]')) return;
     const target = event.target;
@@ -230,15 +229,14 @@
       return;
     }
 
-    if (!inInput && (event.key === '[' || (event.key === 'b' && (event.metaKey || event.ctrlKey)))) {
-      event.preventDefault();
-      toggleSidebar();
-      return;
-    }
-
     if (event.key === 'Tab' && mobileOpen && !desktop.matches) {
       const focusable = [...sidebar.querySelectorAll('button, a[href]')].filter(el => !el.hidden && el.getAttribute('tabindex') !== '-1');
       const first = focusable[0], last = focusable[focusable.length - 1];
+      if (!sidebar.contains(document.activeElement)) {
+        event.preventDefault();
+        (event.shiftKey ? last : first)?.focus();
+        return;
+      }
       if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
       else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
     }
@@ -261,12 +259,12 @@
   if (article) {
     document.body.classList.add('has-reading-sidebar');
     progress = document.createElement('div'); progress.className = 'reading-progress';
-    progress.setAttribute('role', 'progressbar'); progress.setAttribute('aria-label', '文章阅读位置');
+    progress.setAttribute('role', 'progressbar'); progress.setAttribute('aria-label', 'Reading progress');
     progress.setAttribute('aria-valuemin', '0'); progress.setAttribute('aria-valuemax', '100');
     fill = document.createElement('div'); fill.className = 'reading-progress-fill'; progress.append(fill); document.body.append(progress);
     chapters.slice(1).forEach((heading, index) => {
-      const bridge = document.createElement('nav'); bridge.className = 'chapter-bridge'; bridge.setAttribute('aria-label', `继续阅读第 ${index + 2} 节`);
-      const hint = document.createElement('small'); hint.textContent = `接着阅读 / ${String(index + 2).padStart(2, '0')}`;
+      const bridge = document.createElement('nav'); bridge.className = 'chapter-bridge'; bridge.setAttribute('aria-label', `Continue to section ${index + 2}`);
+      const hint = document.createElement('small'); hint.textContent = `Continue / ${String(index + 2).padStart(2, '0')}`;
       const link = document.createElement('a'); link.href = `#${heading.id}`; link.textContent = `${heading.textContent.trim()} →`;
       link.addEventListener('click', event => navigateToHeading(event, heading)); bridge.append(hint, link); heading.before(bridge);
     });
@@ -274,9 +272,8 @@
   let queued = false, activeIndex = -2, currentChapter = -2;
   function updatePosition() {
     queued = false;
-    const navHeight = navbar ? navbar.getBoundingClientRect().height : 0;
-    root.style.setProperty('--nav-height', `${navHeight}px`);
-    const line = navHeight + 48;
+    root.style.setProperty('--nav-height', '0px');
+    const line = 36;
     const visible = headings.map((heading, index) => ({heading, index})).filter(({heading}) => heading.getClientRects().length);
     let active = visible[0]?.index ?? -1;
     for (const entry of visible) { if (entry.heading.getBoundingClientRect().top <= line) active = entry.index; }
@@ -306,7 +303,7 @@
       chapters.forEach((h, i) => { if (headings.indexOf(h) <= headings.indexOf(heading)) chapter = i; });
       if (chapter !== currentChapter) {
         currentChapter = chapter;
-        sidebar.querySelector('.chapter-count').textContent = `第 ${chapter + 1} / ${chapters.length} 节`;
+        sidebar.querySelector('.chapter-count').textContent = `Section ${chapter + 1} of ${chapters.length}`;
         for (const [selector, target] of [['[data-chapter-prev]', chapters[chapter - 1]], ['[data-chapter-next]', chapters[chapter + 1]]]) {
           const link = sidebar.querySelector(selector);
           link.setAttribute('aria-disabled', String(!target));
