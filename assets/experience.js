@@ -10,6 +10,9 @@
   const svg = paths => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">${paths}</svg>`;
   const panelIcon = svg('<rect x="3" y="4" width="18" height="16" rx="3"/><path d="M9 4v16m4-11h4m-4 4h4"/>');
   const closeIcon = svg('<path d="m7 7 10 10M17 7 7 17"/>');
+  const collapseIcon = svg('<path d="m11 17-5-5 5-5m7 10-5-5 5-5"/>');
+  const searchIcon = svg('<circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/>');
+  const rightArrow = svg('<path d="m9 18 6-6-6-6"/>');
   let storageAvailable = true;
   function save(key, value) {
     try { localStorage.setItem(key, value); } catch (_) { storageAvailable = false; }
@@ -96,7 +99,7 @@
   sidebar.id = 'site-sidebar';
   sidebar.className = 'site-sidebar';
   sidebar.setAttribute('aria-labelledby', 'sidebar-title');
-  sidebar.innerHTML = `<div class="sidebar-heading"><div><small>${article ? 'READING NOTES' : 'CUTUS / EXPLORE'}</small><h2 id="sidebar-title">${article ? '本文目录' : '随处看看'}</h2></div><button type="button" class="sidebar-close" aria-label="收起侧边栏">${closeIcon}</button></div>${article ? '<div class="reading-position"><div><span>阅读位置</span><strong id="reading-percent">0%</strong></div><span class="sidebar-progress-track"><span></span></span></div>' : ''}<div class="sidebar-scroll"><nav aria-label="站点导航"><ul class="sidebar-links site-destinations"></ul></nav><p class="sidebar-label">${article ? '章节与小标题' : '本页导航'}</p><nav aria-label="${article ? '文章章节' : '本页内容'}"><ol class="sidebar-links page-destinations"></ol></nav></div>${article ? '<div class="chapter-navigation"><p class="chapter-count"></p><nav aria-label="相邻章节"><a data-chapter-prev>← 上一节</a><a data-chapter-next>下一节 →</a></nav></div>' : '<p class="sidebar-note">学习 · 制作 · 求证<br>在真实问题里，学习机器人。</p>'}`;
+  sidebar.innerHTML = `<div class="sidebar-heading"><div><small>${article ? 'READING NOTES' : 'CUTUS / EXPLORE'}</small><h2 id="sidebar-title">${article ? '本文目录' : '随处看看'}</h2></div><button type="button" class="sidebar-close" aria-label="收起侧边栏" title="收起侧边栏 (快捷键: [ 或 Esc)"><span class="sidebar-close-icon">${collapseIcon}</span><span class="sidebar-close-text">收起</span><kbd class="sidebar-close-kbd" aria-hidden="true">[</kbd></button></div>${article ? '<div class="reading-position"><div><span>阅读位置</span><strong id="reading-percent">0%</strong></div><span class="sidebar-progress-track"><span></span></span></div>' : ''}<div class="sidebar-search-box"><a href="${siteUrl('search.html')}" class="sidebar-search-btn" title="快速全站搜索 (快捷键: /)"><span class="sidebar-search-icon">${searchIcon}</span><span>全站内容快速搜索...</span><kbd aria-hidden="true">/</kbd></a></div><div class="sidebar-scroll"><nav aria-label="站点导航"><ul class="sidebar-links site-destinations"></ul></nav><p class="sidebar-label">${article ? '章节与小标题' : '本页导航'}</p><nav aria-label="${article ? '文章章节' : '本页内容'}"><ol class="sidebar-links page-destinations"></ol></nav></div>${article ? '<div class="chapter-navigation"><p class="chapter-count"></p><nav aria-label="相邻章节"><a data-chapter-prev>← 上一节</a><a data-chapter-next>下一节 →</a></nav></div>' : '<p class="sidebar-note">学习 · 制作 · 求证<br>在真实问题里，学习机器人。</p>'}<div class="sidebar-bottom-bar"><button type="button" class="sidebar-bottom-collapse" aria-label="收起侧边栏" title="收起侧边栏 (快捷键: [ )"><span class="sidebar-bottom-icon">${collapseIcon}</span><span>收起侧边栏</span><kbd class="sidebar-close-kbd" aria-hidden="true">[</kbd></button></div>`;
   document.body.append(sidebar);
   const destinations = sidebar.querySelector('.site-destinations');
   for (const [path, label] of [['index.html', '首页'], ['knowledge/index.html', '知识库'], ['about/index.html', '关于我'], ['timeline/index.html', '时间线']]) {
@@ -119,21 +122,65 @@
     return link;
   });
   if (!headings.length) sidebar.querySelector('.sidebar-label').hidden = true;
+
   const toggle = utilities.querySelector('#sidebar-toggle');
-  toggle.querySelector('span').textContent = article ? '目录' : '侧栏';
+  toggle.title = `切换${article ? '文章目录' : '侧边栏'} (快捷键: [ )`;
+  const toggleSpan = toggle.querySelector('span');
+  if (toggleSpan) toggleSpan.textContent = article ? '目录' : '侧栏';
+
+  const edgeToggle = document.createElement('button');
+  edgeToggle.type = 'button';
+  edgeToggle.className = 'sidebar-edge-toggle';
+  edgeToggle.id = 'sidebar-edge-toggle';
+  edgeToggle.setAttribute('aria-controls', 'site-sidebar');
+  edgeToggle.setAttribute('aria-label', `展开${article ? '文章目录' : '侧边栏'}`);
+  edgeToggle.title = `展开${article ? '文章目录' : '侧边栏'} (快捷键: [ )`;
+  edgeToggle.innerHTML = `<span class="edge-toggle-icon">${panelIcon}</span><span class="edge-toggle-text">${article ? '展开目录' : '展开侧栏'}</span><span class="edge-toggle-arrow">${rightArrow}</span>`;
+  edgeToggle.hidden = true;
+  document.body.append(edgeToggle);
+
   const backdrop = document.createElement('button');
   backdrop.className = 'sidebar-backdrop'; backdrop.type = 'button'; backdrop.tabIndex = -1;
   backdrop.setAttribute('aria-label', '关闭侧边栏'); backdrop.hidden = true;
   document.body.append(backdrop);
   const desktop = window.matchMedia('(min-width: 1200px)');
   let mobileOpen = false;
+
   const navbar = document.querySelector('.navbar');
+  const navContainer = navbar ? navbar.querySelector('.nav-container') : null;
+  const navBrand = navContainer ? navContainer.querySelector('.nav-brand') : null;
+  let navToggle = null;
+  if (navContainer && navBrand) {
+    navToggle = document.createElement('button');
+    navToggle.type = 'button';
+    navToggle.className = 'nav-sidebar-toggle';
+    navToggle.id = 'nav-sidebar-toggle';
+    navToggle.setAttribute('aria-controls', 'site-sidebar');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.title = `切换${article ? '文章目录' : '侧边栏'} (快捷键: [ )`;
+    navToggle.innerHTML = `<span class="nav-sidebar-icon">${panelIcon}</span><span class="nav-sidebar-label">${article ? '目录' : '侧栏'}</span>`;
+    navBrand.before(navToggle);
+  }
+
   function renderSidebar(returnFocus = false) {
     const open = desktop.matches ? root.dataset.sidebar !== 'closed' : mobileOpen;
     const modal = open && !desktop.matches;
     sidebar.hidden = !open;
     toggle.setAttribute('aria-expanded', String(open));
     toggle.setAttribute('aria-label', `${open ? '收起' : '展开'}${article ? '文章目录' : '侧边栏'}`);
+    toggle.classList.toggle('is-active', open);
+    const span = toggle.querySelector('span');
+    if (span) span.textContent = open ? `收起${article ? '目录' : '侧栏'}` : `${article ? '目录' : '侧栏'}`;
+
+    if (navToggle) {
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', `${open ? '收起' : '展开'}${article ? '文章目录' : '侧边栏'}`);
+      navToggle.classList.toggle('is-active', open);
+      const navSpan = navToggle.querySelector('.nav-sidebar-label');
+      if (navSpan) navSpan.textContent = open ? `收起` : (article ? '目录' : '侧栏');
+    }
+    edgeToggle.hidden = open || !desktop.matches;
+
     backdrop.hidden = !modal;
     document.body.classList.toggle('sidebar-mobile-open', modal);
     stage.inert = modal;
@@ -149,18 +196,46 @@
     mobileOpen = false;
     renderSidebar(returnFocus);
   }
-  toggle.addEventListener('click', () => {
-    if (desktop.matches) { root.dataset.sidebar = root.dataset.sidebar === 'closed' ? 'open' : 'closed'; save('cutus-sidebar', root.dataset.sidebar); }
-    else mobileOpen = !mobileOpen;
+  function toggleSidebar() {
+    if (desktop.matches) {
+      root.dataset.sidebar = root.dataset.sidebar === 'closed' ? 'open' : 'closed';
+      save('cutus-sidebar', root.dataset.sidebar);
+    } else {
+      mobileOpen = !mobileOpen;
+    }
     renderSidebar();
-    if (!sidebar.hidden) sidebar.querySelector('.sidebar-close').focus({preventScroll: true});
-  });
+    if (!sidebar.hidden) {
+      sidebar.querySelector('.sidebar-close')?.focus({preventScroll: true});
+    } else {
+      toggle.focus({preventScroll: true});
+    }
+  }
+
+  toggle.addEventListener('click', toggleSidebar);
+  if (navToggle) navToggle.addEventListener('click', toggleSidebar);
+  edgeToggle.addEventListener('click', toggleSidebar);
   sidebar.querySelector('.sidebar-close').addEventListener('click', () => closeSidebar());
+  sidebar.querySelector('.sidebar-bottom-collapse')?.addEventListener('click', () => closeSidebar());
   backdrop.addEventListener('click', () => closeSidebar());
+
   desktop.addEventListener('change', () => { mobileOpen = false; const wasFocused = sidebar.contains(document.activeElement); renderSidebar(); if (sidebar.hidden && wasFocused) toggle.focus({preventScroll: true}); });
   document.addEventListener('keydown', event => {
-    if (document.querySelector('dialog[open]') || sidebar.hidden) return;
-    if (event.key === 'Escape') { closeSidebar(); event.preventDefault(); }
+    if (document.querySelector('dialog[open]')) return;
+    const target = event.target;
+    const inInput = target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable);
+
+    if (event.key === 'Escape' && !sidebar.hidden) {
+      closeSidebar();
+      event.preventDefault();
+      return;
+    }
+
+    if (!inInput && (event.key === '[' || (event.key === 'b' && (event.metaKey || event.ctrlKey)))) {
+      event.preventDefault();
+      toggleSidebar();
+      return;
+    }
+
     if (event.key === 'Tab' && mobileOpen && !desktop.matches) {
       const focusable = [...sidebar.querySelectorAll('button, a[href]')].filter(el => !el.hidden && el.getAttribute('tabindex') !== '-1');
       const first = focusable[0], last = focusable[focusable.length - 1];
@@ -176,6 +251,8 @@
     for (let parent = heading.parentElement; parent && parent !== main; parent = parent.parentElement) if (parent.tagName === 'DETAILS') parent.open = true;
     heading.tabIndex = -1;
     heading.focus({preventScroll: true});
+    heading.classList.add('heading-targeted');
+    setTimeout(() => heading.classList.remove('heading-targeted'), 1600);
     // Native fragment navigation retains browser history and shareable URLs.
   }
   tocLinks.forEach((link, index) => link.addEventListener('click', event => navigateToHeading(event, headings[index])));
