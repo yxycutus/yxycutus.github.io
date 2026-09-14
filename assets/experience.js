@@ -17,21 +17,61 @@
   function save(key, value) {
     try { localStorage.setItem(key, value); } catch (_) { storageAvailable = false; }
     const status = document.querySelector('.preference-status');
-    if (status) status.textContent = storageAvailable ? '已记住你的选择，切换页面后依然生效。' : '当前浏览器无法保存设置，本页仍可正常调节。';
+    const dot = document.querySelector('.status-dot');
+    if (status) status.textContent = storageAvailable ? '外观偏好已保存在当前浏览器。' : '当前浏览器无法保存设置，本页仍可正常调节。';
+    if (dot) dot.style.background = storageAvailable ? '#10b981' : '#f59e0b';
   }
   const themes = [
-    ['dark', '夜间黑', '#101113', '#38bdf8'],
-    ['blue', '科大蓝', '#edf3f9', '#004182'],
-    ['orange', 'Claude 橙', '#f7f2e9', '#9c462b'],
-    ['white', '花嫁白', '#fffefd', '#805364']
+    { id: 'dark', name: '夜间黑', en: 'Dark Mode', bg: '#101113', surface: '#191b1f', accent: '#38bdf8', line: '#30343b' },
+    { id: 'blue', name: '科大蓝', en: 'USTC Blue', bg: '#edf3f9', surface: '#ffffff', accent: '#004182', line: '#d1e0f0' },
+    { id: 'orange', name: 'Claude 橙', en: 'Warm Paper', bg: '#f7f2e9', surface: '#fffaf2', accent: '#9c462b', line: '#e1d6c7' },
+    { id: 'white', name: '花嫁白', en: 'Pure White', bg: '#fffefd', surface: '#ffffff', accent: '#805364', line: '#eae3e6' }
   ];
   const settings = document.createElement('dialog');
   settings.className = 'appearance-panel';
   settings.id = 'appearance-panel';
   settings.setAttribute('aria-labelledby', 'appearance-title');
-  settings.innerHTML = `<div class="panel-heading"><h2 id="appearance-title">让阅读更合心意</h2><button type="button" aria-label="关闭外观设置" data-close-settings>×</button></div>
-    <fieldset><legend>选择主题</legend><div class="theme-options">${themes.map(([id, name, bg, accent]) => `<button type="button" class="theme-option" data-set-theme="${id}" aria-pressed="false"><span class="theme-swatch" style="--swatch-bg:${bg};--swatch-accent:${accent}" aria-hidden="true"></span><span>${name}<b class="theme-check" aria-hidden="true">✓</b></span></button>`).join('')}</div></fieldset>
-    <div class="font-setting"><label class="font-label" for="site-font-size"><span>字体大小</span><output id="font-size-value" for="site-font-size"></output></label><div class="font-control"><span aria-hidden="true">A</span><input id="site-font-size" type="range" min="14" max="22" step="1" value="16"><span aria-hidden="true">A</span></div><p class="font-preview">从理解原理，到让机器人动起来。<br>Read, build, and stay curious.</p><button type="button" class="reset-font">恢复默认字号</button></div><p class="preference-status" role="status">外观偏好保存在当前浏览器。</p>`;
+  settings.innerHTML = `<div class="panel-header">
+      <div class="panel-header-info">
+        <div class="panel-pill-badge">${svg('<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18V3Z"/>')}<span>APPEARANCE</span></div>
+        <h2 id="appearance-title">外观与排版设置</h2>
+      </div>
+      <button type="button" class="panel-close-btn" aria-label="关闭外观设置" data-close-settings title="关闭">${svg('<path d="M18 6 6 18M6 6l12 12"/>')}</button>
+    </div>
+    <div class="panel-body">
+      <fieldset class="panel-section">
+        <legend class="panel-section-title"><span>主题配色</span><small>COLOR SCHEME</small></legend>
+        <div class="theme-options">
+          ${themes.map(t => `<button type="button" class="theme-option" data-set-theme="${t.id}" aria-pressed="false"><div class="theme-preview-card" style="--card-bg:${t.bg};--card-surface:${t.surface};--card-accent:${t.accent};--card-line:${t.line}"><div class="mini-window"><div class="mini-sidebar"><div class="mini-sidebar-item active"></div><div class="mini-sidebar-item"></div><div class="mini-sidebar-item"></div></div><div class="mini-content"><div class="mini-pill"></div><div class="mini-heading"></div><div class="mini-line mini-line-1"></div><div class="mini-line mini-line-2"></div></div></div><div class="theme-check-badge"><b class="theme-check" aria-hidden="true">✓</b></div></div><div class="theme-option-meta"><div class="theme-color-dot" style="background:${t.accent}"></div><div class="theme-option-names"><span class="theme-name">${t.name}</span><span class="theme-en">${t.en}</span></div></div></button>`).join('')}
+        </div>
+      </fieldset>
+      <div class="panel-section font-setting">
+        <div class="font-section-header">
+          <label class="panel-section-title" for="site-font-size"><span>正文字号</span><small>FONT SCALE</small></label>
+          <output id="font-size-value" for="site-font-size" class="font-size-badge">100%</output>
+        </div>
+        <div class="font-control-wrap">
+          <span class="font-scale-step small" aria-hidden="true">A</span>
+          <div class="font-slider-container">
+            <input id="site-font-size" type="range" min="14" max="22" step="1" value="16" aria-label="正文字号调节">
+          </div>
+          <span class="font-scale-step large" aria-hidden="true">A</span>
+        </div>
+        <div class="font-preview">
+          <div class="font-preview-quote">“</div>
+          <p class="font-preview-text">从理解原理，到让机器人动起来。<br><span class="font-preview-sub">Read, build, and stay curious.</span></p>
+        </div>
+        <div class="font-action-row">
+          <button type="button" class="reset-font">${svg('<path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/>')}<span>恢复默认字号 (16px)</span></button>
+        </div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <div class="preference-status-wrap">
+        <span class="status-dot"></span>
+        <p class="preference-status" role="status">外观偏好保存在当前浏览器。</p>
+      </div>
+    </div>`;
   document.body.append(settings);
   const utilities = document.createElement('div');
   utilities.className = 'site-utilities';
@@ -52,7 +92,12 @@
     const size = parseFloat(root.style.fontSize) || 16;
     fontInput.value = size;
     fontInput.setAttribute('aria-valuetext', `${Math.round(size / 16 * 100)}%，基准字号 ${size}`);
-    settings.querySelector('#font-size-value').textContent = `${Math.round(size / 16 * 100)}%`;
+    const percentEl = settings.querySelector('#font-size-value');
+    if (percentEl) percentEl.textContent = `${Math.round(size / 16 * 100)}%`;
+    const min = Number(fontInput.min) || 14;
+    const max = Number(fontInput.max) || 22;
+    const ratio = Math.max(0, Math.min(100, ((size - min) / (max - min)) * 100));
+    fontInput.style.setProperty('--slider-fill', `${ratio}%`);
   }
   let settingsOpener;
   document.querySelectorAll('[data-open-settings]').forEach(button => button.addEventListener('click', () => {
