@@ -36,7 +36,7 @@ function pages(dir) {
     assert.ok(await page.locator('#site-sidebar').isHidden());
     await page.locator('#sidebar-toggle').click();
     await openSettings();
-    for (const theme of ['dark', 'blue', 'orange', 'white']) {
+    for (const theme of ['dark', 'blue', 'orange', 'white', 'pink', 'yellow']) {
       await page.locator(`[data-set-theme="${theme}"]`).click();
       assert.equal(await page.locator('html').getAttribute('data-theme'), theme);
       assert.equal(await page.locator('.theme-option[aria-pressed="true"]').count(), 1);
@@ -75,7 +75,7 @@ function pages(dir) {
     await page.evaluate(() => scrollTo(0, document.documentElement.scrollHeight));
     await page.waitForFunction(() => document.querySelector('.reading-progress').getAttribute('aria-valuenow') === '100');
     assert.equal(await page.locator('[data-chapter-next]').getAttribute('aria-disabled'), 'true');
-    console.log('PASS: four themes, font scaling, persistence, sidebar collapse, h2/h3 links, deep links, adjacent chapters, reading progress.');
+    console.log('PASS: six themes, font scaling, persistence, sidebar collapse, h2/h3 links, deep links, adjacent chapters, reading progress.');
 
     const second = await context.newPage(); await second.goto(base);
     await openSettings(); await page.locator('[data-set-theme="white"]').click(); await font(18);
