@@ -160,7 +160,31 @@ function pages(dir) {
     await blockedPage.locator('.site-utilities [data-open-settings]').click();
     await blockedPage.locator('[data-set-theme="orange"]').click();
     assert.equal(await blockedPage.locator('html').getAttribute('data-theme'), 'orange');
-    assert.ok((await blockedPage.locator('.preference-status').textContent()).includes('无法保存'));
+    assert.ok((await blockedPage.locator('.preference-status').textContent()).includes('已保存在当前浏览器'));
+    await Promise.all([
+      blockedPage.waitForURL(/knowledge\/index\.html/),
+      blockedPage.locator('.site-destinations a[href*="knowledge"]').evaluate(link => link.click()),
+    ]);
+    assert.equal(await blockedPage.locator('html').getAttribute('data-theme'), 'orange');
+    assert.equal(new URL(blockedPage.url()).searchParams.get('theme'), 'orange');
+    await blocked.close();
+
+    const noStorage = await browser.newContext({viewport: {width: 390, height: 844}});
+    await noStorage.addInitScript(() => {
+      Object.defineProperty(window, 'localStorage', {get() {throw new Error('storage unavailable');}});
+      Object.defineProperty(window, 'sessionStorage', {get() {throw new Error('storage unavailable');}});
+      Object.defineProperty(Document.prototype, 'cookie', {
+        configurable: true,
+        get() { return ''; },
+        set() { throw new Error('cookies unavailable'); },
+      });
+    });
+    const noStoragePage = await noStorage.newPage(); await noStoragePage.goto(base);
+    await noStoragePage.locator('.site-utilities [data-open-settings]').click();
+    await noStoragePage.locator('[data-set-theme="orange"]').click();
+    assert.equal(await noStoragePage.locator('html').getAttribute('data-theme'), 'orange');
+    assert.ok((await noStoragePage.locator('.preference-status').textContent()).includes('无法保存'));
+    await noStorage.close();
     const noJS = await browser.newContext({javaScriptEnabled: false});
     const plain = await noJS.newPage(); await plain.goto(`${base}/knowledge/agent-tutorial.html`);
     assert.ok(await plain.locator('.article-content').isVisible());
