@@ -16,7 +16,14 @@
   const rightArrow = svg('<path d="m9 18 6-6-6-6"/>');
   let storageAvailable = true;
   function save(key, value) {
-    try { localStorage.setItem(key, value); } catch (_) { storageAvailable = false; }
+    let ok = false;
+    try { localStorage.setItem(key, value); ok = true; } catch (_) {}
+    try { sessionStorage.setItem(key, value); ok = true; } catch (_) {}
+    try {
+      document.cookie = `${key}=${encodeURIComponent(value)};path=/;max-age=31536000;SameSite=Lax`;
+      ok = true;
+    } catch (_) {}
+    storageAvailable = ok;
     const status = document.querySelector('.preference-status');
     const dot = document.querySelector('.status-dot');
     if (status) status.textContent = storageAvailable ? '外观偏好已保存在当前浏览器。' : '当前浏览器无法保存设置，本页仍可正常调节。';
@@ -373,6 +380,25 @@
     if (event.key === 'cutus-font-size') { const size = Number(event.newValue); if (Number.isInteger(size) && size >= 14 && size <= 22) setFont(size, false); }
     if (event.key === 'cutus-sidebar' && ['open', 'closed'].includes(event.newValue)) { root.dataset.sidebar = event.newValue; renderSidebar(); }
   });
+  // Seamless theme synchronization across internal page transitions
+  document.addEventListener('click', event => {
+    const link = event.target.closest('a[href]');
+    if (!link) return;
+    const rawHref = link.getAttribute('href');
+    if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('mailto:') || rawHref.startsWith('javascript:') || link.target === '_blank') return;
+    try {
+      const url = new URL(link.href, location.href);
+      const isInternal = url.origin === location.origin || location.protocol === 'file:';
+      if (isInternal) {
+        const curTheme = root.dataset.theme;
+        if (curTheme) {
+          url.searchParams.set('theme', curTheme);
+          link.href = url.href;
+        }
+      }
+    } catch (_) {}
+  }, true);
+
   // Generated h3 anchors can also be opened directly from another page.
   if (location.hash) { const heading = headings.find(h => `#${h.id}` === location.hash); if (heading) requestAnimationFrame(() => heading.scrollIntoView()); }
   updatePosition();
