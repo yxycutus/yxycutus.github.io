@@ -26,7 +26,7 @@
     { id: 'dark', name: '夜间黑', en: 'Dark Mode', bg: '#101113', surface: '#191b1f', accent: '#38bdf8', line: '#30343b' },
     { id: 'blue', name: '科大蓝', en: 'USTC Blue', bg: '#edf3f9', surface: '#ffffff', accent: '#004182', line: '#d1e0f0' },
     { id: 'orange', name: 'Claude 橙', en: 'Warm Paper', bg: '#f7f2e9', surface: '#fffaf2', accent: '#9c462b', line: '#e1d6c7' },
-    { id: 'white', name: '花嫁白', en: 'Pure White', bg: '#ffffff', surface: '#ffffff', accent: '#93516c', line: '#ebebf0' },
+    { id: 'white', name: '花嫁白', en: 'Pure White', bg: '#ffffff', surface: '#ffffff', accent: '#93516c', line: '#eeeeef' },
     { id: 'pink', name: 'B站粉', en: 'Bilibili Pink', bg: '#fdf6f9', surface: '#ffffff', accent: '#fb7299', line: '#f4dbe4' },
     { id: 'yellow', name: '美团黄', en: 'Meituan Yellow', bg: '#fcfaf3', surface: '#ffffff', accent: '#ffd000', line: '#f2e8c6' }
   ];

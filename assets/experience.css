@@ -3,13 +3,13 @@
 html[data-theme="blue"] { color-scheme: light; }
 html[data-theme="dark"] { color-scheme: dark; --bg: #101113; --bg-card: #191b1f; --bg-subtle: #22252a; --line: #30343b; --line-strong: #454b55; --ink-faint: #939daa; }
 html[data-theme="orange"] { color-scheme: light; --ustc-blue: #9c462b; --ustc-blue-hover: #77331f; --ustc-blue-light: #f4e3d9; --ustc-blue-subtle: #faf0e9; --accent-cyan: #a95031; --accent-glow: #b9664020; --bg: #f7f2e9; --bg-card: #fffaf2; --bg-subtle: #eee6da; --ink: #302820; --ink-secondary: #54483d; --ink-muted: #786657; --ink-faint: #857365; --line: #e1d6c7; --line-strong: #cbbbA6; }
-html[data-theme="white"] { color-scheme: light; --ustc-blue: #93516c; --ustc-blue-hover: #783e55; --ustc-blue-light: #fdf2f6; --ustc-blue-subtle: #fef8fa; --accent-cyan: #a8627e; --accent-glow: #a8627e18; --bg: #ffffff; --bg-card: #ffffff; --bg-subtle: #fafafc; --ink: #18181b; --ink-secondary: #3f3f46; --ink-muted: #71717a; --ink-faint: #a1a1aa; --line: #f1f2f4; --line-strong: #e2e4e8; }
+html[data-theme="white"] { color-scheme: light; --ustc-blue: #93516c; --ustc-blue-hover: #783e55; --ustc-blue-light: #faf2f5; --ustc-blue-subtle: #fdf9fa; --accent-cyan: #a8627e; --accent-glow: #a8627e18; --bg: #ffffff; --bg-card: #ffffff; --bg-subtle: #fafafa; --ink: #18181b; --ink-secondary: #3f3f46; --ink-muted: #71717a; --ink-faint: #a1a1aa; --line: #eeeeef; --line-strong: #e2e2e5; }
 html[data-theme="pink"] { color-scheme: light; --ustc-blue: #de4f7c; --ustc-blue-hover: #c43b66; --ustc-blue-light: #ffe8f0; --ustc-blue-subtle: #fff3f7; --accent-cyan: #fb7299; --accent-glow: #fb729924; --bg: #fdf6f9; --bg-card: #ffffff; --bg-subtle: #faeaf1; --ink: #291e23; --ink-secondary: #524349; --ink-muted: #7d6972; --ink-faint: #a8929c; --line: #f4dbe4; --line-strong: #e6c2cf; }
 html[data-theme="yellow"] { color-scheme: light; --ustc-blue: #9b6500; --ustc-blue-hover: #805200; --ustc-blue-light: #fef5d6; --ustc-blue-subtle: #fffbed; --accent-cyan: #ffb800; --accent-glow: #ffd00030; --bg: #fcfaf3; --bg-card: #ffffff; --bg-subtle: #f7f2de; --ink: #262115; --ink-secondary: #4e4533; --ink-muted: #786e57; --ink-faint: #a3977c; --line: #f2e8c6; --line-strong: #e3d4a6; }
 
 html[data-theme="dark"] .home-page { --bg: #101113; --work-sage: #1b2926; --work-blue: #1b2533; --soft-lilac: #262431; --soft-peach: #2e2722; }
 html[data-theme="orange"] .home-page { --bg: #f7f2e9; --work-sage: #ede9da; --work-blue: #f2e4d7; --soft-lilac: #eee5df; --soft-peach: #f4e1d2; background-image: none; }
-html[data-theme="white"] .home-page { --bg: #ffffff; --work-sage: #fafbfc; --work-blue: #fafbfc; --soft-lilac: #fcfbfe; --soft-peach: #fffbfc; background-image: none; }
+html[data-theme="white"] .home-page { --bg: #ffffff; --work-sage: #fafafa; --work-blue: #fafafa; --soft-lilac: #fbfbfb; --soft-peach: #fcfcfc; background-image: none; }
 html[data-theme="pink"] .home-page { --bg: #fdf6f9; --work-sage: #faebf1; --work-blue: #fcecf3; --soft-lilac: #f7eaf4; --soft-peach: #faedf1; background-image: none; }
 html[data-theme="yellow"] .home-page { --bg: #fcfaf3; --work-sage: #f8f3df; --work-blue: #faf4e3; --soft-lilac: #f6f1df; --soft-peach: #faf1d8; background-image: none; }
 
@@ -32,8 +32,8 @@ html[data-theme="white"] .notebook-intro, html[data-theme="white"] .campus-banne
 html[data-theme="pink"] .notebook-intro, html[data-theme="pink"] .campus-banner { background: #3e222e; }
 html[data-theme="yellow"] .notebook-intro, html[data-theme="yellow"] .campus-banner { background: #3b301c; }
 
-html[data-theme="white"] .explore-strip a { background: #ffffff; border-color: #ededf2; }
-html[data-theme="white"] .explore-strip a:hover { background: #fafafc; border-color: #93516c; }
+html[data-theme="white"] .explore-strip a { background: #ffffff; border-color: #ebebec; }
+html[data-theme="white"] .explore-strip a:hover { background: #fafafa; border-color: #93516c; }
 html[data-theme="pink"] .explore-strip a { background: #ffffff; border-color: #f2d3de; }
 html[data-theme="pink"] .explore-strip a:hover { background: #fff5f8; border-color: #fb7299; }
 html[data-theme="yellow"] .explore-strip a { background: #ffffff; border-color: #eedda6; }
@@ -1014,6 +1014,11 @@ html[data-theme="dark"] .theme-preview-card {
 }
 
 @media (min-width: 1200px) {
+  /* Reserve the sidebar's space before experience.js runs, so the first paint
+     already has the final layout and nothing shifts when the sidebar mounts. */
+  html[data-sidebar="open"] body:not(.has-sidebar) {
+    margin-left: var(--sidebar-width);
+  }
   html[data-sidebar="open"] .has-sidebar .site-stage {
     margin-left: var(--sidebar-width);
   }
