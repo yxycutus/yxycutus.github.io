@@ -181,3 +181,27 @@
   line-height: 1.6;
   margin: 0;
 }
+
+/* ── Kimi 高亮条目 ── */
+.tl-item-kimi {
+  border-color: color-mix(in srgb, #7c5cff 34%, var(--line));
+  background: linear-gradient(120deg, color-mix(in srgb, #7c5cff 7%, var(--bg-card)), var(--bg-card) 62%);
+}
+
+.tl-item-kimi:hover {
+  border-color: #7c5cff;
+}
+
+.tl-tag-kimi {
+  background: rgba(124, 92, 255, 0.12);
+  color: #7c5cff;
+}
+
+.tl-item-kimi .tl-item-content strong {
+  color: var(--ink);
+}
+
+.tl-item-kimi .tl-item-content a {
+  color: #7c5cff;
+  font-weight: 600;
+}

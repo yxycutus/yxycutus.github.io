@@ -4,6 +4,7 @@
   const root = document.documentElement;
   const main = document.querySelector('main');
   if (!main) return;
+  const navbar = document.querySelector('.navbar');
   const assetBase = new URL('.', document.currentScript.src);
   const siteBase = new URL('../', assetBase);
   const siteUrl = path => new URL(path, siteBase).href;
@@ -173,6 +174,7 @@
     'notebook-title': 'Open Notes',
     'campus-title': 'Campus Life',
     'study-title': 'Flight Control',
+    'ai-title': 'AI Model Reviews',
     'contact-title': 'Contact',
     'friends-title': 'Links',
     '教育与科研背景': 'Education & Research',
