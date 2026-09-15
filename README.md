@@ -85,7 +85,14 @@ python scripts/check_site.py
 node --check assets/script.js
 node --check assets/flight-roadmap.js
 node --check assets/reader.js
+node scripts/version_theme_assets.cjs --check
 ```
+
+主题初始化、外观控制或主题 CSS 修改后，先运行 `node scripts/version_theme_assets.cjs`，统一更新全部 HTML 中的资源版本号。内部页面链接也携带此版本，避免浏览器混用旧页面和旧脚本。不要手工修改版本号。
+
+主题偏好统一由 `assets/theme-init.js` 管理：有效的浏览器存储优先于旧链接参数；参数仅用于无存储时的跨页传递。修改主题会同步当前网址、内部链接与设置面板；浏览器返回缓存页面时重新读取最新设置。系统推断的默认配色不会写成用户选择。
+
+跨页回归：启动本地 HTTP 服务后运行 `node scripts/check_theme_navigation.cjs`；可用 `CHROME_PATH` 指定 Edge 或 Chrome，可用 `PLAYWRIGHT_MODULE` 指定 Playwright 模块路径，`BASE_URL` 指向公网时可检查线上版本。测试包含旧 URL、刷新、返回、跨标签、六主题实际颜色、全部页面、旧缓存资源和存储受限时的新标签打开。
 
 浏览器验收覆盖：浅色/深色、首页 320/390/768px、27 页的手机布局、折叠面板与深链接、键盘滑杆、笔记恢复、跨页/跨标签同步、备份导入校验、公开导出不含笔记、搜索组合筛选、目录、复制链接、视频播放，以及无 JavaScript 和公开进度加载失败时的回退。
 
