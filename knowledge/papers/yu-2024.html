@@ -7,14 +7,15 @@
   <script src="../../assets/theme-init.js?v=101aa242579c"></script>
   <link rel="stylesheet" href="../../assets/style.css?v=1c00a319f414">
   <link rel="stylesheet" href="../../assets/article.css">
-  <meta name="description" content="Yu2024 · 仿壁虎机器人新型可变刚度双稳态黏附足爪精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <link rel="stylesheet" href="../../assets/paper-notes.css">
+  <meta name="description" content="PU 黏附层与双稳态预应力壳构成可变刚度脚趾：展开时支持大面积贴附，卷曲时逐步剥离。同一附着材料在两种形态下开关，并不等于在微刺与干黏附之间切换。">
   <link rel="icon" href="../../assets/avatar.jpg" type="image/jpeg">
   <link rel="canonical" href="https://yxycutus.github.io/knowledge/papers/yu-2024.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Cutus · 机器人工程">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:title" content="Yu2024 · 仿壁虎机器人新型可变刚度双稳态黏附足爪精读 — Cutus">
-  <meta property="og:description" content="Yu2024 · 仿壁虎机器人新型可变刚度双稳态黏附足爪精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <meta property="og:description" content="PU 黏附层与双稳态预应力壳构成可变刚度脚趾：展开时支持大面积贴附，卷曲时逐步剥离。同一附着材料在两种形态下开关，并不等于在微刺与干黏附之间切换。">
   <meta property="og:url" content="https://yxycutus.github.io/knowledge/papers/yu-2024.html">
   <meta property="og:image" content="https://yxycutus.github.io/assets/gallery/yu-2024.webp">
   <meta property="og:image:alt" content="柔软黏附材料的表面适应">
@@ -68,21 +69,23 @@
     </header>
 
     <div class="article-content">
-      <div class="article-callout">
-        <p><strong>一句话精要</strong>：面向微重力航天器表面，提出一种集成 PU 仿生干黏附与双稳态预应力壳脚趾的可变刚度末端爪。通过拉绳驱动在展开高刚度贴附模式与卷曲低刚度剥离脱附模式之间切换，实现粗糙/光滑表面的爬行。</p>
-      </div>
-<figure class="media-figure" id="figure-yu-2024"><a href="../../picture/ZhiWei Yu 柔软 PU 黏附材料微重力黏附.png" data-image-viewer data-title="柔软黏附材料的表面适应" data-caption="Yu et al. · 2024 · 不同接触状态下的界面形貌与贴合对照。"><img src="../../assets/gallery/yu-2024.webp" alt="柔软黏附材料的表面适应" width="1313" height="698" loading="lazy" decoding="async" ><span class="figure-zoom-label">放大查看 ↗</span></a><figcaption><strong>柔软黏附材料的表面适应</strong>不同接触状态下的界面形貌与贴合对照。<span class="figure-credit">Yu et al. · 2024 · 阅读配图，与下文笔记对应。</span></figcaption></figure>
+<details class="article-toc"><summary>本文目录 · 7 节</summary><ol><li><a href="#section-1">机制 / 结构如何把动作变成附着</a></li><li><a href="#section-2">项目启发 / 哪些值得迁移</a></li><li><a href="#evidence">证据 / 参数与测试条件</a></li><li><a href="#experiments">实验 / 转化为可检查的问题</a></li><li><a href="#limits">边界 / 这些结论不能直接外推</a></li><li><a href="#connections">关联阅读 / 沿问题继续读</a></li><li><a href="#sources">来源 / 阅读记录与原文</a></li></ol></details>
+<div class="article-callout"><p><strong>一句话精要</strong>：PU 黏附层与双稳态预应力壳构成可变刚度脚趾：展开时支持大面积贴附，卷曲时逐步剥离。同一附着材料在两种形态下开关，并不等于在微刺与干黏附之间切换。</p></div>
+<figure class="media-figure" id="figure-yu-2024"><a href="../../picture/ZhiWei Yu 柔软 PU 黏附材料微重力黏附.png" data-image-viewer data-title="柔软黏附材料的表面适应" data-caption="Yu et al. · 2024 · 不同接触状态下的界面形貌与贴合对照。"><img src="../../assets/gallery/yu-2024.webp" alt="柔软黏附材料的表面适应" width="1313" height="698" loading="lazy" decoding="async" ><span class="figure-zoom-label">放大查看 ↗</span></a><figcaption><strong>柔软黏附材料的表面适应</strong>不同接触状态下的界面形貌与贴合对照。<span class="figure-credit">Yu et al. · 2024 · 阅读配图，与下文笔记对应。</span></figcaption></figure><p><time datetime="2026-09-20">整理更新：2026-09-20</time> · 论文事实、项目启发与待验证事项分开记录。</p><h2 id="section-1">机制 / 结构如何把动作变成附着</h2>
+<p>伸缩杆、双稳态壳和黏附材料共同组成脚趾。拉绳/舵机改变壳的形态，进而改变整体刚度与接触面积。高刚度支撑有助于传递承载，卷曲则提供可控剥离路径；二者需要按不同阶段评价。</p><p>论文通过热处理改变 PU 的弹性模量，使其更容易贴合起伏。这是材料制备条件，不表示机器人接触墙面时必须把足端加热到 200 °C；也不能把任意商用 PU 视作具有相同性能。</p>
+<h2 id="section-2">项目启发 / 哪些值得迁移</h2>
+<p>“双稳态黏附爪适应粗糙/光滑面”已不能单独作为新颖性论点。可研究的问题是：两个稳态能否分别激活两种物理机制，以及受载时能否保持、按需释放。即使概念有区别，仍需用机制干涉、质量和循环实验体现实际收益。</p>
+<h2 id="evidence">证据 / 参数与测试条件</h2>
+<div class="paper-table-wrap" role="region" aria-label="项目对照表" tabindex="0"><table class="article-table"><thead><tr><th scope="col">项目</th><th scope="col">原文或精读记录</th><th scope="col">条件与解释</th></tr></thead><tbody><tr><td>PU 模量变化</td><td>约 0.152 → 0.076 MPa</td><td>对应热处理温度 25 → 210 °C</td></tr><tr><td>光滑面最大黏附</td><td>正文约 175 N；摘要 up to 180 N</td><td>最大力属于论文足爪与测试面积，不是材料通用常数</td></tr><tr><td>其他表面</td><td>中等粗糙约 125 N，高粗糙约 110 N</td><td>织物约 95 N；需保留各表面和试样条件</td></tr><tr><td>切换含义</td><td>展开贴附 ↔ 卷曲脱附</td><td>同一 PU 黏附机制的接触开/关</td></tr></tbody></table></div>
+<h2 id="experiments">实验 / 转化为可检查的问题</h2>
+<p>以下为结合阅读提出的实验建议，尚不代表本项目已完成：</p><ul><li>使用相同黏附材料比较平板基底与曲率基底，测承载力、释放峰值和释放做功。</li><li>记录加载时壳是否误翻转、卸载后是否可重复恢复；把静态材料测试与微重力运动演示分开。</li></ul>
+<h2 id="limits">边界 / 这些结论不能直接外推</h2>
+<p>法向拉脱峰值不能直接等同于竖直壁面的剪切承载。微重力场景也不能替代正常重力下完整足端的质量预算与抗倾覆验证。</p>
+<h2 id="connections">关联阅读 / 沿问题继续读</h2>
+<ul><li><a href="federle-2019.html">Federle2019</a> — 卷曲释放对应剥离前沿和应变能的调控。</li><li><a href="hawkes-2015.html">Hawkes2015</a> — 可以借 Anp 与 Ap 的测试框架量化“好粘也好放”。</li><li><a href="fang-2026.html">Fang2026</a> — 双模式可指两个附着机制，而 Yu 的两个状态主要指附着/脱附。</li></ul><p><a href="connections.html">论文关联地图</a> · <a href="../scamp-climbing.html">当前项目记录</a>：光滑面方案仍在筛选，历史干黏附构想不等于已定型方案。</p>
+<p><a href="kim-2023.html">Kim2023 · 跳跃与栖停</a> — 区分被动收紧、形态保持和释放。</p><h2 id="sources">来源 / 阅读记录与原文</h2>
+<p><strong>整理依据</strong>：paperreading：Yu2024_可变刚度黏附爪、双稳态结构、创新性分析；数据对应原精读记录。</p><p><a href="https://doi.org/10.1002/aisy.202400043" target="_blank" rel="noopener noreferrer">论文原文 · DOI 10.1002/aisy.202400043</a></p>
 
-      <h2 id="section-1">一、 核心创新与机制剖析</h2>
-      <ul>
-        <li><strong>双稳态预应力壳结构（Bistable Prestressed Shell）</strong>：
-          <ul>
-            <li><strong>展开模式（Stretching Mode）</strong>：脚趾完全伸展，预应力壳表现出高抗弯刚度，确保 PU 黏附垫获得均匀接触压力，产生强法向与剪切固持力；</li>
-            <li><strong>卷曲模式（Curling Mode）</strong>：外力拉绳越过能垒触发翻转，脚趾卷曲，基底等效刚度锐减，接触面从边缘自发剥离，实现极低脱附阻力。</li>
-          </ul>
-        </li>
-        <li><strong>机制本质辨析</strong>：Yu2024 的双稳态本质是同一种黏附材料的“附着/脱附 (Attach/Detach)”切换，并未在物理接触机理上区分微刺互锁与干黏附分子力。</li>
-      </ul>
     </div>
 
     <div class="article-back-nav">

@@ -7,14 +7,15 @@
   <script src="../../assets/theme-init.js?v=101aa242579c"></script>
   <link rel="stylesheet" href="../../assets/style.css?v=1c00a319f414">
   <link rel="stylesheet" href="../../assets/article.css">
-  <meta name="description" content="Hu2019 · 仿尺蠖微刺软体攀爬机器人精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <link rel="stylesheet" href="../../assets/paper-notes.css">
+  <meta name="description" content="SMA 软体驱动与柔顺微刺足使仿尺蠖机器人能够在粗糙或软质曲面上运动。它提供可制造的早期集成方法，也暴露出横向支撑、冷却速度和足端时序的限制。">
   <link rel="icon" href="../../assets/avatar.jpg" type="image/jpeg">
   <link rel="canonical" href="https://yxycutus.github.io/knowledge/papers/hu-2019.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Cutus · 机器人工程">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:title" content="Hu2019 · 仿尺蠖微刺软体攀爬机器人精读 — Cutus">
-  <meta property="og:description" content="Hu2019 · 仿尺蠖微刺软体攀爬机器人精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <meta property="og:description" content="SMA 软体驱动与柔顺微刺足使仿尺蠖机器人能够在粗糙或软质曲面上运动。它提供可制造的早期集成方法，也暴露出横向支撑、冷却速度和足端时序的限制。">
   <meta property="og:url" content="https://yxycutus.github.io/knowledge/papers/hu-2019.html">
   <meta property="og:image" content="https://yxycutus.github.io/assets/avatar.jpg">
   <meta property="og:image:alt" content="Cutus 的个人头像">
@@ -70,15 +71,23 @@
     </header>
 
     <div class="article-content">
-      <div class="article-callout">
-        <p><strong>一句话精要</strong>：利用 SMA 丝驱动弹簧钢-PDMS 软体结构，制造具备主动弯曲柔顺足和伸缩躯干的仿尺蠖软体攀爬机器人，足端嵌入微刺阵列，成功在砂纸曲面、PE 泡沫垂直曲面和软质管道内实现了蠕动爬行。</p>
-      </div>
+<details class="article-toc"><summary>本文目录 · 7 节</summary><ol><li><a href="#section-1">机制 / 结构如何把动作变成附着</a></li><li><a href="#section-2">项目启发 / 哪些值得迁移</a></li><li><a href="#evidence">证据 / 参数与测试条件</a></li><li><a href="#experiments">实验 / 转化为可检查的问题</a></li><li><a href="#limits">边界 / 这些结论不能直接外推</a></li><li><a href="#connections">关联阅读 / 沿问题继续读</a></li><li><a href="#sources">来源 / 阅读记录与原文</a></li></ol></details>
+<div class="article-callout"><p><strong>一句话精要</strong>：SMA 软体驱动与柔顺微刺足使仿尺蠖机器人能够在粗糙或软质曲面上运动。它提供可制造的早期集成方法，也暴露出横向支撑、冷却速度和足端时序的限制。</p></div>
+<p><time datetime="2026-09-20">整理更新：2026-09-20</time> · 论文事实、项目启发与待验证事项分开记录。</p><h2 id="section-1">机制 / 结构如何把动作变成附着</h2>
+<p>SMA 丝、PDMS 与弹簧钢形成足端弯曲和躯干收缩结构。前后足交替接合，躯干改变长度产生位移；柔顺足贴合曲面后微刺参与承载，卸载时逐步解除接触。粗糙硬面上的挂持和软泡沫上的穿刺需分别理解。</p><p>柔软有助于适应曲率，也可能带来横向刚度不足和受载转动。足端若在躯干发力前没有接合，收缩只会导致打滑；热驱动恢复不充分则会改变下一周期的初始形态。</p>
+<h2 id="section-2">项目启发 / 哪些值得迁移</h2>
+<p>适合借鉴微刺阵列基底、预载和接合顺序。SMA 每步驱动身体的路线与低频触发模式切换不同；当前栖息机构不应把这篇的低速运动演示当作双稳态受载保持的证据。</p>
+<h2 id="evidence">证据 / 参数与测试条件</h2>
+<div class="paper-table-wrap" role="region" aria-label="项目对照表" tabindex="0"><table class="article-table"><thead><tr><th scope="col">项目</th><th scope="col">原文或精读记录</th><th scope="col">条件与解释</th></tr></thead><tbody><tr><td>整机</td><td>约 37 g；120 × 70 × 20 mm</td><td>论文样机</td></tr><tr><td>微刺阵列</td><td>3 × 5；PDMS 基底约 17 × 17 × 2 mm</td><td>微刺露出约 1 mm，间距 2.5 mm</td></tr><tr><td>SMA 丝</td><td>直径 0.15 mm；转变温度约 70 °C</td><td>参数依赖该执行器结构</td></tr><tr><td>竖直曲面演示</td><td>约 0.12 cm·s⁻¹；R = 90 mm</td><td>周期约 2.7 s；存在导轨/细线辅助条件</td></tr></tbody></table></div>
+<h2 id="experiments">实验 / 转化为可检查的问题</h2>
+<p>以下为结合阅读提出的实验建议，尚不代表本项目已完成：</p><ul><li>分别测柔顺足曲率、预载、保持力与脱离轨迹，再与躯干收缩动作联动。</li><li>记录支撑或导轨是否分担重量、约束姿态；报告速度时同时说明驱动周期和恢复时间。</li></ul>
+<h2 id="limits">边界 / 这些结论不能直接外推</h2>
+<p>有辅助约束的竖直运动不能直接称为完整自主爬墙。本文不包含光滑面干黏附模式，也没有飞行触壁和双稳态切换。</p>
+<h2 id="connections">关联阅读 / 沿问题继续读</h2>
+<ul><li><a href="asbeck-2006.html">Asbeck2006</a> — 补足微刺尺寸、角度与失效的接触理论。</li><li><a href="hu-2023.html">Hu2023</a> — 后续模块化架构扩展了足端类型和环境范围。</li><li><a href="modabberifar-2018.html">Modabberifar2018</a> — 同样需要区分 SMA 加热响应与冷却复位时间。</li></ul><p><a href="connections.html">论文关联地图</a> · <a href="../scamp-climbing.html">当前项目记录</a>：光滑面方案仍在筛选，历史干黏附构想不等于已定型方案。</p>
+<h2 id="sources">来源 / 阅读记录与原文</h2>
+<p><strong>整理依据</strong>：paperreading：Hu2019_仿尺蠖软体、结构概括；原文 Inchworm-inspired soft climbing robot using microspine arrays（IROS 2019）。</p><p><a href="https://doi.org/10.1109/IROS40897.2019.8967601" target="_blank" rel="noopener noreferrer">论文原文 · DOI 10.1109/IROS40897.2019.8967601</a></p>
 
-      <h2 id="section-1">一、 核心机制</h2>
-      <ul>
-        <li><strong>柔顺足端自适应贴合</strong>：微刺并不是刚性固连在车体上，而是注塑在柔性 PDMS 硅胶垫中，在尺蠖前进步态中先被动顺应壁面曲率，而后在身体收缩剪切力作用下使微刺扎入或咬合表面；</li>
-        <li><strong>逐级脱附剥离（Peeling）</strong>：尺蠖步态抬脚时，软足从后缘自发弯曲剥离，避免微刺整体卡死在粗糙表面内部。</li>
-      </ul>
     </div>
 
     <div class="article-back-nav">

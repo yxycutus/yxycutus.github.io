@@ -7,14 +7,15 @@
   <script src="../../assets/theme-init.js?v=101aa242579c"></script>
   <link rel="stylesheet" href="../../assets/style.css?v=1c00a319f414">
   <link rel="stylesheet" href="../../assets/article.css">
-  <meta name="description" content="Hawkes2015 · 百倍自重干黏附垂直攀爬精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <link rel="stylesheet" href="../../assets/paper-notes.css">
+  <meta name="description" content="高载荷爬墙同时需要“承重时抓牢”和“摆动时放开”。Hawkes 用方向性干黏附、连接几何和切缝降低非优选方向阻力，让微型机器人实现高载荷比的竖直攀爬。">
   <link rel="icon" href="../../assets/avatar.jpg" type="image/jpeg">
   <link rel="canonical" href="https://yxycutus.github.io/knowledge/papers/hawkes-2015.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Cutus · 机器人工程">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:title" content="Hawkes2015 · 百倍自重干黏附垂直攀爬精读 — Cutus">
-  <meta property="og:description" content="Hawkes2015 · 百倍自重干黏附垂直攀爬精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <meta property="og:description" content="高载荷爬墙同时需要“承重时抓牢”和“摆动时放开”。Hawkes 用方向性干黏附、连接几何和切缝降低非优选方向阻力，让微型机器人实现高载荷比的竖直攀爬。">
   <meta property="og:url" content="https://yxycutus.github.io/knowledge/papers/hawkes-2015.html">
   <meta property="og:image" content="https://yxycutus.github.io/assets/gallery/hawkes-2015.webp">
   <meta property="og:image:alt" content="剪切方向与干黏附接合">
@@ -71,26 +72,23 @@
     </header>
 
     <div class="article-content">
-      <div class="article-callout">
-        <p><strong>一句话精要</strong>：通过可控、各向异性的 PDMS microwedge（微楔）干黏附和单执行器线性尺蠖步态，证明 9g 小机器人可在光滑竖直面上携带超过 100 倍自重的有效载荷，并在漏步时保持不脱落、停墙时近似零功耗。</p>
-      </div>
-<figure class="media-figure" id="figure-hawkes-2015"><a href="../../picture/Elliot W. Hawkes剪切敏感材料.png" data-image-viewer data-title="剪切方向与干黏附接合" data-caption="Hawkes et al. · 2015 · 不同加载方向下的微结构接触状态。"><img src="../../assets/gallery/hawkes-2015.webp" alt="剪切方向与干黏附接合" width="523" height="327" loading="lazy" decoding="async" ><span class="figure-zoom-label">放大查看 ↗</span></a><figcaption><strong>剪切方向与干黏附接合</strong>不同加载方向下的微结构接触状态。<span class="figure-credit">Hawkes et al. · 2015 · 阅读配图，与下文笔记对应。</span></figcaption></figure>
+<details class="article-toc"><summary>本文目录 · 7 节</summary><ol><li><a href="#section-1">机制 / 结构如何把动作变成附着</a></li><li><a href="#section-2">项目启发 / 哪些值得迁移</a></li><li><a href="#evidence">证据 / 参数与测试条件</a></li><li><a href="#experiments">实验 / 转化为可检查的问题</a></li><li><a href="#limits">边界 / 这些结论不能直接外推</a></li><li><a href="#connections">关联阅读 / 沿问题继续读</a></li><li><a href="#sources">来源 / 阅读记录与原文</a></li></ol></details>
+<div class="article-callout"><p><strong>一句话精要</strong>：高载荷爬墙同时需要“承重时抓牢”和“摆动时放开”。Hawkes 用方向性干黏附、连接几何和切缝降低非优选方向阻力，让微型机器人实现高载荷比的竖直攀爬。</p></div>
+<figure class="media-figure" id="figure-hawkes-2015"><a href="../../picture/Elliot W. Hawkes剪切敏感材料.png" data-image-viewer data-title="剪切方向与干黏附接合" data-caption="Hawkes et al. · 2015 · 不同加载方向下的微结构接触状态。"><img src="../../assets/gallery/hawkes-2015.webp" alt="剪切方向与干黏附接合" width="523" height="327" loading="lazy" decoding="async" ><span class="figure-zoom-label">放大查看 ↗</span></a><figcaption><strong>剪切方向与干黏附接合</strong>不同加载方向下的微结构接触状态。<span class="figure-credit">Hawkes et al. · 2015 · 阅读配图，与下文笔记对应。</span></figcaption></figure><p><time datetime="2026-09-20">整理更新：2026-09-20</time> · 论文事实、项目启发与待验证事项分开记录。</p><h2 id="section-1">机制 / 结构如何把动作变成附着</h2>
+<p>优选方向剪切使 PDMS 微楔贴伏、增加真实接触；卸载后微结构回弹，便于离墙。9 g 版本通过腱绳连接位置让摆动垫旋转离墙；20 mg 版本通过斜向切缝，让反向运动时切缝打开。两种方法都在降低无效拖拽。</p><p><code>α = A<sub>np</sub> / A<sub>p</sub></code>：A<sub>p</sub> 是优选方向承载能力，A<sub>np</sub> 是非优选方向阻力。简化步态中净承载余量取决于二者之差。若使用应力数据，必须先乘以相应有效面积，不能直接与以 N 表示的整机重量相减。</p>
+<h2 id="section-2">项目启发 / 哪些值得迁移</h2>
+<p>薄板曲率诱导剥离可以先作为待检验的结构方案保留，不必立即假设必须制造复杂微结构。要测的是曲率是否降低摆动阻力，同时保留承重能力。载荷转移应让新足先接合、旧足再卸载；这一顺序也适用于栖停后的安全离墙。</p>
+<h2 id="evidence">证据 / 参数与测试条件</h2>
+<div class="paper-table-wrap" role="region" aria-label="项目对照表" tabindex="0"><table class="article-table"><thead><tr><th scope="col">项目</th><th scope="col">原文或精读记录</th><th scope="col">条件与解释</th></tr></thead><tbody><tr><td>厘米级机器人</td><td>9 g；约 30 × 25 × 20 mm</td><td>板载电源与控制版本</td></tr><tr><td>步长 / 无载速度</td><td>12 mm / 18 mm·s⁻¹</td><td>约 1.5 Hz；不能与满载速度混用</td></tr><tr><td>高载荷工况</td><td>约 1.1 kg 最大载荷</td><td>约 1 kg 时速度降至 3–4 mm·s⁻¹</td></tr><tr><td>各向异性比 α</td><td>0.73 → 0.083 → 0.016</td><td>依次为标准垫、机械各向异性、切缝材料；不同构型对照</td></tr></tbody></table></div>
+<h2 id="experiments">实验 / 转化为可检查的问题</h2>
+<p>以下为结合阅读提出的实验建议，尚不代表本项目已完成：</p><ul><li>分别测相同试样的优选与非优选方向力—位移曲线，比较峰值、稳态阻力和曲线面积。</li><li>人为制造一次新足接合失败，确认原承重足没有提前释放；同步记录法向力与剪切力。</li></ul>
+<h2 id="limits">边界 / 这些结论不能直接外推</h2>
+<p>百倍自重是小尺度、指定表面和加载方式下的结果。20 mg 版本依赖外部热源，不能当作完整自主平台；本文也没有验证粗糙面微刺与干黏附的双模切换。</p>
+<h2 id="connections">关联阅读 / 沿问题继续读</h2>
+<ul><li><a href="federle-2019.html">Federle2019</a> — 解释为何剪切与剥离角度能快速调节附着。</li><li><a href="yu-2024.html">Yu2024</a> — 用基底卷曲实现脱附，是另一种控制接触面积的方法。</li><li><a href="modabberifar-2018.html">Modabberifar2018</a> — 将剪切激活交给 SMA 后，需要额外考虑保持功耗和冷却时间。</li></ul><p><a href="connections.html">论文关联地图</a> · <a href="../scamp-climbing.html">当前项目记录</a>：光滑面方案仍在筛选，历史干黏附构想不等于已定型方案。</p>
+<h2 id="sources">来源 / 阅读记录与原文</h2>
+<p><strong>整理依据</strong>：paperreading：Hawkes_百倍自重干黏附、Anp测试与薄板曲率脱附验证、干黏附各向异性比alpha。</p><p><a href="https://doi.org/10.1109/ICRA.2015.7139722" target="_blank" rel="noopener noreferrer">论文原文 · DOI 10.1109/ICRA.2015.7139722</a></p>
 
-      <h2 id="section-1">一、 核心概念：各向异性比 alpha 与脱附力</h2>
-      <div class="article-pre">
-各向异性比指标：alpha = Anp / Ap
-- Ap  : 优选方向（承重拉伸方向）剪切黏附力
-- Anp : 非优选方向（换步脱附方向）剪切阻力
-- 机器人实际有效负载能力：Pmax = Ap - Anp
-      </div>
-      <p>解决壁面攀爬的核心矛盾不是“黏附力够不够大”，而是“在换步移动时如何把反向拖滞阻力 $A_{np}$ 降至接近于零”。</p>
-
-      <h2 id="section-2">二、 剪切激活干黏附机理</h2>
-      <ul>
-        <li>微楔结构未受剪切时仅以极小尖端轻微贴墙；</li>
-        <li>施加剪切拉力时，微楔倒伏贴合，分子级接触面积成倍爆发，产生强大的承载黏附；</li>
-        <li>反向推离或卸载剪切力后，微楔弹性恢复直立，轻松完成低功耗剥离。</li>
-      </ul>
     </div>
 
     <div class="article-back-nav">

@@ -7,14 +7,15 @@
   <script src="../../assets/theme-init.js?v=101aa242579c"></script>
   <link rel="stylesheet" href="../../assets/style.css?v=1c00a319f414">
   <link rel="stylesheet" href="../../assets/article.css">
-  <meta name="description" content="Liu2026 · 仿生跨介质壁面攀爬机器人精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <link rel="stylesheet" href="../../assets/paper-notes.css">
+  <meta name="description" content="HMSAMS 将蘑菇形帽檐和中空腔体结合，再通过核壳贴片与柔顺基底组织成机器人接触单元。研究重点是干燥/水下的黏附与接触适应，不是已被证明的方向性微楔步态。">
   <link rel="icon" href="../../assets/avatar.jpg" type="image/jpeg">
   <link rel="canonical" href="https://yxycutus.github.io/knowledge/papers/liu-2026.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Cutus · 机器人工程">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:title" content="Liu2026 · 仿生跨介质壁面攀爬机器人精读 — Cutus">
-  <meta property="og:description" content="Liu2026 · 仿生跨介质壁面攀爬机器人精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <meta property="og:description" content="HMSAMS 将蘑菇形帽檐和中空腔体结合，再通过核壳贴片与柔顺基底组织成机器人接触单元。研究重点是干燥/水下的黏附与接触适应，不是已被证明的方向性微楔步态。">
   <meta property="og:url" content="https://yxycutus.github.io/knowledge/papers/liu-2026.html">
   <meta property="og:image" content="https://yxycutus.github.io/assets/avatar.jpg">
   <meta property="og:image:alt" content="Cutus 的个人头像">
@@ -70,15 +71,23 @@
     </header>
 
     <div class="article-content">
-      <div class="article-callout">
-        <p><strong>一句话精要</strong>：系统探索了水下与陆地两栖跨介质复杂壁面环境下的稳定攀爬。通过结合高性能各向异性粘附机理与超柔顺接触适应性足端，攻克了流体阻力、浮力变化与壁面水膜对分子级黏附强度的致命削弱。</p>
-      </div>
+<details class="article-toc"><summary>本文目录 · 7 节</summary><ol><li><a href="#section-1">机制 / 结构如何把动作变成附着</a></li><li><a href="#section-2">项目启发 / 哪些值得迁移</a></li><li><a href="#evidence">证据 / 参数与测试条件</a></li><li><a href="#experiments">实验 / 转化为可检查的问题</a></li><li><a href="#limits">边界 / 这些结论不能直接外推</a></li><li><a href="#connections">关联阅读 / 沿问题继续读</a></li><li><a href="#sources">来源 / 阅读记录与原文</a></li></ol></details>
+<div class="article-callout"><p><strong>一句话精要</strong>：HMSAMS 将蘑菇形帽檐和中空腔体结合，再通过核壳贴片与柔顺基底组织成机器人接触单元。研究重点是干燥/水下的黏附与接触适应，不是已被证明的方向性微楔步态。</p></div>
+<p><time datetime="2026-09-20">整理更新：2026-09-20</time> · 论文事实、项目启发与待验证事项分开记录。</p><h2 id="section-1">机制 / 结构如何把动作变成附着</h2>
+<p>微结构的帽檐有利于接触与密封，中空腔体允许压差参与承载。原文比较常压与低压下的表现，以区分压差贡献和界面黏附；不能简化成“水完全不影响范德华黏附”或“全部承载都来自吸盘”。</p><p>结构分为微单元、核壳贴片和宏观柔顺支撑三个层级：刚性核心帮助传力，柔性外壳适应表面，离散贴片限制裂纹跨区域传播。局部贴合与全局承载的协调，比一味降低所有部分的刚度更关键。</p>
+<h2 id="section-2">项目启发 / 哪些值得迁移</h2>
+<p>对光滑面候选机构，可借鉴分区、柔顺支撑和预载表征，但 HMSAMS 与普通吸盘、平面胶垫和方向性干黏附有不同制造及接触条件。当前项目仍需在可获得材料上做对照，不应把原文材料性能当作样机已达指标。</p>
+<h2 id="evidence">证据 / 参数与测试条件</h2>
+<div class="paper-table-wrap" role="region" aria-label="项目对照表" tabindex="0"><table class="article-table"><thead><tr><th scope="col">项目</th><th scope="col">原文或精读记录</th><th scope="col">条件与解释</th></tr></thead><tbody><tr><td>高预载下法向强度</td><td>干燥约 240 kPa；水下约 290 kPa</td><td>常压条件下的高值平台；不是低预载工况</td></tr><tr><td>低预载干燥测试</td><td>100 Pa 预载；法向黏附/预载比 792</td><td>对应黏附约 79.2 kPa，与 240 kPa 分属不同工况</td></tr><tr><td>低预载水下测试</td><td>200 Pa 预载；黏附 11.4 kPa；比值 57</td><td>注意水下预载不是 100 Pa</td></tr><tr><td>切向强度</td><td>干燥约 108.13 kPa；水下约 127.3 kPa</td><td>原文高预载测试，不能与低预载比值并列为同一工作点</td></tr></tbody></table></div>
+<h2 id="experiments">实验 / 转化为可检查的问题</h2>
+<p>以下为结合阅读提出的实验建议，尚不代表本项目已完成：</p><ul><li>分开扫描预载、保持时间和加载方向；每条曲线明确空气/水下、环境压力与接触面积。</li><li>比较整体垫与分区垫、均匀软基底与核壳支撑，观察边缘裂纹、局部失效与恢复。</li></ul>
+<h2 id="limits">边界 / 这些结论不能直接外推</h2>
+<p>常压与低压对照有助于理解机制，但不能据此断言所有液体、污染或多孔表面均适用。材料试样的 kPa 指标还需经过足端几何、面积与载荷路径才能转化为整机承载。</p>
+<h2 id="connections">关联阅读 / 沿问题继续读</h2>
+<ul><li><a href="ruffatto-2014.html">Ruffatto2014</a> — 两者都通过机制协同改善接触，但一个引入电场，一个引入中空微结构。</li><li><a href="federle-2019.html">Federle2019</a> — 从裂纹传播和可控剥离理解贴片分区。</li><li><a href="hu-2023.html">Hu2023</a> — 比较材料本身适应与专用足端模块选择的不同层级。</li></ul><p><a href="connections.html">论文关联地图</a> · <a href="../scamp-climbing.html">当前项目记录</a>：光滑面方案仍在筛选，历史干黏附构想不等于已定型方案。</p>
+<h2 id="sources">来源 / 阅读记录与原文</h2>
+<p><strong>整理依据</strong>：myvault：Liu et al 2026 - 摘要、HMSAMS、剥离力学；核对 Liu2026 原文 Fig. 2 及预载依赖性段落。</p><p><a href="https://doi.org/10.1126/sciadv.aea8014" target="_blank" rel="noopener noreferrer">论文原文 · DOI 10.1126/sciadv.aea8014</a></p>
 
-      <h2 id="section-1">一、 核心看点与启示</h2>
-      <ul>
-        <li><strong>跨介质流固界面动力学</strong>：在空气中和液体中，粘附接触面的能量释放率与毛细现象差异极大，论文给出了跨介质接触本构的普适理论框架；</li>
-        <li><strong>高接触适应性</strong>：在非平面、弯曲管道与多孔材料表面，通过多级刚度渐变基底，显著提升了实际接触面积比。</li>
-      </ul>
     </div>
 
     <div class="article-back-nav">

@@ -7,14 +7,15 @@
   <script src="../../assets/theme-init.js?v=101aa242579c"></script>
   <link rel="stylesheet" href="../../assets/style.css?v=1c00a319f414">
   <link rel="stylesheet" href="../../assets/article.css">
-  <meta name="description" content="Hu2023 · 软体模块化攀爬机器人 Smcbot 精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <link rel="stylesheet" href="../../assets/paper-notes.css">
+  <meta name="description" content="Smcbot 将软体身体与专用足端分开设计：用可替换模块适配铁磁面、平面、管内以及光滑或粗糙曲面。模块化提供的是选用机制的能力，不能视为单个足端能自动适应所有表面。">
   <link rel="icon" href="../../assets/avatar.jpg" type="image/jpeg">
   <link rel="canonical" href="https://yxycutus.github.io/knowledge/papers/hu-2023.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Cutus · 机器人工程">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:title" content="Hu2023 · 软体模块化攀爬机器人 Smcbot 精读 — Cutus">
-  <meta property="og:description" content="Hu2023 · 软体模块化攀爬机器人 Smcbot 精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <meta property="og:description" content="Smcbot 将软体身体与专用足端分开设计：用可替换模块适配铁磁面、平面、管内以及光滑或粗糙曲面。模块化提供的是选用机制的能力，不能视为单个足端能自动适应所有表面。">
   <meta property="og:url" content="https://yxycutus.github.io/knowledge/papers/hu-2023.html">
   <meta property="og:image" content="https://yxycutus.github.io/assets/avatar.jpg">
   <meta property="og:image:alt" content="Cutus 的个人头像">
@@ -70,22 +71,23 @@
     </header>
 
     <div class="article-content">
-      <div class="article-callout">
-        <p><strong>一句话精要</strong>：提出 Smcbot 软体模块化攀爬机器人，通过柔顺 SMA 软体身体驱动模块与足端接口模块库（电磁足、吸盘足、干黏附柔性足、微刺柔性足），系统论证了在面对铁磁平面、普通平面、管道内外壁、光滑曲面和粗糙粗砺面等极端多介质场景时，模块化更换足端物理机制的优越性。</p>
-      </div>
+<details class="article-toc"><summary>本文目录 · 7 节</summary><ol><li><a href="#section-1">机制 / 结构如何把动作变成附着</a></li><li><a href="#section-2">项目启发 / 哪些值得迁移</a></li><li><a href="#evidence">证据 / 参数与测试条件</a></li><li><a href="#experiments">实验 / 转化为可检查的问题</a></li><li><a href="#limits">边界 / 这些结论不能直接外推</a></li><li><a href="#connections">关联阅读 / 沿问题继续读</a></li><li><a href="#sources">来源 / 阅读记录与原文</a></li></ol></details>
+<div class="article-callout"><p><strong>一句话精要</strong>：Smcbot 将软体身体与专用足端分开设计：用可替换模块适配铁磁面、平面、管内以及光滑或粗糙曲面。模块化提供的是选用机制的能力，不能视为单个足端能自动适应所有表面。</p></div>
+<p><time datetime="2026-09-20">整理更新：2026-09-20</time> · 论文事实、项目启发与待验证事项分开记录。</p><h2 id="section-1">机制 / 结构如何把动作变成附着</h2>
+<p>对称的 SMA–PDMS–弹簧钢身体模块把弯曲转为伸缩。足端库包含电磁足、吸盘足、软体撑管足、干黏附柔性足与微刺柔性足，各自通过磁吸、密封压差、撑紧摩擦或接触附着工作。</p><p>身体的输出位移和恢复时间受长宽比、弹簧刚度、PDMS 厚度和电流影响。足端能否接合又受预载和曲面几何影响，因此不能只优化身体步长，忽略下一步能否建立可靠接触。</p>
+<h2 id="section-2">项目启发 / 哪些值得迁移</h2>
+<p>它是“换足端模块适应环境”的对照。当前单足端双模构想若要体现价值，需要在限定的两类表面上证明无须换件即可切换，同时比较质量、切换时序与可靠性；无需宣称覆盖足端库的全部环境。</p>
+<h2 id="evidence">证据 / 参数与测试条件</h2>
+<div class="paper-table-wrap" role="region" aria-label="项目对照表" tabindex="0"><table class="article-table"><thead><tr><th scope="col">项目</th><th scope="col">原文或精读记录</th><th scope="col">条件与解释</th></tr></thead><tbody><tr><td>干黏附柔性足</td><td>80 × 16 mm，约 11 g</td><td>10:1 基底与 40:1 PDMS 黏附层</td></tr><tr><td>微刺足</td><td>5 个微刺—弹簧结构；板倾角 60°</td><td>轴径约 0.3 mm；注意支撑件先接触问题</td></tr><tr><td>微刺曲面运动</td><td>曲率半径 55 mm；每周期约 8 mm</td><td>仅对应该足端和曲面条件</td></tr><tr><td>干黏附足载荷</td><td>可带 80 g；静态支撑 120 g</td><td>运动载荷与静态保持不能合并</td></tr></tbody></table></div>
+<h2 id="experiments">实验 / 转化为可检查的问题</h2>
+<p>以下为结合阅读提出的实验建议，尚不代表本项目已完成：</p><ul><li>用“表面—足端机制—接合动作—释放动作”矩阵记录适用范围，显式记录不适用的组合。</li><li>固定身体驱动条件，只更换足端；再固定足端调身体，分辨失效来自驱动还是接触。</li></ul>
+<h2 id="limits">边界 / 这些结论不能直接外推</h2>
+<p>足端库的广覆盖来自不同构型，不能把各构型最高载荷和最好速度合并成一台机器人的统一能力。无绳化、小型化和频率仍是系统约束。</p>
+<h2 id="connections">关联阅读 / 沿问题继续读</h2>
+<ul><li><a href="hu-2019.html">Hu2019</a> — 查看早期 SMA 软体与微刺足集成的可行性和限制。</li><li><a href="hu-2021.html">Hu2021</a> — 对比同足端并联集成与换模块两种适应路线。</li><li><a href="liu-2026.html">Liu2026</a> — 对比按表面换足与在同一微结构内获得跨介质适应性。</li></ul><p><a href="connections.html">论文关联地图</a> · <a href="../scamp-climbing.html">当前项目记录</a>：光滑面方案仍在筛选，历史干黏附构想不等于已定型方案。</p>
+<h2 id="sources">来源 / 阅读记录与原文</h2>
+<p><strong>整理依据</strong>：paperreading：Hu2023_软模块化、Hu2023_结构概括与项目帮助；原文 Soft Modular Climbing Robots。</p><p><a href="https://doi.org/10.1109/TRO.2022.3189228" target="_blank" rel="noopener noreferrer">论文原文 · DOI 10.1109/TRO.2022.3189228</a></p>
 
-      <h2 id="section-1">一、 核心架构与足端库划分</h2>
-      <ul>
-        <li><strong>身体与足端物理架构解耦</strong>：身体模块专注实现大变形收缩、扭转弯曲与步长跨越，足端专用模块专注解决特定界面的锚定与快速脱附；</li>
-        <li><strong>丰富的足端物理库</strong>：
-          <ul>
-            <li>电磁模块（铁磁壁面大承重）；</li>
-            <li>真空吸盘模块（光滑非多孔气密表面）；</li>
-            <li>软体微刺阵列模块（粗糙多孔混凝土曲面）；</li>
-            <li>方向性干黏附垫（轻量化非导磁垂直面）。</li>
-          </ul>
-        </li>
-      </ul>
     </div>
 
     <div class="article-back-nav">

@@ -1,0 +1,10 @@
+/* Evidence tables remain readable with large fonts and on small screens. */
+.paper-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 20px 0;
+  border-radius: var(--radius-sm);
+}
+.paper-table-wrap .article-table { margin: 0; min-width: 540px; }
+.paper-table-wrap:focus-visible { outline: 2px solid var(--ustc-blue); outline-offset: 4px; }
+.article-content > p > time { color: var(--ink-muted); font-size: 0.875rem; }

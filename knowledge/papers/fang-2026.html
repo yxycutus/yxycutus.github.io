@@ -7,14 +7,15 @@
   <script src="../../assets/theme-init.js?v=101aa242579c"></script>
   <link rel="stylesheet" href="../../assets/style.css?v=1c00a319f414">
   <link rel="stylesheet" href="../../assets/article.css">
-  <meta name="description" content="Fang2026 · 仿生双模夹爪（微重力攀爬机器人）精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <link rel="stylesheet" href="../../assets/paper-notes.css">
+  <meta name="description" content="SPACE-1 面向刚性金属板与柔性 MLI 隔热层两类机械性质不同的表面：干黏附承担前者，爪刺穿刺/锚定承担后者。关键是轨迹、材料约束与双模式步态的共同设计。">
   <link rel="icon" href="../../assets/avatar.jpg" type="image/jpeg">
   <link rel="canonical" href="https://yxycutus.github.io/knowledge/papers/fang-2026.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Cutus · 机器人工程">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:title" content="Fang2026 · 仿生双模夹爪（微重力攀爬机器人）精读 — Cutus">
-  <meta property="og:description" content="Fang2026 · 仿生双模夹爪（微重力攀爬机器人）精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <meta property="og:description" content="SPACE-1 面向刚性金属板与柔性 MLI 隔热层两类机械性质不同的表面：干黏附承担前者，爪刺穿刺/锚定承担后者。关键是轨迹、材料约束与双模式步态的共同设计。">
   <meta property="og:url" content="https://yxycutus.github.io/knowledge/papers/fang-2026.html">
   <meta property="og:image" content="https://yxycutus.github.io/assets/gallery/fang-2026.webp">
   <meta property="og:image:alt" content="仿猫爪双模夹爪的工作原理">
@@ -71,20 +72,23 @@
     </header>
 
     <div class="article-content">
-      <div class="article-callout">
-        <p><strong>一句话精要</strong>：针对航天器外壁的机械异质表面（刚性金属 vs 柔性隔热层 MLI），设计了四足攀爬机器人 SPACE-1。核心末端集成干黏附与机械穿刺双模夹爪：刚性金属面使用 PU/SiO2 复合干黏附垫贴附，柔性多层隔热材料（MLI）采用偏置曲柄五杆机构控制微刺精确刺入与平滑脱附。</p>
-      </div>
-<figure class="media-figure" id="figure-fang-2026"><a href="../../picture/Zhiyue FANG仿猫爪.png" data-image-viewer data-title="仿猫爪双模夹爪的工作原理" data-caption="Fang et al. · 2026 · 穿刺与拔出两种动作的机构关系。"><img src="../../assets/gallery/fang-2026.webp" alt="仿猫爪双模夹爪的工作原理" width="832" height="450" loading="lazy" decoding="async" ><span class="figure-zoom-label">放大查看 ↗</span></a><figcaption><strong>仿猫爪双模夹爪的工作原理</strong>穿刺与拔出两种动作的机构关系。<span class="figure-credit">Fang et al. · 2026 · 阅读配图，与下文笔记对应。</span></figcaption></figure>
+<details class="article-toc"><summary>本文目录 · 7 节</summary><ol><li><a href="#section-1">机制 / 结构如何把动作变成附着</a></li><li><a href="#section-2">项目启发 / 哪些值得迁移</a></li><li><a href="#evidence">证据 / 参数与测试条件</a></li><li><a href="#experiments">实验 / 转化为可检查的问题</a></li><li><a href="#limits">边界 / 这些结论不能直接外推</a></li><li><a href="#connections">关联阅读 / 沿问题继续读</a></li><li><a href="#sources">来源 / 阅读记录与原文</a></li></ol></details>
+<div class="article-callout"><p><strong>一句话精要</strong>：SPACE-1 面向刚性金属板与柔性 MLI 隔热层两类机械性质不同的表面：干黏附承担前者，爪刺穿刺/锚定承担后者。关键是轨迹、材料约束与双模式步态的共同设计。</p></div>
+<figure class="media-figure" id="figure-fang-2026"><a href="../../picture/Zhiyue FANG仿猫爪.png" data-image-viewer data-title="仿猫爪双模夹爪的工作原理" data-caption="Fang et al. · 2026 · 穿刺与拔出两种动作的机构关系。"><img src="../../assets/gallery/fang-2026.webp" alt="仿猫爪双模夹爪的工作原理" width="832" height="450" loading="lazy" decoding="async" ><span class="figure-zoom-label">放大查看 ↗</span></a><figcaption><strong>仿猫爪双模夹爪的工作原理</strong>穿刺与拔出两种动作的机构关系。<span class="figure-credit">Fang et al. · 2026 · 阅读配图，与下文笔记对应。</span></figcaption></figure><p><time datetime="2026-09-20">整理更新：2026-09-20</time> · 论文事实、项目启发与待验证事项分开记录。</p><h2 id="section-1">机制 / 结构如何把动作变成附着</h2>
+<p>直线驱动器先带动滑块，再由偏置曲柄滑块和闭环连杆把位移转为爪尖插入、锚定与退出轨迹。运动学公式的作用是确保轨迹满足接触深度、方向和退出约束；读公式时先判断其约束目标，再看复数向量或关节角的表达。</p><p>MLI 柔软、起皱且可能被穿刺，与 Asbeck 的粗糙硬壁并不是同一问题。干黏附在柔性材料上的接触不稳定，不代表该材料“粗糙度大”；刚度、层间结构和是否允许损伤都影响机制选择。</p>
+<h2 id="section-2">项目启发 / 哪些值得迁移</h2>
+<p>“双模夹爪”“干黏附加爪刺”已有先例。当前构想需验证双稳态几何能否让两个接触机制分别工作，减少互相干涉，并量化切换成本和受载保持能力。连杆锁止也可能降低保持功耗，不能仅用“零保持功耗”判断创新性。</p>
+<h2 id="evidence">证据 / 参数与测试条件</h2>
+<div class="paper-table-wrap" role="region" aria-label="项目对照表" tabindex="0"><table class="article-table"><thead><tr><th scope="col">项目</th><th scope="col">原文或精读记录</th><th scope="col">条件与解释</th></tr></thead><tbody><tr><td>刚性表面模式</td><td>PU/SiO₂ 干黏附</td><td>重点是接触、预载与可重复脱附</td></tr><tr><td>柔性表面模式</td><td>爪刺穿刺 / 机械锚定 MLI</td><td>需考虑穿透深度和退出损伤</td></tr><tr><td>爪尖控制</td><td>直线驱动器 + 闭环连杆</td><td>运动学用于限定可执行轨迹</td></tr><tr><td>验证层级</td><td>材料复用、力响应、轨迹和整机运动</td><td>数值与具体载荷条件未在此补填</td></tr></tbody></table></div>
+<h2 id="experiments">实验 / 转化为可检查的问题</h2>
+<p>以下为结合阅读提出的实验建议，尚不代表本项目已完成：</p><ul><li>把材料循环测试、单足力—位移测试和整机运动分开记录；测试前说明是否允许穿刺或留下损伤。</li><li>对候选双模足端记录两种状态的暴露部件、接合路径和误接触情形，检查非工作机制是否干涉。</li></ul>
+<h2 id="limits">边界 / 这些结论不能直接外推</h2>
+<p>面向微重力场景的设计和演示不能直接证明正常重力下的竖直承重能力。双稳态薄板是否更轻、更省能需要同任务实测，不能预先称为最优方案。</p>
+<h2 id="connections">关联阅读 / 沿问题继续读</h2>
+<ul><li><a href="hu-2021.html">Hu2021</a> — 已将干黏附、微刺与 SMA 放在同一夹爪，是材料组合的直接对照。</li><li><a href="yu-2024.html">Yu2024</a> — 区分“更换附着机制”与“同一黏附机制开/关”。</li><li><a href="kim-2023.html">Kim2023</a> — 同样区分硬面互锁和软面穿刺，但 Kim 更强调动态触壁。</li></ul><p><a href="connections.html">论文关联地图</a> · <a href="../scamp-climbing.html">当前项目记录</a>：光滑面方案仍在筛选，历史干黏附构想不等于已定型方案。</p>
+<h2 id="sources">来源 / 阅读记录与原文</h2>
+<p><strong>整理依据</strong>：paperreading：Fang2026_双模夹爪、Fang2026_五杆爪刺机构、MLI机械穿刺约束。</p><p><a href="https://doi.org/10.1016/j.cja.2026.104167" target="_blank" rel="noopener noreferrer">论文原文 · DOI 10.1016/j.cja.2026.104167</a></p>
 
-      <h2 id="section-1">一、 核心创新与机构建模</h2>
-      <ul>
-        <li><strong>机械异质表面适应</strong>：航天器表面不是均质材质，单一附着机制（纯磁吸、纯干黏附或纯机械爪）无法可靠工作，必须进行双模/多模机制融合。</li>
-        <li><strong>五杆爪刺机构运动学</strong>：通过直线电缸驱动滑块移动，带动偏置曲柄摇杆输出角度，精密规划爪刺轨迹，确保刺尖满足 MLI 厚度不穿透底层金属、刺入角可控且退出时不撕裂隔热膜。</li>
-        <li><strong>整机空间步态验证</strong>：在微重力气浮台架与不同航天材料表面完成了稳定的四足攀爬与转弯演示。</li>
-      </ul>
-
-      <h2 id="section-2">二、 对双稳态足端设计的对比思考</h2>
-      <p>Fang2026 的双模态切换依赖较为复杂的精密连杆机械构型与电机线性推杆，整机结构刚性强但质量较大（适用于航天四足大机器人）。在微型飞行器平台上，必须寻求更加极致轻量化的方案，而基于材料本构的双稳态薄板 snap-through 跳跃，正是追求克级质量预算下的极优解。</p>
     </div>
 
     <div class="article-back-nav">

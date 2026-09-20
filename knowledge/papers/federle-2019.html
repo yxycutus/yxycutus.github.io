@@ -7,14 +7,15 @@
   <script src="../../assets/theme-init.js?v=101aa242579c"></script>
   <link rel="stylesheet" href="../../assets/style.css?v=1c00a319f414">
   <link rel="stylesheet" href="../../assets/article.css">
-  <meta name="description" content="Federle2019 · 运动中动态生物粘附与剥离力学机制精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <link rel="stylesheet" href="../../assets/paper-notes.css">
+  <meta name="description" content="动态生物黏附依靠机械调节快速开关：向身体拉动足垫通常增强附着，反向推动或改变剥离几何有利于释放。接触面积、界面强度和弹性应变能共同参与，不能只归因于“粘得更牢”。">
   <link rel="icon" href="../../assets/avatar.jpg" type="image/jpeg">
   <link rel="canonical" href="https://yxycutus.github.io/knowledge/papers/federle-2019.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Cutus · 机器人工程">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:title" content="Federle2019 · 运动中动态生物粘附与剥离力学机制精读 — Cutus">
-  <meta property="og:description" content="Federle2019 · 运动中动态生物粘附与剥离力学机制精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <meta property="og:description" content="动态生物黏附依靠机械调节快速开关：向身体拉动足垫通常增强附着，反向推动或改变剥离几何有利于释放。接触面积、界面强度和弹性应变能共同参与，不能只归因于“粘得更牢”。">
   <meta property="og:url" content="https://yxycutus.github.io/knowledge/papers/federle-2019.html">
   <meta property="og:image" content="https://yxycutus.github.io/assets/gallery/federle-2019.webp">
   <meta property="og:image:alt" content="生物附着中的方向性">
@@ -71,19 +72,23 @@
     </header>
 
     <div class="article-content">
-      <div class="article-callout">
-        <p><strong>一句话精要</strong>：剑桥大学经典综述，全面剖析了昆虫、壁虎在高速运动中动态控制附着与脱附的物理生物学机制：方向性粘附（Directional Adhesion）、剥离（Peeling）力学断裂模型，以及通过微细几何构造主动调控接触界面分离能的规律。</p>
-      </div>
-<figure class="media-figure" id="figure-federle-2019"><a href="../../picture/Walter Federle剪切敏感.png" data-image-viewer data-title="生物附着中的方向性" data-caption="Federle · 2019 · 拉动、推动与附着垫接触稳定性的关系。"><img src="../../assets/gallery/federle-2019.webp" alt="生物附着中的方向性" width="1338" height="728" loading="lazy" decoding="async" ><span class="figure-zoom-label">放大查看 ↗</span></a><figcaption><strong>生物附着中的方向性</strong>拉动、推动与附着垫接触稳定性的关系。<span class="figure-credit">Federle · 2019 · 阅读配图，与下文笔记对应。</span></figcaption></figure>
+<details class="article-toc"><summary>本文目录 · 7 节</summary><ol><li><a href="#section-1">机制 / 结构如何把动作变成附着</a></li><li><a href="#section-2">项目启发 / 哪些值得迁移</a></li><li><a href="#evidence">证据 / 参数与测试条件</a></li><li><a href="#experiments">实验 / 转化为可检查的问题</a></li><li><a href="#limits">边界 / 这些结论不能直接外推</a></li><li><a href="#connections">关联阅读 / 沿问题继续读</a></li><li><a href="#sources">来源 / 阅读记录与原文</a></li></ol></details>
+<div class="article-callout"><p><strong>一句话精要</strong>：动态生物黏附依靠机械调节快速开关：向身体拉动足垫通常增强附着，反向推动或改变剥离几何有利于释放。接触面积、界面强度和弹性应变能共同参与，不能只归因于“粘得更牢”。</p></div>
+<figure class="media-figure" id="figure-federle-2019"><a href="../../picture/Walter Federle剪切敏感.png" data-image-viewer data-title="生物附着中的方向性" data-caption="Federle · 2019 · 拉动、推动与附着垫接触稳定性的关系。"><img src="../../assets/gallery/federle-2019.webp" alt="生物附着中的方向性" width="1338" height="728" loading="lazy" decoding="async" ><span class="figure-zoom-label">放大查看 ↗</span></a><figcaption><strong>生物附着中的方向性</strong>拉动、推动与附着垫接触稳定性的关系。<span class="figure-credit">Federle · 2019 · 阅读配图，与下文笔记对应。</span></figcaption></figure><p><time datetime="2026-09-20">整理更新：2026-09-20</time> · 论文事实、项目启发与待验证事项分开记录。</p><h2 id="section-1">机制 / 结构如何把动作变成附着</h2>
+<p>综述中的剪切敏感性表现为法向附着随切向加载增强。对已研究的多种动物，附着约为剪切力一半是经验概括，并不是适用于所有人工材料、所有速度和所有预载的设计定律。正文也指出，单一剥离模型尚不能解释全部小角度实验结果。</p><p>在忽略伸长的理想胶带模型中，<code>F(1 − cos φ) = bG</code>：F 为沿胶带方向的拉力，φ 为相对基底的剥离角，b 为宽度，G 为单位新生界面的能量。固定 b、G 时，小角度对应更大的所需拉力；不能写成“小角度更容易脱附”，也不能将该式误写为指数规律。真实软足垫的伸长、预应变和滑移会修正这一关系。</p>
+<h2 id="section-2">项目启发 / 哪些值得迁移</h2>
+<p>设计目标是承重时维持合适剪切与接触形态，释放时卸载并让边缘形成可控剥离前沿。剥离能降低所需峰值力，却不等于机械功为零；驱动器、弹性储能和界面耗散需要分别衡量。</p>
+<h2 id="evidence">证据 / 参数与测试条件</h2>
+<div class="paper-table-wrap" role="region" aria-label="项目对照表" tabindex="0"><table class="article-table"><thead><tr><th scope="col">项目</th><th scope="col">原文或精读记录</th><th scope="col">条件与解释</th></tr></thead><tbody><tr><td>剪切敏感性</td><td>法向附着受切向加载调控</td><td>同时涉及接触面积和单位面积强度</td></tr><tr><td>经验比值</td><td>F<sub>A</sub> ≈ 0.5 F<sub>S</sub></td><td>原文动物数据概括；不是人工足垫通用常数</td></tr><tr><td>理想剥离模型</td><td>F(1 − cos φ) = bG</td><td>忽略胶带伸长，φ 相对基底</td></tr><tr><td>可控释放</td><td>卸剪切、改变角度、释放应变能</td><td>要同时记录峰值力与释放路径</td></tr></tbody></table></div>
+<h2 id="experiments">实验 / 转化为可检查的问题</h2>
+<p>以下为结合阅读提出的实验建议，尚不代表本项目已完成：</p><ul><li>固定试样、预载、速度，比较多个剥离角，记录力—位移曲线；区分总拉力与法向分量。</li><li>比较整体拉脱、边缘剥离与分区剥离，观察是否损伤材料、是否可重复恢复。</li></ul>
+<h2 id="limits">边界 / 这些结论不能直接外推</h2>
+<p>生物经验不是材料选型公式。微刺也可表现方向依赖，但其机械互锁不应与干黏附的分子接触或湿黏附机制混为一谈。</p>
+<h2 id="connections">关联阅读 / 沿问题继续读</h2>
+<ul><li><a href="hawkes-2015.html">Hawkes2015</a> — 把方向性变为可测的承载/摆动阻力与机器人步态。</li><li><a href="yu-2024.html">Yu2024</a> — 利用卷曲壳改变接触面积和剥离路径。</li><li><a href="liu-2026.html">Liu2026</a> — 通过贴片分区与柔顺支撑管理裂纹与应力。</li></ul><p><a href="connections.html">论文关联地图</a> · <a href="../scamp-climbing.html">当前项目记录</a>：光滑面方案仍在筛选，历史干黏附构想不等于已定型方案。</p>
+<h2 id="sources">来源 / 阅读记录与原文</h2>
+<p><strong>整理依据</strong>：myvault：Federle & Labonte 2019 - 摘要、剪切敏感黏附、剥离力学；按原文 Fig. 2–3 校正剥离角度说明。</p><p><a href="https://doi.org/10.1098/rstb.2019.0199" target="_blank" rel="noopener noreferrer">论文原文 · DOI 10.1098/rstb.2019.0199</a></p>
 
-      <h2 id="section-1">一、 核心生物力学机理</h2>
-      <ul>
-        <li><strong>剥离（Peeling）角度依赖性</strong>：经典 Kendall 剥离理论指出，黏附带的剥离力随着剥离角度从 $0^\circ$ 增加到 $90^\circ$ 会呈几何级数断崖式下跌；生物足端正是利用足爪滚动旋转，将宏观脱附载荷转换为局部大角度剥离，从而以几乎可以忽略不计的机械功实现脱离。</li>
-        <li><strong>动态各向异性起源</strong>：微观倾斜刚毛（setae）与不对称微凸台构造，使得顺向受拉时微结构受力展平、接触刚度增强，而逆向或法向受力时微结构屈曲剥离、接触面积溃缩。</li>
-      </ul>
-
-      <h2 id="section-2">二、 对人工倾斜干黏附垫的指导</h2>
-      <p>为仿壁虎 PDMS 倾斜柱微结构的光刻参数设计与脱附步态规划，提供了最底层的生物学与断裂力学理论支撑。</p>
     </div>
 
     <div class="article-back-nav">

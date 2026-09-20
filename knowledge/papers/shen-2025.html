@@ -7,14 +7,15 @@
   <script src="../../assets/theme-init.js?v=101aa242579c"></script>
   <link rel="stylesheet" href="../../assets/style.css?v=1c00a319f414">
   <link rel="stylesheet" href="../../assets/article.css">
-  <meta name="description" content="Shen2025 · 机器学习预测飞行机器人壁面栖停精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <link rel="stylesheet" href="../../assets/paper-notes.css">
+  <meta name="description" content="用经过实验校验的碰撞模型与数据驱动预测共同研究壁面栖停。主要问题是给定初始姿态、速度与升力时，机器人能否经历翻转和接合并最终停稳。">
   <link rel="icon" href="../../assets/avatar.jpg" type="image/jpeg">
   <link rel="canonical" href="https://yxycutus.github.io/knowledge/papers/shen-2025.html">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Cutus · 机器人工程">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:title" content="Shen2025 · 机器学习预测飞行机器人壁面栖停精读 — Cutus">
-  <meta property="og:description" content="Shen2025 · 机器学习预测飞行机器人壁面栖停精读 — Cutus。公开项目、学习笔记与研究记录。">
+  <meta property="og:description" content="用经过实验校验的碰撞模型与数据驱动预测共同研究壁面栖停。主要问题是给定初始姿态、速度与升力时，机器人能否经历翻转和接合并最终停稳。">
   <meta property="og:url" content="https://yxycutus.github.io/knowledge/papers/shen-2025.html">
   <meta property="og:image" content="https://yxycutus.github.io/assets/gallery/shen-2025.webp">
   <meta property="og:image:alt" content="飞行栖停的预测与控制流程">
@@ -71,16 +72,23 @@
     </header>
 
     <div class="article-content">
-      <div class="article-callout">
-        <p><strong>一句话精要</strong>：利用轻量级机器学习模型替代传统高计算耗时的接触碰撞多体动力学仿真，高效、高精度地预测微型飞行机器人在高速撞击垂直壁面时的栖停抓附成功率，为轨迹规划与控制器设计提供秒级评估工具。</p>
-      </div>
-<figure class="media-figure" id="figure-shen-2025"><a href="../../picture/Yunian Shen 机器学习.png" data-image-viewer data-title="飞行栖停的预测与控制流程" data-caption="Shen et al. · 2025 · 从仿真和实验数据，到学习模型与栖停控制。"><img src="../../assets/gallery/shen-2025.webp" alt="飞行栖停的预测与控制流程" width="1255" height="1111" loading="lazy" decoding="async" ><span class="figure-zoom-label">放大查看 ↗</span></a><figcaption><strong>飞行栖停的预测与控制流程</strong>从仿真和实验数据，到学习模型与栖停控制。<span class="figure-credit">Shen et al. · 2025 · 阅读配图，与下文笔记对应。</span></figcaption></figure>
+<details class="article-toc"><summary>本文目录 · 7 节</summary><ol><li><a href="#section-1">机制 / 结构如何把动作变成附着</a></li><li><a href="#section-2">项目启发 / 哪些值得迁移</a></li><li><a href="#evidence">证据 / 参数与测试条件</a></li><li><a href="#experiments">实验 / 转化为可检查的问题</a></li><li><a href="#limits">边界 / 这些结论不能直接外推</a></li><li><a href="#connections">关联阅读 / 沿问题继续读</a></li><li><a href="#sources">来源 / 阅读记录与原文</a></li></ol></details>
+<div class="article-callout"><p><strong>一句话精要</strong>：用经过实验校验的碰撞模型与数据驱动预测共同研究壁面栖停。主要问题是给定初始姿态、速度与升力时，机器人能否经历翻转和接合并最终停稳。</p></div>
+<figure class="media-figure" id="figure-shen-2025"><a href="../../picture/Yunian Shen 机器学习.png" data-image-viewer data-title="飞行栖停的预测与控制流程" data-caption="Shen et al. · 2025 · 从仿真和实验数据，到学习模型与栖停控制。"><img src="../../assets/gallery/shen-2025.webp" alt="飞行栖停的预测与控制流程" width="1255" height="1111" loading="lazy" decoding="async" ><span class="figure-zoom-label">放大查看 ↗</span></a><figcaption><strong>飞行栖停的预测与控制流程</strong>从仿真和实验数据，到学习模型与栖停控制。<span class="figure-credit">Shen et al. · 2025 · 阅读配图，与下文笔记对应。</span></figcaption></figure><p><time datetime="2026-09-20">整理更新：2026-09-20</time> · 论文事实、项目启发与待验证事项分开记录。</p><h2 id="section-1">机制 / 结构如何把动作变成附着</h2>
+<p>知识驱动部分用 LS-DYNA 建模触壁动力学，分析初始俯仰角 θ₀、水平入射速度 v₀ 和升力 F<sub>L</sub>。原文的 114 个仿真案例用于探索不同着陆行为，后续结合实验数据进行预测。114 指仿真案例数，不是全部真实试验数。</p><p>四类结果包括完美着陆、正常着陆、动能不足和动能过高。前两类都属于成功，但稳定过程不同；失败可能来自无法完成翻转，也可能来自反弹。因此“越慢越安全”或“升力越大越好”都不能作为统一策略。</p>
+<h2 id="section-2">项目启发 / 哪些值得迁移</h2>
+<p>当前台架首先需要可重复的状态记录和成功定义，再考虑代理模型。训练输入可从触壁前的速度、俯仰角、升力设定、表面和机构版本开始；成功标签必须说明保持多久、是否发生二次接触以及是否仍依赖旋翼。</p>
+<h2 id="evidence">证据 / 参数与测试条件</h2>
+<div class="paper-table-wrap" role="region" aria-label="项目对照表" tabindex="0"><table class="article-table"><thead><tr><th scope="col">项目</th><th scope="col">原文或精读记录</th><th scope="col">条件与解释</th></tr></thead><tbody><tr><td>知识驱动样本</td><td>114 个仿真工况</td><td>碰撞动力学分析；不能写成 114 次独立实飞</td></tr><tr><td>主要状态变量</td><td>θ₀、v₀、F<sub>L</sub></td><td>角度零点、正负号与力的定义必须沿用测试坐标</td></tr><tr><td>成功类型</td><td>完美着陆 / 正常着陆</td><td>二者的轨迹与晃动程度不同</td></tr><tr><td>失败类型</td><td>动能不足 / 动能过高</td><td>分别关注翻转不足与反弹脱离</td></tr></tbody></table></div>
+<h2 id="experiments">实验 / 转化为可检查的问题</h2>
+<p>以下为结合阅读提出的实验建议，尚不代表本项目已完成：</p><ul><li>按照不同表面或机构版本划分验证集，避免同一条轨迹的相邻帧同时进入训练与验证。</li><li>保留失败类别和全过程轨迹，检查模型在哪些速度、姿态区域误判；超出训练范围的结果单独标记。</li></ul>
+<h2 id="limits">边界 / 这些结论不能直接外推</h2>
+<p>后两项是面向本项目的数据记录建议，并非声称原文采用了这些数据划分。特定平台训练的模型不能直接保证换足端后的成功率，也不替代物理接触模型。</p>
+<h2 id="connections">关联阅读 / 沿问题继续读</h2>
+<ul><li><a href="pope-2017.html">Pope2017</a> — 理解飞行到栖停的真实动作和载荷路径。</li><li><a href="kim-2023.html">Kim2023</a> — 用缓冲、反弹与挂持解释成功区域背后的物理原因。</li><li><a href="asbeck-2006.html">Asbeck2006</a> — 表面挂点条件变化会影响结果，不能只输入机身运动状态。</li></ul><p><a href="connections.html">论文关联地图</a> · <a href="../scamp-climbing.html">当前项目记录</a>：光滑面方案仍在筛选，历史干黏附构想不等于已定型方案。</p>
+<h2 id="sources">来源 / 阅读记录与原文</h2>
+<p><strong>整理依据</strong>：myvault：Shen et al 2025 - 摘要、停靠；核对 Shen2025 原文知识驱动模型与数据驱动模型章节。</p><p><a href="https://doi.org/10.1038/s41467-025-67386-0" target="_blank" rel="noopener noreferrer">论文原文 · DOI 10.1038/s41467-025-67386-0</a></p>
 
-      <h2 id="section-1">一、 核心创新与方法论</h2>
-      <ul>
-        <li><strong>代理模型加速设计空间探索</strong>：微型飞行器撞墙瞬间包含接触力非线性、多自由度柔顺变形与气动突变，传统数值仿真每次需要几十分钟；采用数据驱动神经网络代理模型，毫秒级即可输出触碰姿态（俯仰角、攻角、线速度、角速度）下的抓附概率等高线；</li>
-        <li><strong>指导硬件参数逆向优化</strong>：通过对机器学习特征灵敏度分析，反向优化足部被动阻尼比与机翼前倾角。</li>
-      </ul>
     </div>
 
     <div class="article-back-nav">

@@ -60,23 +60,24 @@
   <header class="knowledge-hero" style="padding-top: 10px;">
     <div class="hero-pill-badge" style="margin-bottom: 12px;">
       <span class="status-ping"></span>
-      <span>13 PAPERS CATALOG · 精读笔记全集</span>
+      <span>14 PAPERS CATALOG · 精读笔记全集</span>
     </div>
     <h1 class="knowledge-title">仿生攀爬与黏附接触力学 · 论文精读专栏</h1>
     <p class="knowledge-desc">
-      围绕微型壁面攀爬机器人、微刺阵列与仿生干黏附机理、软体/双稳态可变刚度夹爪，系统精读整理的 13 篇前沿学术文献笔记（涵盖 IEEE T-RO、IJRR、ICRA、Science Advances、Nature Communications 等）。
+      围绕微型壁面攀爬机器人、微刺阵列与仿生干黏附机理、软体/双稳态可变刚度夹爪，系统精读整理的 14 篇前沿学术文献笔记（涵盖 IEEE T-RO、IJRR、ICRA、Science Advances、Nature Communications 等）。
     </p>
   </header>
 
   <p class="catalog-hint illustrated-hint">从一张图进入机制与实验。配图可在对应笔记中放大，查看图中标注与细节。</p>
+<div class="article-callout"><p><strong>从问题出发：</strong><a href="connections.html">打开论文关联地图</a>，沿“微刺接触 → 动态挂持”“剪切加载 → 可控剥离”“多表面模式选择”继续阅读。新增 <a href="kim-2023.html">Kim2023 跳跃与栖停机制</a>。</p></div>
 <!-- 检索与分类工具栏 -->
   <div class="knowledge-nav-bar">
     <div class="category-tags" id="category-tags">
-      <button class="cat-btn active" data-category="all">全部论文 (13)</button>
+      <button class="cat-btn active" data-category="all">全部论文 (14)</button>
       <button class="cat-btn" data-category="microspine">微刺与接触力学</button>
       <button class="cat-btn" data-category="adhesion">仿生干黏附</button>
       <button class="cat-btn" data-category="gripper">双模与软体夹爪</button>
-      <button class="cat-btn" data-category="aerial">飞行栖停与攀爬</button>
+      <button class="cat-btn" data-category="aerial">飞行、跳跃与栖停</button>
     </div>
     <div class="search-input-wrap">
       <svg class="search-input-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -86,6 +87,8 @@
 
   <!-- 论文卡片列表 -->
   <div class="filter-summary" hidden><p id="filter-count" role="status" aria-live="polite"></p><button id="filter-reset" class="cat-btn" type="button">清除筛选</button></div><div class="k-grid" id="k-grid">
+<a class="k-card" href="kim-2023.html" data-category="aerial" data-keywords="kim 2023 jumping perching 跳跃 仿鸟 腱绳 缓冲 黏弹性 离合 储能 反弹 互锁 穿刺"><div class="k-tag-row"><span class="k-tag">Advanced Intelligent Systems 2023</span></div><h3>Kim2023 · 仿鸟跳跃机器人栖停机制</h3><p>仿鸟腿缓冲、腱绳被动收紧与爪刺挂持共同完成跳跃后的壁面栖停。重点是缓冲与接合的耦合，以及栖停如何为再次跳跃提供新的起点。</p><div class="k-footer"><span>阅读完整笔记</span><span aria-hidden="true">→</span></div></a>
+
 
     <!-- 1. Asbeck2006 -->
     <a class="k-card" href="asbeck-2006.html" data-category="microspine" data-keywords="asbeck 2006 微刺 粗糙 接触力学 尖端半径 顺应性 stanford ijrr">
@@ -95,7 +98,7 @@
         <span class="k-count">Stanford</span>
       </div>
       <h3>Asbeck2006 · 顺应性微刺阵列攀爬硬质垂直面</h3>
-      <p>系统建立微刺与粗糙表面的二维接触仿真模型。指出 Ra/Rq 均方根粗糙度不代表挂持力，揭示刺尖半径与可用微凸体（asperity）密度的尺度权衡，确立顺应性阵列设计原则。</p>
+      <p>微刺是否挂得住，取决于刺尖能够接近并承载的局部微凸体，而不只是表面的平均粗糙度。小刺尖提高找到挂点的机会，局部顺应结构让多个挂点共同分担载荷。</p>
       <div class="k-footer">
         <span>Alan T. Asbeck, Cutkosky et al.</span>
         <span class="k-arrow">完整笔记 →</span>
@@ -110,7 +113,7 @@
         <span class="k-count">Stanford</span>
       </div>
       <h3>Hawkes2015 · 百倍自重干黏附垂直攀爬与各向异性分析</h3>
-      <p>利用方向性 PDMS 微楔剪切激活机制，实现 9g 微型机器人挂载百倍自重。提出各向异性比指标 alpha = Anp / Ap，阐明换步摆动阶段压低反向脱附阻力 Anp 的关键结构。</p>
+      <p>高载荷爬墙同时需要“承重时抓牢”和“摆动时放开”。Hawkes 用方向性干黏附、连接几何和切缝降低非优选方向阻力，让微型机器人实现高载荷比的竖直攀爬。</p>
       <div class="k-footer">
         <span>Elliot W. Hawkes, Cutkosky et al.</span>
         <span class="k-arrow">完整笔记 →</span>
@@ -125,7 +128,7 @@
         <span class="k-count">Stanford</span>
       </div>
       <h3>Pope2017 · SCAMP 室外垂直粗糙面多模态栖停与攀爬 MAV</h3>
-      <p>微型飞行器栖停后在室外混凝土/砖墙上重定位攀爬。核心创新：弹性微刺螺旋勾爪，以及巧妙利用旋翼残余推力作为法向微刺预紧辅助力，完成触壁动能缓冲吸收。</p>
+      <p>SCAMP 把飞行、粗糙壁面栖停、攀爬和再次起飞串成一套系统。微刺解决附着，尾部与旋翼改变触壁姿态和承载条件，传感与动作时序负责各模式之间的过渡。</p>
       <div class="k-footer">
         <span>Morgan T. Pope, Hawkes et al.</span>
         <span class="k-arrow">完整笔记 →</span>
@@ -140,7 +143,7 @@
         <span class="k-count">沈自所 / 空间站</span>
       </div>
       <h3>Fang2026 · 仿生双模夹爪（微重力攀爬机器人 SPACE-1）</h3>
-      <p>面向微重力航天器外壁异质表面：刚性金属面使用 PU/SiO2 干黏附，柔性 MLI 隔热层使用倒刺机械穿刺。通过偏置曲柄五杆机构实现爪刺精确插入与退出轨迹控制。</p>
+      <p>SPACE-1 面向刚性金属板与柔性 MLI 隔热层两类机械性质不同的表面：干黏附承担前者，爪刺穿刺/锚定承担后者。关键是轨迹、材料约束与双模式步态的共同设计。</p>
       <div class="k-footer">
         <span>Zhiyue Fang, Yongxu Lu et al.</span>
         <span class="k-arrow">完整笔记 →</span>
@@ -155,7 +158,7 @@
         <span class="k-count">Illinois Tech</span>
       </div>
       <h3>Modabberifar2018 · SMA 丝驱动仿壁虎方向性干黏附夹爪</h3>
-      <p>利用 SMA 丝热致收缩替代笨重舵机直接施加剪切载荷，1s 内激活干黏附，断电靠弹簧与自然冷却复位。提出三臂单根 SMA 串联均载拓扑，解决多臂张力不一致难题。</p>
+      <p>SMA 丝收缩拉动滑块，为三片方向性干黏附垫提供剪切加载；断电冷却后由弹簧复位释放。结构紧凑，但加热保持和冷却复位构成明显的能耗与速度约束。</p>
       <div class="k-footer">
         <span>Mehdi Modabberifar, Matthew Spenko</span>
         <span class="k-arrow">完整笔记 →</span>
@@ -170,7 +173,7 @@
         <span class="k-count">IIT / NASA JPL</span>
       </div>
       <h3>Ruffatto2014 · 静电-仿壁虎微楔混合粘附（EDA 复合结构）</h3>
-      <p>在厚度方向将静电电极与方向性 PDMS 微楔结合（EDA）：静电场提供法向主动贴合预载建立分子接触，微楔提供大剪切承载，显著增强对粗糙及非理想表面的容忍度。</p>
+      <p>EDA 在同一柔性垫内组合静电吸附和方向性微楔：电场帮助建立真实接触，干黏附结构参与承载。其优势是复杂表面的适应性，并非在所有材料上获得最高剪切强度。</p>
       <div class="k-footer">
         <span>Donald Ruffatto III, Aaron Parness et al.</span>
         <span class="k-arrow">完整笔记 →</span>
@@ -185,7 +188,7 @@
         <span class="k-count">微重力攀爬</span>
       </div>
       <h3>Yu2024 · 仿壁虎机器人新型可变刚度双稳态黏附足爪</h3>
-      <p>面向微重力航天器表面：基于双稳态预应力壳脚趾与低弹性模量改性 PU 黏附层。伸展模式实现高刚度贴附承载，卷曲模式大幅缩小有效接触面实现低撕裂剥离脱附。</p>
+      <p>PU 黏附层与双稳态预应力壳构成可变刚度脚趾：展开时支持大面积贴附，卷曲时逐步剥离。同一附着材料在两种形态下开关，并不等于在微刺与干黏附之间切换。</p>
       <div class="k-footer">
         <span>Zhiwei Yu, Aihong Ji et al.</span>
         <span class="k-arrow">完整笔记 →</span>
@@ -199,7 +202,7 @@
         <span class="k-count">中科大 (USTC)</span>
       </div>
       <h3>Hu2021 · 平面干黏附、软驱动与微刺集成软夹爪</h3>
-      <p>中科大董二宝老师团队成果：将软体执行器、平面软 PDMS 黏附垫与微刺-弹簧-SMA coil 并联集成在单个柔性指爪内，实现光滑物、粗糙物与薄片的多策略鲁棒包络抓取。</p>
+      <p>将平面 PDMS 干黏附、SMA 软驱动和可伸缩微刺集成到同一夹爪。通过弯曲、预载和微刺伸缩选择抓取策略，说明多机制共存时必须解决接触干涉。</p>
       <div class="k-footer">
         <span>Qiqiang Hu, Erbao Dong, Dong Sun</span>
         <span class="k-arrow">完整笔记 →</span>
@@ -213,7 +216,7 @@
         <span class="k-count">中科大 (USTC)</span>
       </div>
       <h3>Hu2023 · 软体模块化攀爬机器人 Smcbot 与足端库</h3>
-      <p>中科大董二宝老师团队成果：提出 SMA 软体躯干与可替换足端模块库（微刺、干黏附、电磁、吸盘），系统论证了多介质/异质表面环境中根据壁面材质匹配足端物理机制的必要性。</p>
+      <p>Smcbot 将软体身体与专用足端分开设计：用可替换模块适配铁磁面、平面、管内以及光滑或粗糙曲面。模块化提供的是选用机制的能力，不能视为单个足端能自动适应所有表面。</p>
       <div class="k-footer">
         <span>Qiqiang Hu, Erbao Dong, Dong Sun</span>
         <span class="k-arrow">完整笔记 →</span>
@@ -227,7 +230,7 @@
         <span class="k-count">中科大 (USTC)</span>
       </div>
       <h3>Hu2019 · 仿尺蠖微刺阵列软体攀爬机器人</h3>
-      <p>中科大董二宝团队早期原型：SMA 驱动弹簧钢-PDMS 柔顺足与伸缩躯干，足端嵌入微刺阵列，在粗糙曲面、泡沫曲面与软质管道表面演示低速尺蠖爬行。</p>
+      <p>SMA 软体驱动与柔顺微刺足使仿尺蠖机器人能够在粗糙或软质曲面上运动。它提供可制造的早期集成方法，也暴露出横向支撑、冷却速度和足端时序的限制。</p>
       <div class="k-footer">
         <span>Qiqiang Hu, Erbao Dong et al.</span>
         <span class="k-arrow">完整笔记 →</span>
@@ -235,13 +238,13 @@
     </a>
 
     <!-- 11. Liu2026 -->
-    <a class="k-card" href="liu-2026.html" data-category="aerial" data-keywords="liu 2026 跨介质 水陆 壁面 攀爬 接触适应性 science advances">
+    <a class="k-card" href="liu-2026.html" data-category="adhesion" data-keywords="liu 2026 跨介质 水陆 壁面 攀爬 接触适应性 science advances">
       <div class="k-tag-row">
         <span class="k-tag">Science Advances 2026 · 跨介质</span>
         <span class="k-count">顶级成果</span>
       </div>
       <h3>Liu2026 · 仿生跨介质壁面攀爬机器人与接触适应性</h3>
-      <p>实现水下与陆地水陆双介质跨越攀爬，通过自适应接触黏附机制克服液体阻力与浮力干扰，展示了仿生机构在极端界面动力学下的高鲁棒性。</p>
+      <p>HMSAMS 将蘑菇形帽檐和中空腔体结合，再通过核壳贴片与柔顺基底组织成机器人接触单元。研究重点是干燥/水下的黏附与接触适应，不是已被证明的方向性微楔步态。</p>
       <div class="k-footer">
         <span>Haoran Liu, Hongmiao Tian et al.</span>
         <span class="k-arrow">完整笔记 →</span>
@@ -256,7 +259,7 @@
         <span class="k-count">AI 交叉</span>
       </div>
       <h3>Shen2025 · 机器学习预测微型飞行机器人垂直壁面栖停</h3>
-      <p>构建轻量机器学习代理模型取代高成本多体碰撞动力学仿真，毫秒级高效预测飞行器不同进近角、接触速度下的触壁栖停成功率，指导栖停控制器设计。</p>
+      <p>用经过实验校验的碰撞模型与数据驱动预测共同研究壁面栖停。主要问题是给定初始姿态、速度与升力时，机器人能否经历翻转和接合并最终停稳。</p>
       <div class="k-footer">
         <span>Yunian Shen, Chenxi Mao et al.</span>
         <span class="k-arrow">完整笔记 →</span>
@@ -271,7 +274,7 @@
         <span class="k-count">剑桥大学</span>
       </div>
       <h3>Federle2019 · 运动中动态生物粘附与剥离力学机制综述</h3>
-      <p>剑桥大学经典综述：系统总结昆虫与壁虎在高速运动中的动态方向性粘附控制、接触角依赖性与剥离（peeling）能量释放率模型，为人工倾斜柱制造提供力学地基。</p>
+      <p>动态生物黏附依靠机械调节快速开关：向身体拉动足垫通常增强附着，反向推动或改变剥离几何有利于释放。接触面积、界面强度和弹性应变能共同参与，不能只归因于“粘得更牢”。</p>
       <div class="k-footer">
         <span>Walter Federle, David Labonte</span>
         <span class="k-arrow">完整笔记 →</span>
