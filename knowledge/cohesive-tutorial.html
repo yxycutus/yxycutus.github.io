@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cohesive 仿真教程 — Cutus 知识库</title>
+  <script src="../assets/theme-init.js?v=101aa242579c"></script>
+  <link rel="stylesheet" href="../assets/style.css?v=1c00a319f414">
+  <link rel="stylesheet" href="../assets/article.css">
+  <link rel="stylesheet" href="../assets/cohesive.css">
+  <meta name="description" content="Abaqus Cohesive 仿真图文教程：模型导入、材料与网格、三种粘性分析方法、结果读取，以及 Python 和 Agent 辅助仿真。">
+  <link rel="icon" href="../assets/avatar.jpg" type="image/jpeg">
+  <link rel="canonical" href="https://yxycutus.github.io/knowledge/cohesive-tutorial.html">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Cutus · 机器人工程">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:title" content="Cohesive 仿真教程 — Cutus 知识库">
+  <meta property="og:description" content="Abaqus Cohesive 仿真图文教程：模型导入、材料与网格、三种粘性分析方法、结果读取，以及 Python 和 Agent 辅助仿真。">
+  <meta property="og:url" content="https://yxycutus.github.io/knowledge/cohesive-tutorial.html">
+  <meta property="og:image" content="https://yxycutus.github.io/assets/avatar.jpg">
+  <meta property="og:image:alt" content="Cutus 的个人头像">
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="../assets/experience.css?v=7f060ba4ccc3">
+</head>
+<body>
+<a class="skip-link" href="#main-content">跳到正文</a>
+
+<div class="bg-grid-pattern"></div>
+
+<!-- 顶栏导航 -->
+<nav class="navbar">
+  <div class="nav-container">
+    <a class="nav-brand" href="../index.html">
+      <img src="../assets/avatar.jpg" alt="Cutus Avatar" class="brand-avatar" width="32" height="32">
+      <span class="brand-title">Cutus</span>
+      <span class="brand-tag">USTC Robotics</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-menu">
+<li><a href="../search.html">搜索</a></li>
+        <li><a href="../about/index.html">关于我</a></li>
+        <li><a href="index.html" class="active">知识库</a></li>
+        <li><a href="../timeline/index.html">时间线</a></li>
+      </ul>
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="切换主题"></button>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content" tabindex="-1" class="article-wrap">
+  <div class="article-breadcrumb">
+    <a href="../index.html">首页</a>
+    <span>/</span>
+    <a href="index.html">知识库</a>
+    <span>/</span>
+    <span>Cohesive 仿真教程</span>
+  </div>
+
+  <article>
+    <header class="article-header">
+      <div class="article-badge"><span>ABAQUS · COHESIVE · 图文教程</span></div>
+      <h1 class="article-title">Cohesive 仿真教程</h1>
+      <div class="article-meta-row"><span class="article-meta-item">作者：Cutus（易兴宇）</span><span class="article-meta-item">原文更新：2026 年 5 月 6 日</span><span class="article-meta-item">34 张操作配图</span></div>
+    </header>
+    <details class="article-toc"><summary>本文目录 · 22 个章节</summary><ol><li class="toc-level-2"><a href="#section-1">软件准备</a></li>
+<li class="toc-level-3"><a href="#section-2">关于软件——abaqus</a></li>
+<li class="toc-level-3"><a href="#section-3">文件类型</a></li>
+<li class="toc-level-2"><a href="#section-4">Cohesive工作介绍</a></li>
+<li class="toc-level-2"><a href="#section-5">正式教程</a></li>
+<li class="toc-level-3"><a href="#section-6">导入部件（part）</a></li>
+<li class="toc-level-3"><a href="#section-7">属性与材料（section）</a></li>
+<li class="toc-level-3"><a href="#section-8">关于网格划分（mesh）</a></li>
+<li class="toc-level-4"><a href="#section-9">四面体网格</a></li>
+<li class="toc-level-4"><a href="#section-10">六面体网格</a></li>
+<li class="toc-level-4"><a href="#section-11">最终网格效果</a></li>
+<li class="toc-level-3"><a href="#section-12">粘性分析的三种方法</a></li>
+<li class="toc-level-4"><a href="#section-13">Cohesive mesh</a></li>
+<li class="toc-level-4"><a href="#section-14">Cohesive behavior</a></li>
+<li class="toc-level-4"><a href="#section-15">Cohesive element</a></li>
+<li class="toc-level-3"><a href="#section-16">三种方法的总结对比</a></li>
+<li class="toc-level-3"><a href="#section-17">获得粘附力的方法</a></li>
+<li class="toc-level-2"><a href="#section-18">附加教程</a></li>
+<li class="toc-level-3"><a href="#section-19">abaqus基于python的二次开发</a></li>
+<li class="toc-level-3"><a href="#section-20">利用agent协助CAE工作</a></li>
+<li class="toc-level-3"><a href="#section-21">将codex与abaqus完全打通</a></li>
+<li class="toc-level-2"><a href="#section-22">小结</a></li></ol></details>
+    <div class="article-content">
+      <p>这篇教程从 Abaqus 文件类型和 Cohesive 分析的基本概念讲起，依次记录模型导入、材料与网格设置、三种粘性分析方法、结果读取，以及 Python 和 Agent 辅助仿真的实践。</p>
+      <h2 id="section-1">软件准备</h2>
+<h3 id="section-2">关于软件——abaqus</h3>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-01.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-01.png" alt="关于软件——abaqus：教程操作截图 1" width="114" height="103" loading="lazy" decoding="async"></a><figcaption>图 1 · 关于软件——abaqus（点击查看原图）</figcaption></figure>
+<div class="article-callout"><p>Abaqus 是一款常用的有限元分析软件，主要用于结构、热传导、接触、非线性等工程仿真计算。它能够帮助用户建立模型、设置材料与边界条件，并对结果进行可视化分析，广泛应用于机械、土木、材料等领域。</p></div>
+<p>安装软件建议参考b站安装教程：<a href="https://www.bilibili.com/video/BV1BJ4m1L797/?spm_id_from=333.337.search-card.all.click&amp;vd_source=6ac2d6197167db64d6f37b6ed81e86b8" target="_blank" rel="noopener noreferrer">https://www.bilibili.com/video/BV1BJ4m1L797/?spm_id_from=333.337.search-card.all.click&amp;vd_source=6ac2d6197167db64d6f37b6ed81e86b8</a></p>
+<p>软件的上手很快，基本上跟着几个教程做一做就能弄懂个大概，推荐的入门教程：</p>
+<p><a href="https://www.bilibili.com/video/BV1yD4y197eQ/?spm_id_from=333.337.search-card.all.click&amp;vd_source=6ac2d6197167db64d6f37b6ed81e86b8" target="_blank" rel="noopener noreferrer">https://www.bilibili.com/video/BV1yD4y197eQ/?spm_id_from=333.337.search-card.all.click&amp;vd_source=6ac2d6197167db64d6f37b6ed81e86b8</a></p>
+<p>小建议：软件初始的操作按键不太好用，可以在设置中把转动改成鼠标中键，移动改成Ctrl+中键（和solidworks一致）进软件的时候尽量不要挂梯子，似乎会影响获取许可证，成功进入后挂梯子不影响。</p>
+<h3 id="section-3">文件类型</h3>
+<p>abaqus的文件类型很多，但是最有用的只有几个。</p>
+<p>首先是.cae文件，就是仿真的主体文件，</p>
+<p>它保存了模型建立、材料参数、装配关系、分析步设置、网格划分以及后处理显示等内容。平时建模和修改模型时，最常接触的就是这种文件。</p>
+<p>其次是 .inp 文件，也就是输入文件。它本质上是一个文本文件，记录了模型、材料、边界条件、载荷和计算控制等信息。Abaqus 在提交计算时会读取这类文件，因此它也是进行检查、修改参数以及批量计算时非常重要的文件。</p>
+<p>还有 .odb 文件，即结果数据库文件。这个文件中保存了计算完成后的结果数据，比如位移、应力、应变等后处理信息。通常查看仿真结果时，主要就是打开 .odb 文件。</p>
+<p>另外常见的还有 .jnl 文件，它是操作日志文件，会记录在 Abaqus/CAE 中的大部分操作过程。在出现误操作或需要回顾建模步骤时，这类文件有一定参考价值。</p>
+<p>.msg、.dat、.sta 文件 也比较重要，它们主要用于查看计算过程和判断任务是否正常运行。</p>
+<ul><li>.sta 文件通常用来快速查看计算进度；</li></ul>
+<ul><li>.msg 文件可以帮助排查求解过程中的报错和警告；</li></ul>
+<ul><li>.dat 文件则会保存一部分计算输出信息，便于检查分析结果和求解状态。</li></ul>
+<p>如果计算失败，最先查看的往往就是这些文件。</p>
+<p>最后是 .log 文件，它主要记录程序运行时的一些基本信息，也可以在排查问题时作为辅助参考。</p>
+<hr>
+
+<h2 id="section-4">Cohesive工作介绍</h2>
+<p>Cohesive 是一种用于描述界面分层、开裂与损伤演化的分析方法，常用于研究材料或结构之间的粘接失效过程。 在仿真中，它可以模拟两个部件连接界面从初始粘结、受载损伤，到最终分离的全过程，因此在复合材料分层、胶层失效、界面断裂等问题中应用非常广泛。</p>
+<p>Abaqus 在进行 Cohesive 分析时有较明显的优势。 首先，它能够方便地定义界面的刚度、损伤起始准则和损伤演化规律，适合建立较完整的界面失效模型。其次，Abaqus 同时支持 Cohesive 单元 和 基于表面的 Cohesive 接触 两种方式，建模选择比较灵活，能够适应不同类型的结构问题。除此之外，Abaqus 的后处理功能较强，能够直观查看界面应力、损伤变量以及裂纹扩展过程，便于分析结果和定位失效区域。对于复合材料、胶接结构以及层间损伤等问题，Abaqus 已经是较成熟且常用的分析平台。</p>
+<hr>
+<h2 id="section-5">正式教程</h2>
+<div class="article-callout"><p>教程部分提到的内容是在cohesive分析中需要特别强调的内容，其他没提到的部分按abaqus的基本使用方法来。</p></div>
+<h3 id="section-6">导入部件（part）</h3>
+<p>在左侧模型树右键部件，选择导入</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-02.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-02.png" alt="导入部件（part）：教程操作截图 2" width="409" height="330" loading="lazy" decoding="async"></a><figcaption>图 2 · 导入部件（part）（点击查看原图）</figcaption></figure>
+
+<p>选择x_t类型文件，就可以导入来自solidworks的模型</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-03.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-03.png" alt="导入部件（part）：教程操作截图 3" width="738" height="93" loading="lazy" decoding="async"></a><figcaption>图 3 · 导入部件（part）（点击查看原图）</figcaption></figure>
+
+<h3 id="section-7">属性与材料（section）</h3>
+<p>关于粘附力分析需要的参数有：</p>
+<p class="cohesive-attachment">原文附件：副本date for perching.xlsx。<a href="https://ecnot8h4g2fc.feishu.cn/wiki/Zlhcw2yToixAX5klpytcPXNQnke?from=from_copylink" target="_blank" rel="noopener noreferrer">在飞书原文查看</a></p>
+<p>设置材料的界面如下：（有一些参数在设置时可能在某些子选项中，比如断裂能，粘性系数，要仔细寻找）</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-04.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-04.png" alt="属性与材料（section）：教程操作截图 4" width="824" height="1075" loading="lazy" decoding="async"></a><figcaption>图 4 · 属性与材料（section）（点击查看原图）</figcaption></figure>
+<p>粘性损伤演化可以用不同种规则，比较常用的maxs最大名义应力准则，</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-05.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-05.png" alt="属性与材料（section）：教程操作截图 5" width="559" height="310" loading="lazy" decoding="async"></a><figcaption>图 5 · 属性与材料（section）（点击查看原图）</figcaption></figure>
+<p>设置好材料参数后，创建截面，选择实体均质，用于粘性部分的截面要设置为粘性。</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-06.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-06.png" alt="属性与材料（section）：教程操作截图 6" width="1008" height="265" loading="lazy" decoding="async"></a><figcaption>图 6 · 属性与材料（section）（点击查看原图）</figcaption></figure>
+<h3 id="section-8">关于网格划分（mesh）</h3>
+
+<p>网格有三种，六面体四面体以及楔形，楔形我没怎么用过，这里不提及。</p>
+<p>根据经验来看，做粘附力的有限元分析一定是六面体网格更好，也就是计算的准确性以及收敛的成功率都会更高。</p>
+<p>但是对于稍微有点复杂的部件，划分出高质量的网格并不简单，</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-07.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-07.png" alt="关于网格划分（mesh）：教程操作截图 7" width="1176" height="705" loading="lazy" decoding="async"></a><figcaption>图 7 · 关于网格划分（mesh）（点击查看原图）</figcaption></figure>
+<h4 id="section-9">四面体网格</h4>
+<p>对于这样的部件，如果直接使用一键划分网格的功能，会提示：</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-08.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-08.png" alt="四面体网格：教程操作截图 8" width="1218" height="158" loading="lazy" decoding="async"></a><figcaption>图 8 · 四面体网格（点击查看原图）</figcaption></figure>
+<p>我们点击指派网格属性，选中这个部件，可以改为四面体网格,</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-09.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-09.png" alt="四面体网格：教程操作截图 9" width="936" height="902" loading="lazy" decoding="async"></a><figcaption>图 9 · 四面体网格（点击查看原图）</figcaption></figure>
+<p>这样可以直接快速得到四面体网格，当然如此丑陋的网格非常容易在计算中出错，</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-10.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-10.png" alt="四面体网格：教程操作截图 10" width="1358" height="789" loading="lazy" decoding="async"></a><figcaption>图 10 · 四面体网格（点击查看原图）</figcaption></figure>
+<h4 id="section-10">六面体网格</h4>
+<p>要划分相对高质量的网格，需要我们把部件进行适当简化与拆分，首先圆形孔对于底面的粘附力计算影响很小，直接简化掉，再利用切分功能，把部件沿着边线切成多个小部分：</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-11.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-11.png" alt="六面体网格：教程操作截图 11" width="129" height="113" loading="lazy" decoding="async"></a><figcaption>图 11 · 六面体网格（点击查看原图）</figcaption></figure>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-12.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-12.png" alt="六面体网格：教程操作截图 12" width="1510" height="638" loading="lazy" decoding="async"></a><figcaption>图 12 · 六面体网格（点击查看原图）</figcaption></figure>
+<p>选择结构化的六面体网格就能绘制一个相对高质量的网格了（网格绘制还有扫掠等方法，但是学习成本有点高）</p>
+<p>但是还要手动改一下播种（seed）的选项让网格更加利于我们的cohesive分析。</p>
+<p>点击为边布种，</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-13.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-13.png" alt="六面体网格：教程操作截图 13" width="146" height="90" loading="lazy" decoding="async"></a><figcaption>图 13 · 六面体网格（点击查看原图）</figcaption></figure>
+<p>先选择底面的四个边，单元数可以设置为三或四，因为底面参与粘性力的计算，网格要密集一点：</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-14.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-14.png" alt="六面体网格：教程操作截图 14" width="622" height="337" loading="lazy" decoding="async"></a><figcaption>图 14 · 六面体网格（点击查看原图）</figcaption></figure>
+<p>柱子边上的种子可以尽量靠近底部更密集（通过设置偏心率实现），因为越靠近底面应力越集中，种子多好计算：</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-15.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-15.png" alt="六面体网格：教程操作截图 15" width="553" height="601" loading="lazy" decoding="async"></a><figcaption>图 15 · 六面体网格（点击查看原图）</figcaption></figure>
+<h4 id="section-11">最终网格效果</h4>
+<p>通过这些设置终于得到了一个让人比较安心的网格：</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-16.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-16.png" alt="最终网格效果：教程操作截图 16" width="1978" height="907" loading="lazy" decoding="async"></a><figcaption>图 16 · 最终网格效果（点击查看原图）</figcaption></figure>
+<h3 id="section-12">粘性分析的三种方法</h3>
+<h4 id="section-13">Cohesive mesh</h4>
+<p>目前这种方法我使用的不多，只是作为一个参考思路。</p>
+<p>赋予网格粘性，让连接处的网格承担粘附力的计算。在左边的工具栏里选择最下方的编辑网格，</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-17.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-17.png" alt="Cohesive mesh：教程操作截图 17" width="123" height="99" loading="lazy" decoding="async"></a><figcaption>图 17 · Cohesive mesh（点击查看原图）</figcaption></figure>
+<p>网格模块里有一个功能叫insert cohesive seams，</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-18.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-18.png" alt="Cohesive mesh：教程操作截图 18" width="333" height="306" loading="lazy" decoding="async"></a><figcaption>图 18 · Cohesive mesh（点击查看原图）</figcaption></figure>
+<p>选择底面的网格，网格颜色有变化（或者出现了绿色的斑点）就是代表设置成功了。但是可以注意到这一步并没有让我们设置任何粘性参数，因为这里只是告诉软件我这一块网格将用来做粘性分析，具体的粘性参数还是要在属性里面设置。</p>
+<p>回到属性模块，在创建截面中类型选择其他——粘性，</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-19.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-19.png" alt="Cohesive mesh：教程操作截图 19" width="270" height="364" loading="lazy" decoding="async"></a><figcaption>图 19 · Cohesive mesh（点击查看原图）</figcaption></figure>
+<p>材料就选择设置好的粘性材料，响应选择牵引分离或连续体（根据工作的需要查询用哪一种更合适），平面外厚度是指参与计算的粘性层的厚度，也就是说虽然网格是没有厚度的，但是可以告诉它网格代表的粘性材料有多厚。</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-20.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-20.png" alt="Cohesive mesh：教程操作截图 20" width="353" height="437" loading="lazy" decoding="async"></a><figcaption>图 20 · Cohesive mesh（点击查看原图）</figcaption></figure>
+<p>之后指派截面，给底面粘性网格指派，</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-21.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-21.png" alt="Cohesive mesh：教程操作截图 21" width="309" height="34" loading="lazy" decoding="async"></a><figcaption>图 21 · Cohesive mesh（点击查看原图）</figcaption></figure>
+<p>这些准备完成后正常设置接触的相互作用，设置载荷就可以了。</p>
+<h4 id="section-14">Cohesive behavior</h4>
+<p>这种方法是把粘性赋予给接触作用。</p>
+<p>进入相互作业板块（interaction），设置相互作用属性，</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-22.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-22.png" alt="Cohesive behavior：教程操作截图 22" width="777" height="275" loading="lazy" decoding="async"></a><figcaption>图 22 · Cohesive behavior（点击查看原图）</figcaption></figure>
+<p>选择接触，然后在里面设置粘性面的相关参数，</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-23.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-23.png" alt="Cohesive behavior：教程操作截图 23" width="831" height="946" loading="lazy" decoding="async"></a><figcaption>图 23 · Cohesive behavior（点击查看原图）</figcaption></figure>
+<p>然后创建相互作用，选择主从表面，选择设置好的相互作用属性，</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-24.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-24.png" alt="Cohesive behavior：教程操作截图 24" width="685" height="920" loading="lazy" decoding="async"></a><figcaption>图 24 · Cohesive behavior（点击查看原图）</figcaption></figure>
+<p>然后就可以进行计算了。这种方法相对简单，所以也具有独到的优势。</p>
+
+<h4 id="section-15">Cohesive element</h4>
+<p>这种方法最符合直觉，也就是设置一个长方体的部件，让这个部件充当粘性层。</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-25.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-25.png" alt="Cohesive element：教程操作截图 25" width="1499" height="860" loading="lazy" decoding="async"></a><figcaption>图 25 · Cohesive element（点击查看原图）</figcaption></figure>
+<p>正常将粘性属性材料赋予即可，</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-26.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-26.png" alt="Cohesive element：教程操作截图 26" width="990" height="151" loading="lazy" decoding="async"></a><figcaption>图 26 · Cohesive element（点击查看原图）</figcaption></figure>
+<h3 id="section-16">三种方法的总结对比</h3>
+<p>因为网格是有限元分析中用于计算的基本工具，或许赋予网格一些特殊属性会让计算更加困难，所以第一种方法是相对难利用的。第二种方法最便捷，由于更加简单，计算出完整结果的可能性更高，也更好用来做动画效果（可以得到完整的脱附过程的动画）；第三种方法相较于第二种难一点，更加利于进行粘性分析的各项参数的计算导出（粘性层就是一个实体部件，这样能清晰看到粘性层的云图）</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-27.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-27.png" alt="三种方法的总结对比：教程操作截图 27" width="1132" height="515" loading="lazy" decoding="async"></a><figcaption>图 27 · 三种方法的总结对比（点击查看原图）</figcaption></figure>
+<div class="article-callout"><p>Cohesive behavior得到的脱附过程的优秀动画</p></div>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-28.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-28.png" alt="三种方法的总结对比：教程操作截图 28" width="1984" height="949" loading="lazy" decoding="async"></a><figcaption>图 28 · 三种方法的总结对比（点击查看原图）</figcaption></figure>
+<div class="article-callout"><p>粘附层的csmaxscrt（最大名义应力损伤起始判据）云图</p></div>
+<h3 id="section-17">获得粘附力的方法</h3>
+<p>想测得粘性面被破坏过程中的粘附力，可以将载荷选为位移，场输出的反应力就是粘附力，而最大的应力（RF）也就是要求得的最大粘附力。</p>
+<p>值得一提的是，在求解应力的计算中，越接近粘附力的峰值，每个增量的计算要花的时间越长，甚至计算实在过慢会导致Job中断，因此每次计算到难以收敛的step time时，如果每次结果的增长很慢，就可以停止工作，将当前最大输出量作为较可信的最大粘附力。</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-29.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-29.png" alt="获得粘附力的方法：教程操作截图 29" width="1350" height="840" loading="lazy" decoding="async"></a><figcaption>图 29 · 获得粘附力的方法（点击查看原图）</figcaption></figure>
+<p class="cohesive-attachment">原文附件：qixi_fast_summary.csv。<a href="https://ecnot8h4g2fc.feishu.cn/wiki/Zlhcw2yToixAX5klpytcPXNQnke?from=from_copylink" target="_blank" rel="noopener noreferrer">在飞书原文查看</a></p>
+<p>上表就是改变部件长度，保持宽度不变，测得不同组下的最大粘附力，可以看到，粘附力最大的组是len=29，单位粘附效果最好的组是len=24。</p>
+<hr>
+<h2 id="section-18">附加教程</h2>
+<div class="article-callout"><p>做仿真并不是只能靠人在ui上点来点去，还有更加“未来”方法！</p></div>
+<h3 id="section-19">abaqus基于python的二次开发</h3>
+<p>在abaqus的默认工作目录下，有一个文件叫abaqus.rpy，它负责记录你每一步操作，格式自然是python。也就是说，每一步操作实际上都可以由python代码来实现。</p>
+<p>有两种方法，第一种是在ui下方点出类似命令终端的输入区，在里面输入代码回车即可执行：</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-30.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-30.png" alt="abaqus基于python的二次开发：教程操作截图 30" width="614" height="235" loading="lazy" decoding="async"></a><figcaption>图 30 · abaqus基于python的二次开发（点击查看原图）</figcaption></figure>
+<p>另一种方法是在电脑中创建一个文本文件，写好代码后保存为py格式，随后在ui左上角菜单栏点击文件，再点击运行脚本，选择对应的py文件：</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-31.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-31.png" alt="abaqus基于python的二次开发：教程操作截图 31" width="747" height="532" loading="lazy" decoding="async"></a><figcaption>图 31 · abaqus基于python的二次开发（点击查看原图）</figcaption></figure>
+<p>这种方法很适合一系列需要修改某一参数得到多组数据的仿真工作，通过修改代码中的参数可以快速得到一组cae文件。当然上手难度比较高，对于只学了C语言的大一学生有点难。</p>
+<h3 id="section-20">利用agent协助CAE工作</h3>
+<div class="article-callout"><p>既然能用代码解决，那自然能利用agent接入ai协助工作。（能用token解决的事都不叫事）</p></div>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-32.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-32.png" alt="利用agent协助CAE工作：教程操作截图 32" width="76" height="35" loading="lazy" decoding="async"></a><figcaption>图 32 · 利用agent协助CAE工作（点击查看原图）</figcaption></figure>
+<p>首先创建一个新的文件夹，把cae，odb等文件放入吗，然后把工作目录也改到这个文件夹中，方便ai读取你的工作日志。利用codex或claude code这样的agent，可以更加高效的进行仿真工作。</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-33.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-33.png" alt="利用agent协助CAE工作：教程操作截图 33" width="787" height="506" loading="lazy" decoding="async"></a><figcaption>图 33 · 利用agent协助CAE工作（点击查看原图）</figcaption></figure>
+<p>当然目前的ai只能做最基本的工作，前文提到的细致划分网格的类似方法它们还做不到，但是可以简化一些改参数的过程，相信随着各种工具的发展，传统的CAE工作模式也会改变。</p>
+<h3 id="section-21">将codex与abaqus完全打通</h3>
+<p>这个是我五一假期在b站上看到的一个比较新颖的应用，看起来效果非常不错，我还没有去尝试，先把效果图和教程链接贴在这里。</p>
+<figure class="cohesive-figure"><a href="../assets/cohesive/figure-34.png" target="_blank" rel="noopener"><img src="../assets/cohesive/figure-34.png" alt="将codex与abaqus完全打通：教程操作截图 34" width="1459" height="716" loading="lazy" decoding="async"></a><figcaption>图 34 · 将codex与abaqus完全打通（点击查看原图）</figcaption></figure>
+<p>教程链接：<a href="https://www.bilibili.com/video/BV1AC96B9Eqv/?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click&amp;vd_source=6ac2d6197167db64d6f37b6ed81e86b8" target="_blank" rel="noopener noreferrer">https://www.bilibili.com/video/BV1AC96B9Eqv/?spm_id_from=333.1007.top_right_bar_window_default_collection.content.click&amp;vd_source=6ac2d6197167db64d6f37b6ed81e86b8</a></p>
+
+<h2 id="section-22">小结</h2>
+<p>abaqus中涉及到cohesive的知识很深，但是网上相关的教程并不多，b站上还有youtube上的相关教程也有点杂，涉及到的相关物理知识也比较难，所以目前阶段我们只能在最基本的层面利用软件进行些简单的cohesive分析，作为案例用来快速上手abaqus这类有限元分析软件也相当不错，得到的结果未必令人满意，但是随着时间推移，日后或许能在仿真上掌握的更深，做出效果更佳的成果。</p>
+
+
+
+
+<div class="article-callout"><p>易兴宇 ustc人形机器人研究院</p></div>
+      <p class="cohesive-original"><strong>飞书原文：</strong><a href="https://ecnot8h4g2fc.feishu.cn/wiki/Zlhcw2yToixAX5klpytcPXNQnke?from=from_copylink" target="_blank" rel="noopener noreferrer">https://ecnot8h4g2fc.feishu.cn/wiki/Zlhcw2yToixAX5klpytcPXNQnke?from=from_copylink</a></p>
+    </div>
+    <div class="article-back-nav"><a href="index.html" class="btn btn-secondary">← 返回知识库</a><a href="agent-tutorial.html" class="btn btn-primary">阅读 AI Agent 实践指南 →</a></div>
+  </article>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-branding">
+      <span style="font-weight: 700; color: var(--ustc-blue);">Cutus</span>
+      <span>·</span>
+      <span>中国科学技术大学 机器人工程</span>
+    </div>
+    <div class="footer-credit">
+      Built by Cutus, Kimi Code (K3), Antigravity (Gemini 3.8 Flash) &amp; Codex（GPT-6-Astra）
+    </div>
+    <div class="footer-links">
+      <a href="../about/index.html">关于我</a>
+      <a href="../knowledge/index.html">知识库</a>
+      <a href="../timeline/index.html">时间线</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/script.js"></script>
+<script src="../assets/reader.js"></script>
+<script src="../assets/experience.js?v=dec027382838"></script>
+</body>
+</html>

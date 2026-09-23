@@ -1,0 +1,18 @@
+.cohesive-figure {
+  margin: 22px 0 28px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  text-align: center;
+}
+
+.cohesive-figure a { display: block; }
+.cohesive-figure img { display: block; max-width: 100%; width: auto; height: auto; margin: 0 auto; }
+.cohesive-figure figcaption { margin-top: 10px; color: var(--ink-muted); font-size: 0.8rem; }
+.article-content h4 { margin: 22px 0 12px; color: var(--ink); font-size: 1rem; }
+.article-content hr { border: 0; border-top: 1px solid var(--line); margin: 32px 0; }
+.cohesive-attachment { padding: 14px 18px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: var(--bg-subtle); }
+.cohesive-original { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
+.article-toc .toc-level-3 { margin-left: 10px; }
+.article-toc .toc-level-4 { margin-left: 22px; }
