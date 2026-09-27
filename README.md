@@ -94,9 +94,11 @@ node --check assets/reader.js
 node scripts/version_theme_assets.cjs --check
 ```
 
-主题初始化、外观控制或主题 CSS 修改后，先运行 `node scripts/version_theme_assets.cjs`，统一更新全部 HTML 中的资源版本号。内部页面链接也携带此版本，避免浏览器混用旧页面和旧脚本。不要手工修改版本号。
+主题初始化、外观控制或主题 CSS 修改后，先运行 `node scripts/version_theme_assets.cjs`，统一更新全部 HTML 中的资源版本号。该脚本同时将 `assets/theme-bootstrap.js` 与 `assets/theme-critical.css` 内嵌到每页头部，并为 HTML 设置默认粉色；不要手动修改生成块。内部页面链接也携带此版本，避免浏览器混用旧页面和旧脚本。不要手工修改版本号。
 
-主题偏好统一由 `assets/theme-init.js` 管理：有效的浏览器存储优先于旧链接参数；参数仅用于无存储时的跨页传递。修改主题会同步当前网址、内部链接与设置面板；浏览器返回缓存页面时重新读取最新设置。首次访问默认使用 B站粉，不跟随系统深浅色；默认配色不会写成用户选择。
+主题偏好由内嵌的 `assets/theme-bootstrap.js` 在首次绘制前恢复，`assets/theme-init.js` 管理后续切换与导航：有效的浏览器存储优先于旧链接参数；参数仅用于无存储时的跨页传递。修改主题会同步当前网址、内部链接与设置面板；浏览器返回缓存页面时重新读取最新设置。首次访问默认使用 B站粉，不跟随系统深浅色；默认配色不会写成用户选择。初始背景不依赖外部文件下载，首次样式应用期间禁用颜色过渡；无 JavaScript 时也保持粉色。
+
+首帧回归：启动本地 HTTP 服务后运行 `node scripts/check_theme_paint.cjs`。逐帧检查延迟加载下的背景与主题，覆盖首次访问、已保存偏好、旧 URL、六套主题和无 JavaScript 的全部页面。环境变量与下面的跨页回归相同。
 
 跨页回归：启动本地 HTTP 服务后运行 `node scripts/check_theme_navigation.cjs`；可用 `CHROME_PATH` 指定 Edge 或 Chrome，可用 `PLAYWRIGHT_MODULE` 指定 Playwright 模块路径，`BASE_URL` 指向公网时可检查线上版本。测试包含旧 URL、刷新、返回、跨标签、六主题实际颜色、全部页面、旧缓存资源和存储受限时的新标签打开。
 

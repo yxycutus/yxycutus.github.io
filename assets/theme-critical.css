@@ -1,0 +1,9 @@
+/* Inlined into every head: the canvas has its final color before CSS downloads. */
+html { background: #fdf6f9; color-scheme: light; }
+html[data-theme="blue"] { background: #f8fafc; }
+html[data-theme="dark"] { background: #101113; color-scheme: dark; }
+html[data-theme="orange"] { background: #f7f2e9; }
+html[data-theme="white"] { background: #ffffff; }
+html[data-theme="pink"] { background: #fdf6f9; }
+html[data-theme="yellow"] { background: #fcfaf3; }
+html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-loading] *::after { transition: none !important; }

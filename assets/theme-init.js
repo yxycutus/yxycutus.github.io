@@ -1,27 +1,9 @@
-// Shared preference owner. Runs before CSS so every HTML page paints the saved theme.
+// Preference controls and navigation; the inline bootstrap owns the first paint.
 (() => {
   'use strict';
   const root = document.documentElement;
   const revision = new URL(document.currentScript.src).searchParams.get('v');
-  const aliases = { light: 'blue', bilibili: 'pink', meituan: 'yellow' };
-  const themes = ['blue', 'dark', 'orange', 'white', 'pink', 'yellow'];
-  const validTheme = value => themes.includes(aliases[value] || value) ? aliases[value] || value : null;
-  const validFont = value => Number.isInteger(Number(value)) && Number(value) >= 14 && Number(value) <= 22 ? Number(value) : null;
-  function read(key, validate) {
-    // Shared durable preferences outrank tab snapshots and old navigation URLs.
-    const sources = [
-      () => localStorage.getItem(key),
-      () => {
-        const cookie = document.cookie.split('; ').find(value => value.startsWith(`${key}=`));
-        return cookie ? decodeURIComponent(cookie.slice(key.length + 1)) : null;
-      },
-      () => sessionStorage.getItem(key)
-    ];
-    for (const source of sources) {
-      try { const value = validate(source()); if (value !== null) return value; } catch (_) {}
-    }
-    return null;
-  }
+  const { read, validTheme, validFont, urlTheme, urlFont } = window.CutusThemeBootstrap;
   function write(key, value, shared = true) {
     let saved = false;
     const stores = shared ? ['localStorage', 'sessionStorage'] : ['sessionStorage'];
@@ -34,13 +16,6 @@
     } catch (_) {}
     return saved;
   }
-  const params = new URLSearchParams(location.search);
-  const urlTheme = validTheme(params.get('theme'));
-  const urlFont = validFont(params.get('font'));
-  root.dataset.theme = read('cutus-theme', validTheme) || urlTheme || 'pink';
-  root.style.fontSize = `${read('cutus-font-size', validFont) || urlFont || 16}px`;
-  root.dataset.sidebar = read('cutus-sidebar', value => ['open', 'closed'].includes(value) ? value : null) || 'open';
-
   function syncUrl(force = false) {
     const url = new URL(location.href);
     if (!force && !url.searchParams.has('theme') && !url.searchParams.has('font')) return;

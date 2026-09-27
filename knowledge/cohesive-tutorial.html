@@ -1,10 +1,60 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-theme="pink">
 <head>
   <meta charset="UTF-8">
+<!-- theme-first-paint:start -->
+<script>// Inlined into every HTML head by scripts/version_theme_assets.cjs.
+// Restore preferences before any stylesheet or network-dependent script runs.
+(() => {
+  'use strict';
+  const root = document.documentElement;
+  const aliases = { light: 'blue', bilibili: 'pink', meituan: 'yellow' };
+  const themes = ['blue', 'dark', 'orange', 'white', 'pink', 'yellow'];
+  const validTheme = value => themes.includes(aliases[value] || value) ? aliases[value] || value : null;
+  const validFont = value => Number.isInteger(Number(value)) && Number(value) >= 14 && Number(value) <= 22 ? Number(value) : null;
+  function read(key, validate) {
+    const sources = [
+      () => localStorage.getItem(key),
+      () => {
+        const cookie = document.cookie.split('; ').find(value => value.startsWith(`${key}=`));
+        return cookie ? decodeURIComponent(cookie.slice(key.length + 1)) : null;
+      },
+      () => sessionStorage.getItem(key)
+    ];
+    for (const source of sources) {
+      try { const value = validate(source()); if (value !== null) return value; } catch (_) {}
+    }
+    return null;
+  }
+  const params = new URLSearchParams(location.search);
+  const urlTheme = validTheme(params.get('theme'));
+  const urlFont = validFont(params.get('font'));
+  root.dataset.theme = read('cutus-theme', validTheme) || urlTheme || 'pink';
+  root.style.fontSize = `${read('cutus-font-size', validFont) || urlFont || 16}px`;
+  root.dataset.sidebar = read('cutus-sidebar', value => ['open', 'closed'].includes(value) ? value : null) || 'open';
+  root.setAttribute('data-theme-loading', '');
+  window.CutusThemeBootstrap = { read, validTheme, validFont, urlTheme, urlFont };
+  // Settle the initial CSS without animating from a fallback palette.
+  document.addEventListener('DOMContentLoaded', () => {
+    requestAnimationFrame(() => {
+      getComputedStyle(document.body).backgroundColor;
+      requestAnimationFrame(() => root.removeAttribute('data-theme-loading'));
+    });
+  }, { once: true });
+})();</script>
+<style>/* Inlined into every head: the canvas has its final color before CSS downloads. */
+html { background: #fdf6f9; color-scheme: light; }
+html[data-theme="blue"] { background: #f8fafc; }
+html[data-theme="dark"] { background: #101113; color-scheme: dark; }
+html[data-theme="orange"] { background: #f7f2e9; }
+html[data-theme="white"] { background: #ffffff; }
+html[data-theme="pink"] { background: #fdf6f9; }
+html[data-theme="yellow"] { background: #fcfaf3; }
+html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-loading] *::after { transition: none !important; }</style>
+<!-- theme-first-paint:end -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cohesive 仿真教程 — Cutus 知识库</title>
-  <script src="../assets/theme-init.js?v=84dd209057e8"></script>
+  <script src="../assets/theme-init.js?v=5781457be9d1"></script>
   <link rel="stylesheet" href="../assets/style.css?v=1c00a319f414">
   <link rel="stylesheet" href="../assets/article.css">
   <link rel="stylesheet" href="../assets/cohesive.css">
