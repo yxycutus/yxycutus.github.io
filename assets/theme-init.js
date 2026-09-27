@@ -37,7 +37,7 @@
   const params = new URLSearchParams(location.search);
   const urlTheme = validTheme(params.get('theme'));
   const urlFont = validFont(params.get('font'));
-  root.dataset.theme = read('cutus-theme', validTheme) || urlTheme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'blue');
+  root.dataset.theme = read('cutus-theme', validTheme) || urlTheme || 'pink';
   root.style.fontSize = `${read('cutus-font-size', validFont) || urlFont || 16}px`;
   root.dataset.sidebar = read('cutus-sidebar', value => ['open', 'closed'].includes(value) ? value : null) || 'open';
 
@@ -95,7 +95,7 @@
     if (font) { root.style.fontSize = `${font}px`; write('cutus-font-size', font, false); }
     changed();
   }
-  // Import URL fallbacks only without saved preferences. Do not persist a system
+  // Import URL fallbacks only without saved preferences. Do not persist the site
   // default or let an old URL overwrite a user's choice.
   if (urlTheme && !read('cutus-theme', validTheme)) write('cutus-theme', urlTheme);
   if (urlFont && !read('cutus-font-size', validFont)) write('cutus-font-size', urlFont);

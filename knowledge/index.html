@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>知识库 — Cutus</title>
-  <script src="../assets/theme-init.js?v=101aa242579c"></script>
+  <script src="../assets/theme-init.js?v=84dd209057e8"></script>
   <link rel="stylesheet" href="../assets/style.css?v=1c00a319f414">
   <link rel="stylesheet" href="../assets/knowledge.css">
   <link rel="stylesheet" href="../assets/article.css">
@@ -20,7 +20,7 @@
   <meta property="og:image" content="https://yxycutus.github.io/assets/avatar.jpg">
   <meta property="og:image:alt" content="Cutus 的个人头像">
   <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="../assets/experience.css?v=7f060ba4ccc3">
+  <link rel="stylesheet" href="../assets/experience.css?v=c851725f51c1">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -55,12 +55,13 @@
       <span class="status-ping"></span>
       <span>PROJECTS & RESEARCH NOTES</span>
     </div>
-    <h1 class="knowledge-title">工程项目与学术笔记 (Knowledge Base)</h1>
+    <h1 class="knowledge-title">把好奇，积累成知识。</h1>
     <p class="knowledge-desc">
-      记录真机落地复盘（Aloha Mini 2026.07 答辩）、仿生飞行攀爬机器人前沿文献精读，以及 USTC 核心课系统自学讲义。
+      从一台机器人、一篇论文，到一次不如意的答辩。这里放下过程，也留下能继续使用的方法。
     </p>
   </header>
 
+<section class="reading-routes" aria-labelledby="routes-title"><div class="route-heading"><p class="eyebrow">从一个问题开始</p><h2 id="routes-title">今天，想弄明白什么？</h2></div><a href="scholarship-reflection.html"><span>表达与成长</span><strong>怎样把经历讲清楚？</strong><small>答辩复盘 → 准备清单 ↗</small></a><a href="papers/connections.html"><span>研究与实验</span><strong>论文怎样连到我的项目？</strong><small>机制关联 → 实验问题 ↗</small></a><a href="learning-reset.html"><span>学习与节奏</span><strong>事情太多，从哪里重新开始？</strong><small>任务取舍 → 课程与周回顾 ↗</small></a></section>
   <!-- 🌟 重点专栏入口：学术论文精读全集 Banner 🌟 -->
   <div style="background: linear-gradient(135deg, color-mix(in srgb, var(--ustc-blue) 12%, var(--bg-card)) 0%, var(--bg-card) 100%); border: 1.5px solid color-mix(in srgb, var(--ustc-blue) 40%, transparent); border-radius: var(--radius-md); padding: 24px 28px; margin-bottom: 32px; box-shadow: var(--shadow-sm); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
     <div style="max-width: 680px;">
@@ -84,7 +85,7 @@
   <!-- 检索与分类工具栏 -->
   <div class="knowledge-nav-bar">
     <div class="category-tags" id="category-tags">
-      <button class="cat-btn active" data-category="all">全部内容</button>
+      <button class="cat-btn active" data-category="all">全部内容</button><button class="cat-btn" data-category="reflection">成长与复盘</button>
       <button class="cat-btn" data-category="project">工程项目与遥操作</button>
       <button class="cat-btn" data-category="climbing">飞行栖息与足端机构</button>
       <button class="cat-btn" data-category="theory">USTC 核心课讲义</button>
@@ -98,7 +99,7 @@
 
 <p class="catalog-hint">想查找具体论文？<a href="../search.html">搜索全站公开内容 →</a></p>
   <!-- 知识卡片网格 -->
-  <div class="filter-summary" hidden><p id="filter-count" role="status" aria-live="polite"></p><button id="filter-reset" class="cat-btn" type="button">清除筛选</button></div><div class="k-grid" id="k-grid"><a class="k-card" href="research-workflow.html" data-category="ai" data-keywords="obsidian zotero codex 工作流 阅读 实验 交接 复盘"><div class="k-tag-row"><span class="k-tag">研究方法 · 2026.09</span></div><h3>从论文到实验：我的研究记录工作流</h3><p>从机器人调测、论文阅读到台架实验，记录已知、失败与下一步。</p><div class="k-footer"><span>含最小实验记录模板</span><span>阅读方法 →</span></div></a>
+  <div class="filter-summary" hidden><p id="filter-count" role="status" aria-live="polite"></p><button id="filter-reset" class="cat-btn" type="button">清除筛选</button></div><div class="k-grid" id="k-grid"><a class="k-card" href="scholarship-reflection.html" data-category="reflection" data-keywords="国奖 国家奖学金 答辩 失败 失利 未获奖 复盘 表达 追问 2026-09-21 2026-09-22"><div class="k-tag-row"><span class="k-tag">成长与复盘 · 2026.09</span></div><h3>国奖答辩失利之后，留下什么</h3><p>9 月 21 日参加答辩，22 日得知未获奖。整理追问准备、陈述取舍、抗压表达与成果积累的经验。</p><div class="k-footer"><span>经历 · 经验 · 下一步</span><span>阅读全文 ↗</span></div></a><a class="k-card" href="learning-reset.html" data-category="reflection" data-keywords="学习 复盘 课程 理论力学 电磁学 时间管理 节奏 AI 计划 中秋"><div class="k-tag-row"><span class="k-tag">成长与复盘 · 2026.09</span></div><h3>忙碌之后，重新安排学习</h3><p>从课程积压与答辩之后的恢复出发，整理任务取舍、课程补欠、AI 理解检查和每周回顾方法。</p><div class="k-footer"><span>经历 · 经验 · 下一步</span><span>阅读全文 ↗</span></div></a><a class="k-card" href="research-workflow.html" data-category="ai" data-keywords="obsidian zotero codex 工作流 阅读 实验 交接 复盘"><div class="k-tag-row"><span class="k-tag">研究方法 · 2026.09</span></div><h3>从论文到实验：我的研究记录工作流</h3><p>从机器人调测、论文阅读到台架实验，记录已知、失败与下一步。</p><div class="k-footer"><span>含最小实验记录模板</span><span>阅读方法 →</span></div></a>
 
     <a class="k-card" href="crazyflie-learning.html" data-category="climbing" data-keywords="crazyflie bitcraze brushless firmware stabilizer commander setpoint pid controller state estimator sensor to control cfclient cflib 飞控 遥测 日志 学习路线"><div class="paper-card-visual"><img src="../assets/gallery/crazyflie-thumb.webp" alt="Crazyflie 2.1 Brushless 平台" width="561" height="408" loading="lazy" decoding="async" ></div>
       <div class="k-tag-row">

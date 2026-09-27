@@ -28,7 +28,7 @@ function pages(dir) {
       assert.ok(dimensions.scroll <= dimensions.width + 1, `${label}: ${JSON.stringify(dimensions)}`);
     };
     await goto('');
-    assert.equal(await page.locator('html').getAttribute('data-theme'), 'blue');
+    assert.equal(await page.locator('html').getAttribute('data-theme'), 'pink');
     assert.ok(await page.locator('#site-sidebar').isVisible());
     await page.locator('.sidebar-close').click();
     assert.ok(await page.locator('#site-sidebar').isHidden());
@@ -119,7 +119,7 @@ function pages(dir) {
     await page.locator('#k-search-input').fill('Asbeck');
     assert.equal(await page.locator('.k-card:visible').count(), 1);
     await page.locator('#filter-reset').click();
-    assert.equal(await page.locator('.k-card:visible').count(), 13);
+    assert.equal(await page.locator('.k-card:visible').count(), 14);
     console.log('PASS: image viewer Escape, homepage deep link, learning slider persistence and paper filtering.');
 
     // Every page at the narrowest supported viewport and largest font.
