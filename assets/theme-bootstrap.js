@@ -24,7 +24,7 @@
   const params = new URLSearchParams(location.search);
   const urlTheme = validTheme(params.get('theme'));
   const urlFont = validFont(params.get('font'));
-  root.dataset.theme = read('cutus-theme', validTheme) || urlTheme || 'pink';
+  root.dataset.theme = read('cutus-theme', validTheme) || urlTheme || 'orange';
   root.style.fontSize = `${read('cutus-font-size', validFont) || urlFont || 16}px`;
   root.dataset.sidebar = read('cutus-sidebar', value => ['open', 'closed'].includes(value) ? value : null) || 'open';
   root.setAttribute('data-theme-loading', '');

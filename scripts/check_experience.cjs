@@ -28,7 +28,7 @@ function pages(dir) {
       assert.ok(dimensions.scroll <= dimensions.width + 1, `${label}: ${JSON.stringify(dimensions)}`);
     };
     await goto('');
-    assert.equal(await page.locator('html').getAttribute('data-theme'), 'pink');
+    assert.equal(await page.locator('html').getAttribute('data-theme'), 'orange');
     assert.ok(await page.locator('#site-sidebar').isVisible());
     await page.locator('.sidebar-close').click();
     assert.ok(await page.locator('#site-sidebar').isHidden());

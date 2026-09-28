@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN" data-theme="pink">
+<html lang="zh-CN" data-theme="orange">
 <head>
   <meta charset="UTF-8">
 <!-- theme-first-paint:start -->
@@ -29,7 +29,7 @@
   const params = new URLSearchParams(location.search);
   const urlTheme = validTheme(params.get('theme'));
   const urlFont = validFont(params.get('font'));
-  root.dataset.theme = read('cutus-theme', validTheme) || urlTheme || 'pink';
+  root.dataset.theme = read('cutus-theme', validTheme) || urlTheme || 'orange';
   root.style.fontSize = `${read('cutus-font-size', validFont) || urlFont || 16}px`;
   root.dataset.sidebar = read('cutus-sidebar', value => ['open', 'closed'].includes(value) ? value : null) || 'open';
   root.setAttribute('data-theme-loading', '');
@@ -43,7 +43,7 @@
   }, { once: true });
 })();</script>
 <style>/* Inlined into every head: the canvas has its final color before CSS downloads. */
-html { background: #fdf6f9; color-scheme: light; }
+html { background: #f7f2e9; color-scheme: light; }
 html[data-theme="blue"] { background: #f8fafc; }
 html[data-theme="dark"] { background: #101113; color-scheme: dark; }
 html[data-theme="orange"] { background: #f7f2e9; }
@@ -54,7 +54,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
 <!-- theme-first-paint:end -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>答辩准备：项目陈述、证据与追问 — Cutus</title>
-  <script src="../assets/theme-init.js?v=5781457be9d1"></script>
+  <script src="../assets/theme-init.js?v=f94ae64f35a8"></script>
   <link rel="stylesheet" href="../assets/style.css?v=1c00a319f414">
   <link rel="stylesheet" href="../assets/article.css">
   <meta name="description" content="结合答辩实践，讨论个人贡献陈述、项目证据、限时演练与现场追问，附准备清单。">
@@ -69,7 +69,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
   <meta property="og:image" content="https://yxycutus.github.io/assets/avatar.jpg">
   <meta property="og:image:alt" content="Cutus 的个人头像">
   <meta name="twitter:card" content="summary">
-  <link rel="stylesheet" href="../assets/experience.css?v=c851725f51c1">
+  <link rel="stylesheet" href="../assets/experience.css?v=9a0afd9e7535">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -151,8 +151,8 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
   </div>
 </footer>
 
-<script src="../assets/script.js"></script>
+<script src="../assets/script.js?v=4cee9222a59f"></script>
 <script src="../assets/reader.js"></script>
-<script src="../assets/experience.js?v=dec027382838"></script>
+<script src="../assets/experience.js?v=6d3fb0ef3266"></script>
 </body>
 </html>

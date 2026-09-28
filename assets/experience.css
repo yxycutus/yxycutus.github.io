@@ -1161,3 +1161,110 @@ html[data-theme="dark"] .theme-preview-card {
 @media (prefers-reduced-motion: reduce) {
   .home-page .work-card:hover { transform: none; }
 }
+
+/* Field notes: warm paper, quiet typography, and photographs from everyday life. */
+:root { --font-editorial: 'Iowan Old Style', 'Palatino Linotype', 'Songti SC', 'Noto Serif CJK SC', 'Source Han Serif SC', SimSun, Georgia, serif; }
+.site-sidebar { background: var(--bg); border-right: 1px solid var(--line-strong); }
+.sidebar-brand-name { font-family: var(--font-editorial); font-size: 1.7rem; font-weight: 500; }
+.sidebar-search-btn, .sidebar-links a, .sidebar-appearance-btn { border-radius: 3px; }
+.sidebar-note { font-family: var(--font-editorial); font-style: italic; line-height: 1.8; }
+html .home-page { background-image: none; }
+.home-page .journal-masthead { padding-block: 25px; }
+.journal-masthead > a { font: 500 1.6rem var(--font-editorial); }
+.journal-masthead > span { font-size: .625rem; letter-spacing: .06em; }
+.home-page .home-hero { padding-block: 76px; grid-template-columns: 1.2fr .85fr; gap: 60px; }
+.home-page .home-intro h1, html[data-sidebar="open"] .home-page .home-intro h1 { font-size: clamp(2.8rem, 4.3vw, 4.8rem); letter-spacing: -.055em; line-height: 1.4; margin: 26px 0 12px; }
+.hero-marginalia { font: italic 1.05rem/1.7 var(--font-editorial); color: var(--ink-muted); margin-bottom: 32px; }
+.home-page .eyebrow { color: var(--ink-muted); font-size: .625rem; letter-spacing: .15em; }
+.home-page .live-dot { background: var(--ustc-blue); width: 5px; height: 5px; box-shadow: none; }
+.home-page .intro-identity { font-size: .875rem; }
+.home-page .intro-description { color: var(--ink-secondary); margin-bottom: 22px; }
+.home-page .hero-chips { border-top: 1px solid var(--line); padding-top: 16px; gap: 4px 18px; }
+.home-page .hero-chips li { font-size: .625rem; color: var(--ink-muted); }
+.home-page .chip-dot { width: 4px; height: 4px; box-shadow: none; background: var(--ustc-blue); }
+html[data-theme] .home-page .btn-primary { background: var(--ink); color: var(--bg); border-color: var(--ink); box-shadow: none; }
+html[data-theme] .home-page .btn-primary:hover { background: var(--ustc-blue); border-color: var(--ustc-blue); color: var(--bg-card); }
+.home-page .btn-secondary { border-color: var(--line-strong); background: transparent; }
+.home-page .hero-study-link { font-size: .6875rem; }
+html[data-theme] .home-page .lab-card { background: var(--bg-subtle); color: var(--ink); border: 1px solid var(--line-strong); border-radius: 2px; padding: 30px; transform: rotate(1deg); }
+.home-page .lab-card::before { display: none; }
+.home-page .lab-card-top { color: var(--ink-muted); font-size: .5625rem; }
+.home-page .lab-state { color: var(--ustc-blue); border: 0; padding: 0; }
+.home-page .lab-card h2 { font-size: clamp(1.5rem, 2.2vw, 2rem); margin: 28px 0 10px; line-height: 1.55; }
+.home-page .lab-subtitle, .home-page .lab-label, .home-page .lab-card #flight-hero-status { color: var(--ink-muted); }
+.home-page .lab-platform { background: #f7f5ee; border-radius: 50% 50% 2px 2px; margin: 24px 0 16px; padding: 22px 16px 14px; color: #54483d; }
+.home-page .lab-platform img { height: 175px; }
+.home-page .lab-platform > span { font-size: .5rem; }
+.home-page .lab-card-bottom { border-top-color: var(--line-strong); }
+.home-page .lab-card #flight-hero-progress { color: var(--ink); font-family: var(--font-editorial); font-size: 1.7rem; }
+.home-page .lab-card-bottom > a { border-color: var(--line-strong); color: var(--ink); }
+.home-page .lab-card-bottom > a:hover { background: var(--bg-card); }
+.home-page .control-disclosure > summary, .home-page .control-figure figcaption { color: var(--ink-secondary); }
+.home-page .control-figure svg { background: #143a60; padding: 10px; border-radius: 2px; }
+.home-page .explore-strip strong { font-family: var(--font-editorial); font-weight: 600; font-size: 1rem; }
+.home-page .strip-number { color: var(--ustc-blue); font-style: italic; font-size: 1.75rem; }
+.home-page .home-section { margin-top: 90px; }
+.home-page .home-section-head { padding-bottom: 22px; border-bottom: 1px solid var(--line-strong); margin-bottom: 30px; }
+.home-page .home-section-head h2 { font-size: clamp(1.6rem, 2.7vw, 2.3rem); margin-top: 12px; }
+.home-page .work-grid { gap: 32px; }
+.home-page .work-card, .home-page .work-card:first-child, .home-page .research-work { background: transparent; border: 0; border-bottom: 1px solid var(--line-strong); border-radius: 0; }
+.home-page .work-card:hover { transform: none; }
+.home-page .work-body { padding: 25px 0 30px; }
+.home-page .work-body h3 { font: 500 clamp(1.25rem, 2vw, 1.6rem)/1.65 var(--font-editorial); }
+.home-page .concept-cover, .home-page .work-image { border-radius: 2px; }
+.home-page .status-chip { padding: 0; background: transparent; color: var(--ustc-blue); }
+.home-page .work-evidence { border-left-width: 1px; }
+html[data-theme] .home-page .notebook-intro { background: var(--bg-subtle); color: var(--ink); padding: 30px; }
+.home-page .notebook-intro > p, .home-page .notebook-intro .search-suggestions, .home-page .notebook-intro .search-suggestions a { color: var(--ink-secondary); }
+.home-page .notebook-intro > p:first-child { font: 500 1.25rem/1.85 var(--font-editorial); }
+.home-page .paper-preview, .home-page .paper-preview:nth-child(n) { background: transparent; border: 0; border-bottom: 1px solid var(--line-strong); }
+.home-page .paper-preview-caption { padding-inline: 0; }
+.life-notes { display: grid; grid-template-columns: .8fr 1.2fr; gap: 35px 48px; padding-block: 46px; border-block: 1px solid var(--line-strong); }
+.life-heading h2 { font: 500 clamp(1.9rem, 3.1vw, 2.8rem)/1.5 var(--font-editorial); margin: 22px 0; letter-spacing: -.045em; }
+.life-heading > p:not(.eyebrow) { font-size: .8125rem; line-height: 2; color: var(--ink-muted); margin-bottom: 22px; }
+.life-stamp { display: block; width: 70px; height: 70px; margin-top: 30px; border-radius: 50%; transform: rotate(-12deg); }
+.life-photo { min-width: 0; margin: 0; }
+.life-photo > a { display: block; overflow: hidden; cursor: zoom-in; }
+.life-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.life-coffee > a { aspect-ratio: 5 / 4; }
+.life-campus > a { aspect-ratio: 3 / 2; }
+.life-photo figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; margin-top: 14px; color: var(--ink-muted); font-size: .625rem; line-height: 1.8; }
+.life-photo figcaption > span:first-child { letter-spacing: .08em; }
+.life-postscript { display: flex; flex-wrap: wrap; align-items: center; align-content: center; gap: 24px; padding: 20px 10px; }
+.life-postscript > img { width: 110px; height: 135px; object-fit: cover; border: 6px solid var(--bg-card); outline: 1px solid var(--line); transform: rotate(-5deg); }
+.life-postscript > p { font: 500 1rem/1.9 var(--font-editorial); color: var(--ink-secondary); }
+.life-signature { width: 100%; text-align: right; font: italic 2.25rem var(--font-editorial); color: var(--ustc-blue); }
+.home-page .ai-grid { gap: 0 32px; }
+.home-page .ai-card { padding: 28px 0; background: transparent; border: 0; border-top: 1px solid var(--line-strong); border-radius: 0; }
+.home-page .ai-card::before { display: none; }
+.home-page .ai-card:hover { transform: none; box-shadow: none; }
+.home-page .ai-mono { background: var(--bg-subtle); color: var(--ink-secondary); border: 1px solid var(--line-strong); font-family: var(--font-editorial); font-size: 1.2rem; }
+.home-page .ai-role { color: var(--ink-secondary); border: 0; background: var(--bg-subtle); border-radius: 2px; }
+.home-page .ai-card-foot { border-top-style: solid; }
+.home-page .ai-card-foot span:last-child { color: var(--ink-muted); }
+.home-page .contact-band { background: var(--bg-subtle); padding: 40px; border: 0; margin-top: 80px; }
+.home-page .contact-band h2 { font: 500 clamp(1.4rem, 2.4vw, 2rem)/1.6 var(--font-editorial); }
+.home-page .friend-card { border-radius: 0; background: transparent; }
+.site-footer { background: var(--bg); }
+@media (max-width: 1100px) {
+  .home-page .home-hero { gap: 30px; }
+  html[data-theme] .home-page .lab-card { padding: 22px; }
+  .life-notes { gap: 30px; }
+}
+@media (max-width: 760px) {
+  .home-page .journal-masthead { padding-block: 16px; }
+  .home-page .home-hero { grid-template-columns: minmax(0, 1fr); padding-block: 40px; gap: 36px; }
+  .home-page .home-intro h1, html[data-sidebar="open"] .home-page .home-intro h1 { font-size: clamp(2.3rem, 9.5vw, 3.8rem); }
+  .hero-marginalia { font-size: .875rem; margin-bottom: 25px; }
+  html[data-theme] .home-page .lab-card { transform: none; }
+  .home-page .home-section { margin-top: 55px; }
+  .home-page .home-section-head { gap: 16px; padding-bottom: 18px; }
+  .home-page .work-grid { gap: 36px; }
+  .life-notes { grid-template-columns: minmax(0, 1fr); padding-block: 30px; }
+  .life-heading { position: relative; padding-right: 55px; }
+  .life-stamp { position: absolute; right: 0; bottom: 10px; width: 55px; height: 55px; }
+  .life-postscript { padding: 15px 0; }
+  .life-signature { width: auto; margin-left: auto; }
+  .home-page .contact-band { padding: 26px; }
+  .home-page .paper-preview-caption { padding-inline: 12px; }
+}

@@ -9,7 +9,7 @@ const colors = { pink: 'rgb(253, 246, 249)', blue: 'rgb(248, 250, 252)', dark: '
   const browser = await chromium.launch({ headless: true, ...(process.env.CHROME_PATH ? { executablePath: process.env.CHROME_PATH } : {}) });
   try {
     for (const saved of [null, 'pink', 'blue', 'dark', 'orange', 'white', 'yellow']) {
-      const expected = saved || 'pink';
+      const expected = saved || 'orange';
       const context = await browser.newContext({ viewport: { width: 1280, height: 900 }, colorScheme: 'dark' });
       await context.addInitScript(saved => {
         if (saved) localStorage.setItem('cutus-theme', saved);
@@ -62,10 +62,10 @@ const colors = { pink: 'rgb(253, 246, 249)', blue: 'rgb(248, 250, 252)', dark: '
     }
     for (const route of pages(root)) {
       await page.goto(`${base}/${route}`);
-      assert.equal(await page.locator('html').getAttribute('data-theme'), 'pink', route);
-      assert.equal(await page.evaluate(() => getComputedStyle(document.body).backgroundColor), colors.pink, route);
+      assert.equal(await page.locator('html').getAttribute('data-theme'), 'orange', route);
+      assert.equal(await page.evaluate(() => getComputedStyle(document.body).backgroundColor), colors.orange, route);
     }
-    console.log('PASS: all HTML pages render pink even without JavaScript.');
+    console.log('PASS: all HTML pages render warm paper even without JavaScript.');
     await noJS.close();
   } finally { await browser.close(); }
 })().catch(error => { console.error(error); process.exit(1); });

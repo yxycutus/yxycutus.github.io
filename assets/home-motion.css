@@ -1,0 +1,78 @@
+/* Homepage motion is progressive: the static page remains complete without JS. */
+.home-page .journal-masthead {
+  position: sticky; top: 0; z-index: 95; min-height: 78px;
+  background: var(--bg); padding-block: 18px;
+  box-shadow: 0 12px 20px -18px color-mix(in srgb, var(--ink) 16%, transparent);
+}
+.home-page .journal-masthead .scroll-wordmark { display: inline-flex; align-items: center; gap: 12px; min-height: 40px; flex-shrink: 0; }
+.home-page .scroll-wordmark span { margin: 0; font: inherit; letter-spacing: inherit; color: inherit; }
+.home-page .scroll-wordmark .wordmark-shape { display: inline-flex; align-items: baseline; font: 500 1.9rem/1 var(--font-editorial); letter-spacing: -.055em; }
+.wordmark-tail { display: inline-block; white-space: nowrap; overflow: hidden; max-width: calc(3em * (1 - var(--brand-progress, 0))); opacity: calc(1 - var(--brand-progress, 0)); }
+.home-page .scroll-wordmark .wordmark-dot { color: var(--ustc-blue); }
+.home-page .scroll-wordmark .wordmark-slash { display: inline-block; max-width: calc(.6em * var(--brand-progress, 0)); overflow: hidden; opacity: var(--brand-progress, 0); color: var(--ustc-blue); font-family: var(--font-sans); font-weight: 400; transform: translateY(calc(5px * (1 - var(--brand-progress, 0)))); }
+.home-page .scroll-wordmark .wordmark-caption { font: 400 .6875rem var(--font-sans); letter-spacing: .06em; color: var(--ink-muted); }
+.motion-film { margin: 0 0 48px; position: relative; }
+.film-pin { width: 100%; }
+.film-frame { position: relative; display: grid; grid-template-columns: 1fr 1fr; min-height: 540px; height: min(72svh, 760px); overflow: hidden; isolation: isolate; background: #1b2421; color: #f6f0e5; border-radius: 20px; transform-origin: center; }
+.film-copy { position: relative; z-index: 2; align-self: center; padding: clamp(26px, 5vw, 76px); padding-right: 20px; }
+.film-eyebrow { font: .5625rem/1.8 var(--font-sans); letter-spacing: .15em; color: #c3c6ba; }
+.film-copy h2 { font: 400 clamp(2.2rem, 4vw, 4rem)/1.45 var(--font-editorial); letter-spacing: -.05em; margin: 28px 0 22px; }
+.film-copy h2 em { font-style: normal; color: #d5b6a1; }
+.film-description { font-size: .75rem; line-height: 1.9; color: #c3c6ba; }
+.film-link { display: inline-flex; align-items: center; gap: 24px; margin-top: 22px; padding-bottom: 6px; border-bottom: 1px solid #929d8e; color: #f6f0e5; font-size: .75rem; }
+.film-link:hover { color: #e7b18e; }
+.film-image { min-height: 0; background: #101714; }
+.film-image video { display: block; width: 100%; height: 100%; object-fit: contain; }
+.film-index { position: absolute; top: 24px; right: 24px; padding: 5px 8px; background: #101714bc; color: #f6f0e5; font: .5rem/1.6 var(--font-mono); letter-spacing: .08em; pointer-events: none; }
+.film-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 30px; }
+.film-toggle { appearance: none; border: 1px solid #929d8e; border-radius: 999px; background: transparent; color: #f6f0e5; font: .6875rem var(--font-sans); min-height: 40px; padding: 8px 14px; cursor: pointer; }
+.film-toggle:hover { background: #ffffff16; }
+.film-toggle:focus-visible, .film-link:focus-visible { outline: 2px solid #f6f0e5; outline-offset: 5px; }
+.film-status { font-size: .5625rem; color: #c3c6ba; }
+.film-footnote { display: flex; justify-content: space-between; gap: 20px; padding-top: 18px; font-size: .625rem; color: var(--ink-muted); letter-spacing: .05em; }
+.motion-enabled .motion-film { height: 142svh; min-height: 780px; }
+.motion-enabled .film-pin { position: sticky; top: 96px; }
+.motion-enabled .film-frame { transform: scale(var(--film-scale, .84)); border-radius: var(--film-radius, 28px); will-change: transform; }
+.motion-enabled .film-copy { transform: translateY(var(--film-copy-y, 20px)); }
+.motion-enabled .film-footnote { opacity: var(--film-note-opacity, .45); }
+@media (prefers-reduced-motion: no-preference) {
+  .motion-enabled .grow-item { opacity: 0; transform: translateY(38px) scale(.985); transition: opacity .85s ease, transform 1s cubic-bezier(.16, 1, .3, 1); transition-delay: var(--grow-delay, 0ms); }
+  .motion-enabled .grow-item.has-grown { opacity: 1; transform: none; }
+  .motion-enabled .grow-item:focus-within, .motion-enabled .grow-item:target { opacity: 1; transform: none; transition: none; }
+}
+.home-page [id] { scroll-margin-top: 104px; }
+@media (max-width: 760px) {
+  .home-page .journal-masthead { min-height: 66px; padding: 12px 0 12px 48px; flex-wrap: nowrap; }
+  .home-page .journal-masthead > span { display: none; }
+  .home-page .scroll-wordmark .wordmark-shape { font-size: 1.75rem; }
+  .home-page .scroll-wordmark .wordmark-caption { font-size: .625rem; }
+  .motion-film { margin-bottom: 30px; }
+  .film-frame { display: flex; flex-direction: column; height: 76svh; min-height: 540px; max-height: 740px; }
+  .film-image { order: -1; flex: 1; min-height: 0; }
+  .film-image video { object-fit: contain; }
+  .film-copy { align-self: stretch; display: grid; grid-template-columns: 1fr auto; gap: 10px; padding: 18px 20px; background: #1b2421; }
+  .motion-enabled .film-copy { transform: none; }
+  .film-copy h2 { grid-column: 1 / -1; font-size: 1.3rem; margin: 0; line-height: 1.5; }
+  .film-copy h2 br { display: none; }
+  .film-description, .film-eyebrow { display: none; }
+  .film-controls { margin: 0; justify-content: flex-end; }
+  .film-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .film-link { margin: 0; align-self: center; gap: 12px; }
+  .film-eyebrow { font-size: .5rem; }
+  .film-index { top: 16px; right: 16px; }
+  .film-footnote { font-size: .5625rem; gap: 10px; }
+  .motion-enabled .motion-film { height: 125svh; min-height: 760px; }
+  .motion-enabled .film-pin { top: 80px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .motion-enabled .motion-film { height: auto; min-height: 0; }
+  .motion-enabled .film-pin { position: static; }
+  .motion-enabled .film-frame, .motion-enabled .film-copy, .motion-enabled .grow-item { transform: none; }
+  .motion-enabled .grow-item, .motion-enabled .film-footnote { opacity: 1; transition: none; }
+}
+@media print {
+  .home-page .journal-masthead, .motion-enabled .film-pin { position: static; }
+  .motion-enabled .motion-film { height: auto; min-height: 0; }
+  .motion-enabled .grow-item, .motion-enabled .film-footnote { opacity: 1; transform: none; }
+  .motion-enabled .film-frame, .motion-enabled .film-copy { transform: none; }
+}

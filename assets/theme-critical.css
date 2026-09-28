@@ -1,5 +1,5 @@
 /* Inlined into every head: the canvas has its final color before CSS downloads. */
-html { background: #fdf6f9; color-scheme: light; }
+html { background: #f7f2e9; color-scheme: light; }
 html[data-theme="blue"] { background: #f8fafc; }
 html[data-theme="dark"] { background: #101113; color-scheme: dark; }
 html[data-theme="orange"] { background: #f7f2e9; }

@@ -18,7 +18,7 @@
 
   // 2. Gentle scroll-reveal for homepage sections (skipped for reduced motion).
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (!reduceMotion.matches && 'IntersectionObserver' in window) {
+  if (!document.body.hasAttribute('data-home-motion') && !reduceMotion.matches && 'IntersectionObserver' in window) {
     const revealTargets = document.querySelectorAll('.home-section, .explore-strip, .campus-banner, .contact-band');
     if (revealTargets.length) {
       const io = new IntersectionObserver(entries => {
