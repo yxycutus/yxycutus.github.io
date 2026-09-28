@@ -6,10 +6,10 @@
 
 ## 首页滚动动效
 
-- `assets/home-motion.js` / `assets/home-motion.css` 管理首页影像、站名收拢和分层渐入；随滚动将 Cutus. 收拢为 C\，上滑可恢复。
-- 使用原有 Aloha Mini 项目演示，进入视野静音循环，离开视野暂停，手动暂停不会被重新滚入覆盖；手机完整显示竖屏视频。
-- 系统启用「减少动态效果」时关闭滚动缩放和渐入，视频保留手动播放；禁用 JavaScript 时保留正文与原生视频控件。
-- `node scripts/check_home_motion.cjs` 验证连续滚动、视频生命周期、五种屏幕宽度、字号、动效偏好和失败回退；环境参数与其他浏览器检查相同。
+- `assets/home-motion.js` / `assets/home-motion.css` 管理首页照片、站名渐变和分层渐入；下滑将 Cutus. 渐变为 USTC Robotics，上滑可恢复。
+- 首页使用从飞机上拍摄的机翼与云海照片，不加载项目视频；Aloha Mini 演示仍可在项目页查看。
+- 系统启用「减少动态效果」时关闭站名渐变和内容渐入；禁用 JavaScript 时照片与正文保持可见。
+- `node scripts/check_home_motion.cjs` 验证照片加载、无首页视频请求、站名渐变、五种屏幕宽度、字号和动效偏好；环境参数与其他浏览器检查相同。
 
 ## 2026-09-28 个人手记视觉更新
 

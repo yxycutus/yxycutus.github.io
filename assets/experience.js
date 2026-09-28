@@ -173,7 +173,7 @@
   let number = 0;
   const pageLabelMaps = {
     'hero-title': 'Overview',
-    'film-title': 'Field Recording',
+    'sky-title': 'Window Seat',
     'work-title': 'Projects & Research',
     'notebook-title': 'Open Notes',
     'campus-title': 'Campus Life',
