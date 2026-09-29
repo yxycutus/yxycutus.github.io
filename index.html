@@ -73,6 +73,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
   <link rel="stylesheet" href="assets/gallery.css">
   <link rel="stylesheet" href="assets/experience.css?v=9a0afd9e7535">
   <link rel="stylesheet" href="assets/home-motion.css?v=a023c4df81f8">
+  <link rel="stylesheet" href="assets/editorial.css?v=91c7be4d946f">
 </head>
 <body class="home-page" data-home-motion>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -97,14 +98,14 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
         <li><i class="chip-dot dot-blue" aria-hidden="true"></i>Crazyflie 飞控 · 闭环学习中</li>
         <li><i class="chip-dot dot-green" aria-hidden="true"></i>双模态栖息 · 样机实测中</li>
       </ul>
-      <div class="hero-actions"><a class="btn btn-primary" href="#selected-work">看看我在做什么 <span aria-hidden="true">↗</span></a><a class="btn btn-secondary" href="about/index.html">关于我与经历 <span aria-hidden="true">→</span></a></div>
-      <a class="hero-study-link" href="#progress-tracker">继续 Crazyflie 学习 · 打开进度面板 <span aria-hidden="true">↓</span></a>
+      <div class="hero-actions"><a class="btn btn-primary" href="#selected-work">看看我在做什么 <span aria-hidden="true">→</span></a><a class="btn btn-secondary" href="about/index.html">关于我与经历 </a></div>
+      <a class="hero-study-link" href="#progress-tracker">继续 Crazyflie 学习 · 打开进度面板 </a>
     </div>
     <aside class="lab-card" aria-labelledby="lab-title">
       <div class="lab-card-top"><span>FIELD NOTES / 01</span><span class="lab-state">正在学习</span></div>
       <h2 id="lab-title">理解飞行，<br>为栖息做好准备。</h2>
       <p class="lab-subtitle">Crazyflie 2.1 Brushless / 飞控闭环</p>
-      <a class="lab-platform" href="picture/crazyfile 2.1brushless.png" data-image-viewer data-title="Crazyflie 2.1 Brushless"><img src="assets/gallery/crazyflie.webp" alt="Crazyflie 2.1 Brushless 平台" width="561" height="408" loading="eager" decoding="async" fetchpriority="high"><span>THE PLATFORM <b>2.1 BRUSHLESS</b><i aria-hidden="true">↗</i></span></a><details class="control-disclosure"><summary>从传感器到电机，查看飞控闭环</summary><figure class="control-figure">
+      <a class="lab-platform" href="picture/crazyfile 2.1brushless.png" data-image-viewer data-title="Crazyflie 2.1 Brushless"><img src="assets/gallery/crazyflie.webp" alt="Crazyflie 2.1 Brushless 平台" width="561" height="408" loading="eager" decoding="async" fetchpriority="high"><span>THE PLATFORM <b>2.1 BRUSHLESS</b><i aria-hidden="true"></i></span></a><details class="control-disclosure"><summary>从传感器到电机，查看飞控闭环</summary><figure class="control-figure">
         <svg viewBox="0 0 400 172" role="img" aria-labelledby="control-title control-description">
           <title id="control-title">正在学习的飞控反馈关系</title>
           <desc id="control-description">目标值和估计状态共同输入控制器，控制输出经过电机分配驱动飞行器。传感器测量经过状态估计回到控制器，形成反馈。</desc>
@@ -116,7 +117,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
         </svg>
         <figcaption>沿着信号读源码，把控制原理连成闭环。</figcaption>
       </figure></details>
-      <div class="lab-card-bottom"><div><span class="lab-label" id="flight-hero-source">学习记录</span><strong id="flight-hero-progress">—</strong><p id="flight-hero-status">正在读取进度</p></div><a href="knowledge/crazyflie-learning.html" aria-label="查看 Crazyflie 完整学习路线">↗</a></div>
+      <div class="lab-card-bottom"><div><span class="lab-label" id="flight-hero-source">学习记录</span><strong id="flight-hero-progress">—</strong><p id="flight-hero-status">正在读取进度</p></div><a href="knowledge/crazyflie-learning.html" aria-label="查看 Crazyflie 完整学习路线">路线</a></div>
     </aside>
   </section>
 
@@ -127,98 +128,77 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
         <p class="sky-eyebrow">FIELD NOTE / ABOVE THE CLOUDS</p>
         <h2 id="sky-title">在云层之上，<br>把目光放得更远。</h2>
         <p>从窗边看出去，天空与云海都变得很近。<br>研究之外，也把沿途的风景留在这里。</p>
-        <a class="sky-link" href="about/index.html">认识研究之外的我 <span aria-hidden="true">↗</span></a>
+        <span class="sky-link sky-caption">研究之外 / 沿途影像</span>
       </div>
       <span class="sky-index">01 / WINDOW SEAT</span>
     </div>
-    <p class="sky-footnote"><span>从飞机上拍下的一页天空。</span><span aria-hidden="true">KEEP LOOKING UP ↑</span></p>
+    <p class="sky-footnote"><span>从飞机上拍下的一页天空。</span><span aria-hidden="true">KEEP LOOKING UP</span></p>
   </section>
 
   <nav class="explore-strip" aria-label="按兴趣浏览">
-    <a href="#selected-work"><span class="strip-number">01</span><span><strong>工程与研究</strong><small>真机实践、原理验证与复盘</small></span><span aria-hidden="true">↗</span></a>
-    <a href="knowledge/papers/index.html"><span class="strip-number">02</span><span><strong>14 篇论文精读</strong><small>微刺、干黏附与仿生机器人</small></span><span aria-hidden="true">↗</span></a>
-    <a href="knowledge/courses/index.html"><span class="strip-number">03</span><span><strong>课程与学习笔记</strong><small>从力学基础到建模与控制</small></span><span aria-hidden="true">↗</span></a>
+    <a href="#selected-work"><span class="strip-number">01</span><span><strong>工程与研究</strong><small>真机实践、原理验证与复盘</small></span></a>
+    <a href="knowledge/papers/index.html"><span class="strip-number">02</span><span><strong>14 篇论文精读</strong><small>微刺、干黏附与仿生机器人</small></span></a>
+    <a href="knowledge/courses/index.html"><span class="strip-number">03</span><span><strong>课程与学习笔记</strong><small>从力学基础到建模与控制</small></span></a>
   </nav>
 
 
 
   <section class="home-section" id="selected-work" aria-labelledby="work-title">
-    <div class="home-section-head"><div><p class="eyebrow">SELECTED WORK</p><h2 id="work-title">在真实问题里，学习机器人。</h2></div><a class="text-link" href="timeline/index.html">沿时间线看进展 ↗</a></div>
+    <div class="home-section-head"><div><p class="eyebrow">SELECTED WORK</p><h2 id="work-title">在真实问题里，学习机器人。</h2></div><a class="text-link" href="timeline/index.html">沿时间线看进展</a></div>
     <div class="work-grid">
       <article class="work-card">
-        <a class="work-image" href="knowledge/aloha-mini.html#demos"><img src="assets/aloha-demo.jpg" alt="Aloha Mini 主从臂遥操作的真机画面" width="640" height="1138" loading="lazy"><img src="assets/aloha-joycon.jpg" alt="使用 Joy-Con 手柄控制 Aloha Mini 机器人" width="640" height="1138" loading="lazy"><span class="video-label"><span aria-hidden="true">▶</span> 观看真机演示</span></a>
-        <div class="work-body"><div class="work-meta"><span class="status-chip status-done">已结项 · 校企合作</span><span>2026.07</span></div><h3><a href="knowledge/aloha-mini.html">Aloha Mini<br>从设备调通，到遥操作落地。</a></h3><p>作为电子组 / 软件组成员，参与树莓派调试、Ubuntu / SSH 通信链路、Joy-Con 遥操作适配与示教数据采集。</p><p class="work-evidence"><strong>团队结果</strong> 视觉识别特定物体后的自主抓取与放置。项目页收录三段真机演示。</p><a class="text-link" href="knowledge/aloha-mini.html">我的分工与项目复盘 <span aria-hidden="true">→</span></a></div>
+        <figure class="work-visual work-visual--photo"><img src="assets/aloha-demo.jpg" alt="Aloha Mini 主从臂遥操作的真机画面" width="640" height="1138" loading="lazy" decoding="async"><figcaption>01 / ALOHA MINI · 真机实践</figcaption></figure>
+        <div class="work-body">
+          <div class="work-meta"><span class="status-chip status-done">已结项 · 校企合作</span><span>2026.07</span></div>
+          <h3>Aloha Mini</h3>
+          <p class="work-deck">从设备调通，到遥操作落地。</p>
+          <p class="work-summary">参与系统调试、Joy-Con 遥操作适配与示教数据采集，连接人的指令与机器的动作。</p>
+          <p class="work-boundary">电子 / 软件组成员；自主抓取与放置为团队成果。</p>
+          <a class="text-link work-action" href="knowledge/aloha-mini.html">阅读项目复盘 <span aria-hidden="true">→</span></a>
+        </div>
       </article>
       <article class="work-card research-work">
-        <a class="concept-cover" href="picture/双模态栖息无人机.png" data-image-viewer data-title="双模态栖息无人机 · 概念模型" data-caption="Cutus · 项目概念设计，整机性能仍待实验验证。"><img src="assets/gallery/perching-concept.webp" alt="双模态栖息无人机概念模型" width="1600" height="934" loading="lazy" decoding="async" ><span class="concept-cover-label">DESIGN STUDY / 概念模型 <b>放大 ↗</b></span></a>
-        <div class="work-body"><div class="work-meta"><span class="status-chip">原理验证中</span><span>进行中</span></div><h3><a href="knowledge/scamp-climbing.html">多表面飞行栖息<br>双模态、双稳态附着机构。</a></h3><p>围绕 Crazyflie 平台，探索预压缩薄板与 SMA 驱动的模式切换，把附着机构与飞控学习连接起来。</p><p class="work-evidence"><strong>证据边界</strong> 已有双稳态观察与 SMA 翻转初步记录；带载保持、双向重复性和整机栖息仍待验证。</p><a class="text-link" href="knowledge/scamp-climbing.html">研究问题、已有证据与下一步 <span aria-hidden="true">→</span></a><a class="concept-side-link" href="picture/侧视图.png" data-image-viewer data-title="栖息机构侧视图"><img src="assets/gallery/perching-side-thumb.webp" alt="栖息机构侧视与部件标注" width="1600" height="873" loading="lazy" decoding="async" ><span>查看机构侧视与部件标注 ↗</span></a></div>
+        <figure class="work-visual work-visual--concept"><img src="assets/gallery/perching-concept.webp" alt="双模态栖息无人机概念模型，非已验证样机" width="1600" height="934" loading="lazy" decoding="async"><figcaption>02 / PERCHING · 概念设计</figcaption></figure>
+        <div class="work-body">
+          <div class="work-meta"><span class="status-chip">原理验证中</span><span>进行中</span></div>
+          <h3>多表面飞行栖息</h3>
+          <p class="work-deck">一种足端，两种接触思路。</p>
+          <p class="work-summary">探索预压缩薄板与 SMA 驱动的模式切换，让微刺与黏附分别适应粗糙面和光滑面。</p>
+          <p class="work-boundary">已有双稳态与翻转初步记录；受载保持和整机栖息待验证。</p>
+          <a class="text-link work-action" href="knowledge/scamp-climbing.html">阅读研究进展 <span aria-hidden="true">→</span></a>
+        </div>
       </article>
     </div>
   </section>
 
   <section class="home-section notebook-section" aria-labelledby="notebook-title">
-    <div class="home-section-head"><div><p class="eyebrow">OPEN NOTEBOOK</p><h2 id="notebook-title">让每一条笔记，有下一步。</h2></div><a class="text-link" href="knowledge/index.html">浏览知识库 ↗</a></div>
+    <div class="home-section-head"><div><p class="eyebrow">OPEN NOTEBOOK</p><h2 id="notebook-title">让每一条笔记，有下一步。</h2></div><a class="text-link" href="knowledge/index.html">浏览知识库 </a></div>
     <div class="notebook-layout"><div class="notebook-intro"><p>论文给出线索，课程提供工具，实验检验想法。也留一点空间，记录走弯路时学到的东西。</p><form action="search.html" method="get" class="site-search-form"><label class="sr-only" for="home-search">搜索全站内容</label><input id="home-search" name="q" type="search" placeholder="搜索 Crazyflie、SMA、力学…" required><button class="btn btn-primary" type="submit">搜索</button></form><p class="search-suggestions">从一个主题开始：<a href="search.html?q=微刺">微刺</a><a href="search.html?q=SMA">SMA</a><a href="search.html?q=控制">控制</a></p></div>
     <div class="notebook-list">
-      <a href="knowledge/papers/index.html"><span class="note-number">01 / PAPERS</span><div><h3>从附着机理，读到机构设计</h3><p>14 篇论文笔记：微刺、干黏附、双模夹爪与飞行攀爬。</p></div><span aria-hidden="true">↗</span></a>
-      <a href="knowledge/courses/index.html"><span class="note-number">02 / COURSES</span><div><h3>把力学与数学，变成可用的工具</h3><p>理论力学、AI 数学、复变函数等课程的讲义与复习记录。</p></div><span aria-hidden="true">↗</span></a>
-      <a href="knowledge/research-workflow.html"><span class="note-number">03 / METHOD</span><div><h3>从一篇论文，到下一次实验</h3><p>阅读、记录、交接与失败复盘：我的研究工作流。</p></div><span aria-hidden="true">↗</span></a>
+      <a href="knowledge/papers/index.html"><span class="note-number">01 / PAPERS</span><div><h3>从附着机理，读到机构设计</h3><p>14 篇论文笔记：微刺、干黏附、双模夹爪与飞行攀爬。</p></div></a>
+      <a href="knowledge/courses/index.html"><span class="note-number">02 / COURSES</span><div><h3>把力学与数学，变成可用的工具</h3><p>理论力学、AI 数学、复变函数等课程的讲义与复习记录。</p></div></a>
+      <a href="knowledge/research-workflow.html"><span class="note-number">03 / METHOD</span><div><h3>从一篇论文，到下一次实验</h3><p>阅读、记录、交接与失败复盘：我的研究工作流。</p></div></a>
     </div></div>
-<div class="paper-preview-head"><span class="eyebrow">A VISUAL WAY INTO THE PAPERS</span><a class="text-link" href="knowledge/papers/index.html">查看全部论文与配图 ↗</a></div><div class="paper-preview-grid"><a class="paper-preview" href="knowledge/papers/asbeck-2006.html"><div class="paper-preview-image"><img src="assets/gallery/asbeck-2006-thumb.webp" alt="微刺与粗糙表面的接触几何" width="711" height="392" loading="lazy" decoding="async" ></div><div class="paper-preview-caption"><span>01 / CONTACT</span><h3>从粗糙表面，理解微刺 <b aria-hidden="true">↗</b></h3><p>Asbeck et al. · 2006</p></div></a><a class="paper-preview" href="knowledge/papers/hawkes-2015.html"><div class="paper-preview-image"><img src="assets/gallery/hawkes-2015-thumb.webp" alt="剪切方向与干黏附接合" width="523" height="327" loading="lazy" decoding="async" ></div><div class="paper-preview-caption"><span>02 / ADHESION</span><h3>从剪切方向，理解附着 <b aria-hidden="true">↗</b></h3><p>Hawkes et al. · 2015</p></div></a><a class="paper-preview" href="knowledge/papers/pope-2017.html"><div class="paper-preview-image"><img src="assets/gallery/pope-2017-thumb.webp" alt="SCAMP 飞行攀爬机器人" width="924" height="721" loading="lazy" decoding="async" ></div><div class="paper-preview-caption"><span>03 / FLIGHT</span><h3>从飞行平台，走向攀爬 <b aria-hidden="true">↗</b></h3><p>Pope et al. · 2017</p></div></a></div>
+<div class="paper-preview-head"><span class="eyebrow">SELECTED READING / 三篇精读选读</span></div><div class="paper-preview-grid"><a class="paper-preview" href="knowledge/papers/asbeck-2006.html"><div class="paper-preview-image"><img src="assets/gallery/asbeck-2006-thumb.webp" alt="微刺与粗糙表面的接触几何" width="711" height="392" loading="lazy" decoding="async" ></div><div class="paper-preview-caption"><span>01 / CONTACT</span><h3>从粗糙表面，理解微刺 </h3><p>Asbeck et al. · 2006</p></div></a><a class="paper-preview" href="knowledge/papers/hawkes-2015.html"><div class="paper-preview-image"><img src="assets/gallery/hawkes-2015-thumb.webp" alt="剪切方向与干黏附接合" width="523" height="327" loading="lazy" decoding="async" ></div><div class="paper-preview-caption"><span>02 / ADHESION</span><h3>从剪切方向，理解附着 </h3><p>Hawkes et al. · 2015</p></div></a><a class="paper-preview" href="knowledge/papers/pope-2017.html"><div class="paper-preview-image"><img src="assets/gallery/pope-2017-thumb.webp" alt="SCAMP 飞行攀爬机器人" width="924" height="721" loading="lazy" decoding="async" ></div><div class="paper-preview-caption"><span>03 / FLIGHT</span><h3>从飞行平台，走向攀爬 </h3><p>Pope et al. · 2017</p></div></a></div>
   </section>
 
-<section class="home-section life-notes" aria-labelledby="campus-title">
-    <div class="life-heading"><p class="eyebrow">03 / BETWEEN THE EXPERIMENTS</p><h2 id="campus-title">在研究的间隙，<br>也认真生活。</h2><p>实验、阅读，也有咖啡与校园。<br>把一些平凡的片刻，留在这里。</p><a class="text-link" href="about/index.html">认识研究之外的我 <span aria-hidden="true">↗</span></a><img class="life-stamp" src="picture/07a419944693e5acc8e5a0d99875c814.jpg" alt="中国科大趣味徽章" width="1072" height="1077" loading="lazy"></div>
-    <figure class="life-photo life-coffee"><a href="picture/e562d1c1041ccfd857501826ba56a7a8.jpg" data-image-viewer data-title="日常片刻 · 咖啡与木桌"><img src="picture/e562d1c1041ccfd857501826ba56a7a8.jpg" alt="木桌上的奶油咖啡与饼干" width="1706" height="1279" loading="lazy" decoding="async"></a><figcaption><span>FIG. 01 / 日常片刻</span><span>给自己一点慢下来的时间。</span></figcaption></figure>
-    <figure class="life-photo life-campus"><a href="picture/1d9837d989185e2890e4b77214a81252.jpg" data-image-viewer data-title="青春华章 · 活动现场"><img src="picture/1d9837d989185e2890e4b77214a81252.jpg" alt="青春华章活动现场的蓝色舞台" width="1896" height="1279" loading="lazy" decoding="async"></a><figcaption><span>FIG. 02 / 校园现场</span><span>把青春写在更大的地方。</span></figcaption></figure>
-    <div class="life-postscript"><img src="picture/f8ac062db9103ea303e50646841ca080.jpg" alt="收藏的红发动漫人物画面" width="1678" height="1078" loading="lazy"><p><span class="eyebrow">A SMALL POSTSCRIPT</span><br>还有一些喜欢的故事，<br>和故事里的人。</p><span class="life-signature" aria-hidden="true">Cutus.</span></div>
-  </section>
-  <section class="home-section learning-section" aria-labelledby="study-title">
-    <div class="home-section-head"><div><p class="eyebrow">LEARNING IN PUBLIC</p><h2 id="study-title">持续学习，也留下过程。</h2></div><a class="text-link" href="knowledge/crazyflie-learning.html">完整飞控学习路线 ↗</a></div>
+<section class="home-section learning-section" aria-labelledby="study-title">
+    <div class="home-section-head"><div><p class="eyebrow">LEARNING IN PUBLIC</p><h2 id="study-title">持续学习，也留下过程。</h2></div><a class="text-link" href="knowledge/crazyflie-learning.html">完整飞控学习路线 </a></div>
     <details class="learning-disclosure" id="progress-tracker"><summary><span><strong>Crazyflie 飞控学习面板</strong><small>10 个阶段 · 官方文档 · 实践步骤 · 验收产物</small></span><span class="disclosure-action">展开学习面板 <b aria-hidden="true">+</b></span></summary><section class="flight-roadmap" data-flight-roadmap><p>学习面板需要 JavaScript。你也可以<a href="knowledge/crazyflie-learning.html">阅读完整学习路线</a>。</p></section></details>
-    <div class="recent-note"><span>最近整理 / 2026.09.27</span><a href="knowledge/crazyflie-learning.html">持续学习 Crazyflie 飞控，从连接与日志走向控制闭环，学习进度以实际验收为准。 <span aria-hidden="true">→</span></a></div>
   </section>
 
-  <section class="home-section ai-section" id="ai-stack" aria-labelledby="ai-title">
-    <div class="home-section-head"><div><p class="eyebrow">AI LINE-UP / 兵器谱 · 2026.09</p><h2 id="ai-title">大模型那么多，我挨个试过。</h2></div><a class="text-link" href="about/index.html">完整 AI 探索历程 <span aria-hidden="true">→</span></a></div>
-    <div class="ai-grid">
-      <article class="ai-card ai-gpt">
-        <div class="ai-card-head"><span class="ai-mono" aria-hidden="true">G</span><div class="ai-names"><h3>GPT</h3><span class="ai-vendor">OpenAI · Astra / Sol</span></div><span class="ai-role">科研主力</span></div>
-        <p class="ai-review">以前总觉得他不说人话，但干事情确实效果不错，而且他不断进化，总能给我带来惊喜——是我的科研主力。期末考时也常常拿来做复习文档，从结果来看还是很不错的。自从 Astra、Sol 更新，他说的话也渐渐易懂，用来平时解释学习疑问也很不错。</p>
-        <p class="ai-aside">（Tibo 怎么还不重置）</p>
-        <div class="ai-card-foot"><span>STATUS</span><span>持续订阅 · 期末救星</span></div>
-      </article>
-      <article class="ai-card ai-claude">
-        <div class="ai-card-head"><span class="ai-mono" aria-hidden="true">C</span><div class="ai-names"><h3>Claude</h3><span class="ai-vendor">Anthropic · Pro / Fable</span></div><span class="ai-role">理性与智慧</span></div>
-        <p class="ai-review">一直听说他很厉害，也知道 Anthropic 很逆天；用了以后才知道，Claude 确实厉害，A 厂比我想象中还要逆天。订阅 Claude Pro 的两个月用得很爽，虽说聊天额度不多很烦，但他给我的建议仿佛充满理性与智慧。后来 Fable 来了，以为可以爽用，结果没过多久我的号就被封了。</p>
-        <div class="ai-card-foot"><span>STATUS</span><span>账号被封 · 江湖再见</span></div>
-      </article>
-      <article class="ai-card ai-gemini">
-        <div class="ai-card-head"><span class="ai-mono" aria-hidden="true">✦</span><div class="ai-names"><h3>Gemini</h3><span class="ai-vendor">Google · 3 Pro</span></div><span class="ai-role">情绪价值</span></div>
-        <p class="ai-review">很早就听说过他——最早是在 DeepSeek 刚出的时候，被拿来比较然后被 DS 吊打（。Gemini 也辉煌过，3 Pro 系列确实惊艳了我：原来一个背靠谷歌的大模型就是能这么伟大。我常常用来学习平常的课程，因为情绪价值给得很好，解释得也很通俗易懂。不过最近越来越傻，有一种看着儿时玩伴远去的感觉（?）。</p>
-        <div class="ai-card-foot"><span>STATUS</span><span>课程搭子 · 且用且珍惜</span></div>
-      </article>
-      <article class="ai-card ai-deepseek">
-        <div class="ai-card-head"><span class="ai-mono" aria-hidden="true">DS</span><div class="ai-names"><h3>DeepSeek</h3><span class="ai-vendor">深度求索 · V4 Flash</span></div><span class="ai-role">开源初恋</span></div>
-        <p class="ai-review">我对人工智能的第一次惊艳。GPT 刚出的时候我还啥都不懂，但 DeepSeek 问世的时候，我从高考素材的只言片语中明白了他的伟大。在我第一次使用 Claude Code 时，便宜好用的 V4 Flash 成为了独一无二的首选。可是现在，梁圣变成小梁子了（。听说 4.1 Flash 又崛起了？还是很希望看到中国开源模型能越来越好。</p>
-        <div class="ai-card-foot"><span>STATUS</span><span>期待 4.1 Flash 复兴</span></div>
-      </article>
-      <article class="ai-card ai-kimi ai-card-featured" id="ai-kimi">
-        <div class="ai-card-head"><span class="ai-mono" aria-hidden="true">K</span><div class="ai-names"><h3>Kimi</h3><span class="ai-vendor">Moonshot AI · K3</span></div><span class="ai-role">新玩具 · 爱不释手</span></div>
-        <p class="ai-review">从前就认识他——月之暗面，很帅气的公司名字。我以前把他看作国模里 Qwen、DeepSeek 的小跟班，直到 K3 问世，我才知道我小瞧他了。做「青春华章」志愿者时也有幸在后台看见了杨总，可是他太低调，走得太快了。现在这是我的新玩具：先试试 99 的套餐，要是满意，我以后会升级订阅！</p>
-        <p class="ai-aside">（本站这轮大刀阔斧的改版，就是和他一起完成的）</p>
-        <details class="ai-guide"><summary>附：Kimi 订阅攻略 · 亲测秒过</summary><ol><li><strong>注册新账号</strong>——全新账号起步，干净利落。</li><li><strong>预约订阅</strong>——在订阅页预约 Moderator 套餐。</li><li><strong>用途选择「科研」</strong>——亲测审核秒过。</li></ol><p class="ai-guide-note">99 元套餐先上车，满意再升级。</p></details>
-        <div class="ai-card-foot"><span>STATUS</span><span>Moderator 试用中 · 2026.09 订阅</span></div>
-      </article>
-    </div>
-  </section>
+  <aside class="home-tool-note" id="ai-stack" aria-labelledby="ai-title">
+    <div><p class="eyebrow">WORKING WITH AI</p><h2 id="ai-title">工具，服务于具体的问题。</h2><p>用 AI 辅助文献阅读、课程学习与编程，把理解与验证留在自己的工作里。</p><ul class="tool-status" aria-label="工具使用记录"><li>GPT · 科研在用</li><li>Gemini · 课程辅助</li><li id="ai-kimi">Kimi · 试用中</li></ul></div>
+    <a class="text-link" href="about/index.html#ai-workflow">工具使用记录</a>
+  </aside>
 
-  <section class="contact-band" aria-labelledby="contact-title"><div><p class="eyebrow">LET’S CONNECT</p><h2 id="contact-title">关于机器人，也关于新的想法。</h2><p>欢迎交流机器人实践、论文阅读与课程学习。</p></div><div class="contact-actions"><a class="btn btn-primary" href="mailto:ustcyxy666@mail.ustc.edu.cn">给我写信 <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/yxycutus" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></section>
+  <section class="field-trip" aria-label="沿途的风景"><div class="field-trip-header"><div><p class="field-kicker">AWAY FROM THE DESK</p><h2>把目光，暂时交给远处。</h2></div><p>书桌之外，走过城市与树影。<br>让阅读，也有片刻停顿。</p></div><div class="field-trip-grid"><figure><a href="assets/editorial/east-lake-1440.webp" data-image-viewer data-title="武汉 · 东湖公园"><img src="assets/editorial/east-lake-640.webp" srcset="assets/editorial/east-lake-640.webp 640w, assets/editorial/east-lake-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 520px" width="1706" height="1279" alt="武汉 · 东湖公园" loading="lazy" decoding="async"></a><figcaption><span>武汉 · 东湖公园</span><span>01 </span></figcaption></figure><figure><a href="assets/editorial/nanjing-1440.webp" data-image-viewer data-title="南京 · 行走之间"><img src="assets/editorial/nanjing-640.webp" srcset="assets/editorial/nanjing-640.webp 640w, assets/editorial/nanjing-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 520px" width="1279" height="1706" alt="南京 · 行走之间" loading="lazy" decoding="async"></a><figcaption><span>南京 · 行走之间</span><span>02 </span></figcaption></figure><figure><a href="assets/editorial/qingdao-1440.webp" data-image-viewer data-title="青岛 · 街头"><img src="assets/editorial/qingdao-640.webp" srcset="assets/editorial/qingdao-640.webp 640w, assets/editorial/qingdao-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 520px" width="1279" height="1706" alt="青岛 · 街头" loading="lazy" decoding="async"></a><figcaption><span>青岛 · 街头</span><span>03 </span></figcaption></figure></div></section>
+<section class="contact-band" aria-labelledby="contact-title"><div><p class="eyebrow">LET’S CONNECT</p><h2 id="contact-title">关于机器人，也关于新的想法。</h2><p>欢迎交流机器人实践、论文阅读与课程学习。</p></div><div class="contact-actions"><a class="btn btn-primary" href="mailto:ustcyxy666@mail.ustc.edu.cn">给我写信 <span aria-hidden="true">→</span></a><a class="text-link" href="https://github.com/yxycutus" target="_blank" rel="noopener noreferrer">GitHub </a></div></section>
   <section class="home-section friends-section" id="friends" aria-labelledby="friends-title">
     <div class="home-section-head"><div><p class="eyebrow">FRIENDS</p><h2 id="friends-title">友情链接</h2></div></div>
     <article class="friend-card" aria-labelledby="mav-name">
       <div class="friend-info"><h3 id="mav-name"><a href="https://mav-ustc.dev/" target="_blank" rel="noopener noreferrer">mav</a></h3><p>同乡同好的同学</p></div>
-      <div class="friend-links"><a class="text-link" href="https://mav-ustc.dev/" target="_blank" rel="noopener noreferrer" aria-label="mav 的个人网站（新窗口打开）">个人网站 <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/maverickxone" target="_blank" rel="noopener noreferrer" aria-label="mav 的 GitHub（新窗口打开）">GitHub <span aria-hidden="true">↗</span></a></div>
+      <div class="friend-links"><a class="text-link" href="https://mav-ustc.dev/" target="_blank" rel="noopener noreferrer" aria-label="mav 的个人网站（新窗口打开）">个人网站 </a><a class="text-link" href="https://github.com/maverickxone" target="_blank" rel="noopener noreferrer" aria-label="mav 的 GitHub（新窗口打开）">GitHub </a></div>
     </article>
   </section>
 </main>
@@ -227,6 +207,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
 <script src="assets/flight-roadmap.js"></script>
 <script src="assets/gallery.js"></script>
 <script src="assets/experience.js?v=4ee6d01c8520"></script>
-<script src="assets/home-motion.js?v=703bd7548060"></script>
+<script src="assets/home-motion.js?v=8eae78052e10"></script>
+<script src="assets/editorial.js?v=bdf380a1ef7f"></script>
 </body>
 </html>

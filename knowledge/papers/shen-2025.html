@@ -72,6 +72,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
   <meta name="twitter:card" content="summary_large_image">
   <link rel="stylesheet" href="../../assets/gallery.css">
   <link rel="stylesheet" href="../../assets/experience.css?v=9a0afd9e7535">
+  <link rel="stylesheet" href="../../assets/editorial.css?v=91c7be4d946f">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -130,6 +131,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
 <p>当前台架首先需要可重复的状态记录和成功定义，再考虑代理模型。训练输入可从触壁前的速度、俯仰角、升力设定、表面和机构版本开始；成功标签必须说明保持多久、是否发生二次接触以及是否仍依赖旋翼。</p>
 <h2 id="evidence">证据 / 参数与测试条件</h2>
 <div class="paper-table-wrap" role="region" aria-label="项目对照表" tabindex="0"><table class="article-table"><thead><tr><th scope="col">项目</th><th scope="col">原文或精读记录</th><th scope="col">条件与解释</th></tr></thead><tbody><tr><td>知识驱动样本</td><td>114 个仿真工况</td><td>碰撞动力学分析；不能写成 114 次独立实飞</td></tr><tr><td>主要状态变量</td><td>θ₀、v₀、F<sub>L</sub></td><td>角度零点、正负号与力的定义必须沿用测试坐标</td></tr><tr><td>成功类型</td><td>完美着陆 / 正常着陆</td><td>二者的轨迹与晃动程度不同</td></tr><tr><td>失败类型</td><td>动能不足 / 动能过高</td><td>分别关注翻转不足与反弹脱离</td></tr></tbody></table></div>
+<figure class="concept-note" data-concept="loop" data-step="0"><div class="concept-topline"><span>IDEA IN MOTION / 概念手绘</span><button type="button" class="concept-play">暂停示意 Ⅱ</button></div><div class="concept-layout"><svg class="concept-art" viewBox="0 0 340 240" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="wash" cx="170" cy="124" r="100"/><path class="trace accent" d="M90 72 C140 28 228 28 255 72 M264 100 Q261 170 180 198 M145 195 Q66 163 79 101"/><path d="m247 60 9 14 8-14m-73 131-14 8 15 8M69 111l10-13 10 13"/><rect class="node node-0" x="54" y="60" width="54" height="46" rx="3"/><path d="M64 74h30m-30 10h25m-25 10h17"/><circle class="node node-1" cx="247" cy="84" r="27"/><path d="m233 84 9 10 20-24"/><path class="node node-2" d="M144 170h50l9 43h-69z"/><path d="M153 170v-14h32v14m-38 28h43"/><circle class="moving loop-pointer accent" cx="81" cy="126" r="4" fill="currentColor"/></svg><div class="concept-copy"><strong>让一条笔记，走向下一次实验。</strong><p class="concept-description">先写下想弄明白的问题，让阅读有一个具体的起点。</p><div class="concept-steps" role="group" aria-label="选择概念状态"><button type="button" data-concept-step="0" data-description="先写下想弄明白的问题，让阅读有一个具体的起点。" aria-pressed="true">提出问题</button><button type="button" data-concept-step="1" data-description="沿着原文、图表与实验条件，区分结论、推断和未解的问题。" aria-pressed="false">寻找证据</button><button type="button" data-concept-step="2" data-description="把可检验的想法带回实验，再用结果修正最初的问题。" aria-pressed="false">带回实验</button></div></div></div><figcaption>阅读 → 证据 → 实验：研究记录的循环示意。 概念示意，非实验数据。</figcaption></figure>
 <h2 id="experiments">实验 / 转化为可检查的问题</h2>
 <p>以下为结合阅读提出的实验建议，尚不代表本项目已完成：</p><ul><li>按照不同表面或机构版本划分验证集，避免同一条轨迹的相邻帧同时进入训练与验证。</li><li>保留失败类别和全过程轨迹，检查模型在哪些速度、姿态区域误判；超出训练范围的结果单独标记。</li></ul>
 <h2 id="limits">边界 / 这些结论不能直接外推</h2>
@@ -170,5 +172,6 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
 <script src="../../assets/reader.js"></script>
 <script src="../../assets/gallery.js"></script>
 <script src="../../assets/experience.js?v=4ee6d01c8520"></script>
+<script src="../../assets/editorial.js?v=bdf380a1ef7f"></script>
 </body>
 </html>

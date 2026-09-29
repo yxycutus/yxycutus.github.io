@@ -5,7 +5,7 @@
   if (!home) return;
   const masthead = home.querySelector('.journal-masthead');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-  const targets = [...home.querySelectorAll('.explore-strip > a, .home-section-head, .work-card, .notebook-intro, .notebook-list > a, .paper-preview-head, .paper-preview, .life-heading, .life-photo, .life-postscript, .learning-disclosure, .recent-note, .ai-card, .contact-band, .friend-card')];
+  const targets = [...home.querySelectorAll('.explore-strip > a, .home-section-head, .work-card, .notebook-intro, .notebook-list > a, .paper-preview-head, .paper-preview, .learning-disclosure, .home-tool-note, .contact-band, .friend-card')];
   let frame = 0;
   let growObserver;
 

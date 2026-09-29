@@ -71,6 +71,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="../assets/gallery.css">
   <link rel="stylesheet" href="../assets/experience.css?v=9a0afd9e7535">
+  <link rel="stylesheet" href="../assets/editorial.css?v=91c7be4d946f">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -108,6 +109,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
 
   <article>
     <header class="article-header"><div class="article-badge">RESEARCH NOTE · 公开研究记录</div><h1 class="article-title">双模态栖息机构：从原理翻转到可重复附着</h1><div class="article-meta-row"><span>Crazyflie · 双稳态薄板 · 原理验证阶段</span><time datetime="2026-09-10">更新于 2026.09.10</time></div></header>
+<figure class="field-cover field-cover--clay"><a href="../assets/editorial/robotics-institute-1440.webp" data-image-viewer data-title="人形机器人研究院 · 一瞥"><img src="../assets/editorial/robotics-institute-640.webp" srcset="../assets/editorial/robotics-institute-640.webp 640w, ../assets/editorial/robotics-institute-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 520px" width="1658" height="1280" alt="人形机器人研究院 · 一瞥" loading="eager" decoding="async"></a><figcaption><span class="field-kicker">A FIELD NOTE / CUTUS</span><strong>从飞行，到一次可靠的接触。</strong><span class="field-caption">围绕足端机构、表面与载荷，继续提出问题。</span><small>人形机器人研究院 · 一瞥 · 摄影手记 ↗</small></figcaption></figure>
 
     <div class="article-content">
  <div class="article-callout"><p><strong>现在要回答的问题</strong>：同一个轻量化机构，能否在指定粗糙面与光滑面上分别实现可重复的接合、保持和可控离开？首次汇报后，近期工作聚焦多表面栖息；攀爬是否继续开展，将根据任务需要和机构能力重新评估。</p></div>
@@ -127,7 +129,8 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
  <h2 id="mechanism">02 / 双模态与双稳态，各自解决什么</h2>
  <div class="evidence-grid"><section class="evidence-card"><span class="section-label">MODE A</span><h3>粗糙面 · 机械互锁</h3><p>鱼钩 / 微刺是首轮候选接触件。先固定在粗糙模式测挂附，区分“挂不上”和“翻转不到位”两类问题。</p></section><section class="evidence-card"><span class="section-label">MODE B</span><h3>光滑面 · 附着件筛选</h3><p>吸盘或黏附装置仍是待比较的方案。已有模具不意味着保持通过，吸盘破封和干黏附剥离也需要分别设计。</p></section></div>
  <p>预压缩薄板负责选择工作接触件，并让非工作件退让；SMA 负责触发构型变化。希望切换后由结构保持构型、由接触件承担载荷。这个目标仍需带载实验支持，不能据此宣称整机已经实现零功耗栖息。</p>
- <h2 id="next">03 / 下一步：每一次迭代都对应一个实验问题</h2>
+ <figure class="concept-note" data-concept="perch" data-step="0"><div class="concept-topline"><span>IDEA IN MOTION / 概念手绘</span><button type="button" class="concept-play">暂停示意 Ⅱ</button></div><div class="concept-layout"><svg class="concept-art" viewBox="0 0 340 240" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="wash" cx="160" cy="122" r="99"/><path class="faint" d="M267 30v183m9-175 18 18m-18 5 18 18m-18 5 18 18m-18 5 18 18m-18 5 18 18m-18 5 18 18m-18 5 18 18"/><path d="m258 35 7 10-7 15 7 12-7 15 7 12-7 15 7 12-7 15 7 12-7 15 7 12-7 15"/><g class="moving foot"><path d="M69 90h56l45 29-45 29H69z"/><circle cx="110" cy="119" r="12"/><path class="accent" d="M170 119 Q207 69 242 105 M170 119 Q207 169 242 136"/><g class="mode-part spines"><path d="m239 105 14-5 8 10m-22 26 14-5 8 10"/></g><g class="mode-part smooth-pad"><rect class="accent" x="248" y="88" width="10" height="62" rx="4"/><path class="accent" d="M240 105h8m-8 31h8"/></g></g><g class="mode-part contact-mark accent"><path d="m277 109 15-8m-15 23h19m-19 13 15 8"/></g><path class="trace accent" d="M62 194h146"/><path d="m196 188 12 6-12 6"/></svg><div class="concept-copy"><strong>一种足端，两种接触思路。</strong><p class="concept-description">在粗糙表面，微刺寻找可挂持的凸起；接触位置与载荷方向仍需验证。</p><div class="concept-steps" role="group" aria-label="选择概念状态"><button type="button" data-concept-step="0" data-description="在粗糙表面，微刺寻找可挂持的凸起；接触位置与载荷方向仍需验证。" aria-pressed="true">微刺 / 粗糙面</button><button type="button" data-concept-step="1" data-description="在光滑表面，切换到黏附接触；预加载、剪切方向与材料状态共同影响表现。" aria-pressed="false">黏附 / 光滑面</button><button type="button" data-concept-step="2" data-description="把释放也当作设计问题：如何卸载、切换，并为下一次接触做好准备？" aria-pressed="false">释放 / 再出发</button></div></div></div><figcaption>双模态足端构想：三种状态可独立查看，不代表实际切换时序或已验证结果。 概念示意，非实验数据。</figcaption></figure>
+<h2 id="next">03 / 下一步：每一次迭代都对应一个实验问题</h2>
  <ol><li><strong>先建立记录：</strong>固定样机编号、壁面样件、加载位置和成功定义，保存完整成功与失败记录。</li><li><strong>粗糙面与切换分开测：</strong>先检查挂附、偏心承载和可控释放，再加入 SMA 双向循环。</li><li><strong>光滑面做对照：</strong>在相同表面、预载和加载方式下比较自制吸盘与可获得的对照件，定位失效来源。</li><li><strong>打通飞控基础链：</strong>学习连接、参数、遥测与日志；理解传感器、状态估计、控制器和电机输出之间的关系。</li><li><strong>通过台架再推进整机：</strong>首轮起飞前选定模式；载荷转移、保持和离墙逐步验证，空中切换另设条件。</li></ol>
  <div class="research-flow" aria-label="拟验证的栖息流程"><span>模式就绪</span><span>接近 / 接触</span><span>附着确认</span><span>载荷转移</span><span>保持</span><span>卸载 / 离墙</span></div>
  <p>这是拟验证的流程，不是已经运行的控制程序。接触到墙面不等于附着成功；保持时若仍依赖旋翼推力，应记录为辅助栖息。</p>
@@ -166,5 +169,6 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
 <script src="../assets/reader.js"></script>
 <script src="../assets/gallery.js"></script>
 <script src="../assets/experience.js?v=4ee6d01c8520"></script>
+<script src="../assets/editorial.js?v=bdf380a1ef7f"></script>
 </body>
 </html>

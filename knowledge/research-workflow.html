@@ -70,6 +70,8 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
   <meta property="og:image:alt" content="Cutus 的个人头像">
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="../assets/experience.css?v=9a0afd9e7535">
+  <link rel="stylesheet" href="../assets/editorial.css?v=91c7be4d946f">
+<link rel="stylesheet" href="../assets/gallery.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -107,6 +109,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
 
   <article>
     <header class="article-header"><div class="article-badge">RESEARCH NOTE · 公开研究记录</div><h1 class="article-title">从论文到实验：我的研究记录工作流</h1><div class="article-meta-row"><span>阅读 · 工程交接 · 失败复盘</span><time datetime="2026-09-27">更新于 2026.09.27</time></div></header>
+<figure class="field-cover field-cover--sage"><a href="../assets/editorial/library-window-1440.webp" data-image-viewer data-title="高新区图书馆 · 窗边"><img src="../assets/editorial/library-window-640.webp" srcset="../assets/editorial/library-window-640.webp 640w, ../assets/editorial/library-window-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 520px" width="1279" height="1706" alt="高新区图书馆 · 窗边" loading="eager" decoding="async"></a><figcaption><span class="field-kicker">A FIELD NOTE / CUTUS</span><strong>从窗边的笔记，到实验台。</strong><span class="field-caption">让每次阅读，都留下可以继续追问的线索。</span><small>高新区图书馆 · 窗边 · 摄影手记 ↗</small></figcaption></figure>
 
     <details class="article-toc"><summary>本文目录 · 5 个章节</summary><ol><li><a href="#section-1">01 / 已经发生的三个节点</a></li><li><a href="#section-2">02 / 接下来采用的记录方法</a></li><li><a href="#section-3">03 / 一个最小实验记录模板</a></li><li><a href="#section-4">04 / AI 参与的位置</a></li><li><a href="#evidence-to-expression">05 / 从实验记录到表达证据</a></li></ol></details>
     <div class="article-content">
@@ -114,7 +117,8 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
  <h2 id="section-1">01 / 已经发生的三个节点</h2><ul><li><strong>2026.06：</strong>在 Aloha Mini 实践中完成 Joy-Con 遥控展示与工作交接，积累树莓派、通信链路和机器人集成经验。</li><li><strong>2026.06.09：</strong>搭建 Obsidian + Codex + Zotero 论文工作流，开始把阅读与知识整理连接起来。</li><li><strong>2026.07.15：</strong>参加 Aloha Mini 项目答辩。从“功能跑起来”继续走向可说明、可交接的工程记录。</li></ul>
  <h2 id="section-2">02 / 接下来采用的记录方法</h2><p>下面是结合当前项目整理的方法，不代表每一项都已经完整执行。</p>
  <div class="evidence-grid"><section class="evidence-card"><span class="section-label">READ</span><h3>读论文，先留下边界</h3><p>记录研究问题、实验条件、关键证据与局限，再单独写“可能怎样用于我的项目”。把作者结论与自己的推断分开。</p></section><section class="evidence-card"><span class="section-label">BUILD</span><h3>做样机，说明改了什么</h3><p>版本号配上实物状态、参数和目标问题。一个 CAD 文件说明存在一个设计，不自动说明已经打印或验证。</p></section><section class="evidence-card"><span class="section-label">MEASURE</span><h3>做实验，保存失败</h3><p>在开始前定义成功条件，保留成功次数 / 总次数、载荷、接触位置和失败类型。一次成功演示是线索，重复实验才回答稳定性。</p></section><section class="evidence-card"><span class="section-label">HAND OFF</span><h3>写交接，留下下一步</h3><p>用“已完成、未验证、下一项检查”整理状态，让下一次接手不必从聊天记录或文件名猜进度。</p></section></div>
- <h2 id="section-3">03 / 一个最小实验记录模板</h2><p>面向当前栖息机构，先把每次实验记录完整，再考虑复杂的数据管理工具。</p>
+ <figure class="concept-note" data-concept="loop" data-step="0"><div class="concept-topline"><span>IDEA IN MOTION / 概念手绘</span><button type="button" class="concept-play">暂停示意 Ⅱ</button></div><div class="concept-layout"><svg class="concept-art" viewBox="0 0 340 240" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="wash" cx="170" cy="124" r="100"/><path class="trace accent" d="M90 72 C140 28 228 28 255 72 M264 100 Q261 170 180 198 M145 195 Q66 163 79 101"/><path d="m247 60 9 14 8-14m-73 131-14 8 15 8M69 111l10-13 10 13"/><rect class="node node-0" x="54" y="60" width="54" height="46" rx="3"/><path d="M64 74h30m-30 10h25m-25 10h17"/><circle class="node node-1" cx="247" cy="84" r="27"/><path d="m233 84 9 10 20-24"/><path class="node node-2" d="M144 170h50l9 43h-69z"/><path d="M153 170v-14h32v14m-38 28h43"/><circle class="moving loop-pointer accent" cx="81" cy="126" r="4" fill="currentColor"/></svg><div class="concept-copy"><strong>让一条笔记，走向下一次实验。</strong><p class="concept-description">先写下想弄明白的问题，让阅读有一个具体的起点。</p><div class="concept-steps" role="group" aria-label="选择概念状态"><button type="button" data-concept-step="0" data-description="先写下想弄明白的问题，让阅读有一个具体的起点。" aria-pressed="true">提出问题</button><button type="button" data-concept-step="1" data-description="沿着原文、图表与实验条件，区分结论、推断和未解的问题。" aria-pressed="false">寻找证据</button><button type="button" data-concept-step="2" data-description="把可检验的想法带回实验，再用结果修正最初的问题。" aria-pressed="false">带回实验</button></div></div></div><figcaption>阅读 → 证据 → 实验：研究记录的循环示意。 概念示意，非实验数据。</figcaption></figure>
+<h2 id="section-3">03 / 一个最小实验记录模板</h2><p>面向当前栖息机构，先把每次实验记录完整，再考虑复杂的数据管理工具。</p>
  <div class="note-template"><p><strong>实验问题：</strong>本次只验证什么？</p><p><strong>固定条件：</strong>日期、样机版本、表面编号、接触位置、预载、载荷及偏心距。</p><p><strong>输入与结果：</strong>驱动参数、成功定义、成功 / 总次数、保持时间。</p><p><strong>失败与证据：</strong>失败类型、视频编号、曲线文件。</p><p><strong>下一步：</strong>下一轮只改变哪个主要因素？</p></div>
  <h2 id="section-4">04 / AI 参与的位置</h2><p>我使用 AI 辅助理解、编程和整理，但公开记录需要能追溯到原文、代码或实验。尤其在研究进展中，AI 生成的解释不能代替测量结果；不确定的判断应保留为问题。</p>
  <p><a href="aloha-mini.html">查看 Aloha Mini 项目 →</a> · <a href="scamp-climbing.html">查看当前栖息机构进展 →</a></p>
@@ -149,5 +153,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
 <script src="../assets/script.js?v=4cee9222a59f"></script>
 <script src="../assets/reader.js"></script>
 <script src="../assets/experience.js?v=4ee6d01c8520"></script>
+<script src="../assets/gallery.js"></script>
+<script src="../assets/editorial.js?v=bdf380a1ef7f"></script>
 </body>
 </html>

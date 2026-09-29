@@ -29,8 +29,8 @@ fs.mkdirSync(artifacts, {recursive: true});
   assert.ok(Math.abs(await page.locator('.journal-masthead').evaluate(el=>el.getBoundingClientRect().top))<2);
   await page.screenshot({path:path.join(artifacts,'sky-home-desktop.png')});
   await scroll(0);assert.equal(await progress(),0);
-  const card=page.locator('.ai-card').first();assert.equal(await card.evaluate(el=>getComputedStyle(el).opacity),'0');
-  await card.scrollIntoViewIfNeeded();await page.waitForFunction(()=>getComputedStyle(document.querySelector('.ai-card')).opacity==='1');
+  const card=page.locator('.home-tool-note');assert.equal(await card.evaluate(el=>getComputedStyle(el).opacity),'0');
+  await card.scrollIntoViewIfNeeded();await page.waitForFunction(()=>getComputedStyle(document.querySelector('.home-tool-note')).opacity==='1');
   for(const width of [320,390,768,1024,1440]){
    await page.setViewportSize({width,height:900});await scroll(skyTop+110);
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),`horizontal overflow at ${width}`);
@@ -48,7 +48,7 @@ fs.mkdirSync(artifacts, {recursive: true});
   const staticPage=await noJS.newPage();await staticPage.goto(base);
   assert.equal(await staticPage.locator('.sky-photo').count(),1);
   assert.equal(await staticPage.locator('.motion-enabled').count(),0);
-  assert.equal(await staticPage.locator('.ai-card').first().evaluate(el=>getComputedStyle(el).opacity),'1');
+  assert.equal(await staticPage.locator('.home-tool-note').evaluate(el=>getComputedStyle(el).opacity),'1');
   await noJS.close();
   console.log('PASS: sky photograph, no homepage video requests, reversible USTC Robotics wordmark, content reveal, 5 viewport widths, large font, reduced motion, no-JavaScript content, no browser errors.');
  }finally{await browser.close()}

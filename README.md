@@ -4,6 +4,16 @@
 > 以中科大官方蓝 (`#004182`) 为基调，以真实工程项目、研究问题和公开笔记组织个人主页。
 > 真实记录校企合作 **Aloha Mini 开源双臂移动机器人** 研发落地实操、仿生飞行攀爬机器人文献精读，以及 USTC 专业核心课自学体系。
 
+## 2026-09-29 阅读节奏与概念动画
+
+- 首页进一步收束为项目、笔记、学习和影像：AI 介绍压缩为简短说明与状态，详细使用记录放在关于页；收藏后记默认折叠。项目卡片各保留一张主图与一个入口，首页仅四个主要行动保留箭头。
+
+- 参考 [Anthropic](https://www.anthropic.com/) 的编辑式排版，在长文中加入章节编号、舒展的行距、分段留白，以及鼠尾草绿、浅陶土色和灰蓝色的内容区分。
+- 图书馆、雪景、东湖、南京、青岛、机械臂与研究院共 8 张照片用于文章封面、阅读间隙和旅行手记；`assets/editorial/manifest.json` 保留源文件对应关系。运行 `python scripts/prepare_editorial_images.py` 可生成两档 WebP，原图保持不变。
+- `assets/editorial.css` / `assets/editorial.js` 提供四组 SVG 概念动画：研究记录循环、双模态足端、遥操作链路、接触与释放。支持暂停、键盘逐步查看；离开视口或切到后台时停止，系统减少动态效果时默认暂停。动画均为概念示意，不表示实验结果。
+- 新增内容直接保存在 HTML；关闭 JavaScript 后照片、静态线稿和正文仍可读。既有目录、主题、字号及学习进度保持兼容。
+- 验证：`python scripts/check_site.py`、`node scripts/check_editorial.cjs`、`node scripts/check_experience.cjs`。浏览器脚本使用下文的 `PLAYWRIGHT_MODULE`、`CHROME_PATH` 和 `BASE_URL` 环境变量。编辑共享样式或动画后运行 `node scripts/version_theme_assets.cjs` 更新缓存版本。
+
 ## 首页滚动动效
 
 - `assets/home-motion.js` / `assets/home-motion.css` 管理首页照片、站名渐变和分层渐入；下滑将 Cutus. 渐变为 USTC Robotics，上滑可恢复。

@@ -71,6 +71,8 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
   <meta property="og:image:alt" content="Cutus 的个人头像">
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="../assets/experience.css?v=9a0afd9e7535">
+  <link rel="stylesheet" href="../assets/editorial.css?v=91c7be4d946f">
+<link rel="stylesheet" href="../assets/gallery.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -112,6 +114,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
       <h1 class="article-title">Cohesive 仿真教程</h1>
       <div class="article-meta-row"><span class="article-meta-item">作者：Cutus（易兴宇）</span><span class="article-meta-item">原文更新：2026 年 5 月 6 日</span><span class="article-meta-item">34 张操作配图</span></div>
     </header>
+<figure class="field-cover field-cover--sage"><a href="../assets/editorial/library-window-1440.webp" data-image-viewer data-title="高新区图书馆 · 窗边"><img src="../assets/editorial/library-window-640.webp" srcset="../assets/editorial/library-window-640.webp 640w, ../assets/editorial/library-window-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 520px" width="1279" height="1706" alt="高新区图书馆 · 窗边" loading="eager" decoding="async"></a><figcaption><span class="field-kicker">A FIELD NOTE / CUTUS</span><strong>从模型出发，回到物理。</strong><span class="field-caption">在建模、求解与结果之间，保留每一步的依据。</span><small>高新区图书馆 · 窗边 · 摄影手记 ↗</small></figcaption></figure>
     <details class="article-toc"><summary>本文目录 · 22 个章节</summary><ol><li class="toc-level-2"><a href="#section-1">软件准备</a></li>
 <li class="toc-level-3"><a href="#section-2">关于软件——abaqus</a></li>
 <li class="toc-level-3"><a href="#section-3">文件类型</a></li>
@@ -163,6 +166,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
 <p>Cohesive 是一种用于描述界面分层、开裂与损伤演化的分析方法，常用于研究材料或结构之间的粘接失效过程。 在仿真中，它可以模拟两个部件连接界面从初始粘结、受载损伤，到最终分离的全过程，因此在复合材料分层、胶层失效、界面断裂等问题中应用非常广泛。</p>
 <p>Abaqus 在进行 Cohesive 分析时有较明显的优势。 首先，它能够方便地定义界面的刚度、损伤起始准则和损伤演化规律，适合建立较完整的界面失效模型。其次，Abaqus 同时支持 Cohesive 单元 和 基于表面的 Cohesive 接触 两种方式，建模选择比较灵活，能够适应不同类型的结构问题。除此之外，Abaqus 的后处理功能较强，能够直观查看界面应力、损伤变量以及裂纹扩展过程，便于分析结果和定位失效区域。对于复合材料、胶接结构以及层间损伤等问题，Abaqus 已经是较成熟且常用的分析平台。</p>
 <hr>
+<figure class="concept-note" data-concept="loop" data-step="0"><div class="concept-topline"><span>IDEA IN MOTION / 概念手绘</span><button type="button" class="concept-play">暂停示意 Ⅱ</button></div><div class="concept-layout"><svg class="concept-art" viewBox="0 0 340 240" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="wash" cx="170" cy="124" r="100"/><path class="trace accent" d="M90 72 C140 28 228 28 255 72 M264 100 Q261 170 180 198 M145 195 Q66 163 79 101"/><path d="m247 60 9 14 8-14m-73 131-14 8 15 8M69 111l10-13 10 13"/><rect class="node node-0" x="54" y="60" width="54" height="46" rx="3"/><path d="M64 74h30m-30 10h25m-25 10h17"/><circle class="node node-1" cx="247" cy="84" r="27"/><path d="m233 84 9 10 20-24"/><path class="node node-2" d="M144 170h50l9 43h-69z"/><path d="M153 170v-14h32v14m-38 28h43"/><circle class="moving loop-pointer accent" cx="81" cy="126" r="4" fill="currentColor"/></svg><div class="concept-copy"><strong>让一条笔记，走向下一次实验。</strong><p class="concept-description">先写下想弄明白的问题，让阅读有一个具体的起点。</p><div class="concept-steps" role="group" aria-label="选择概念状态"><button type="button" data-concept-step="0" data-description="先写下想弄明白的问题，让阅读有一个具体的起点。" aria-pressed="true">提出问题</button><button type="button" data-concept-step="1" data-description="沿着原文、图表与实验条件，区分结论、推断和未解的问题。" aria-pressed="false">寻找证据</button><button type="button" data-concept-step="2" data-description="把可检验的想法带回实验，再用结果修正最初的问题。" aria-pressed="false">带回实验</button></div></div></div><figcaption>阅读 → 证据 → 实验：研究记录的循环示意。 概念示意，非实验数据。</figcaption></figure>
 <h2 id="section-5">正式教程</h2>
 <div class="article-callout"><p>教程部分提到的内容是在cohesive分析中需要特别强调的内容，其他没提到的部分按abaqus的基本使用方法来。</p></div>
 <h3 id="section-6">导入部件（part）</h3>
@@ -306,5 +310,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
 <script src="../assets/script.js?v=4cee9222a59f"></script>
 <script src="../assets/reader.js"></script>
 <script src="../assets/experience.js?v=4ee6d01c8520"></script>
+<script src="../assets/gallery.js"></script>
+<script src="../assets/editorial.js?v=bdf380a1ef7f"></script>
 </body>
 </html>

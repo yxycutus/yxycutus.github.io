@@ -70,6 +70,8 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
   <meta property="og:image:alt" content="Cutus 的个人头像">
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="../assets/experience.css?v=9a0afd9e7535">
+  <link rel="stylesheet" href="../assets/editorial.css?v=91c7be4d946f">
+<link rel="stylesheet" href="../assets/gallery.css">
 </head>
 <body>
 <a class="skip-link" href="#main-content">跳到正文</a>
@@ -118,6 +120,7 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
         <span class="article-meta-item">💡 核心理念：Vibe Coding · Pair Programming</span>
       </div>
     </header>
+<figure class="field-cover field-cover--blue"><a href="../assets/editorial/library-night-1440.webp" data-image-viewer data-title="高新区图书馆 · 入夜"><img src="../assets/editorial/library-night-640.webp" srcset="../assets/editorial/library-night-640.webp 640w, ../assets/editorial/library-night-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 520px" width="1706" height="1279" alt="高新区图书馆 · 入夜" loading="eager" decoding="async"></a><figcaption><span class="field-kicker">A FIELD NOTE / CUTUS</span><strong>工具在变，问题依然是起点。</strong><span class="field-caption">把新的工作方式，放进真实的学习与实践。</span><small>高新区图书馆 · 入夜 · 摄影手记 ↗</small></figcaption></figure>
 
     <details class="article-toc"><summary>本文目录 · 7 个章节</summary><ol><li><a href="#section-1">一、 什么是 Agent？与传统网页 AI 的本质区别</a></li><li><a href="#section-2">二、 Agent 的不同形态与进阶路线</a></li><li><a href="#section-3">三、 主流工具链选型、白嫖与避坑全记录</a></li><li><a href="#section-4">四、 进阶心法：如何真正玩转 Vibe Coding？</a></li><li><a href="#section-5">五、 两个真实科研工程案例落地</a></li><li><a href="#section-6">六、 常见萌新疑问 (FAQ)</a></li><li><a href="#section-7">七、 结语</a></li></ol></details>
     <div class="article-content">
@@ -232,7 +235,8 @@ html[data-theme-loading] *, html[data-theme-loading] *::before, html[data-theme-
         由月之暗面研发的 <strong><a href="https://kimi.moonshot.cn" target="_blank" rel="noopener" style="color: var(--ustc-blue);">Kimi Code ↗</a></strong> 在长上下文分析与中文工程理解上表现突出。面对跨多模块、数万行历史代码的架构梳理，Kimi 能够保持惊人的长程记忆与逻辑连贯性，是处理大型代码仓分析和论文文献全量通读的优秀利器。
       </p>
 
-      <h2 id="section-4">四、 进阶心法：如何真正玩转 Vibe Coding？</h2>
+      <figure class="concept-note" data-concept="loop" data-step="0"><div class="concept-topline"><span>IDEA IN MOTION / 概念手绘</span><button type="button" class="concept-play">暂停示意 Ⅱ</button></div><div class="concept-layout"><svg class="concept-art" viewBox="0 0 340 240" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle class="wash" cx="170" cy="124" r="100"/><path class="trace accent" d="M90 72 C140 28 228 28 255 72 M264 100 Q261 170 180 198 M145 195 Q66 163 79 101"/><path d="m247 60 9 14 8-14m-73 131-14 8 15 8M69 111l10-13 10 13"/><rect class="node node-0" x="54" y="60" width="54" height="46" rx="3"/><path d="M64 74h30m-30 10h25m-25 10h17"/><circle class="node node-1" cx="247" cy="84" r="27"/><path d="m233 84 9 10 20-24"/><path class="node node-2" d="M144 170h50l9 43h-69z"/><path d="M153 170v-14h32v14m-38 28h43"/><circle class="moving loop-pointer accent" cx="81" cy="126" r="4" fill="currentColor"/></svg><div class="concept-copy"><strong>让一条笔记，走向下一次实验。</strong><p class="concept-description">先写下想弄明白的问题，让阅读有一个具体的起点。</p><div class="concept-steps" role="group" aria-label="选择概念状态"><button type="button" data-concept-step="0" data-description="先写下想弄明白的问题，让阅读有一个具体的起点。" aria-pressed="true">提出问题</button><button type="button" data-concept-step="1" data-description="沿着原文、图表与实验条件，区分结论、推断和未解的问题。" aria-pressed="false">寻找证据</button><button type="button" data-concept-step="2" data-description="把可检验的想法带回实验，再用结果修正最初的问题。" aria-pressed="false">带回实验</button></div></div></div><figcaption>阅读 → 证据 → 实验：研究记录的循环示意。 概念示意，非实验数据。</figcaption></figure>
+<h2 id="section-4">四、 进阶心法：如何真正玩转 Vibe Coding？</h2>
 
       <h3>1. 优秀 Prompt 的结构模板</h3>
       <p>永远不要给 Agent 抛出“帮我写个爬虫”这种空泛的指令。一个高效的 Prompt 应遵循<strong>四要素原则</strong>：</p>
@@ -294,7 +298,7 @@ for kn in kn_values:
         你所浏览的整个 Cutus 站点，从科大蓝设计语言落地、暗色模式切换、13 篇 Stanford/沈自所/中科大前沿文献精读的高清排版渲染，到即时搜索工具栏，全部是我与 Antigravity 在终端中完成的。我负责把握学术内核、结构机理与真实经历，Antigravity 负责精准的代码编写、静态链接校验与 Git 分支推送，真正实现了人机合一的 <strong>Vibe Coding</strong>。
       </p>
 
-      <h2 id="section-6">六、 常见萌新疑问 (FAQ)</h2>
+      <figure class="reading-pause"><a href="../assets/editorial/east-lake-1440.webp" data-image-viewer data-title="武汉 · 东湖公园"><img src="../assets/editorial/east-lake-640.webp" srcset="../assets/editorial/east-lake-640.webp 640w, ../assets/editorial/east-lake-1440.webp 1440w" sizes="(max-width: 760px) 100vw, 520px" width="1706" height="1279" alt="武汉 · 东湖公园" loading="lazy" decoding="async"></a><figcaption><strong>稍作停顿，再回到问题。</strong><span>武汉 · 东湖公园 / 阅读间隙</span></figcaption></figure><h2 id="section-6">六、 常见萌新疑问 (FAQ)</h2>
       <ol>
         <li><strong>问：我几乎没有代码基础，能用这些工具吗？</strong><br>答：完全可以。现代 Agent 的本质是“自然语言翻译器”，你越能用清晰、严密的人类语言把物理世界的问题描述清楚，Agent 给出的代码质量就越高。甚至在写代码的过程中，它就是你最好的私人家教。</li>
         <li><strong>问：Agent 会不会失控误删我的电脑文件？</strong><br>答：合格的 Agent 工具（如 Antigravity、Claude Code）在执行敏感危险命令（如 rm -rf、覆盖关键系统配置）前都会向用户请求授权。此外，永远将项目放在 Git 版本控制之下，就算有误改也能一秒 git restore。</li>
@@ -339,5 +343,7 @@ for kn in kn_values:
 <script src="../assets/script.js?v=4cee9222a59f"></script>
 <script src="../assets/reader.js"></script>
 <script src="../assets/experience.js?v=4ee6d01c8520"></script>
+<script src="../assets/gallery.js"></script>
+<script src="../assets/editorial.js?v=bdf380a1ef7f"></script>
 </body>
 </html>

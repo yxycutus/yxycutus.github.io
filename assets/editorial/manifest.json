@@ -1,0 +1,50 @@
+{
+  "library-window": {
+    "source": "picture/高新区图书馆落地窗.jpg",
+    "caption": "高新区图书馆 · 窗边",
+    "width": 1279,
+    "height": 1706
+  },
+  "library-night": {
+    "source": "picture/高新区图书馆.jpg",
+    "caption": "高新区图书馆 · 入夜",
+    "width": 1706,
+    "height": 1279
+  },
+  "winter-library": {
+    "source": "picture/东图雪景.jpg",
+    "caption": "东图 · 雪后",
+    "width": 1706,
+    "height": 1279
+  },
+  "east-lake": {
+    "source": "picture/武汉东湖公园.jpg",
+    "caption": "武汉 · 东湖公园",
+    "width": 1706,
+    "height": 1279
+  },
+  "nanjing": {
+    "source": "picture/南京.jpg",
+    "caption": "南京 · 行走之间",
+    "width": 1279,
+    "height": 1706
+  },
+  "qingdao": {
+    "source": "picture/青岛.jpg",
+    "caption": "青岛 · 街头",
+    "width": 1279,
+    "height": 1706
+  },
+  "aloha-arm": {
+    "source": "picture/aloha从臂.jpg",
+    "caption": "Aloha Mini · 从臂",
+    "width": 1279,
+    "height": 1706
+  },
+  "robotics-institute": {
+    "source": "picture/人形机器人研究院.jpg",
+    "caption": "人形机器人研究院 · 一瞥",
+    "width": 1658,
+    "height": 1280
+  }
+}

@@ -104,7 +104,7 @@ function pages(dir) {
     // Existing homepage interactions must remain usable with the shared controls.
     await page.setViewportSize({width: 1440, height: 1000});
     await goto('');
-    await page.locator('.concept-cover').click();
+    await page.locator('.field-trip [data-image-viewer]').first().click();
     assert.ok(await page.locator('dialog.image-viewer').isVisible());
     await page.keyboard.press('Escape');
     assert.ok(await page.locator('dialog.image-viewer').isHidden());
