@@ -1,0 +1,618 @@
+{
+  "version": 1,
+  "motions": {
+    "welcome": {
+      "file": "welcome-c7c45872d2d5.webp",
+      "width": 512,
+      "height": 512,
+      "columns": 6,
+      "timeline": [
+        {
+          "frame": 0,
+          "durationMs": 200,
+          "sourceFrame": 0
+        },
+        {
+          "frame": 1,
+          "durationMs": 180,
+          "sourceFrame": 1
+        },
+        {
+          "frame": 2,
+          "durationMs": 180,
+          "sourceFrame": 2
+        },
+        {
+          "frame": 3,
+          "durationMs": 120,
+          "sourceFrame": 3
+        },
+        {
+          "frame": 4,
+          "durationMs": 240,
+          "sourceFrame": 4
+        },
+        {
+          "frame": 5,
+          "durationMs": 180,
+          "sourceFrame": 5
+        },
+        {
+          "frame": 0,
+          "durationMs": 2000,
+          "sourceFrame": 0
+        }
+      ],
+      "durationMs": 3100,
+      "excludedSourceFrames": [],
+      "bytes": 326988
+    },
+    "mentor": {
+      "file": "mentor-ab26c2a08d51.webp",
+      "width": 512,
+      "height": 512,
+      "columns": 4,
+      "timeline": [
+        {
+          "frame": 0,
+          "durationMs": 300,
+          "sourceFrame": 0
+        },
+        {
+          "frame": 1,
+          "durationMs": 220,
+          "sourceFrame": 4
+        },
+        {
+          "frame": 2,
+          "durationMs": 240,
+          "sourceFrame": 2
+        },
+        {
+          "frame": 3,
+          "durationMs": 120,
+          "sourceFrame": 3
+        },
+        {
+          "frame": 2,
+          "durationMs": 200,
+          "sourceFrame": 2
+        },
+        {
+          "frame": 1,
+          "durationMs": 240,
+          "sourceFrame": 4
+        },
+        {
+          "frame": 0,
+          "durationMs": 1900,
+          "sourceFrame": 0
+        }
+      ],
+      "durationMs": 3220,
+      "excludedSourceFrames": [
+        1
+      ],
+      "bytes": 215472
+    },
+    "project": {
+      "file": "project-a76ba30a1e33.webp",
+      "width": 512,
+      "height": 512,
+      "columns": 6,
+      "timeline": [
+        {
+          "frame": 0,
+          "durationMs": 200,
+          "sourceFrame": 0
+        },
+        {
+          "frame": 1,
+          "durationMs": 180,
+          "sourceFrame": 1
+        },
+        {
+          "frame": 2,
+          "durationMs": 180,
+          "sourceFrame": 2
+        },
+        {
+          "frame": 3,
+          "durationMs": 120,
+          "sourceFrame": 3
+        },
+        {
+          "frame": 4,
+          "durationMs": 240,
+          "sourceFrame": 4
+        },
+        {
+          "frame": 5,
+          "durationMs": 180,
+          "sourceFrame": 5
+        },
+        {
+          "frame": 0,
+          "durationMs": 2000,
+          "sourceFrame": 0
+        }
+      ],
+      "durationMs": 3100,
+      "excludedSourceFrames": [],
+      "bytes": 368166
+    },
+    "resource": {
+      "file": "resource-97cac0ec11b1.webp",
+      "width": 512,
+      "height": 512,
+      "columns": 5,
+      "timeline": [
+        {
+          "frame": 0,
+          "durationMs": 360,
+          "sourceFrame": 0
+        },
+        {
+          "frame": 1,
+          "durationMs": 240,
+          "sourceFrame": 1
+        },
+        {
+          "frame": 2,
+          "durationMs": 100,
+          "sourceFrame": 2
+        },
+        {
+          "frame": 3,
+          "durationMs": 100,
+          "sourceFrame": 3
+        },
+        {
+          "frame": 4,
+          "durationMs": 200,
+          "sourceFrame": 4
+        },
+        {
+          "frame": 0,
+          "durationMs": 2000,
+          "sourceFrame": 0
+        }
+      ],
+      "durationMs": 3000,
+      "excludedSourceFrames": [],
+      "bytes": 297870
+    },
+    "achievement": {
+      "file": "achievement-9fb53b1b759a.webp",
+      "width": 512,
+      "height": 512,
+      "columns": 5,
+      "timeline": [
+        {
+          "frame": 0,
+          "durationMs": 280,
+          "sourceFrame": 0
+        },
+        {
+          "frame": 1,
+          "durationMs": 180,
+          "sourceFrame": 1
+        },
+        {
+          "frame": 2,
+          "durationMs": 200,
+          "sourceFrame": 2
+        },
+        {
+          "frame": 3,
+          "durationMs": 240,
+          "sourceFrame": 3
+        },
+        {
+          "frame": 4,
+          "durationMs": 200,
+          "sourceFrame": 4
+        },
+        {
+          "frame": 0,
+          "durationMs": 2000,
+          "sourceFrame": 0
+        }
+      ],
+      "durationMs": 3100,
+      "excludedSourceFrames": [],
+      "bytes": 325010
+    },
+    "notice": {
+      "file": "notice-7b533b6a58a7.webp",
+      "width": 512,
+      "height": 512,
+      "columns": 6,
+      "timeline": [
+        {
+          "frame": 0,
+          "durationMs": 200,
+          "sourceFrame": 0
+        },
+        {
+          "frame": 1,
+          "durationMs": 180,
+          "sourceFrame": 1
+        },
+        {
+          "frame": 2,
+          "durationMs": 180,
+          "sourceFrame": 2
+        },
+        {
+          "frame": 3,
+          "durationMs": 120,
+          "sourceFrame": 3
+        },
+        {
+          "frame": 4,
+          "durationMs": 240,
+          "sourceFrame": 4
+        },
+        {
+          "frame": 5,
+          "durationMs": 180,
+          "sourceFrame": 5
+        },
+        {
+          "frame": 0,
+          "durationMs": 2000,
+          "sourceFrame": 0
+        }
+      ],
+      "durationMs": 3100,
+      "excludedSourceFrames": [],
+      "bytes": 318778
+    },
+    "lecture": {
+      "file": "lecture-538e43704cb8.webp",
+      "width": 512,
+      "height": 512,
+      "columns": 6,
+      "timeline": [
+        {
+          "frame": 0,
+          "durationMs": 200,
+          "sourceFrame": 0
+        },
+        {
+          "frame": 1,
+          "durationMs": 180,
+          "sourceFrame": 1
+        },
+        {
+          "frame": 2,
+          "durationMs": 180,
+          "sourceFrame": 2
+        },
+        {
+          "frame": 3,
+          "durationMs": 120,
+          "sourceFrame": 3
+        },
+        {
+          "frame": 4,
+          "durationMs": 240,
+          "sourceFrame": 4
+        },
+        {
+          "frame": 5,
+          "durationMs": 180,
+          "sourceFrame": 5
+        },
+        {
+          "frame": 0,
+          "durationMs": 2000,
+          "sourceFrame": 0
+        }
+      ],
+      "durationMs": 3100,
+      "excludedSourceFrames": [],
+      "bytes": 337698
+    },
+    "recruit": {
+      "file": "recruit-cff6529d1dbc.webp",
+      "width": 512,
+      "height": 512,
+      "columns": 5,
+      "timeline": [
+        {
+          "frame": 0,
+          "durationMs": 200,
+          "sourceFrame": 0
+        },
+        {
+          "frame": 1,
+          "durationMs": 200,
+          "sourceFrame": 1
+        },
+        {
+          "frame": 2,
+          "durationMs": 220,
+          "sourceFrame": 2
+        },
+        {
+          "frame": 3,
+          "durationMs": 120,
+          "sourceFrame": 3
+        },
+        {
+          "frame": 4,
+          "durationMs": 400,
+          "sourceFrame": 4
+        },
+        {
+          "frame": 2,
+          "durationMs": 180,
+          "sourceFrame": 2
+        },
+        {
+          "frame": 1,
+          "durationMs": 220,
+          "sourceFrame": 1
+        },
+        {
+          "frame": 0,
+          "durationMs": 1800,
+          "sourceFrame": 0
+        }
+      ],
+      "durationMs": 3340,
+      "excludedSourceFrames": [],
+      "bytes": 270616
+    },
+    "thinking": {
+      "file": "thinking-8fbbc7745186.webp",
+      "width": 512,
+      "height": 512,
+      "columns": 6,
+      "timeline": [
+        {
+          "frame": 0,
+          "durationMs": 200,
+          "sourceFrame": 0
+        },
+        {
+          "frame": 1,
+          "durationMs": 180,
+          "sourceFrame": 1
+        },
+        {
+          "frame": 2,
+          "durationMs": 180,
+          "sourceFrame": 2
+        },
+        {
+          "frame": 3,
+          "durationMs": 120,
+          "sourceFrame": 3
+        },
+        {
+          "frame": 4,
+          "durationMs": 240,
+          "sourceFrame": 4
+        },
+        {
+          "frame": 5,
+          "durationMs": 180,
+          "sourceFrame": 5
+        },
+        {
+          "frame": 0,
+          "durationMs": 2000,
+          "sourceFrame": 0
+        }
+      ],
+      "durationMs": 3100,
+      "excludedSourceFrames": [],
+      "bytes": 350916
+    }
+  },
+  "sourceFiles": [
+    {
+      "file": "manifest.json",
+      "sha256": "88fccdc28ae94e5a3e1917cf695e0017d434eb0f0138a5f425daf5653a9673a1"
+    },
+    {
+      "file": "帧序列/welcome/0.png",
+      "sha256": "f15b2f34ab4832d07e57b1c81936bb7a74e81b35da24e77e95e76b53b2857e20"
+    },
+    {
+      "file": "帧序列/welcome/1.png",
+      "sha256": "3968d5074d2cecbeb4e99b970a7d7514595c61a91f3aa34c3b62f9b01d8b50f2"
+    },
+    {
+      "file": "帧序列/welcome/2.png",
+      "sha256": "29f257b5a3085b2a82728a3323ee3d4686de0060d604e5f9a634d217d366d101"
+    },
+    {
+      "file": "帧序列/welcome/3.png",
+      "sha256": "df538ff48964f4e1b9d286a6845fbc1768714d6c3c8ba873805a3df1eeacde9d"
+    },
+    {
+      "file": "帧序列/welcome/4.png",
+      "sha256": "3ff1db6f33bd41898f47514de4add93509ba6745c2befa2f52f125936e52d9bb"
+    },
+    {
+      "file": "帧序列/welcome/5.png",
+      "sha256": "b18c8468db3c0d14d1b7628762e88a43c71fce972e3ea707967b5958a593dcf2"
+    },
+    {
+      "file": "帧序列/mentor/0.png",
+      "sha256": "d9f4cba5f6df832925210e21856f499fe44052f034ff8883bbabcd8650c2b5cd"
+    },
+    {
+      "file": "帧序列/mentor/4.png",
+      "sha256": "7b641cc19345f3583338ab1d44c36e9d53d4f4b44b23e643b027b0396bf2f9d2"
+    },
+    {
+      "file": "帧序列/mentor/2.png",
+      "sha256": "314f77835db7d55ab761195b97e8ff59c67b6c7689552d1c65bf08937cbf8166"
+    },
+    {
+      "file": "帧序列/mentor/3.png",
+      "sha256": "9d5908f50e0c39b110f1286867a5a981a4ed5fe13c374b89b0d7db1b4c97e724"
+    },
+    {
+      "file": "帧序列/project/0.png",
+      "sha256": "25dd3e5f7f86661c5e30715971ed2387335c9a211567a7bc77fd43736629e082"
+    },
+    {
+      "file": "帧序列/project/1.png",
+      "sha256": "0af554eec0f42715b28584d1c8202d573ec3c9e9491cdf48b1c41baed98bc1a8"
+    },
+    {
+      "file": "帧序列/project/2.png",
+      "sha256": "ae99e0280a6c74fe7002539bee665251a9f1b87a3f66e80189117516b710163e"
+    },
+    {
+      "file": "帧序列/project/3.png",
+      "sha256": "e771310acc8de5f156c958dd1cffc3738c4857c9da257e649a8239c6426d4e73"
+    },
+    {
+      "file": "帧序列/project/4.png",
+      "sha256": "73d5985453a935e934b5fd3b6508ca60f7a595e75705b541320b5cabb6b82b3a"
+    },
+    {
+      "file": "帧序列/project/5.png",
+      "sha256": "c470b1996657d4e4dd329ae1fdd68ebb0b7f6871420c3cefe66dab9a681d2df5"
+    },
+    {
+      "file": "帧序列/resources/0.png",
+      "sha256": "076a814127b13b8f701fdaded566aff0ed8ab0d90ebd4af968d3be84792c9d37"
+    },
+    {
+      "file": "帧序列/resources/1.png",
+      "sha256": "d39e498883a3e1aabf17fb8f9b5c9d65e77c74dda3838e0312efa799fb6c7f7d"
+    },
+    {
+      "file": "帧序列/resources/2.png",
+      "sha256": "531227f08d81b0f0a1798445ac7f1557a13e5b97b6e3014f86fb5429cacf2202"
+    },
+    {
+      "file": "帧序列/resources/3.png",
+      "sha256": "67778da02a35199874aa3674bac3f941395653a07b1e84a2d02b9bbb47ed14e0"
+    },
+    {
+      "file": "帧序列/resources/4.png",
+      "sha256": "2f4f6233015b62e6d70850f4ffe356abd89ad72315ff6886bb0a2eaf9163af16"
+    },
+    {
+      "file": "帧序列/results/0.png",
+      "sha256": "7ddc0bd343657c9a90c0190a7f9016e48dea75f27e7ac7ef6b5b4f2f03673007"
+    },
+    {
+      "file": "帧序列/results/1.png",
+      "sha256": "c0806cecc9e54b2478c0cc32d7a11286a7348b1da3056dedf9fed95f043ee942"
+    },
+    {
+      "file": "帧序列/results/2.png",
+      "sha256": "6c70ee16108d2ddf4901f437c058b154248dfced02621ca40e27c6b782f32f3a"
+    },
+    {
+      "file": "帧序列/results/3.png",
+      "sha256": "7519faf7282477d2c189301540ebb707c870254f531d3da2db7232902d897dce"
+    },
+    {
+      "file": "帧序列/results/4.png",
+      "sha256": "cdb55ea496dc1cc698f2ca15d1bfc05519d15371cf2cd74e808a69ad4d2cf791"
+    },
+    {
+      "file": "帧序列/notice/0.png",
+      "sha256": "4c30d6a0c408e53a0570cbf3be725d3b95e84463c81efa9332ccb55acef204d9"
+    },
+    {
+      "file": "帧序列/notice/1.png",
+      "sha256": "180568517a9aca87c19375aec582c603968359d7375f956603c59e3b0cee2f90"
+    },
+    {
+      "file": "帧序列/notice/2.png",
+      "sha256": "217bd0e660f0a03e0a710b17236a305944d68404cf9b2ee2b0f1704687fb1100"
+    },
+    {
+      "file": "帧序列/notice/3.png",
+      "sha256": "e5229408501ec36c56ddb95f3e8d3ff70ecde23f4d84c92cd1d825656536df78"
+    },
+    {
+      "file": "帧序列/notice/4.png",
+      "sha256": "881e452e5e41e01d29efee23edc14bb5b04471497f227376414ee127794865d9"
+    },
+    {
+      "file": "帧序列/notice/5.png",
+      "sha256": "0f754aa2d407ea31b6982f71c8016bd27099898bb129645526c869e6ecea7bc1"
+    },
+    {
+      "file": "帧序列/lecture/0.png",
+      "sha256": "58eb2ec2f3808788b2e3c3753974ea7d392a6943656c635c297d947085cd26b7"
+    },
+    {
+      "file": "帧序列/lecture/1.png",
+      "sha256": "c01dd10db7e5193f9ad306d40bc72a2675f1f89c834085cab81b6f1b500141aa"
+    },
+    {
+      "file": "帧序列/lecture/2.png",
+      "sha256": "aa79a3dcb6d7fe42dfe7164a2c6eb5a9d0d5e87d09558e05f8889614a672796e"
+    },
+    {
+      "file": "帧序列/lecture/3.png",
+      "sha256": "4da4da124623c357ea7e4dc5e122bae849f51bfabc2eae005e8e354f35e35615"
+    },
+    {
+      "file": "帧序列/lecture/4.png",
+      "sha256": "4d08ab11488074076430d323d7144b8033c1895fa29ade01ee48d16257c8aaf8"
+    },
+    {
+      "file": "帧序列/lecture/5.png",
+      "sha256": "3b043f6bed055e40c9070e9e9069d0516a61a93433ca76e0a931f6ba2025afef"
+    },
+    {
+      "file": "帧序列/team/0.png",
+      "sha256": "721c1000dbda7b8fce34fab3cb68ed809e2a14708d1680d581e6ee6907fc3115"
+    },
+    {
+      "file": "帧序列/team/1.png",
+      "sha256": "7e9f5a548e09f657c7714d5caffc566b0074fa70d9cad32dd16077e0be9f0ed1"
+    },
+    {
+      "file": "帧序列/team/2.png",
+      "sha256": "ada16e66d438fda0f76c1ce8fcc225a086960d6b0f54c251b80df69ea3e1bf7d"
+    },
+    {
+      "file": "帧序列/team/3.png",
+      "sha256": "212bff335cd794524a7b61f78338338fba8211cc906c09bc22a084185442919d"
+    },
+    {
+      "file": "帧序列/team/4.png",
+      "sha256": "8661a4887767360648f7edb3b45ebd254be9852a8e7027f6b911063b306c5038"
+    },
+    {
+      "file": "帧序列/thinking/0.png",
+      "sha256": "a3457906560efbdd6a79cc75c47e1c923d5a35b3d8a0afdc0fb2ad3f72f2e7e0"
+    },
+    {
+      "file": "帧序列/thinking/1.png",
+      "sha256": "20171bcd4a849c509137ed5b4e2f54d46d5a9978206b1489729fc7d018e6df65"
+    },
+    {
+      "file": "帧序列/thinking/2.png",
+      "sha256": "5cb0059addeac8fab55cb2c9b2362485af93047051f041c220534e2964136752"
+    },
+    {
+      "file": "帧序列/thinking/3.png",
+      "sha256": "c8c382781f6f2d5fb4a920ad398c6ee9d9fecd552eac9f7dcdd4454fc6515266"
+    },
+    {
+      "file": "帧序列/thinking/4.png",
+      "sha256": "28791f58b7da99c1f3ed4a7e3afdb610febfd2d16d8cf719b640b3960c5d5c63"
+    },
+    {
+      "file": "帧序列/thinking/5.png",
+      "sha256": "ccc1d3e485ad612f1f5cc6b321ecee1adeffc37968dec0ae2f7731c516a4193c"
+    }
+  ]
+}

@@ -1,3 +1,6 @@
 .DS_Store
 .preview/
 desktop.ini
+# 科哞哞源素材目录与可再生的中间产物，不入库
+科哞哞桌宠/
+assets/pet/spritesheet.png

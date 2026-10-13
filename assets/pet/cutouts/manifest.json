@@ -1,0 +1,115 @@
+{
+  "purpose": "Transparent page-aware resting poses. Original submission files are unchanged.",
+  "prompt": "Background extraction: remove only off-white paper and ground shadow; preserve full mascot, face, costume, opaque white clothing and props; transparent RGBA background without panels or cropping.",
+  "project_correction": "Draw a continuous blue-sleeved pointing forearm from viewer-left shoulder across the chest to the clipboard, IN FRONT of the globe-bag strap. Keep the middle strap segment behind the arm.",
+  "assets": [
+    {
+      "id": "welcome",
+      "file": "welcome.webp",
+      "generator": "built-in image_gen",
+      "generated_source": "exec-3231045c-cf39-4d26-ab3b-f3d6188e9520.png",
+      "source_sha256": "5fb680474bed6916fda6e7459aa5c0b0862859e8bdc1ef8f2323d2793f3a091b",
+      "width": 512,
+      "height": 512,
+      "transparent_pixels": 144949,
+      "near_opaque_pixels": 111354,
+      "bytes": 47174
+    },
+    {
+      "id": "mentor",
+      "file": "mentor.webp",
+      "generator": "built-in image_gen",
+      "generated_source": "exec-2e227343-6a7d-4784-b13a-4460be882929.png",
+      "source_sha256": "2b61a39d368352bcb829bac1cdf7af4ef3f92ed00dff3b71a1b99d2ac1048206",
+      "width": 512,
+      "height": 512,
+      "transparent_pixels": 138982,
+      "near_opaque_pixels": 117293,
+      "bytes": 56980
+    },
+    {
+      "id": "project",
+      "file": "project.webp",
+      "generator": "built-in image_gen",
+      "generated_source": "exec-d9b4a7f5-f7d4-427f-afad-791f07f5f3b6.png",
+      "source_sha256": "b4c5a437432d10f969c3d384537d2893bc1ffb7725f8f7e67537d292ff37ad50",
+      "width": 512,
+      "height": 512,
+      "transparent_pixels": 142094,
+      "near_opaque_pixels": 114818,
+      "bytes": 52858
+    },
+    {
+      "id": "resource",
+      "file": "resource.webp",
+      "generator": "built-in image_gen",
+      "generated_source": "exec-cfd2eb98-c5ec-4c62-bd0d-14fa4dd9f77b.png",
+      "source_sha256": "786b99540ed0533048394a0dee22ba2e5a8d26195a9651d50ece0b49fc79cda1",
+      "width": 512,
+      "height": 512,
+      "transparent_pixels": 137403,
+      "near_opaque_pixels": 119187,
+      "bytes": 54684
+    },
+    {
+      "id": "achievement",
+      "file": "achievement.webp",
+      "generator": "built-in image_gen",
+      "generated_source": "exec-6961ac27-83b0-4ef2-939c-b455c8a8de62.png",
+      "source_sha256": "59f175ec6e78b96bffb967b28dba081a050432d8209dee119de7203adf5a61b2",
+      "width": 512,
+      "height": 512,
+      "transparent_pixels": 124983,
+      "near_opaque_pixels": 131575,
+      "bytes": 58774
+    },
+    {
+      "id": "notice",
+      "file": "notice.webp",
+      "generator": "built-in image_gen",
+      "generated_source": "exec-95cf7220-9eb3-415c-abec-812eef5389ad.png",
+      "source_sha256": "e9354832d1e8557a4eed003c5ffdfe9fd89ae1c09e0cd130281b96a9cae59e00",
+      "width": 512,
+      "height": 512,
+      "transparent_pixels": 143707,
+      "near_opaque_pixels": 112450,
+      "bytes": 52684
+    },
+    {
+      "id": "lecture",
+      "file": "lecture.webp",
+      "generator": "built-in image_gen",
+      "generated_source": "exec-8b7f6ee0-4b4c-421c-8d97-f59b991eabbf.png",
+      "source_sha256": "808ba6ee5b994013f3034692fbd9183f07f8d572500991dfbb7a382ce3391afd",
+      "width": 512,
+      "height": 512,
+      "transparent_pixels": 145715,
+      "near_opaque_pixels": 110909,
+      "bytes": 50008
+    },
+    {
+      "id": "recruit",
+      "file": "recruit.webp",
+      "generator": "built-in image_gen",
+      "generated_source": "exec-4d235de2-ce44-40fd-bb44-5324953cff4f.png",
+      "source_sha256": "de25e430b1a88a8289a7ad1bccf4647ed01bf69c19a459ab38ab6bba5d70b145",
+      "width": 512,
+      "height": 512,
+      "transparent_pixels": 142004,
+      "near_opaque_pixels": 112654,
+      "bytes": 55718
+    },
+    {
+      "id": "thinking",
+      "file": "thinking.webp",
+      "generator": "built-in image_gen",
+      "generated_source": "exec-f9b3c3f1-a2b0-44c4-aa79-adfe1dd709aa.png",
+      "source_sha256": "4bb491213c4c28266b272caebf21cce6fa9676c6151411cbe10c98ed03de7c57",
+      "width": 512,
+      "height": 512,
+      "transparent_pixels": 152430,
+      "near_opaque_pixels": 103692,
+      "bytes": 50526
+    }
+  ]
+}

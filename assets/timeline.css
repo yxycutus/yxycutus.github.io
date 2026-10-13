@@ -182,6 +182,11 @@
   margin: 0;
 }
 
+.tl-item-note { scroll-margin-top: 96px; }
+.tl-item-note .tl-item-header { flex-wrap: wrap; }
+.tl-item-note .tl-item-title { margin: 0; }
+.tl-item-note .tl-item-content + .tl-item-content { margin-top: 12px; }
+
 /* ── Kimi 高亮条目 ── */
 .tl-item-kimi {
   border-color: color-mix(in srgb, #7c5cff 34%, var(--line));

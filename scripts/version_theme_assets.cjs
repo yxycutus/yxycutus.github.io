@@ -7,7 +7,7 @@ const root = path.resolve(__dirname, '..');
 const bootstrap = fs.readFileSync(path.join(root, 'assets/theme-bootstrap.js'), 'utf8').replaceAll('\r\n', '\n').trim();
 const critical = fs.readFileSync(path.join(root, 'assets/theme-critical.css'), 'utf8').replaceAll('\r\n', '\n').trim();
 const inlineTheme = `<!-- theme-first-paint:start -->\n<script>${bootstrap}</script>\n<style>${critical}</style>\n<!-- theme-first-paint:end -->`;
-const names = ['theme-init.js', 'experience.js', 'style.css', 'experience.css', 'home.css', 'script.js', 'home-motion.css', 'home-motion.js', 'editorial.css', 'editorial.js'];
+const names = ['theme-init.js', 'experience.js', 'style.css', 'experience.css', 'home.css', 'script.js', 'home-motion.css', 'home-motion.js', 'editorial.css', 'editorial.js', 'pet.css', 'pet.js'];
 const versions = Object.fromEntries(names.map(name => [name,
   createHash('sha256').update(fs.readFileSync(path.join(root, 'assets', name), 'utf8').replaceAll('\r\n', '\n')).digest('hex').slice(0, 12)]));
 // Inline changes also invalidate navigation URLs so old HTML is not reused.
@@ -18,7 +18,14 @@ function pages(dir) {
 let count = 0;
 for (const file of pages(root)) {
   const before = fs.readFileSync(file, 'utf8');
-  let after = before.replace(/((?:src|href)="(?:\/|(?:\.\.\/)*)assets\/)(theme-init\.js|experience\.js|style\.css|experience\.css|home\.css|script\.js|home-motion\.css|home-motion\.js|editorial\.css|editorial\.js)(?:\?[^"\s]*)?"/g,
+  // All site pages share the companion, including deeply nested paper pages.
+  let source = before;
+  const assetPrefix = before.match(/(?:src|href)="((?:\/|(?:\.\.\/)*)assets\/)experience\./)?.[1];
+  if (assetPrefix) {
+    if (!/href="[^"]*assets\/pet\.css/.test(source)) source = source.replace('</head>', `  <link rel="stylesheet" href="${assetPrefix}pet.css">\n</head>`);
+    if (!/src="[^"]*assets\/pet\.js/.test(source)) source = source.replace('</body>', `<script src="${assetPrefix}pet.js"></script>\n</body>`);
+  }
+  let after = source.replace(/((?:src|href)="(?:\/|(?:\.\.\/)*)assets\/)(theme-init\.js|experience\.js|style\.css|experience\.css|home\.css|script\.js|home-motion\.css|home-motion\.js|editorial\.css|editorial\.js|pet\.css|pet\.js)(?:\?[^"\s]*)?"/g,
     (_, prefix, name) => `${prefix}${name}?v=${versions[name]}"`);
   after = after.replace(/<html\b([^>]*)>/, (_, attrs) => `<html${attrs.replace(/\sdata-theme="[^"]*"/g, '')} data-theme="orange">`);
   const block = /<!-- theme-first-paint:start -->[\s\S]*?<!-- theme-first-paint:end -->/;

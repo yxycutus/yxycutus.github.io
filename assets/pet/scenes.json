@@ -1,0 +1,86 @@
+{
+  "note": "Original illustrated poses; complete composition and pale background retained.",
+  "scenes": [
+    {
+      "id": "welcome",
+      "source": "01_科哞哞_主形象_RGB.png",
+      "source_sha256": "e1d97560e33dd95e904827f70dbd4dbc7b41320bf874aabecea3f952811428e0",
+      "file": "scenes/welcome.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 27490
+    },
+    {
+      "id": "mentor",
+      "source": "02_找导师.png",
+      "source_sha256": "290a45f03c82255c88d86b2657430a09f88f91d93a31194903874068c168ec2d",
+      "file": "scenes/mentor.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 32092
+    },
+    {
+      "id": "project",
+      "source": "03_找项目.png",
+      "source_sha256": "27a98145bdec5f32f5589e03d33af6d0a0afea96047cf404a37aa54e7e31fee2",
+      "file": "scenes/project.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 30690
+    },
+    {
+      "id": "resource",
+      "source": "04_找资源.png",
+      "source_sha256": "18f56ec000b625d4304cae81ad07400ef0a24b1329c4245cfa6911ac00d513ea",
+      "file": "scenes/resource.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 32784
+    },
+    {
+      "id": "achievement",
+      "source": "05_看成果.png",
+      "source_sha256": "43ec2d349225facf4e24cacd624d2245acd3798c397a249fbd575eda5401de65",
+      "file": "scenes/achievement.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 33916
+    },
+    {
+      "id": "notice",
+      "source": "06_看通知.png",
+      "source_sha256": "3b64699e75f94aebbd36c84e1a8f5b800e8fe88860ed38af258d380189056109",
+      "file": "scenes/notice.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 31348
+    },
+    {
+      "id": "lecture",
+      "source": "07_听讲座.png",
+      "source_sha256": "cd3b8ce975bcc023aba35cf7c099d05c4a944f67436a188ad6cf4624daf08c4e",
+      "file": "scenes/lecture.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 31330
+    },
+    {
+      "id": "recruit",
+      "source": "08_组队招募.png",
+      "source_sha256": "1549c98caf2b9ee10fab0a5f7b6877a5efc84682866ed1da9c0b06782da06f50",
+      "file": "scenes/recruit.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 30722
+    },
+    {
+      "id": "thinking",
+      "source": "09_思考.png",
+      "source_sha256": "a9933670f69de13ee148f36fc77c8e6d8d9d3d70490f3269dc47f93ca5c8b6cc",
+      "file": "scenes/thinking.webp",
+      "width": 512,
+      "height": 512,
+      "bytes": 28138
+    }
+  ]
+}
