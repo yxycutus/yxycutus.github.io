@@ -103,46 +103,8 @@ html { scroll-padding-top: calc(var(--nav-height) + 24px); }
   stroke-width: 1.8;
 }
 
-.site-utilities {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  display: flex;
-  gap: 8px;
-  z-index: 110;
-}
-.utility-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 40px;
-  height: 40px;
-  padding: 0 12px;
-  border: 1.5px solid var(--line-strong);
-  border-radius: 10px;
-  background: var(--bg-card);
-  color: var(--ink-secondary);
-  font-size: .8125rem;
-  font-weight: 700;
-  cursor: pointer;
-  box-shadow: var(--shadow-sm);
-  transition: all .2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.utility-button:hover {
-  border-color: var(--ustc-blue);
-  color: var(--ustc-blue);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-.utility-button.is-active {
-  border-color: var(--ustc-blue);
-  background: var(--ustc-blue-light);
-  color: var(--ustc-blue);
-  font-weight: 700;
-}
-.utility-button svg { width: 18px; height: 18px; flex: 0 0 auto; stroke-width: 1.8; }
-.reader-back-top { bottom: 74px; }
-.site-footer { padding-bottom: 74px; }
+.reader-back-top { bottom: 20px; }
+.site-footer { padding-bottom: 20px; }
 
 /* ============================================================
    Appearance Modal (Centered, Glassmorphism, Modern Card Mockups)
@@ -634,6 +596,28 @@ html[data-theme="dark"] .theme-preview-card {
   margin: 0;
   line-height: 1.4;
 }
+.panel-sleep-wrap {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+.panel-sleep-btn {
+  display: block;
+  width: 100%;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--bg-subtle);
+  color: var(--ink-secondary);
+  font-size: 0.8125rem;
+  cursor: pointer;
+  text-align: center;
+  transition: background .15s, border-color .15s;
+}
+.panel-sleep-btn:hover {
+  background: var(--bg-card);
+  border-color: var(--accent, var(--ustc-blue));
+}
 
 /* Sidebar: reserved space on desktop, dismissible navigation drawer on mobile */
 .site-sidebar {
@@ -880,9 +864,6 @@ html[data-theme="dark"] .theme-preview-card {
   width: min(300px, calc(100vw - 40px));
   padding-top: 14px;
 }
-.sidebar-mobile-open .site-utilities {
-  visibility: hidden;
-}
 
 .heading-targeted {
   animation: headingPulse 1.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1046,8 +1027,7 @@ html[data-theme="dark"] .theme-preview-card {
   .contact-card { flex-wrap: wrap; padding: 16px; }
   .contact-body { flex-basis: 140px; }
   .site-stage .main-wrapper, .site-stage .article-wrap { padding-top: 52px; }
-  .site-utilities { right: 12px; bottom: 12px; }
-  .reader-back-top { right: 12px; bottom: 64px; }
+  .reader-back-top { right: 12px; bottom: 12px; }
   .notebook-list > a { grid-template-columns: 1fr 15px; }
   .notebook-list .note-number { grid-column: 1 / -1; }
   .paper-preview { grid-template-columns: minmax(85px, 30%) minmax(0, 1fr); }

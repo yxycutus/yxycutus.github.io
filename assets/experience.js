@@ -76,21 +76,9 @@
         <span class="status-dot"></span>
         <p class="preference-status" role="status">外观偏好保存在当前浏览器。</p>
       </div>
+      <div class="panel-sleep-wrap"><button type="button" class="panel-sleep-btn" data-sleep-pet>🌙 让科哞哞去睡觉</button></div>
     </div>`;
   document.body.append(settings);
-  const utilities = document.createElement('div');
-  utilities.className = 'site-utilities';
-  utilities.innerHTML = `<button type="button" class="utility-button" data-open-settings aria-haspopup="dialog" aria-controls="appearance-panel" title="Appearance"><span aria-hidden="true">Aa</span></button>`;
-  document.body.append(utilities);
-  const oldToggle = document.getElementById('theme-toggle');
-  if (oldToggle) {
-    oldToggle.innerHTML = svg('<circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18V3Z"/>');
-    oldToggle.setAttribute('aria-label', '外观设置：主题与字号');
-    oldToggle.title = '外观设置：主题与字号';
-    oldToggle.setAttribute('aria-haspopup', 'dialog');
-    oldToggle.setAttribute('aria-controls', settings.id);
-    oldToggle.setAttribute('data-open-settings', '');
-  }
   const fontInput = settings.querySelector('#site-font-size');
   function syncSettings() {
     settings.querySelectorAll('[data-set-theme]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.setTheme === root.dataset.theme)));
@@ -125,6 +113,11 @@
   }
   fontInput.addEventListener('input', () => setFont(Number(fontInput.value)));
   settings.querySelector('.reset-font').addEventListener('click', () => setFont(16));
+  settings.querySelector('[data-sleep-pet]')?.addEventListener('click', () => {
+    const pet = document.getElementById('kemoomoo');
+    if (pet) { const btn = pet.querySelector('.pet-sleep-btn'); if (btn) btn.click(); }
+    settings.close();
+  });
   syncSettings();
   window.addEventListener('cutus:preferences', syncSettings);
 
@@ -233,7 +226,6 @@
     backdrop.hidden = !modal;
     document.body.classList.toggle('sidebar-mobile-open', modal);
     stage.inert = modal;
-    utilities.inert = modal;
     document.querySelector('.reader-back-top')?.toggleAttribute('inert', modal);
     if (modal) { sidebar.setAttribute('role', 'dialog'); sidebar.setAttribute('aria-modal', 'true'); }
     else { sidebar.removeAttribute('role'); sidebar.removeAttribute('aria-modal'); }

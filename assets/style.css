@@ -336,32 +336,6 @@ a {
   font-weight: 600;
 }
 
-.theme-toggle-btn {
-  background: var(--bg-card);
-  border: 1px solid var(--line);
-  color: var(--ink-muted);
-  width: 34px;
-  height: 34px;
-  border-radius: var(--radius-pill);
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.15s ease;
-  box-shadow: var(--shadow-sm);
-}
-
-.theme-toggle-btn:hover {
-  color: var(--ustc-blue);
-  border-color: var(--ustc-blue);
-  transform: rotate(15deg);
-}
-
-.theme-toggle-btn svg {
-  width: 16px;
-  height: 16px;
-}
-
 /* ============================================================
    Page Wrappers & Layouts
    ============================================================ */
@@ -1157,7 +1131,6 @@ img, video { max-width: 100%; }
   .nav-right { width: 100%; justify-content: space-between; gap: 8px; }
   .nav-menu { display: flex; flex-wrap: wrap; gap: 2px; }
   .nav-menu a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 10px; font-size: 0.8125rem; }
-  .theme-toggle-btn { flex: 0 0 40px; width: 40px; height: 40px; }
   .hero-section { padding-top: 32px; }
   .hero-title { font-size: 2rem; }
   .workflow-feature, .evidence-grid { grid-template-columns: 1fr; }

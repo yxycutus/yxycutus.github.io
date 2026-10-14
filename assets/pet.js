@@ -33,6 +33,29 @@
     ['thinking','一起思考','别着急，我们再想一想。']
   ].map(([id,label,note]) => ({id,label,note}));
   const scene = id => SCENES.find(item => item.id === id);
+  const PET_THEMES=[
+    {id:'dark',name:'夜间黑',bg:'#101113',accent:'#38bdf8'},
+    {id:'blue',name:'科大蓝',bg:'#edf3f9',accent:'#004182'},
+    {id:'orange',name:'Claude 橙',bg:'#f7f2e9',accent:'#9c462b'},
+    {id:'white',name:'花嫁白',bg:'#ffffff',accent:'#93516c'},
+    {id:'pink',name:'B站粉',bg:'#fdf6f9',accent:'#fb7299'},
+    {id:'yellow',name:'美团黄',bg:'#fcfaf3',accent:'#ffd000'}
+  ];
+  function themeSwatches(){
+    const current=document.documentElement.dataset.theme||'orange';
+    const wrap=make('div','pet-theme-section');
+    wrap.append(make('span','pet-theme-label','主题配色'));
+    const row=make('div','pet-theme-row');
+    PET_THEMES.forEach(t=>{
+      const b=button('pet-theme-swatch','','切换到'+t.name);
+      b.dataset.setTheme=t.id;
+      b.style.cssText=`--swatch-bg:${t.bg};--swatch-surface:${t.surface||t.bg};--swatch-accent:${t.accent}`;
+      if(t.id===current)b.setAttribute('aria-pressed','true');
+      row.append(b);
+    });
+    wrap.append(row);
+    return wrap;
+  }
   const $ = (selector,parent=document) => parent.querySelector(selector);
   const make = (tag,cls='',text='') => { const el=document.createElement(tag); el.className=cls; el.textContent=text; return el; };
   const button = (cls,text,label) => { const el=make('button',cls,text); el.type='button'; if(label) el.setAttribute('aria-label',label); return el; };
@@ -59,8 +82,7 @@
   const pose=make('img','pet-fallback'); pose.alt=''; pose.hidden=true; pose.draggable=false;
   const sceneCanvas=make('canvas','pet-scene');sceneCanvas.width=sceneCanvas.height=512;sceneCanvas.hidden=true;sceneCanvas.setAttribute('aria-hidden','true');
   const sceneContext=sceneCanvas.getContext('2d');
-  const dismiss=button('pet-dismiss','×','收起科哞哞'); dismiss.title='收起，随时可以叫回来';
-  pet.append(sprite,pose,sceneCanvas); host.append(pet,dismiss);
+  pet.append(sprite,pose,sceneCanvas); host.append(pet);
   const restore=button('pet-restore','叫回科哞哞','叫回科哞哞'); restore.hidden=true;
   const panel=make('section','pet-bubble'); panel.id='pet-panel'; panel.hidden=true;
   panel.setAttribute('role','dialog'); panel.setAttribute('aria-labelledby','pet-title');
@@ -263,22 +285,25 @@
     const nav=make('nav','pet-nav');nav.setAttribute('aria-label','科哞哞快速导航');
     [['回到首页','index.html','看看正在做的事'],['知识与论文','knowledge/index.html','从问题出发，一起读'],['学习时间线','timeline/index.html','沿着经历往回走'],['认识 Cutus','about/index.html','研究，也有生活'],['搜索全站','search.html','找一条具体的线索']].forEach(([label,url,note])=>{const a=make('a');a.href=site(url);if(route===url)a.setAttribute('aria-current','page');const text=make('span');text.append(make('strong','',label),make('small','',note));a.append(text,make('span','pet-nav-arrow','↗'));nav.append(a);});
     content.append(nav);
+    content.append(themeSwatches());
     if(guideSections.length){const map=make('details','pet-page-map');map.append(make('summary','','这一页的路标'));const local=make('nav','pet-local-nav');local.setAttribute('aria-label','当前页面章节');guideSections.forEach(item=>{const a=make('a','',item.title);a.href=`#${encodeURIComponent(item.el.id)}`;local.append(a);});map.append(local);content.append(map);}
-    const settings=make('details','pet-settings');settings.innerHTML=`<summary><span aria-hidden="true">⚙</span> 科哞哞设置</summary>
+    const settings=make('details','pet-settings');settings.innerHTML=`<summary><span aria-hidden="true"></span> 科哞哞设置</summary>
       <div class="pet-settings-body"><div class="pet-size-control"><span>大小</span><button type="button" data-size="-1" aria-label="缩小科哞哞">−</button><output class="pet-size-value"></output><button type="button" data-size="1" aria-label="放大科哞哞">+</button></div>
       <label class="pet-setting"><span><strong>眼睛跟随</strong><small>首页闲置时，看向你的鼠标</small></span><input type="checkbox" data-setting="gaze"></label>
       <label class="pet-setting"><span><strong>沿途介绍</strong><small>下滑时，简短介绍当前内容</small></span><input type="checkbox" data-setting="guide"></label>
       <label class="pet-setting"><span><strong>待机动画</strong><small class="pet-motion-note"></small></span><input type="checkbox" data-setting="animation"></label>
-      <div class="pet-options"><button type="button" class="pet-reset">回到角落</button><button type="button" class="pet-hide">暂时收起</button></div><p class="pet-hint">拖动换个位置，方向键也可以移动。</p></div>`;
-    content.append(settings);updateControls();placePanels();
+      <div class="pet-options"><button type="button" class="pet-reset">回到角落</button></div><p class="pet-hint">拖动换个位置，方向键也可以移动。</p></div>`;
+    content.append(settings);
+    const sleepBtn=button('pet-sleep-btn','🌙 让科哞哞去睡觉','让科哞哞去睡觉');content.append(sleepBtn);
+    updateControls();placePanels();
   }
   function openPanel() {if(dismissed||!loaded) return;toast.hidden=true;clearTimeout(toastTimer);clearTimeout(introTimer);resetGaze();panel.hidden=false;pet.setAttribute('aria-expanded','true');renderNavigation();$('.pet-recommend',panel).focus({preventScroll:true});}
   function closePanel(focus=false) {panel.hidden=true;pet.setAttribute('aria-expanded','false');if(focus&&!host.hidden) pet.focus({preventScroll:true});}
-  function hidePet() {endDrag(true);dismissed=true;save(keys.hidden,'1');stopActivity();clearTimeout(scrollTimer);clearTimeout(toastTimer);clearTimeout(introTimer);toast.hidden=true;closePanel();host.hidden=true;restore.hidden=false;restore.textContent='叫回科哞哞';restore.focus({preventScroll:true});}
+  function hidePet() {endDrag(true);dismissed=true;save(keys.hidden,'1');stopActivity();clearTimeout(scrollTimer);clearTimeout(toastTimer);clearTimeout(introTimer);toast.hidden=true;closePanel();host.hidden=true;restore.hidden=false;restore.innerHTML='<span class="pet-sleep-icon">🌙</span> 科哞哞在睡觉…';restore.classList.add('pet-sleepy');restore.setAttribute('aria-label','科哞哞在睡觉，点击唤醒');restore.focus({preventScroll:true});}
   function failedLoad() {loading=false;loaded=false;stopActivity();host.hidden=true;closePanel();restore.hidden=false;restore.textContent='重试科哞哞';restore.setAttribute('aria-label','科哞哞未能加载，点击重试');}
   function loadSprite() {
     if(loading||destroyed) return;loading=true;const image=new Image();
-    image.onload=()=>{loading=false;if(destroyed)return;if(image.naturalWidth!==1536||image.naturalHeight!==2288){failedLoad();return;}loaded=true;host.hidden=dismissed;restore.hidden=!dismissed;restore.textContent='叫回科哞哞';restore.setAttribute('aria-label','叫回科哞哞');buildGuide();relayout();rest();if(!dismissed&&!motion.matches&&!paused&&mode==='auto'){activity='welcome';showScene('welcome',rest);}introTimer=setTimeout(()=>{if(scrollY<100){lastContextAt=Date.now();say(profile.intro,...profile.recommendation);}else checkGuide();},1400);};
+    image.onload=()=>{loading=false;if(destroyed)return;if(image.naturalWidth!==1536||image.naturalHeight!==2288){failedLoad();return;}loaded=true;host.hidden=dismissed;restore.hidden=!dismissed;if(dismissed){restore.innerHTML='<span class="pet-sleep-icon">🌙</span> 科哞哞在睡觉…';restore.classList.add('pet-sleepy');restore.setAttribute('aria-label','科哞哞在睡觉，点击唤醒');}else{restore.textContent='叫回科哞哞';restore.classList.remove('pet-sleepy');restore.setAttribute('aria-label','叫回科哞哞');}buildGuide();relayout();rest();if(!dismissed&&!motion.matches&&!paused&&mode==='auto'){activity='welcome';showScene('welcome',rest);}introTimer=setTimeout(()=>{if(scrollY<100){lastContextAt=Date.now();say(profile.intro,...profile.recommendation);}else checkGuide();},1400);};
     image.onerror=failedLoad;image.src=asset('spritesheet.webp');
   }
   function resetGaze() {clearTimeout(gazeTimer);if(gaze<0)return;gaze=-1;renderCurrent();tick();}
@@ -307,14 +332,14 @@
   on(pet,'pointerup',()=>endDrag());on(pet,'pointercancel',()=>endDrag(true));on(pet,'lostpointercapture',()=>endDrag(true));
   on(pet,'click',event=>{if(event.detail>0&&performance.now()<suppressClickUntil){event.preventDefault();return;}if(panel.hidden)openPanel();else closePanel();});
   on(pet,'keydown',event=>{const d={ArrowLeft:[-1,0],ArrowRight:[1,0],ArrowUp:[0,-1],ArrowDown:[0,1]}[event.key];if(!d)return;event.preventDefault();const r=host.getBoundingClientRect(),step=event.shiftKey?32:12;place(r.left+d[0]*step,r.top+d[1]*step,true);});
-  on(dismiss,'click',hidePet);
-  on(restore,'click',()=>{dismissed=false;save(keys.hidden,'0');if(!loaded){loadSprite();return;}restore.hidden=true;host.hidden=false;relayout();rest();pet.focus({preventScroll:true});});
+  on(restore,'click',()=>{dismissed=false;save(keys.hidden,'0');restore.classList.remove('pet-sleepy');restore.textContent='叫回科哞哞';restore.setAttribute('aria-label','叫回科哞哞');if(!loaded){loadSprite();return;}restore.hidden=true;host.hidden=false;relayout();rest();pet.focus({preventScroll:true});});
   on(panel,'click',event=>{
     const b=event.target.closest('button');
     if(b?.dataset.size){scale=clamp(Math.round((scale+Number(b.dataset.size)*.1)*100)/100,.5,1.2);save(keys.scale,scale);relayout();}
     else if(b?.classList.contains('pet-panel-close'))closePanel(true);
     else if(b?.classList.contains('pet-reset'))corner(true);
-    else if(b?.classList.contains('pet-hide'))hidePet();
+    else if(b?.classList.contains('pet-sleep-btn'))hidePet();
+    else if(b?.dataset.setTheme){document.documentElement.dataset.theme=b.dataset.setTheme;if(window.CutusPreferences?.setTheme)window.CutusPreferences.setTheme(b.dataset.setTheme);panel.querySelectorAll('.pet-theme-swatch').forEach(s=>s.setAttribute('aria-pressed',String(s.dataset.setTheme===b.dataset.setTheme)));document.querySelectorAll('.appearance-panel [data-set-theme]').forEach(btn=>btn.setAttribute('aria-pressed',String(btn.dataset.setTheme===b.dataset.setTheme)));}
     if(event.target.closest('a'))closePanel(true);
   });
   on(panel,'toggle',()=>placePanels(),{capture:true});
@@ -325,6 +350,9 @@
     if(setting==='animation'){paused=!checked;save(keys.paused,paused?'1':'0');resetGaze();renderCurrent();tick();}
     updateControls();
   });
+  function syncPetTheme(){const current=document.documentElement.dataset.theme||'orange';panel.querySelectorAll('.pet-theme-swatch').forEach(s=>s.setAttribute('aria-pressed',String(s.dataset.setTheme===current)));}
+  on(window,'storage',e=>{if(e.key==='cutus-theme')syncPetTheme();});
+  on(window,'cutus:preferences',syncPetTheme);
   on(toastClose,'click',()=>{toast.hidden=true;clearTimeout(toastTimer);});
   on(toast,'pointerenter',()=>clearTimeout(toastTimer));on(toast,'focusin',()=>clearTimeout(toastTimer));
   on(toast,'pointerleave',()=>{clearTimeout(toastTimer);toastTimer=setTimeout(()=>{if(!toast.contains(document.activeElement))toast.hidden=true;},4000);});
@@ -346,5 +374,5 @@
   on(window,'pagehide',event=>{clearTimeout(animTimer);clearTimeout(actionTimer);clearTimeout(scrollTimer);clearTimeout(toastTimer);clearTimeout(gazeTimer);clearTimeout(introTimer);if(gazeRaf)cancelAnimationFrame(gazeRaf);if(!event.persisted){destroyed=true;cleanup.abort();}});
   on(window,'pageshow',event=>{if(event.persisted){rest();checkGuide();}});
   try{const p=JSON.parse(read(keys.position));if(p&&[p.x,p.y].every(n=>Number.isFinite(n)&&n>=0&&n<=1))position=p;}catch{/* Malformed stored position. */}
-  relayout();if(dismissed)restore.hidden=false;else loadMotion(mode==='auto'?'welcome':mode).catch(()=>{});loadSprite();
+  relayout();if(dismissed){restore.hidden=false;restore.innerHTML='<span class="pet-sleep-icon">🌙</span> 科哞哞在睡觉…';restore.classList.add('pet-sleepy');restore.setAttribute('aria-label','科哞哞在睡觉，点击唤醒');}else loadMotion(mode==='auto'?'welcome':mode).catch(()=>{});loadSprite();
 })();
